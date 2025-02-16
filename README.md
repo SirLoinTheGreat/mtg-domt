@@ -8,6 +8,7 @@ This collection features 121 custom cards spread across three historical version
 - Original Deck (OG) - 22 cards
 - Expansion Deck (EX) - 45 cards
 - Harrow Deck (HW) - 54 cards
+- Wonder Deck (WO) - 22 cards (Added 2/16/2025)
 
 Each card has been carefully designed to maintain the spirit of its D&D counterpart while functioning within Magic's rules system. Where direct translation wasn't possible, we've created new interpretations that capture the original card's essence.
 
@@ -16,8 +17,7 @@ Each card has been carefully designed to maintain the spirit of its D&D counterp
 - Complete rule system for integrating the Deck into any Magic game
 - Fate Point mechanic for managing deck draws
 - Optional rules for varied gameplay experiences
-- High-resolution card images for printing
-- Comprehensive card database with original D&D effects and MTG translations
+- High-resolution card images for printing with appropriate bleed margins
 
 ## Using the Deck
 
@@ -27,13 +27,13 @@ The Deck of Many Things operates as a supplemental deck placed in the command zo
 
 1. The Deck starts in the command zone
 2. Each player begins with 1 Fate Point (maximum 1)
-3. Players may spend their Fate Point to draw during their precombat main phase
+3. Players may spend their Fate Point to draw during their precombat main phase on the  starting player's fifth turn
 4. Cards drawn are cast immediately without paying mana costs
 5. Full rules can be found in the (https://github.com/SirLoinTheGreat/mtg-domt/blob/main/assets/cards/original/Deck%20of%20Many%20Things%20Rules.png)
 
 ## Contributing
 
-While this is primarily a personal project, suggestions and discussions are welcome through GitHub Issues. Please note that any contributions should respect the project's licensing terms.
+While this is primarily a personal project, suggestions and discussions are welcome through GitHub Issues.
 
 ## License
 
