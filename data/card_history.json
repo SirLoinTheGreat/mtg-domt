@@ -1,0 +1,1829 @@
+{
+  "generated": "2026-03-24",
+  "total_cards_with_history": 148,
+  "history": {
+    "The Gem": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Fortune — When Gem enters the battlefield, create X Treasure tokens, where X is the number of lands in play.\nOpulence — At the beginning of your upkeep, create two Treasure tokens.\nLiquidate — {T}, Sacrifice Gem: Create ten Treasure tokens.",
+            "new": "Fortune — When Gem enters the battlefield, create X Treasure tokens, where X is the number of lands on the battlefield.\nOpulence — At the beginning of your upkeep, create two Treasure tokens.\nLiquidate — {T}, Sacrifice Gem: Create ten Treasure tokens."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Puzzle": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Tempt Fate — When The Puzzle enters the battlefield, you may draw an additional card from the Deck of Many Things.\nEnchant player\nEnchanted player plays with their hand revealed and skips their draw step.\nConfusion — At the beginning of enchanted player's upkeep, that player exiles a card from their hand face down. They may look at and play that card as if it were in their hand.\nIneptitude — Whenever a spell controlled by enchanted player resolves, if it wasn't cast from exile with The Puzzle, counter that spell.\nConsolation — At the beginning of enchanted player's end step, they draw a card.",
+            "new": "Tempt Fate — When The Puzzle enters the battlefield, you may draw an additional card from the Deck of Many Things.\nEnchant player\nEnchanted player plays with their hand revealed and skips their draw step.\nConfusion — At the beginning of enchanted player's upkeep, that player exiles a card from their hand face down. They may look at and play that card as if it were in their hand.\nIneptitude — Whenever enchanted player casts a spell, if it wasn't cast from exile with The Puzzle, counter it.\nConsolation — At the beginning of enchanted player's end step, they draw a card."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Champion": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Paladin": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Curse of Death's Door": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Warrior": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "(Gain the next level as a sorcery to add its ability.)\nCreatures you control get +X/+X, frenzy X, and rampage X, where X is The Warrior's level.\nWhenever one or more creatures you control fight, block, or become blocked, draw a card.\nLevel 2 — {2}: Strength\nCreatures you control have trample and riot.\nAt the beginning of combat on your turn, you may have target creature you control fight target creature an opponent controls.\nLevel 3 — {3}: Strength\nCreatures you control have menace and deathtouch.\nIf a creature you control would deal combat damage, it deals double that damage.\nLevel 4 — {4}: Strength\nCreatures you control have reach and \"Whenever this creature deals combat damage to a creature an opponent controls and it survives the damage dealt, exile that creature until its controller's next end step.\"\nEach creature you control can both block an additional creature and block creatures as though it counted as two creatures blocking.",
+            "new": "(Gain the next level as a sorcery to add its ability.)\nCreatures you control get +X/+X, frenzy X (Whenever this creature attacks and isn't blocked, it gets +X/+0 until end of turn.), and rampage X (Whenever this creature becomes blocked, it gets +X/+X until end of turn for each creature blocking it beyond the first.), where X is The Warrior's level.\nWhenever one or more creatures you control fight, block, or become blocked, draw a card.\nLevel 2 — {2}: Strength\nCreatures you control have trample and riot.\nAt the beginning of combat on your turn, you may have target creature you control fight target creature an opponent controls.\nLevel 3 — {3}: Strength\nCreatures you control have menace and deathtouch.\nIf a creature you control would deal combat damage, it deals double that damage.\nLevel 4 — {4}: Strength\nCreatures you control have reach and \"This creature can't be prevented from dealing combat damage.\" Each creature you control can both block an additional creature and block creatures as though it counted as two creatures blocking.\nWhenever a creature you control deals combat damage to a player, put two +1/+1 counters on it."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Teamster": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Knife": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Curse of Petrification": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Forge": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Destiny": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Giant": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Avatar of Death": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Flying, Indestructible, Menace, Deathtouch, Wither\nProtection from abilities and colored spells\nWhen Avatar of Death enters, mark the player who summoned it and each player's life total is reduced to 10. Then, a random opponent gains control of it.\nAvatar of Death attacks the marked player each combat if able and can't block.\nWhen Avatar of Death dies or the marked player loses the game, shuffle it into the Deck of Many Things.\nWhenever the marked player or Avatar of Death becomes the target of a spell or ability or is dealt damage by an opponent, that opponent creates a token copy of Avatar of Death.\nCreatures that die by Avatar of Death are exiled. When Avatar of Death deals combat damage to a player, that player loses the game.",
+            "new": "Flying, indestructible, menace, deathtouch, wither\nProtection from abilities and colored spells\nWhen Avatar of Death enters, mark the player who summoned it and each player's life total is reduced to 10. Then, a random opponent gains control of it.\nAvatar of Death attacks the marked player each combat if able and can't block.\nWhen Avatar of Death dies or the marked player loses the game, shuffle it into the Deck of Many Things.\nWhenever the marked player or Avatar of Death becomes the target of a spell or ability or is dealt damage by an opponent, that opponent creates a token copy of Avatar of Death.\nCreatures that die by Avatar of Death are exiled. When Avatar of Death deals combat damage to a player, that player loses the game."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Rabbit Prince": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Carnival": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Tower": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Reveal the top two cards of the Deck of Many Things. Choose one of those cards and cast it without paying its mana cost. Shuffle the other card into the Deck of Many Things.",
+            "new": "Collapse — Destroy all non-creature, non-artifact permanents you control. For each permanent destroyed this way, create a Treasure token.\nYou may draw a card from the Deck of Many Things."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Well of Minor Magics": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Coin": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Door": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "When The Door enters, if it wasn't a token, it gains eight portal counters.\nGate — {T}, Remove a portal counter: Choose one —\n• Search your library for a land card and put it onto the battlefield tapped. Return it to your hand at the beginning of the next end step unless you remove a portal counter.\n• Exile target permanent other than The Door. Return it to the battlefield under its owner's control at the beginning of the next end step unless you remove a portal counter.\n• You may put a permanent card from your hand onto the battlefield. At the beginning of the next end step, return it to its owner's hand unless you remove a portal counter.\n• Create a token that's a copy of target permanent. That token gains \"When The Door leaves the battlefield, sacrifice this permanent\" unless you remove a portal counter.\nWhen the last portal counter is removed from The Door, sacrifice it.",
+            "new": "When The Door enters, if it wasn't a token, it gains eight portal counters.\nPortal — {T}, Remove a portal counter: Choose one —\n• Search your library for a land card and put it onto the battlefield tapped. Return it to your hand at the beginning of the next end step unless you remove a portal counter.\n• Exile target permanent other than The Door. Return it to the battlefield under its owner's control at the beginning of the next end step unless you remove a portal counter.\n• You may put a permanent card from your hand onto the battlefield. At the beginning of the next end step, return it to its owner's hand unless you remove a portal counter.\n• Create a token that's a copy of target permanent. That token gains \"When The Door leaves the battlefield, sacrifice this permanent\" unless you remove a portal counter.\nWhen the last portal counter is removed from The Door, sacrifice it."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Monster": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Enchant player\nReveal the first card you draw each turn.\nWhenever you cast a spell, mill cards equal to that spell's mana value. If at least one creature card was milled this way, counter that spell unless you pay {2}.\nAt the beginning of the your end step, if you had a spell countered this turn, lose 2 life.",
+            "new": "Enchant player\nReveal the first card you draw each turn.\nWhenever you cast a spell, mill cards equal to that spell's mana value. If at least one creature card was milled this way, counter that spell unless you pay {2}.\nAt the beginning of your end step, if you had a spell countered this turn, lose 2 life."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Throne": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Juggler": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Dawn": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Vengeful Revenant": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Humanoid": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Choose one —\n• Preserve — Stop drawing cards from the Deck of Many Things until end of turn. (Any remaining draws are skipped.)\n• Continue — Draw cards from the Deck of Many Things equal to the number of remaining draws you have declared this turn plus one.",
+            "new": "Loyal Follower — Create a legendary 3/3 white and blue Human creature token named Loyal Companion with vigilance, lifelink, and \"This creature can't attack unless you control another attacking creature.\"\nWhenever Loyal Companion dies, you may draw a card from the Deck of Many Things."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Curse of Exhaustion": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Deck of Many Things Rules": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Soul Prison": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "When Soul Prison enters, put a despair counter on it and create two 6/8 colorless Guardian Horror Spirit creature tokens named Soul Guardian.\nYour soul is imprisoned. (You can't gain life, pay life costs, or activate non-land mana abilities. You can cast only one spell each turn, and those spells cost {X} more to cast, where X is the amount of despair counters on Soul Prison. You can play no more than one land each turn. You can't attack with creatures. Whenever a creature deals combat damage to you, it deals an additional 2 damage.)\nAt the beginning of your upkeep, put a despair counter on Soul Prison. Spells you cast cost an additional {1} for each despair counter on it.\nAt the beginning of each end step, if you control no Soul Guardians, sacrifice Soul Prison.\nAt the beginning of your upkeep, you may sacrifice any number of creatures you control that aren't named Soul Guardian. If creatures with total combined power of 15 or greater were sacrificed this way, sacrifice Soul Prison.\nAt the beginning of your upkeep and if Soul Prison has three or more despair counters on it, you may have your life total become half its current value, rounded up. If you do, sacrifice Soul Prison and exile the top ten cards of your library.",
+            "new": "When Soul Prison enters the battlefield, put a despair counter on it and create two 6/8 colorless Guardian Horror Spirit creature tokens named Soul Guardian with defender, flying, and hexproof.\nYou get an emblem with \"You are incapacitated. You can't gain life, attack with creatures, or activate nonmana abilities. You may cast only one spell each turn.\"\nAt the beginning of your upkeep, put a despair counter on Soul Prison. Spells you cast cost {1} more for each despair counter on Soul Prison.\nSacrifice fifteen or more power of creatures you control: Sacrifice Soul Prison and remove your incapacitated emblem.\nWhen Soul Prison leaves the battlefield, remove your incapacitated emblem."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Avalanche": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Juggernaut": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "(Gain the next level as a sorcery to add its ability.)\nCreatures you control get +0/+X, absorb X, and ward {X}, where X is The Juggernaut's level.\nWhenever one or more creatures you control are dealt damage and survive, draw a card.\nLevel 2 — {2}: Constitution\nCreatures you control have vigilance.\nCreatures you control enter the battlefield with a shield counter on them.\nSpells and abilities your opponents control can't have your creature's toughness reduced.\nLevel 3 — {3}: Constitution\nCreatures you control have persist.\nWhenever a creature you control is dealt damage and survives, put that many +1/+1 counters on it.\nSpells and abilities your opponents control can't cause you to sacrifice permanents.\nLevel 4 — {4}: Constitution\nCreatures you control have indestructible and \"Whenever this creature attacks, defending player sacrifices a nonland permanent.\"",
+            "new": "(Gain the next level as a sorcery to add its ability.)\nCreatures you control get +0/+X, absorb X (If a source would deal damage to this creature, prevent X of that damage.), and ward {X}, where X is The Juggernaut's level.\nWhenever one or more creatures you control are dealt damage and survive, draw a card.\nLevel 2 — {2}: Constitution\nCreatures you control have vigilance.\nCreatures you control enter the battlefield with a shield counter on them.\nSpells and abilities your opponents control can't have your creature's toughness reduced.\nLevel 3 — {3}: Constitution\nCreatures you control have persist.\nWhenever a creature you control is dealt damage and survives, put that many +1/+1 counters on it.\nSpells and abilities your opponents control can't cause you to sacrifice permanents.\nLevel 4 — {4}: Constitution\nCreatures you control have indestructible and \"Whenever this creature attacks, defending player sacrifices a nonland permanent.\""
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Demon": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "mana_cost",
+            "old": "{3}{R}{R}{R}",
+            "new": "{3}{B}{B}{R}"
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Lock": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Big Sky": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Order": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Fey": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Shroud, Vanishing 10 (This permanent enters with ten time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nShimmer — When The Fey enters, exile your hand and library. Create X 0/1 green and blue Faerie creature tokens with flying, where X is the number of cards exiled this way.\nIf you would draw a card while your library has no cards in it, skip that draw instead.\nWhenever a Faerie you control leaves play, look at three cards at random exiled with The Fey. You may cast one of them at random this turn without paying its mana cost.\n{T}, Sacrifice a Faerie: Exile target nonland permanent. Its controller reveals cards from the top of their library until they reveal a nonland permanent and puts it onto the battlefield. Put the rest on the bottom of their library. Then they shuffle.\nIf The Fey leaves play, shuffle all cards exiled with it into their owner's library.",
+            "new": "Shroud, vanishing 10 (This permanent enters with ten time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nShimmer — When The Fey enters, exile your hand and library. Create X 0/1 green and blue Faerie creature tokens with flying, where X is the number of cards exiled this way.\nIf you would draw a card while your library has no cards in it, skip that draw instead.\nWhenever a Faerie you control leaves the battlefield, look at three cards at random exiled with The Fey. You may cast one of them at random this turn without paying its mana cost.\n{T}, Sacrifice a Faerie: Exile target nonland permanent. Its controller reveals cards from the top of their library until they reveal a nonland permanent and puts it onto the battlefield. Put the rest on the bottom of their library. Then they shuffle.\nIf The Fey leaves the battlefield, shuffle all cards exiled with it into their owner's library."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Omen of Death": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Empty Throne": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Construct": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Propagate — When The Construct enters, put X 0/1 blue and black Homunculus artifact creature tokens into play, where X is the number of artifacts you control.\nWhenever a Homunculus enters the battlefield under your control, each opponent loses 1 life. Then, if you control three or more Homunculi, draw a card.\n{T}, Sacrifice a Homunculus: Choose one — Activate only as a sorcery.\n• Replicate — Create a non-legendary token copy of The Construct.\n• Dominate — Gain control of target creature with power less than or equal to the number of Homunculi you control until end of turn. Untap it. It becomes a Homunculus in addition to its other types and gains haste.",
+            "new": "Propagate — When The Construct enters, put X 0/1 blue and black Homunculus artifact creature tokens onto the battlefield, where X is the number of artifacts you control.\nWhenever a Homunculus enters the battlefield under your control, each opponent loses 1 life. Then, if you control three or more Homunculi, draw a card.\n{T}, Sacrifice a Homunculus: Choose one — Activate only as a sorcery.\n• Replicate — Create a non-legendary token copy of The Construct.\n• Dominate — Gain control of target creature with power less than or equal to the number of Homunculi you control until end of turn. Untap it. It becomes a Homunculus in addition to its other types and gains haste."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Curse of Vulnerability": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Foreign Trader": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Wanderer": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Betrayal": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Bridge": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "The Bridge enters the battlefield with three time counters on it.\n{1}, {T}, Remove a time counter from The Bridge: End the turn. Activate this ability anytime you could cast an instant.\n(Exile all spells and abilities from the stack, including this ability. The player whose turn it is discards down to their maximum hand size. Damage wears off, and \"this turn\" and \"until end of turn\" effects end.)\nWhen you remove a time counter from The Bridge, scry 2.\nWhen the last time counter is removed, sacrifice The Bridge and take an extra turn. During that turn, you may play an additional land and draw two cards at the beginning of your draw step.",
+            "new": "The Bridge enters with a number of portal counters on it equal to 2 plus the result of rolling a d12.\n{T}, Remove a portal counter: Exile target creature you control, then return it to the battlefield under your control. You may have it enter the battlefield as a copy of another creature on the battlefield until end of turn.\nWhen The Bridge has no portal counters on it, sacrifice it."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Unicorn": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Hexproof, Indestructible\n{T}, Shuffle The Unicorn into the Deck of Many Things: Choose one —\n• Rewrite the Past — Return all creatures put into your graveyard this turn to the battlefield.\n• Shape the Future — Shuffle up to five cards from your graveyard into your library, then draw two cards.\n• Unravel Time — Look at the top three cards of the Deck of Many Things. Exile one of them, shuffle one back into the Deck, and put the last one on top.\n• Divine Undoing — Undo one choice you made during the game. Reverse any visible effects caused by that decision.",
+            "new": "Hexproof, Indestructible\n{T}, Shuffle The Unicorn into the Deck of Many Things: Choose one —\n• Rewrite the Past — Return all creatures put into your graveyard this turn to the battlefield.\n• Shape the Future — Shuffle up to five cards from your graveyard into your library, then draw two cards.\n• Unravel Time — Look at the top three cards of the Deck of Many Things. Exile one of them, shuffle one back into the Deck, and put the last one on top.\n• Divine Undoing — Choose a permanent that left the battlefield this game. Return it to the battlefield under your control."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Gelatinous Cube": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Trample, Menace, Protection from instants and sorceries\nWhen Gelatinous Cube enters, exile target creature you control and you become engulfed. (An engulfed player loses 2 life at the beginning of their upkeep, and must discard a card and mill three cards during their draw step. A player can't be engulfed more than once.)\nWhenever Gelatinous Cube deals combat damage to a player, that player becomes engulfed. It gets +2/+2 for each engulfed player and must attack each combat if able.\nWhenever Gelatinous Cube deals combat damage to a creature, exile that creature. Put a +1/+1 counter on Gelatinous Cube for each creature exiled with Gelatinous Cube.\nWhen Gelatinous Cube leaves play, all players cease to be engulfed and all creatures exiled with Gelatinous Cube return to the battlefield.",
+            "new": "Trample, Menace, Protection from instants and sorceries\nWhen Gelatinous Cube enters, exile target creature you control and you become engulfed. (An engulfed player loses 2 life at the beginning of their upkeep, and must discard a card and mill three cards during their draw step. A player can't be engulfed more than once.)\nWhenever Gelatinous Cube deals combat damage to a player, that player becomes engulfed. It gets +2/+2 for each engulfed player and must attack each combat if able.\nWhenever Gelatinous Cube deals combat damage to a creature, exile that creature. Put a +1/+1 counter on Gelatinous Cube for each creature exiled with Gelatinous Cube.\nWhen Gelatinous Cube leaves the battlefield, all players cease to be engulfed and all creatures exiled with Gelatinous Cube return to the battlefield."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Fiend": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Flash, Flying\nWhen The Fiend enters the battlefield, starting with you and proceeding in turn order, each player may bargain. Each player who doesn't bargain for the first time this way discards a card, loses 5 life, and mills three cards.\nThen, starting with you and proceeding in turn order, each player may bargain again. Repeat this process until all players decline.\nTo bargain, choose a mode not yet chosen by you this turn and flip a coin:\n• Power — Win: Put six +1/+1 counters on each creature you control. Lose: Sacrifice six creatures.\n• Knowledge — Win: Draw six cards. Lose: Mill 6 cards.\n• Wealth — Win: Search your library for six land cards, put them onto the battlefield tapped, then shuffle your library. Lose: Sacrifice six lands.\n• Vengeance — Win: Target player sacrifices six permanents. Lose: You sacrifice six permanents.\n• Immortality — Win: You gain 66 life. Lose: Your life total is reduced to 6.\n• Dominion — Win: Gain control of six target permanents target player controls. Lose: Target opponent gains control of six permanents you control.\nWhenever The Fiend becomes the target of a spell or ability, is dealt damage, or if all players refused to bargain this turn, shuffle it into its owner's library.",
+            "new": "Flash, Flying\nWhen The Fiend enters the battlefield, starting with you and proceeding in turn order, each player may wager. Each player who doesn't wager for the first time this way discards a card, loses 5 life, and mills three cards.\nThen, starting with you and proceeding in turn order, each player may wager again. Repeat this process until all players decline.\nTo wager, choose a mode not yet chosen by you this turn and flip a coin:\n• Power — Win: Put six +1/+1 counters on each creature you control. Lose: Sacrifice six creatures.\n• Knowledge — Win: Draw six cards. Lose: Mill 6 cards.\n• Wealth — Win: Search your library for six land cards, put them onto the battlefield tapped, then shuffle your library. Lose: Sacrifice six lands.\n• Vengeance — Win: Target player sacrifices six permanents. Lose: You sacrifice six permanents.\n• Immortality — Win: You gain 66 life. Lose: Your life total is reduced to 6.\n• Dominion — Win: Gain control of six target permanents target player controls. Lose: Target opponent gains control of six permanents you control.\nWhenever The Fiend becomes the target of a spell or ability, is dealt damage, or if all players refused to wager this turn, shuffle it into its owner's library."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Crossroads": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Roll a twenty-sided die.\nIf the result is even — Each player's life total becomes equal to rolling a one-hundred-sided die.\nIf the result is odd — Target opponent and you exchange life totals, then roll two d10s. You gain life equal to the first roll and each opponent loses life equal to the second roll. This life loss can't reduce a player's life total below 1.",
+            "new": "Blink Step — Roll a d12 and put that many blink counters on you.\nAs long as you have a blink counter, at the beginning of combat on your turn, you may remove a blink counter. If you do, exile target creature you control, then return it to the battlefield under your control. It gains haste until end of turn."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Tyrant": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Expert": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "(Gain the next level as a sorcery to add its ability.)\nIf damage would be dealt to you or a creature you control, prevent X of that damage and creatures you control have bushido X, where X is The Expert's level.\nWhenever one or more creatures you control deal combat damage to a player, draw a card.\nLevel 2 — {2}: Dexterity\nCreatures you control have first strike, haste, and flanking.\nPrevention effects can't reduce damage dealt by creatures you control.\nLevel 3 — {3}: Dexterity\nCreature spells you cast have flash.\nCreatures you control have flying, hexproof, and \"If this creature would be dealt damage, you may have it phase out instead.\"\nLevel 4 — {4}: Dexterity\nCreatures you control have skulk and double strike.\nWhenever a creature you control deals combat damage to a creature defending player controls, you may have it deal that much damage to another target creature defending player controls.",
+            "new": "(Gain the next level as a sorcery to add its ability.)\nIf damage would be dealt to you or a creature you control, prevent X of that damage and creatures you control have bushido X (Whenever this creature blocks or becomes blocked, it gets +X/+X until end of turn.), where X is The Expert's level.\nWhenever one or more creatures you control deal combat damage to a player, draw a card.\nLevel 2 — {2}: Dexterity\nCreatures you control have first strike, haste, and flanking (Whenever a creature without flanking blocks this creature, the blocking creature gets -1/-1 until end of turn.).\nPrevention effects can't reduce damage dealt by creatures you control.\nLevel 3 — {3}: Dexterity\nCreature spells you cast have flash.\nCreatures you control have flying, hexproof, and \"If this creature would be dealt damage, you may have it phase out instead.\"\nLevel 4 — {4}: Dexterity\nCreatures you control have skulk and double strike.\nWhenever a creature you control deals combat damage to a creature defending player controls, you may have it deal that much damage to another target creature defending player controls."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Desert": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "When The Desert enters the battlefield, put a drought counter on all lands.\nEach land with a drought counter on it is a Desert and loses all other land types and abilities and has \"{T}: Add {C}. Create a 0/1 colorless Sand creature token.\"\nAt the beginning of each player's upkeep, that player puts a drought counter on target non-Desert land they control.\nWhenever a Sand creature dies, that creature's controller loses 1 life.\nSand creatures get +1/+0 for each Desert on the battlefield.",
+            "new": "Vanishing 3\nCaravan — When The Desert enters the battlefield, search your library for up to three land cards, put them onto the battlefield tapped, then shuffle.\nYou may exile any number of permanents you control and up to three creatures other players control. When The Desert leaves the battlefield, return all cards exiled with it to the battlefield under their owners'  control."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Talons": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Eclipse": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "When The Eclipse enters the battlefield, each player sacrifices all creatures they control. For each creature sacrificed this way, that player loses 1 life.\nWhenever a player loses life, put that many tribute counters on The Eclipse. When there are forty or more tribute counters on The Eclipse, sacrifice it.\nAt the beginning of each player's upkeep, that player sacrifices a nonland permanent. If they can't, they lose 3 life and discard a card. For each permanent sacrificed this way, its controller creates a 3/1 red Horror creature token with \"When this creature leaves play, it deals 3 damage to you.\"\nCreatures have \"At the beginning of your end step, exile this creature unless you pay life equal to its power.\"",
+            "new": "When The Eclipse enters the battlefield, each player sacrifices all creatures they control. For each creature sacrificed this way, that player loses 1 life.\nWhenever a player loses life, put that many tribute counters on The Eclipse. When there are forty or more tribute counters on The Eclipse, sacrifice it.\nAt the beginning of each player's upkeep, that player sacrifices a nonland permanent. If they can't, they lose 3 life and discard a card. For each permanent sacrificed this way, its controller creates a 3/1 red Horror creature token with \"When this creature leaves the battlefield, it deals 3 damage to you.\"\nCreatures have \"At the beginning of your end step, exile this creature unless you pay life equal to its power.\""
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Elemental": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Shield": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Indestructible\nLiving Weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this Equipment to it.)\nFortify — At the beginning of your upkeep or whenever equipped creature blocks or becomes blocked, you may put a fortification counter on The Shield.\nEquipped creature gets +1/+3 for each fortification counter on The Shield.\nTransmutation — {0}: Remove all abilities granted by The Shield from equipped creature. Choose two — Indestructible, Hexproof, Shroud, Protection from a color of your choice, Ward {6}, Absorb 3, Reach, Vigilance, Defender, Persist, Undying, Lifelink, or Regenerate. It gains the chosen abilities until end of turn.\nEquip {0}",
+            "new": "Indestructible\nLiving Weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this Equipment to it.)\nBulwark — At the beginning of your upkeep or whenever equipped creature blocks or becomes blocked, you may put a fortification counter on The Shield.\nEquipped creature gets +1/+3 for each fortification counter on The Shield.\nTransmutation — {0}: Remove all abilities granted by The Shield from equipped creature. Choose two — Indestructible, Hexproof, Shroud, Protection from a color of your choice, Ward {6}, Absorb 3, Reach, Vigilance, Defender, Persist, Undying, Lifelink, or Regenerate. It gains the chosen abilities until end of turn.\nEquip {0}"
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Student": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Mute Hag": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "True Resurrection": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Owl": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Flash\nFlying, Ward {2}\nWhenever this creature deals combat damage to a player, scry 1.\nWhenever you scry, you may pay {1}. If you do, gain 2 life and draw a card.\n{T}, Sacrifice The Owl: Scry 7, then target opponent may scry 3. Draw a card.\nWhen The Owl dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
+            "new": "Flash\nFlying, Ward {2}\nWhenever The Owl deals combat damage to a player, scry 1.\nWhenever you scry, you may pay {1}. If you do, gain 2 life and draw a card.\n{T}, Sacrifice The Owl: Scry 7, then target opponent may scry 3. Draw a card.\nWhen The Owl dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")"
+          },
+          {
+            "field": "power",
+            "old": null,
+            "new": "1"
+          },
+          {
+            "field": "toughness",
+            "old": null,
+            "new": "3"
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Curse of Restraint": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Enchant player, shroud\nWhen Curse of Restraint enters, roll a d6 and add 2 to the result. Put that many bind counters on it and you become restrained. (You can't cast more than one spell each turn and can't activate more than one ability each turn. Artifacts, and enchantments you control lose all abilities except for Curse of Restraint. Spells you cast cost {W} more to cast for each bind counter on Curse of Restraint. Creatures you control can't attack unless you pay {0} for each creature attacking.)\nAt the beginning of your upkeep, you lose X life, where X is the number of bind counters on Curse of Restraint.\nWhenever a creature deals combat damage to you or a creature you control, it deals an additional 2 damage.\n{0}, Pay X life and exile X cards from your hand or X nontoken permanents you control: Remove X bind counters from Curse of Restraint. X can't be greater than 2. Activate only as a sorcery.\nWhen Curse of Restraint has no bind counters on it, sacrifice it.\nEternal Damnation — You can't draw from the Deck of Many Things for the rest of the game.",
+            "new": "Enchant player, shroud\nWhen Curse of Restraint enters, roll a d6 and add 2 to the result. Put that many bind counters on it and you become restrained. (You can't cast more than one spell each turn and can't activate more than one ability each turn. Artifacts, and enchantments you control lose all abilities except for Curse of Restraint. Spells you cast cost {W} more to cast for each bind counter on Curse of Restraint. Creatures you control can't attack unless you pay {2} for each creature attacking.)\nAt the beginning of your upkeep, you lose X life, where X is the number of bind counters on Curse of Restraint.\nWhenever a creature deals combat damage to you or a creature you control, it deals an additional 2 damage.\n{0}, Pay X life and exile X cards from your hand or X nontoken permanents you control: Remove X bind counters from Curse of Restraint. X can't be greater than 2. Activate only as a sorcery.\nWhen Curse of Restraint has no bind counters on it, sacrifice it.\nEternal Damnation — You can't draw from the Deck of Many Things for the rest of the game."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Crows": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Fool": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Joke": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Exile the top three cards of the Deck of Many Things face up. An opponent chosen at random may cast one of those cards at random without paying its mana cost. Then you may cast one of the remaining exiled cards without paying its mana cost. Remove the last exiled card from the game.",
+            "new": "Exile the top three cards of the Deck of Many Things face up. An opponent chosen at random may cast one of those cards at random without paying its mana cost. Then you may cast one of the remaining exiled cards without paying its mana cost. The remaining exiled card remains in exile."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Void": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Divine Intervention": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Beginning": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\nI — Each player shuffles their hand, all cards they own in exile, their graveyard, and all permanents they control into their library, then draws seven cards and gains 10 life.\nII — Search your library for two land cards, put them onto the battlefield tapped, then shuffle.\nIII — You get an emblem with \"At the beginning of your upkeep, scry 1, then draw a card. You have no maximum hand size.\"\nIV — Take an extra turn after this one. During that turn, you may play an additional land and spells you cast cost {2} less to cast.",
+            "new": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after IV.)\nI — Each player shuffles their hand, all cards they own in exile, their graveyard, and all permanents they control into their library, then draws seven cards and gains 10 life.\nII — Search your library for two land cards, put them onto the battlefield tapped, then shuffle.\nIII — You get an emblem with \"At the beginning of your upkeep, scry 1, then draw a card. You have no maximum hand size.\"\nIV — Take an extra turn after this one. During that turn, you may play an additional land and spells you cast cost {2} less to cast."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Survivor": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Staff": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Demon's Lantern": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Elder Air Elemental": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Star": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Cricket": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Trumpet": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Comet": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Suspend 2 — {0}{U}{U} (Exile this with two time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost.)\nImpact — When you cast The Comet, you may choose target creature you control. If you do, all other creatures phase out until end of turn.\nIf the chosen creature deals combat damage to a player this turn, it gains flying, double strike, and \"Whenever this creature deals combat damage to a player, draw two cards.\"\nIf the chosen creature didn't deal combat damage to a player this turn, exile it at the beginning of your end step.",
+            "new": "Suspend 2 — {0}{U}{U} (Exile this with two time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost.)\nImpact — When you cast The Comet, you may choose target creature you control. If you do, all other creatures phase out until end of turn.\nUntil end of turn, the chosen creature gains flying, double strike, and \"Whenever this creature deals combat damage to a player, draw two cards.\"\nAt the beginning of your end step, if the chosen creature didn't deal combat damage to a player this turn, exile it."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Uprising": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Dance": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Sun": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Radiance — Draw seven cards, scry 5, you may play up to two additional lands this turn, you have no maximum hand size for the rest of the game, gain 20 life, and create three Treasure tokens. (They're artifacts with \"{T}, Sacrifice this artifact: Add one mana of any color.\")\nIllumination — Search target player's library for an artifact card and put it onto the battlefield under your control. Then that player shuffles his or her library.",
+            "new": "Radiance — Draw seven cards, scry 5, you may play up to two additional lands this turn, you have no maximum hand size for the rest of the game, gain 20 life, and create three Treasure tokens. (They're artifacts with \"{T}, Sacrifice this artifact: Add one mana of any color.\")\nIllumination — Search target player's library for an artifact card and put it onto the battlefield under your control. Then that player shuffles their library."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Mine": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Pit": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Inquisitor": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Rakshasa": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Flash, Ward {3}\nWhenever an opponent casts their first spell each turn, you may have The Rakshasa become a copy of target creature. It gains this ability.\nWhen The Rakshasa becomes a copy of another creature, exile up to three cards from a target player's hand face down. You may cast a card from among them without paying its mana cost.",
+            "new": "Flying, ward {2}\nCurse of Deception — Whenever a player casts a spell that targets only a single creature or player, roll a d6. On a 1 or 2, that spell's controller transforms their most powerful creature into a 1/1 green Frog creature token until end of turn. (It loses all abilities.)\nWhenever a creature becomes a Frog this way, The Rakshasa's controller draws a card.\nWhen The Rakshasa leaves the battlefield, shuffle it into the Deck of Many Things."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Curse of Leprosy": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Chancellor": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Tree": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Enchant land\nLiving Growth (When this enchantment enters the battlefield, if you control no lands, create a basic Plains, Island, Swamp, Mountain, or Forest land card token, then attach this to it.)\nWhen The Tree enters, draw three cards and gain 8 life.\nEnchanted land is a green Plant creature with base power and toughness 4/8 and has \"At the beginning of your upkeep, put two +1/+1 counters on this creature and create a 0/1 green Plant creature token with reach and defender.\" It's still a land.\nOther Plants you control get +1/+1 for each counter on enchanted creature.\nWhen The Tree leaves play, create X 1/1 green Plant creature tokens with reach and defender, where X is the enchanted creature's toughness, then create a basic Forest land token.",
+            "new": "Enchant land\nLiving Growth (When this enchantment enters the battlefield, if you control no lands, create a basic Plains, Island, Swamp, Mountain, or Forest land card token, then attach this to it.)\nWhen The Tree enters, draw three cards and gain 8 life.\nEnchanted land is a green Plant creature with base power and toughness 4/8 and has \"At the beginning of your upkeep, put two +1/+1 counters on this creature and create a 0/1 green Plant creature token with reach and defender.\" It's still a land.\nOther Plants you control get +1/+1 for each counter on enchanted creature.\nWhen The Tree leaves the battlefield, create X 1/1 green Plant creature tokens with reach and defender, where X is the enchanted creature's toughness, then create a basic Forest land token."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Crown": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Liar": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Flash\nWhen The Liar enters the battlefield, look at each opponent's hand. Choose a nonland card from each of those hands. Exile the chosen cards face down.\nWhen The Liar attacks, you may cast any card it exiled without paying its mana cost. If you do, after that spell resolves, its owner draws three cards and discards three cards. Spells you cast this way can't be countered.",
+            "new": "Flash\nCursed Possession — When The Liar enters the battlefield, choose target artifact or equipment an opponent controls with the highest mana value. Put a curse counter on it.\nPermanents with curse counters have \"At the beginning of your upkeep, this permanent deals 3 damage to you\" and \"Activated abilities of this permanent cost {3} more to activate.\"\nWhenever a permanent with a curse counter on it is sacrificed or destroyed, The Liar's controller creates a Treasure token and draws a card.\n{T}: Put a curse counter on target artifact."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Vulture": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Snakebite": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Locksmith": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Ruin": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Ship": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Courtesan": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Brass Dwarf": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Night": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Map": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "When The Map enters the battlefield, put three seek counters on it.\n{T}, Remove a seek counter from The Map: Choose one —\n• Locate — Name a card. Reveal cards from the top of target player's library until you reveal the named card. Put the named card from among them into your hand, shuffle the rest into that player's library. That player loses life equal to that card's mana value.\n• Plunder — Look at target player's hand and choose a nonland card from it. That player discards that card. You may cast that card this turn and spend mana as though it were mana of any color to cast it. If you don't cast it this turn, exile it.\n• Manifest — Search your library for an artifact, enchantment, or planeswalker card with mana value 4 or less and put it onto the battlefield. If it's a planeswalker, it enters with an additional loyalty counter on it. Then shuffle.",
+            "new": "When The Map enters the battlefield, put three seek counters on it.\n{T}, Remove a seek counter from The Map: Choose one —\n• Locate — Name a card. Reveal cards from the top of target player's library until you reveal the named card. Put the named card from among them into your hand, shuffle the rest into that player's library. That player loses life equal to that card's mana value.\n• Plunder — Look at target player's hand and choose a nonland card from it. That player discards that card. You may cast that card this turn and spend mana as though it were mana of any color to cast it. If you don't cast it this turn, exile it.\n• Cartograph — Search your library for an artifact, enchantment, or planeswalker card with mana value 4 or less and put it onto the battlefield. If it's a planeswalker, it enters with an additional loyalty counter on it. Then shuffle."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Isolation": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Tavern": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Plane of Air": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Donjon": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Vizier": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Tangled Briar": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Stairway": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Moon": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Hidden Truth": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Marriage": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Balance": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Cavern": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "The Cavern enters the battlefield tapped with three depth counters on it.\n{T}: Add two mana in any combination of colors. If The Cavern has no depth counters on it, add four mana in any combination instead.\n{T}, Remove a depth counter: Choose one —\n• Target creature card in your hand gains perpetual \"Suspend 1 — {0}\" Then you may search your library for a land card, reveal it, and put it into your hand.\n• Until end of turn, creatures you control gain deathtouch, reach, and \"Whenever this creature deals combat damage to a player, you may put a creature card from your hand onto the battlefield.\"\nWhen the last depth counter is removed from The Cavern, creatures you control gain menace and creature spells you cast have convoke.",
+            "new": "{T}: Add {G}.\nThe Cavern enters with a number of depth counters on it equal to the result of rolling a d12.\nEcholocation — As long as The Cavern has a depth counter on it, creatures you control can't be blocked by creatures with greater power.\nAt the beginning of your upkeep, remove a depth counter from The Cavern. If you do, scry 2.\n{G}, {T}: Target creature you control gains hexproof until end of turn."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Jester": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Lost": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Fates": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "The Fates can't be removed from play by any spell, ability, or effect.\n{0}, Shuffle The Fates into the Deck of Many Things: Choose one —\n• Rewind — Remove all effects, counters, and modifications applied by a card drawn from the Deck of Many Things. Return affected permanents and players to their state before that card was drawn.\n• Deny — Choose a spell, permanent, or card drawn from the Deck of Many Things. Exile it.\n• Cleanse — Exile target emblem or curse named Euryal.\n• Weave — Look at the top three cards of the Deck of Many Things and put them back in any order. Then, you may draw a card from the Deck of Many Things.",
+            "new": "The Fates can't be removed from the battlefield by any spell, ability, or effect.\n{0}, Shuffle The Fates into the Deck of Many Things: Choose one —\n• Rewind — Remove all effects, counters, and modifications applied by a card drawn from the Deck of Many Things. Return affected permanents and players to their state before that card was drawn.\n• Deny — Choose a spell, permanent, or card drawn from the Deck of Many Things. Exile it.\n• Cleanse — Exile target emblem or curse card named Curse of Weakness.\n• Weave — Look at the top three cards of the Deck of Many Things and put them back in any order. Then, you may draw a card from the Deck of Many Things."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Beast": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "When The Beast enters the battlefield, roll 2d12. Put that many time counters on it and create that many 2/2 green Beast creature tokens.\nAt the beginning of your upkeep, remove a time counter. When the last counter is removed, sacrifice The Beast.\nCreatures you control are green Beasts in addition to their other colors and types and have base power and toughness 2/2.\nAt the beginning of combat on your turn, roll 2d6. Creatures you control have base power and toughness equal to the result until end of turn.\nUnleash — {0}, {T}: Until end of turn, creatures you control gain double strike and trample.",
+            "new": "When The Beast enters the battlefield, roll 2d12. Put that many time counters on it and create that many 2/2 green Beast creature tokens.\nAt the beginning of your upkeep, remove a time counter. When the last counter is removed, sacrifice The Beast.\nCreatures you control are green Beasts in addition to their other colors and types and have base power and toughness 2/2.\nAt the beginning of combat on your turn, roll 2d6. Creatures you control have base power and toughness equal to the result until end of turn.\nFeral Rage — {0}, {T}: Until end of turn, creatures you control gain double strike and trample."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Priest": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, scry X and you gain X life, where X is The Priest's level.\nAt the beginning of your end step, if you gained life this turn, draw a card.\nLevel 2 — {2}: Wisdom\nCreatures you control have lifelink.\nWhenever you gain life, put a +1/+1 counter on target creature you control.\nLevel 3 — {3}: Wisdom\nWhenever a creature enters the battlefield, you gain 1 life.\nAt the beginning of your end step, you may return target creature card with mana value X or less from your graveyard to the battlefield, where X is the amount of life you gained this turn.\nLevel 4 — {4}: Wisdom\nSpells you cast have convoke.\nWhenever you tap a creature to convoke a spell, you gain 2 life and put a +1/+1 counter on that creature.",
+            "new": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, scry X and you gain X life, where X is The Priest's level.\nAt the beginning of your end step, if you gained life this turn, draw a card.\nLevel 2 — {2}: Wisdom\nCreatures you control have lifelink.\nWhenever you gain life, put a +1/+1 counter on target creature you control.\nLevel 3 — {3}: Wisdom\nWhenever a creature enters the battlefield, you gain 1 life.\nWhenever you gain life, you may pay {1}. If you do, create a 1/1 white Spirit creature token with lifelink.\nLevel 4 — {4}: Wisdom\nAt the beginning of your end step, you may return target creature card with mana value X or less from any graveyard to the battlefield under your control, where X is the amount of life you gained this turn.\nWhenever a creature enters the battlefield under your control, you gain life equal to its toughness."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Path": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Creatures you control have haste.\n{T}: Add one mana of any color to your mana pool.\nWhenever a land enters tapped under your control, untap it.\nYou may play an additional land on each of your turns.\nLandfall — Draw a card.",
+            "new": "Creatures you control have haste.\n{T}: Add one mana of any color .\nWhenever a land enters tapped under your control, untap it.\nYou may play an additional land on each of your turns.\nLandfall — Draw a card."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Queen Mother": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Vision": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Aberration": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Living weapon (When this Equipment enters the battlefield, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +2/+2, has flying and intimidate.\nAt the beginning of your upkeep, you may reveal the top card of target opponent's library. If you do, you may exile it face down. You may look at and cast spells exiled with The Aberration, and you may spend mana as though it were mana of any color to cast them.\nWhenever equipped creature deals combat damage to a player, choose one —\n• Look at the top X cards of that player's library, where X is the damage dealt. Put one of them into your hand and the rest into their graveyard.\n• That player reveals their hand. You may cast a spell from it without paying its mana cost.\nEquip {0}",
+            "new": "Living weapon (When this Equipment enters the battlefield, create a 0/0 black Phyrexian Germ creature token, then attach this to it.)\nEquipped creature gets +2/+2, has flying and menace.\nAt the beginning of your upkeep, you may reveal the top card of target opponent's library. If you do, you may exile it face down. You may look at and cast spells exiled with The Aberration, and you may spend mana as though it were mana of any color to cast them.\nWhenever equipped creature deals combat damage to a player, choose one —\n• Look at the top X cards of that player's library, where X is the damage dealt. Put one of them into your hand and the rest into their graveyard.\n• That player reveals their hand. You may cast a spell from it without paying its mana cost.\nEquip {0}"
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Midwife": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Temporal Stasis Sphere": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Tick Tock — When Temporal Stasis Sphere enters, roll a d4 and add 3 to the result. Put that many time counters on it. At the beginning of your upkeep, remove a time counter and mill three cards. When the last time counter is removed, exile Temporal Stasis Sphere at the beginning of the next end step.\nYou are dimensionally displaced. (A dimensionally displaced player can't be affected by any effect in the main game. They remain in the main game's turn order but can't interact with or be interacted with by other players. Spells you cast or permanents you play are exiled. Starting with your next turn, skip your draw step on even-numbered turns. Your maximum hand size is reduced by 2.)\nWhen this emblem leaves the battlefield, return and cast all cards exiled with it and The Donjon to play at the beginning of your next upkeep. For each card returned this way, lose 1 life.",
+            "new": "Tick Tock — When Temporal Stasis Sphere enters, roll a d4 and add 3 to the result. Put that many time counters on it. At the beginning of your upkeep, remove a time counter and mill three cards. When the last time counter is removed, exile Temporal Stasis Sphere at the beginning of the next end step.\nYou are dimensionally displaced. (A dimensionally displaced player can't be affected by any effect in the main game. They remain in the main game's turn order but can't interact with or be interacted with by other players. Spells you cast or permanents you play are exiled. Starting with your next turn, skip your draw step on even-numbered turns. Your maximum hand size is reduced by 2.)\nWhen Temporal Stasis Sphere leaves the battlefield, return and cast all cards exiled with it and The Donjon onto the battlefield at the beginning of your next upkeep. For each card returned this way, lose 1 life."
+          },
+          {
+            "field": "type_line",
+            "old": "Emblem",
+            "new": "Token Artifact"
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Idiot": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Celestial": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Theatre": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "At the beginning of your upkeep, each player creatures a 1/1 green and white Human Performer creature token.\nWhenever a creature dies, put a Spotlight counter on The Theater.\n{T}, Remove a Spotlight counter from The Theater: Choose one —\n• Encore performance — Create two 2/2 white Human Performer tokens with \"When this creature enters the battlefield, tap target creature an opponent controls.\"\n• Inspire the audience — Each player draws a card, then you draw two additional cards.\n• Standing ovation — Each player gains 1 life, then you gain 1 life for each creature you control.",
+            "new": "At the beginning of your upkeep, each player creates a 1/1 green and white Human Performer creature token.\nWhenever a creature dies, put a Spotlight counter on The Theater.\n{T}, Remove a Spotlight counter from The Theater: Choose one —\n• Encore performance — Create two 2/2 white Human Performer tokens with \"When this creature enters the battlefield, tap target creature an opponent controls.\"\n• Inspire the audience — Each player draws a card, then you draw two additional cards.\n• Standing ovation — Each player gains 1 life, then you gain 1 life for each creature you control."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Campfire": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Curse of Weakness": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Vengeful Archfiend": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Suspend X — {0}{R}{G} (X is determined by rolling a four-sided die. Exile this card with a number of time counters on it equal to the result. At the beginning of your upkeep, remove a time counter. When the last is removed, cast it without paying its mana cost.)\nVendetta — When Vengeful Archfiend enters the battlefield, an opponent chosen at random gains control of it, and you become its nemesis.\nHaste, Trample, Menace\nVengeful Archfiend can't block and attacks its nemesis each combat if able.\nTorment — Whenever Vengeful Archfiend deals combat damage to its nemesis, put a rage counter on it. When you do, that player discards a card and sacrifices a permanent.\nVengeful Archfiend gets +2/+0 for each rage counter on it.\nWhen Vengeful Archfiend leaves the battlefield or its nemesis loses the game, shuffle it into the Deck of Many Things.",
+            "new": "Suspend X — {0}{R}{G} (X is determined by rolling a four-sided die. Exile this card with a number of time counters on it equal to the result. At the beginning of your upkeep, remove a time counter. When the last is removed, cast it without paying its mana cost.)\nVendetta — When Vengeful Archfiend enters the battlefield, an opponent chosen at random gains control of it, and you become its nemesis.\nHaste, trample, menace\nVengeful Archfiend can't block and attacks its nemesis each combat if able.\nTorment — Whenever Vengeful Archfiend deals combat damage to its nemesis, put a rage counter on it. When you do, that player discards a card and sacrifices a permanent.\nVengeful Archfiend gets +2/+0 for each rage counter on it.\nWhen Vengeful Archfiend leaves the battlefield or its nemesis loses the game, shuffle it into the Deck of Many Things."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Ring": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Twin": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Winged Serpent": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Flying, Hexproof, Haste\n{1}: Look at the top three cards of your library, then put them back in any order.\n{T}: Draw a card.\nSovereign Wish — Sacrifice The Winged Serpent: Choose one —\n• Search your library for a card and put it into play. If it's a creature, it gains haste.\n• Exile all creatures and planeswalkers your opponents control.\n• Gain control of all nonland permanents target opponent controls.\n• Target player's life total becomes 1 or 40.\n• Target player skips their next turn or you take an extra turn after this one.\n• Return any number of target permanent cards from your graveyard to play.\n• Remove the Deck of Many Things from the game and/or exile all cards from all graveyards, then each player shuffles their hand and all permanents they own into their library, then draws seven cards. You may put any number of permanent cards from your hand onto the battlefield.",
+            "new": "Flying, Hexproof, Haste\n{1}: Look at the top three cards of your library, then put them back in any order.\n{T}: Draw a card.\nSovereign Wish — Sacrifice The Winged Serpent: Choose one —\n• Search your library for a card and put it onto the battlefield. If it's a creature, it gains haste.\n• Exile all creatures and planeswalkers your opponents control.\n• Gain control of all nonland permanents target opponent controls.\n• Target player's life total becomes 1 or 40.\n• Target player skips their next turn or you take an extra turn after this one.\n• Return any number of target permanent cards from your graveyard to play.\n• Remove the Deck of Many Things from the game and/or exile all cards from all graveyards, then each player shuffles their hand and all permanents they own into their library, then draws seven cards. You may put any number of permanent cards from your hand onto the battlefield."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Chaos": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Keep": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Knight": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Double strike, Menace\nOath — Other Knights you control get +1/+1 and have vigilance.\nConscription — When Knight enters or attacks, create two 2/2 white and black Knight creature tokens.\nDark Blessing — Pay {X} life, where X is the number of Knights you control: Put that many +1/+1 counters on Knights you control, divided as you choose, and each of those creatures gain lifelink until end of turn. Activate this ability anytime you could cast a sorcery.",
+            "new": "Double strike, menace\nOath — Other Knights you control get +1/+1 and have vigilance.\nConscription — When Knight enters or attacks, create two 2/2 white and black Knight creature tokens.\nDark Blessing — Pay {X} life, where X is the number of Knights you control: Put that many +1/+1 counters on Knights you control, divided as you choose, and each of those creatures gain lifelink until end of turn. Activate this ability anytime you could cast a sorcery."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Key": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Shroud\nLiving Weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this Equipment to it.)\nEnhancement — At the beginning of your upkeep or whenever equipped creature deals combat damage to a player, put a power counter on The Key.\nEquipped creature gets +2/+0 for each power counter on The Key.\nTransmutation — {0}: Remove all abilities granted by The Key from equipped creature. Choose two — Haste, Flying, Fear, Skulk, Menace, Intimidate, Double strike, Trample, Bushido 3, Flanking, Battle cry, Provoke, Exalted, Afflict 3, Frenzy 3, Deathtouch, Toxic 2, Prowess, Infect, Wither, or Annihilator 1. It gains the chosen abilities until end of turn.\nEquip {0}",
+            "new": "Hexproof\nLiving Weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ creature token, then attach this Equipment to it.)\nEnhancement — At the beginning of your upkeep or whenever equipped creature deals combat damage to a player, put a power counter on The Key.\nEquipped creature gets +2/+0 for each power counter on The Key.\nTransmutation — {0}: Remove all abilities granted by The Key from equipped creature. Choose two — Haste, Flying, Fear, Skulk, Menace, Intimidate, Double strike, Trample, Bushido 3, Flanking, Battle cry, Provoke, Exalted, Afflict 3, Frenzy 3, Deathtouch, Toxic 2, Prowess, Infect, Wither, or Annihilator 1. It gains the chosen abilities until end of turn.\nEquip {0}"
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Waxworks": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Day": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Monstrosity": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "When The Monstrosity enters the battlefield, roll a d20. Its base power and toughness each become the result of the roll plus 5. An opponent chosen at random gains control of it.\nHaste, Trample, Menace\nThe Monstrosity can't block.\nThe Monstrosity attacks the player who drew it each combat if able until that player has 0 or less life or The Monstrosity leaves play. When either condition is met, shuffle The Monstrosity into the Deck of Many Things.",
+            "new": "When The Monstrosity enters the battlefield, roll a d20. Its base power and toughness each become the result of the roll plus 5. An opponent chosen at random gains control of it.\nHaste, trample, menace\nThe Monstrosity can't block.\nThe Monstrosity attacks the player who drew it each combat if able until that player has 0 or less life or The Monstrosity leaves the battlefield. When either condition is met, shuffle The Monstrosity into the Deck of Many Things."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Plant": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "When The Plant enters, search for library for a land card and put it onto the battlefield tapped. Then create a 0/1 green Plant creature token for each land you control.\n{T}: Add {G}{G}{G}.\nLandfall — Whenever a land you control enters, you may put a +1/+1 counter on each Plant creature you control.\n{G}: Choose one — The Plant doesn't untap during its controller's next untap step.\n• Overgrowth — Create X 0/1 green Plant creature tokens, where X is the number of lands you control.\n• Verdant — Until end of turn, lands you control become 2/2 Forest creatures that are still lands and have \"When this creature deals combat damage to a player, create a 0/1 green Plant creature token.\"\n• Entangle — Target land becomes a 0/4 Plant creature with defender and \"{T}: You may tap or untap target creature.\" It's still a land.",
+            "new": "When The Plant enters, search your library for a land card and put it onto the battlefield tapped. Then create a 0/1 green Plant creature token for each land you control.\n{T}: Add {G}{G}{G}.\nLandfall — Whenever a land you control enters, you may put a +1/+1 counter on each Plant creature you control.\n{G}: Choose one — The Plant doesn't untap during its controller's next untap step.\n• Overgrowth — Create X 0/1 green Plant creature tokens, where X is the number of lands you control.\n• Verdant — Until end of turn, lands you control become 2/2 Forest creatures that are still lands and have \"When this creature deals combat damage to a player, create a 0/1 green Plant creature token.\"\n• Entangle — Target land becomes a 0/4 Plant creature with defender and \"{T}: You may tap or untap target creature.\" It's still a land."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Lance": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Mountain Man": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Dragon": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Devoid, Flying, Menace\nThe Dragon gains the following abilities based on other Dragons you control:\n• White: Vigilance, protection from black and \"Other Dragons you control get +2/+2 and have vigilance.\"\n• Blue: Ward {0}, hexproof and \"Other Dragons you control have ward {0} and can't be countered.\"\n• Black: Deathtouch, lifelink and \"Other Dragons you control have deathtouch and whenever they deal damage, each opponent loses 1 life.\"\n• Red: Double strike and \"Other Dragons you control have first strike and 'When this creature attacks, it deals 2 damage to any target.'\"\n• Green: Trample, reach and \"Other Dragons you control get +3/+1 and have trample.\"\nWhenever The Dragon attacks, create two 3/3 Dragon creature tokens with flying of a random color. They gain the associated ability.\nGrouth — {T}, Sacrifice a Dragon: Put three +1/+1 counters on The Dragon and draw a card.",
+            "new": "Devoid, flying, menace\nThe Dragon gains the following abilities based on other Dragons you control:\n• White: Vigilance, protection from black and \"Other Dragons you control get +2/+2 and have vigilance.\"\n• Blue: Ward {3}, hexproof and \"Other Dragons you control have ward {3} and can't be countered.\"\n• Black: Deathtouch, lifelink and \"Other Dragons you control have deathtouch and whenever they deal damage, each opponent loses 1 life.\"\n• Red: Double strike and \"Other Dragons you control have first strike and 'When this creature attacks, it deals 2 damage to any target.'\"\n• Green: Trample, reach and \"Other Dragons you control get +3/+1 and have trample.\"\nWhenever The Dragon attacks, create two 3/3 Dragon creature tokens with flying of a random color. They gain the associated ability.\nGrowth — {T}, Sacrifice a Dragon: Put three +1/+1 counters on The Dragon and draw a card."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "Soul Guardian": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Defender, Flying, Hexproof\nWhenever Soul Guardian blocks a creature, that creature gets -2/-2 until end of turn.\nWhenever a creature blocked by Soul Guardian dies during combat, that creature's controller discards a card.",
+            "new": "Defender, flying, hexproof\nWhenever Soul Guardian blocks a creature, that creature gets -2/-2 until end of turn.\nWhenever a creature blocked by Soul Guardian dies during combat, that creature's controller discards a card."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Justice": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Players can't cast more than one spell each turn.\nWhenever a player gains or loses life, each other player gains or loses that much life.\nWhenever a player would search their library for a card, instead each player may search their library for a card of that type, then each player shuffles.",
+            "new": "Players can't cast more than one spell each turn.\nIf a player would gain or lose life, instead each player gains or loses that much life.\nWhenever a player would search their library for a card, instead each player may search their library for a card of that type, then each player shuffles."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Mystery": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "When The Mystery enters the battlefield, each player exiles the top three cards of their library face down.\nAt the beginning of each player's upkeep, that player may exile the top card of their library face down. They may cast from exile one of those cards exiled with The Mystery this turn at random without paying its mana cost. If they do, they lose life equal to the number of cards they own in exile that were exiled with The Mystery.\nWhen The Mystery leaves play, shuffle all cards exiled with The Mystery into their owner's library.",
+            "new": "When The Mystery enters the battlefield, each player exiles the top three cards of their library face down.\nAt the beginning of each player's upkeep, that player may exile the top card of their library face down. They may cast from exile one of those cards exiled with The Mystery this turn at random without paying its mana cost. If they do, they lose life equal to the number of cards they own in exile that were exiled with The Mystery.\nWhen The Mystery leaves the battlefield, shuffle all cards exiled with The Mystery into their owner's library."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Publican": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Bear": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Book": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Dusk": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Mage": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, draw X cards. Spells you cast cost {X} less to cast, where X is The Mage's level.\nLevel 2 — {2}: Intelligence\nCreatures you control have prowess and spells you cast can't be countered.\nThe first instant or sorcery spell you cast each turn has \"When you cast this spell, copy it. You may choose new targets for the copy.\"\nLevel 3 — {3}: Intelligence\nSpells you cast have cascade.\nWhenever you cast a spell, you may draw a card, then discard a card.\nYou may cast spells from your graveyard and from exile.\nLevel 4 — {4}: Intelligence\nSpells you cast have storm.\nWhenever you cast a spell from anywhere other than your hand, copy it. You may choose new targets for the copy.\nCreatures you control have protection from colored spells and abilities.\nYou have hexproof.",
+            "new": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, draw X cards. Spells you cast cost {X} less to cast, where X is The Mage's level.\nLevel 2 — {2}: Intelligence\nCreatures you control have prowess and spells you cast can't be countered.\nThe first instant or sorcery spell you cast each turn has \"When you cast this spell, copy it. You may choose new targets for the copy.\"\nLevel 3 — {3}: Intelligence\nSpells you cast have cascade.\nWhenever you cast a spell, you may draw a card, then discard a card.\nYou may cast spells from your graveyard and from exile.\nLevel 4 — {4}: Intelligence\nSpells you cast have convoke.\nInstant and sorcery spells you cast have storm.\nWhenever you cast a spell from anywhere other than your hand, copy it. You may choose new targets for the copy.\nCreatures you control have protection from colored spells and abilities.\nYou have hexproof."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Peacock": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Rogue": [
+      {
+        "date": "2026-03-24",
+        "message": "Errata pass: 50+ card fixes across all four decks",
+        "type": "modified",
+        "changes": [
+          {
+            "field": "rules_text",
+            "old": "Haste, First strike, Deathtouch, Ward {2}\nSkulk (This creature can't be blocked by creatures with greater power.)\nSubversion — When The Rogue enters the battlefield, gain control of target creature an opponent controls with the highest power. Untap it. It gains haste until end of turn.\nBackstab — Whenever The Rogue deals combat damage to a player, if it wasn't blocked, it deals triple damage instead and that player discards a card. You may cast target instant or sorcery card from that player's graveyard this turn without paying its mana cost.\nBetrayal — When The Rogue leaves the battlefield, an opponent at random gains control of target creature you control with the lowest power.",
+            "new": "Haste, first strike, deathtouch, Ward {2}\nSkulk (This creature can't be blocked by creatures with greater power.)\nSubversion — When The Rogue enters the battlefield, gain control of target creature an opponent controls with the highest power. Untap it. It gains haste until end of turn.\nBackstab — Whenever The Rogue deals combat damage to a player, if it wasn't blocked, it deals triple damage instead and that player discards a card. You may cast target instant or sorcery card from that player's graveyard this turn without paying its mana cost.\nBetrayal — When The Rogue leaves the battlefield, an opponent at random gains control of target creature you control with the lowest power."
+          }
+        ]
+      },
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ],
+    "The Mischief": [
+      {
+        "date": "2026-03-24",
+        "message": "Add card database, gallery, tools, and project infrastructure",
+        "type": "added",
+        "changes": []
+      }
+    ]
+  }
+}
