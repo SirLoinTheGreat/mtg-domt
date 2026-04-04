@@ -1,2 +1,8 @@
 CLAUDE.md
 docs/
+
+# Card rendering pipeline tooling (local only)
+tools/
+data/cardconjurer/
+assets/art/
+docs/superpowers/
