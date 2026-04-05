@@ -448,6 +448,7 @@ const SET_SOURCES = {
 
 let allCards = [];
 let cardHistory = {};
+const CACHE_BUST = 'v=' + Date.now();
 let activeSet = 'all';
 let activeColors = new Set();
 let searchQuery = '';
@@ -542,11 +543,11 @@ function render() {
       ? ` / ${card.dnd_card_name}` : '';
 
     html += `<div class="card-tile" onclick="openLightbox(this)"
-      data-img="${encodedPath}"
+      data-img="${encodedPath}?${CACHE_BUST}"
       data-rawname="${card.name.replace(/"/g, '&quot;')}"
       data-name="${(card.name + subtitle).replace(/"/g, '&quot;')}"
       data-details="${(card.type_line + ' — ' + card.set_code + ' #' + (card.collector_number || 'TOKEN')).replace(/"/g, '&quot;')}">
-      <img src="${thumbPath}" alt="${card.name}" loading="lazy" decoding="async">
+      <img src="${thumbPath}?${CACHE_BUST}" alt="${card.name}" loading="lazy" decoding="async">
       <div class="card-label">
         <div class="card-name">${card.name}</div>
         <div class="card-type">${card.type_line || ''}</div>
@@ -598,7 +599,7 @@ function openLightbox(tile) {
   const card = allCards.find(c => c.name === cardName);
   if (!card) return;
 
-  document.getElementById('lb-img').src = tile.dataset.img;
+  document.getElementById('lb-img').src = tile.dataset.img.split('?')[0] + '?' + CACHE_BUST;
 
   document.getElementById('lb-name').textContent = card.name +
     (card.dnd_card_name && card.dnd_card_name !== card.name
