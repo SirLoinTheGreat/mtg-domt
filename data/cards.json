@@ -3759,7 +3759,7 @@
         "Aura",
         "Curse"
       ],
-      "rules_text": "Enchant player\nWhen Curse of Leprosy enters and during your upkeep, put a disease counter on it.\nAt the beginning of your end step, lose 2 life for each disease counter on Curse of Leprosy.\nCreatures you control can't gain counters and get -1/-1 for each disease counter on Curse of Leprosy.\nPay {B} life, where X is twice the number of disease counters on Curse of Leprosy: Remove a disease counter.",
+      "rules_text": "Enchant player\nWhen Curse of Leprosy enters and during your upkeep, put a disease counter on it.\nAt the beginning of your end step, lose 2 life for each disease counter on Curse of Leprosy.\nCreatures you control can't gain counters and get -1/-1 for each disease counter on Curse of Leprosy.\nPay X life, where X is twice the number of disease counters on Curse of Leprosy: Remove a disease counter. Activate only as a sorcery.",
       "flavor_text": "\"The flesh remembers what the mind wishes to forget.\"",
       "power": null,
       "toughness": null,
@@ -4368,7 +4368,7 @@
         "Human",
         "Advisor"
       ],
-      "rules_text": "Flash\nWhen The Chancellor enters, scry 3.\nAt the beginning of your upkeep, look at the top three cards of target player's library. You may put them back in any order. If you looked at an opponent's library this way, draw a card.\n{Q}, {G}: Choose target spell. You may copy it. If you do, choose new targets for the copy. That spell's controller reveals the top card of their library. Counter that spell unless its controller pays {X}, where X is the total mana cost of the card revealed this way.",
+      "rules_text": "Flash\nWhen The Chancellor enters, scry 3.\nAt the beginning of your upkeep, look at the top three cards of target player's library. You may put them back in any order. If you looked at an opponent's library this way, draw a card.\n{T}, {1}: Choose target spell. You may copy it. If you do, choose new targets for the copy. That spell's controller reveals the top card of their library. Counter that spell unless its controller pays {X}, where X is the total mana cost of the card revealed this way.",
       "flavor_text": "\"In one hand I hold what will be. In the other, what could be. Wisdom lies in knowing the difference between the two.\" —Archmage Remora of the Celestial Tower",
       "power": "2",
       "toughness": "4",
