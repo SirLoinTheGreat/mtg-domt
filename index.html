@@ -201,29 +201,9 @@ backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
 cursor:pointer;
 }
 .lightbox.open{display:flex}
-.lightbox img{
-max-height:92vh;max-width:92vw;
-object-fit:contain;
-border-radius:4px;
-box-shadow:0 0 60px rgba(201,168,76,.15),0 20px 60px rgba(0,0,0,.5);
-cursor:default;
-animation:lightbox-in .3s ease;
-}
 @keyframes lightbox-in{
-from{opacity:0;transform:scale(.92)}
+from{opacity:0;transform:scale(.96)}
 to{opacity:1;transform:scale(1)}
-}
-.lightbox-info{
-position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);
-text-align:center;pointer-events:none;
-}
-.lightbox-info .lb-name{
-font-family:'Cinzel Decorative',serif;font-size:1.2rem;
-color:var(--gold);letter-spacing:.04em;
-}
-.lightbox-info .lb-details{
-font-size:.85rem;color:var(--text-dim);font-style:italic;
-margin-top:.3rem;
 }
 .lightbox-close{
 position:fixed;top:1.5rem;right:1.5rem;
@@ -236,76 +216,137 @@ transition:color .2s;z-index:1001;
 
 /* Enhanced lightbox layout */
 .lightbox-content{
-  display:flex;gap:2rem;align-items:flex-start;
-  max-width:1200px;width:95vw;max-height:90vh;
+  display:flex;gap:0;align-items:stretch;
+  max-width:1100px;width:95vw;max-height:90vh;
+  cursor:default;
+  animation:lightbox-in .3s ease;
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 40px rgba(201,168,76,.08);
 }
 .lightbox-card-col{
-  flex:0 0 auto;
+  flex:0 0 280px;background:#1a1510;
+  display:flex;flex-direction:column;align-items:center;
+  padding:24px 20px;gap:12px;
 }
+.lb-back{
+  width:100%;font-size:.75rem;color:var(--text-dim);
+  cursor:pointer;background:none;border:none;text-align:left;
+  font-family:system-ui,-apple-system,sans-serif;
+  padding:0;opacity:.5;transition:opacity .2s;height:18px;
+}
+.lb-back:hover{opacity:1;color:var(--gold)}
+.lb-back:empty{cursor:default}
 .lightbox-card-col img{
-  max-height:80vh;width:auto;border-radius:12px;
-  box-shadow:var(--card-shadow);
-  animation:lightbox-in .3s ease;
+  width:220px;height:auto;border-radius:10px;
+  box-shadow:0 8px 32px rgba(0,0,0,.6),0 0 20px rgba(201,168,76,.1);
+}
+.lb-set-info{
+  text-align:center;font-family:system-ui,-apple-system,sans-serif;
+  font-size:.65rem;color:var(--text-dim);letter-spacing:.06em;
+  line-height:1.6;
 }
 .lightbox-detail-col{
-  flex:1 1 400px;overflow-y:auto;max-height:80vh;
-  padding:1rem;
-  scrollbar-width:thin;scrollbar-color:var(--gold-dim) transparent;
+  flex:1 1 400px;overflow-y:auto;max-height:90vh;
+  padding:28px 32px;background:#111;
+  border-left:1px solid rgba(201,168,76,.08);
+  scrollbar-width:thin;scrollbar-color:rgba(201,168,76,.2) transparent;
 }
 .lightbox-detail-col::-webkit-scrollbar{width:6px}
-.lightbox-detail-col::-webkit-scrollbar-thumb{background:var(--gold-dim);border-radius:3px}
+.lightbox-detail-col::-webkit-scrollbar-thumb{background:rgba(201,168,76,.2);border-radius:3px}
 
 .lb-name{
-  font-family:'Cinzel Decorative',serif;font-size:1.1rem;
-  color:var(--gold);letter-spacing:.04em;margin-bottom:.4rem;
+  font-family:Georgia,'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;
+  color:var(--gold);letter-spacing:.02em;line-height:1.2;
 }
-.lb-section{margin-bottom:1.5rem}
+.lb-type{
+  font-family:Georgia,'Cormorant Garamond',serif;font-size:.85rem;
+  color:var(--text-dim);font-style:italic;margin-top:4px;
+}
+.lb-badges{display:flex;gap:8px;margin-top:10px;margin-bottom:24px;flex-wrap:wrap}
+.lb-badge{
+  font-family:system-ui,-apple-system,sans-serif;font-size:.68rem;
+  padding:3px 10px;border-radius:4px;letter-spacing:.03em;
+}
+.lb-badge-mana{
+  background:rgba(201,168,76,.1);color:var(--gold);
+  border:1px solid rgba(201,168,76,.15);
+}
+.lb-badge-positive{
+  background:rgba(100,180,120,.08);color:#7dba8a;
+  border:1px solid rgba(100,180,120,.12);
+}
+.lb-badge-negative{
+  background:rgba(200,80,80,.08);color:#c86060;
+  border:1px solid rgba(200,80,80,.12);
+}
+.lb-badge-neutral{
+  background:rgba(180,180,180,.06);color:#999;
+  border:1px solid rgba(180,180,180,.1);
+}
+
+.lb-section{margin-bottom:24px}
 .lb-section-title{
-  font-family:'Cinzel',serif;font-size:.85rem;
-  color:var(--gold);letter-spacing:.12em;text-transform:uppercase;
-  margin-bottom:.5rem;
-  padding-bottom:.3rem;border-bottom:1px solid rgba(201,168,76,.15);
+  font-family:system-ui,-apple-system,sans-serif;font-size:.65rem;
+  color:var(--gold);letter-spacing:.14em;text-transform:uppercase;
+  margin-bottom:10px;padding-bottom:8px;
+  border-bottom:1px solid rgba(201,168,76,.08);
 }
 .lb-rules{
-  font-size:1rem;line-height:1.6;color:var(--text);
+  font-family:system-ui,-apple-system,sans-serif;
+  font-size:.88rem;line-height:1.75;color:#c8b890;
   white-space:pre-wrap;
 }
-.lb-mana{font-size:.95rem;color:var(--text-dim);margin-bottom:.25rem}
-.lb-type{font-size:.95rem;color:var(--text-dim);font-style:italic}
 .lb-flavor{
-  font-style:italic;color:var(--text-dim);
-  border-left:2px solid var(--gold-dim);padding-left:.75rem;
-  margin-top:.5rem;
+  font-family:Georgia,'Cormorant Garamond',serif;
+  font-style:italic;color:var(--text-dim);font-size:.85rem;
+  border-left:2px solid rgba(201,168,76,.15);padding-left:14px;
+  margin-top:16px;line-height:1.6;
 }
 
 /* Changelog */
 .changelog-entry{
-  padding:.4rem 0;
-  border-bottom:1px solid rgba(201,168,76,.05);
+  display:flex;gap:12px;align-items:baseline;
+  padding:8px 0;
 }
 .changelog-date{
-  font-size:.8rem;color:var(--gold-dim);font-family:'Cinzel',serif;
+  font-family:system-ui,-apple-system,sans-serif;
+  font-size:.7rem;font-weight:600;color:var(--gold);
+  white-space:nowrap;min-width:72px;
 }
-.changelog-msg{font-size:.9rem;color:var(--text-dim)}
+.changelog-body{}
+.changelog-msg{
+  font-family:system-ui,-apple-system,sans-serif;
+  font-size:.82rem;color:#b0a080;
+}
 .changelog-detail{
-  font-size:.8rem;color:var(--text-dim);opacity:.7;
-  margin-top:.15rem;
+  font-family:system-ui,-apple-system,sans-serif;
+  font-size:.7rem;color:var(--text-dim);margin-top:2px;
 }
 
 /* Related cards */
 .related-cards-grid{
-  display:flex;gap:.75rem;flex-wrap:wrap;
+  display:flex;gap:10px;flex-wrap:wrap;
 }
 .related-card-thumb{
-  width:120px;cursor:pointer;border-radius:6px;overflow:hidden;
+  width:80px;cursor:pointer;border-radius:6px;overflow:hidden;
   transition:transform .2s;
   box-shadow:0 2px 8px rgba(0,0,0,.4);
 }
-.related-card-thumb:hover{transform:scale(1.05)}
+.related-card-thumb:hover{transform:scale(1.08)}
 .related-card-thumb img{width:100%;display:block}
 .related-card-name{
-  font-size:.7rem;color:var(--text-dim);text-align:center;
-  padding:.2rem;background:rgba(0,0,0,.6);
+  font-family:system-ui,-apple-system,sans-serif;
+  font-size:.6rem;color:var(--text-dim);text-align:center;
+  padding:3px;background:rgba(0,0,0,.6);
+}
+
+/* Lightbox responsive */
+@media(max-width:768px){
+  .lightbox-content{flex-direction:column;max-height:95vh;width:95vw;border-radius:8px}
+  .lightbox-card-col{flex:0 0 auto;padding:16px;flex-direction:row;gap:16px}
+  .lightbox-card-col img{width:140px}
+  .lb-set-info{text-align:left}
+  .lightbox-detail-col{padding:20px;max-height:none}
 }
 
 /* NO RESULTS */
@@ -395,13 +436,15 @@ margin-left:.5rem;vertical-align:middle;
   <button class="lightbox-close" title="Close">&times;</button>
   <div class="lightbox-content">
     <div class="lightbox-card-col">
+      <button class="lb-back" id="lb-back"></button>
       <img id="lb-img" src="" alt="">
+      <div class="lb-set-info" id="lb-set-info"></div>
     </div>
     <div class="lightbox-detail-col">
       <div class="lb-section">
         <div class="lb-name" id="lb-name"></div>
         <div class="lb-type" id="lb-type"></div>
-        <div class="lb-mana" id="lb-mana"></div>
+        <div class="lb-badges" id="lb-badges"></div>
       </div>
       <div class="lb-section">
         <div class="lb-section-title">Rules Text</div>
@@ -594,21 +637,53 @@ document.getElementById('search').addEventListener('input', e => {
 
 // Lightbox
 const lightbox = document.getElementById('lightbox');
-function openLightbox(tile) {
-  const cardName = tile.dataset.rawname;
-  const card = allCards.find(c => c.name === cardName);
-  if (!card) return;
+const lbNavStack = [];
 
-  document.getElementById('lb-img').src = tile.dataset.img.split('?')[0] + '?' + CACHE_BUST;
+function showCard(card) {
+  const imgPath = (card.image_file || '').split('/').map(p => encodeURIComponent(p)).join('/');
+  document.getElementById('lb-img').src = imgPath + '?' + CACHE_BUST;
 
+  // Card name (serif)
   document.getElementById('lb-name').textContent = card.name +
     (card.dnd_card_name && card.dnd_card_name !== card.name
       ? ' / ' + card.dnd_card_name : '');
-  document.getElementById('lb-type').textContent =
-    card.type_line + ' — ' + card.set_code + ' #' + (card.collector_number || 'TOKEN');
-  document.getElementById('lb-mana').textContent = card.mana_cost || '';
 
+  // Type line (serif italic)
+  document.getElementById('lb-type').textContent = card.type_line || '';
+
+  // Badges
+  const badgesEl = document.getElementById('lb-badges');
+  let badges = '';
+  if (card.mana_cost) {
+    badges += '<span class="lb-badge lb-badge-mana">' + card.mana_cost + '</span>';
+  }
+  const sentiment = card.sentiment || 'neutral';
+  const sentLabel = sentiment.charAt(0).toUpperCase() + sentiment.slice(1);
+  badges += '<span class="lb-badge lb-badge-' + sentiment + '">' + sentLabel + '</span>';
+  badgesEl.innerHTML = badges;
+
+  // Set info under card image
+  document.getElementById('lb-set-info').innerHTML =
+    card.set_code + ' &bull; #' + (card.collector_number || 'TOKEN') +
+    '<br>Art by ' + (card.artist || 'Unknown');
+
+  // Back button
+  const backBtn = document.getElementById('lb-back');
+  if (lbNavStack.length > 0) {
+    backBtn.textContent = '\u2190 Back';
+    backBtn.onclick = function() {
+      const prev = lbNavStack.pop();
+      showCard(prev);
+    };
+  } else {
+    backBtn.textContent = '';
+    backBtn.onclick = null;
+  }
+
+  // Rules text (sans-serif)
   document.getElementById('lb-rules').textContent = card.rules_text || '';
+
+  // Flavor text (serif italic)
   const flavorEl = document.getElementById('lb-flavor');
   if (card.flavor_text) {
     flavorEl.textContent = card.flavor_text;
@@ -627,9 +702,16 @@ function openLightbox(tile) {
   if (related.length > 0) {
     relSection.style.display = '';
     relGrid.innerHTML = related.map(rc => {
-      const imgPath = (rc.image_file || '').split('/').map(p => encodeURIComponent(p)).join('/');
+      const rcThumb = (rc.image_file || '').replace(/\.png$/, '.jpg').split('/');
+      const rcFn = rcThumb.pop();
+      const rcPath = [...rcThumb.slice(0,-1), rcThumb[rcThumb.length-1] || '', 'thumbs', rcFn]
+        .map(p => encodeURIComponent(p)).join('/');
+      // Simpler: just build from image_file
+      const rcParts = (rc.image_file || '').split('/');
+      const rcFile = rcParts.pop().replace(/\.png$/, '.jpg');
+      const rcThumbPath = [...rcParts, 'thumbs', rcFile].map(p => encodeURIComponent(p)).join('/');
       return '<div class="related-card-thumb" onclick="navigateToCard(\'' + rc.name.replace(/'/g, "\\'") + '\')">' +
-        '<img src="' + imgPath + '" alt="' + rc.name + '" loading="lazy">' +
+        '<img src="' + rcThumbPath + '?' + CACHE_BUST + '" alt="' + rc.name + '" loading="lazy">' +
         '<div class="related-card-name">' + rc.name + '</div>' +
       '</div>';
     }).join('');
@@ -656,21 +738,38 @@ function openLightbox(tile) {
       }
       return '<div class="changelog-entry">' +
         '<span class="changelog-date">' + e.date + '</span>' +
-        '<span class="changelog-msg"> — ' + e.message + '</span>' +
-        detail +
+        '<div class="changelog-body">' +
+          '<div class="changelog-msg">' + e.message + '</div>' +
+          detail +
+        '</div>' +
       '</div>';
     }).join('');
   } else {
     clSection.style.display = 'none';
   }
 
+  // Scroll detail panel to top
+  document.querySelector('.lightbox-detail-col').scrollTop = 0;
+}
+
+function openLightbox(tile) {
+  const cardName = tile.dataset.rawname;
+  const card = allCards.find(c => c.name === cardName);
+  if (!card) return;
+  lbNavStack.length = 0;
+  showCard(card);
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
 function navigateToCard(name) {
-  const tile = document.querySelector('.card-tile[data-rawname="' + name.replace(/"/g, '') + '"]');
-  if (tile) openLightbox(tile);
+  const card = allCards.find(c => c.name === name);
+  if (!card) return;
+  // Push current card onto nav stack
+  const currentName = document.getElementById('lb-name').textContent.split(' / ')[0];
+  const currentCard = allCards.find(c => c.name === currentName);
+  if (currentCard) lbNavStack.push(currentCard);
+  showCard(card);
 }
 lightbox.addEventListener('click', e => {
   if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
