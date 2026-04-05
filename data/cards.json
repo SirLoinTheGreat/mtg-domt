@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0.0",
-    "last_updated": "2026-03-22",
+    "last_updated": "2026-04-04",
     "total_cards": 148
   },
   "cards": [
@@ -989,15 +989,15 @@
       "set_code": "DOMT-EX",
       "collector_number": "0005",
       "mana_cost": "{2}{G}{W}",
-      "type_line": "Legendary Artifact",
+      "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
       ],
       "types": [
-        "Artifact"
+        "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "At the beginning of your upkeep, put X Rest counters on The Campfire, where X is half the number of Rest counters on it, rounded up.\n{T}, {W}: Put X Rest counters on The Campfire.\n{T}, Remove any number of Rest counters: Choose one —\n• Rejuvenate — Return target permanent card with mana value X or less from your graveyard to the battlefield, where X is the number of Rest counters removed this way.\n• Invigorate — Put X +1/+1 counters divided as you choose among up to X target creatures, where X is the number of Rest counters removed this way.\n• Recuperate — You gain X life and draw X cards, where X is the number of Rest counters removed this way. Skip your next turn.",
+      "rules_text": "When The Campfire enters, choose three —\n• Return target permanent card from your graveyard to the battlefield.\n• Put three +1/+1 counters on each creature you control.\n• Draw four cards and gain 10 life.\n• Remove all counters from target permanent.\n• Create four 1/1 white Human creature tokens.\nAt the beginning of your upkeep, gain 2 life and scry 1.",
       "flavor_text": "In its flames dance memories of peace long forgotten, a respite from the endless battles ahead.",
       "power": null,
       "toughness": null,
@@ -1452,22 +1452,25 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0018",
-      "mana_cost": "{U}{W}",
+      "mana_cost": "{2}{W}{W}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Loyal Follower — Create a legendary 3/3 white and blue Human token named Loyal Companion with vigilance, lifelink, and \"This creature can't attack unless you control another attacking creature.\"\nWhenever Loyal Companion dies, you may draw a card from the Deck of Many Things.",
+      "rules_text": "Create a legendary 5/5 white Human Soldier creature token named Loyal Companion with vigilance, lifelink, and indestructible.\nLoyal Companion has \"Whenever you are dealt damage by a source an opponent controls, Loyal Companion deals that much damage to that source's controller.\"\nWhen you lose the game or are eliminated, exile Loyal Companion.",
       "flavor_text": "Fate offers few moments of clarity—fewer still the wisdom to recognize them.",
       "power": null,
       "toughness": null,
       "color_identity": [
-        "U",
         "W"
       ],
-      "keywords": [],
+      "keywords": [
+        "Vigilance",
+        "Lifelink",
+        "Indestructible"
+      ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Many More Things",
       "image_file": "assets/cards/expansion/The Humanoid.png",
@@ -2247,20 +2250,20 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0041",
-      "mana_cost": "{2}{W}{U}",
+      "mana_cost": "{2}{B}{R}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Collapse — Destroy all non-creature, non-artifact permanents you control. For each permanent destroyed this way, create a Treasure token.\nYou may draw a card from the Deck of Many Things.",
+      "rules_text": "Collapse — Destroy all artifacts you control. Sacrifice all lands you control. You can’t play lands during your next two turns.\nYou may draw a card from the Deck of Many Things.",
       "flavor_text": "Sometimes fate offers a choice. Choose wisely — the path not taken may have been your salvation... or your doom.",
       "power": null,
       "toughness": null,
       "color_identity": [
-        "W",
-        "U"
+        "B",
+        "R"
       ],
       "keywords": [],
       "artist": "MidJourney",
@@ -2389,24 +2392,21 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0045",
-      "mana_cost": "{2}{U}{G}",
-      "type_line": "Legendary Artifact — Shrine",
+      "mana_cost": "{2}{U}",
+      "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
       ],
       "types": [
-        "Artifact"
+        "Enchantment"
       ],
-      "subtypes": [
-        "Shrine"
-      ],
-      "rules_text": "{T}: Choose three different abilities from among the following. You can't choose the same ability twice. Activate this ability only as a sorcery.\n• Add one mana of any color.\n• Scry 1 or Surveil 1.\n• Look at target player's hand.\n• Target player mills a card.\n• Target player gains 1 life.\n• Tap or untap target creature.\n• Target creature gets +1/+1 until end of turn.\n• Target creature gains haste until end of turn.\n• Well of Minor Magics deals 1 damage to any target.\n{T}: Activate one of the chosen abilities, then draw a card.",
+      "subtypes": [],
+      "rules_text": "When Well of Minor Magics enters, choose three from among the following. You gain those abilities for as long as you control Well of Minor Magics.\n• At the beginning of your upkeep, scry 1.\n• {T}: Add one mana of any color.\n• {0}: Target creature you control gains haste until end of turn. Activate only once each turn.\n• Whenever you cast a spell, you may pay {1}. If you do, Well of Minor Magics deals 1 damage to any target.\n• At the beginning of your end step, draw a card.",
       "flavor_text": "Each ripple in its depths whispers secrets of a different art.",
       "power": null,
       "toughness": null,
       "color_identity": [
-        "U",
-        "G"
+        "U"
       ],
       "keywords": [],
       "artist": "MidJourney",
@@ -2551,24 +2551,24 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0005",
-      "mana_cost": "{W}{U}{R}{G}",
+      "mana_cost": "{2}{R}{G}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Each player reveals cards from the top of their library until they reveal seven land cards. Each player puts those lands onto the battlefield tapped under their control, then puts all other revealed cards on the bottom of their library in any order.",
+      "rules_text": "You get an emblem with \"Once during each of your turns, you may have target creature you control get +10/+10 and gain trample until end of turn. When that creature deals combat damage this turn, destroy target artifact.\"",
       "flavor_text": "\"In the space between heartbeats, worlds fall like autumn leaves from the branches of possibility.\"",
       "power": null,
       "toughness": null,
       "color_identity": [
-        "W",
-        "U",
         "R",
         "G"
       ],
-      "keywords": [],
+      "keywords": [
+        "Trample"
+      ],
       "artist": "MidJourney",
       "dnd_source": "Harrow Deck of Many Things",
       "image_file": "assets/cards/harrow/The Big Sky.png",
@@ -3047,19 +3047,20 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0020",
-      "mana_cost": "{2}{U}{U}",
+      "mana_cost": "{2}{U}{B}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Look at target opponent's hand, library, or face-down cards they own in any zone. You may choose a nonland card from among them and exile it with three time counters on it. It gains \"Remove a time counter from this card at the beginning of your upkeep. When the last is removed, you may cast this card without paying its mana cost. If you don't, you lose 3 life.\"",
+      "rules_text": "Search any player's library, hand, or graveyard. You may put a permanent card found this way onto the battlefield under your control or cast a nonpermanent card found this way without paying its mana cost. If you searched a library, its owner shuffles.",
       "flavor_text": "\"Perfect knowledge requires perfect understanding.\"",
       "power": null,
       "toughness": null,
       "color_identity": [
-        "U"
+        "U",
+        "B"
       ],
       "keywords": [],
       "artist": "MidJourney",
@@ -3155,7 +3156,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Exile the top three cards of the Deck of Many Things face up. An opponent chosen at random may cast one of those cards at random without paying its mana cost. Then you may cast one of the remaining exiled cards without paying its mana cost. The remaining exiled card remains in exile.",
+      "rules_text": "Choose another player. That player is your ally until end of turn.\nExile the top three cards of the Deck of Many Things face up. Your ally chooses one of those cards and casts it without paying its mana cost. You choose one of the remaining two cards and cast it without paying its mana cost. Exile the third card.",
       "flavor_text": "\"Three fates revealed, two embraced, one forever lost — even destiny has a sense of humor.\"",
       "power": null,
       "toughness": null,
@@ -4151,27 +4152,27 @@
       "set_code": "DOMT-HW",
       "collector_number": "0052",
       "mana_cost": "{2}{U}{R}{G}",
-      "type_line": "Legendary Creature — Human Shaman",
+      "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
       ],
       "types": [
-        "Creature"
+        "Enchantment"
       ],
-      "subtypes": [
-        "Human",
-        "Shaman"
-      ],
-      "rules_text": "When The Wanderer enters, each player reveals their hand. For each nonland permanent card revealed, its controller may put it onto the battlefield. When they do, it gains all abilities of another permanent they control that shares a type with it.\nAt the beginning of each player's upkeep, that player chooses a nonlegendary, nonland, nontoken permanent they control. Until end of turn, it becomes an artifact in addition to its other types and gains one at random:\n• Manaforge — {T}: Add three mana of any one color.\n• Insight — {T}: Draw two cards, then discard a card.\n• Replication — {T}, Pay 3 life: Create a token copy of target artifact you control.\n• Rebirth — {T}, Sacrifice this artifact: Return target permanent card from your graveyard to your hand.\nWhenever a permanent gains an ability this way, its controller creates a Treasure token and it becomes legendary.",
+      "subtypes": [],
+      "rules_text": "When The Wanderer enters, choose target nonland permanent you control. It gains indestructible and hexproof and one of the following at random —\n• Manaforge — \"{T}: Add three mana of any one color.\"\n• Insight — \"{T}: Draw two cards, then discard a card.\"\n• Replication — \"{T}, Pay 3 life: Create a token copy of this permanent.\"\n• Rebirth — \"{T}, Sacrifice this permanent: Return any number of permanent cards from your graveyard to the battlefield.\"\nThe chosen permanent becomes legendary in addition to its other types.",
       "flavor_text": "\"In the hands of the chosen, the mundane awakens to extraordinary purpose.\"",
-      "power": "3",
-      "toughness": "4",
+      "power": null,
+      "toughness": null,
       "color_identity": [
         "U",
         "R",
         "G"
       ],
-      "keywords": [],
+      "keywords": [
+        "Indestructible",
+        "Hexproof"
+      ],
       "artist": "MidJourney",
       "dnd_source": "Harrow Deck of Many Things",
       "image_file": "assets/cards/harrow/The Wanderer.png",
@@ -4454,24 +4455,24 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0006",
-      "mana_cost": "{2}{U}{B}",
-      "type_line": "Legendary Artifact",
-      "supertypes": [
-        "Legendary"
-      ],
+      "mana_cost": "{1}{U}",
+      "type_line": "Sorcery",
+      "supertypes": [],
       "types": [
-        "Artifact"
+        "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "The Crown enters tapped.\nYou have no maximum hand size.\nAt the beginning of your end step, if you control three or more creatures, draw a card and each opponent loses 1 life.\n{Q}: Gain control of target creature with power less than or equal to the number of cards in your hand as long as you control The Crown. Untap it. It gains haste until end of turn.\n{Q}, Sacrifice The Crown: Each creature you control deals damage equal to its power to its owner. Exile those creatures.",
+      "rules_text": "Gain control of target creature an opponent controls with power 3 or less until end of turn. Untap it. It gains haste until end of turn.\nYou get an emblem with \"Creatures you control with power 3 or less have menace.\"",
       "flavor_text": "\"To wear the crown is to hold the strings of fate—and snap them at your whim.\" —Erasis, the Unbroken Tyrant",
       "power": null,
       "toughness": null,
       "color_identity": [
-        "U",
-        "B"
+        "U"
       ],
-      "keywords": [],
+      "keywords": [
+        "Haste",
+        "Menace"
+      ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Crown.png",
@@ -4521,35 +4522,28 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0008",
-      "mana_cost": "{2}{W}{R}",
-      "type_line": "Legendary World Enchantment",
-      "supertypes": [
-        "Legendary"
-      ],
+      "mana_cost": "{1}{W}",
+      "type_line": "Sorcery",
+      "supertypes": [],
       "types": [
-        "Enchantment"
+        "Sorcery"
       ],
-      "subtypes": [
-        "World"
-      ],
-      "rules_text": "When The Day enters, The Day deals 2 damage to each player and each creature they control.\nCreatures have haste, double strike, and trample.\nWhenever a creature attacks, it gains +1/+0 until end of turn.\nIf a creature would die during combat, exile it instead. At the end of combat, return it to the battlefield tapped.",
+      "subtypes": [],
+      "rules_text": "You get an emblem with \"Creatures you control get +0/+1 and have ward {1}.\"\nGain 3 life.",
       "flavor_text": "\"At the height of the sun's power, blades never dull, and warriors never tire.\"",
       "power": null,
       "toughness": null,
       "color_identity": [
-        "W",
-        "R"
+        "W"
       ],
       "keywords": [
-        "Haste",
-        "Double strike",
-        "Trample"
+        "Ward"
       ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Day.png",
       "is_token": false,
-      "sentiment": "neutral",
+      "sentiment": "positive",
       "related_cards": []
     },
     {
@@ -4586,27 +4580,24 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0010",
-      "mana_cost": "{2}{B}{R}",
-      "type_line": "Legendary World Enchantment",
+      "mana_cost": "{1}{B}",
+      "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
       ],
       "types": [
         "Enchantment"
       ],
-      "subtypes": [
-        "World"
-      ],
-      "rules_text": "When The Dusk enters, all creatures get -2/-2 until end of turn.\nCreatures enter the battlefield tapped and have \"At the beginning of your end step, if this creature didn't attack, put a -1/-1 counter on it.\"\nWhenever a creature dies, that creature's controller creates a 1/1 black Spirit token with flying and \"When this creature dies, mill three cards.\"",
+      "subtypes": [],
+      "rules_text": "Creatures you control enter tapped.\nAt the beginning of your combat phase, if you didn't attack during your last turn, skip your combat phase this turn.\nVanishing 5 (This permanent enters with five time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, sacrifice it.)\nAt the beginning of your upkeep, you may pay 3 life. If you do, sacrifice The Dusk.",
       "flavor_text": "\"As the sun dips below the horizon, shadows lengthen, and the world grows weary.\"",
       "power": null,
       "toughness": null,
       "color_identity": [
-        "B",
-        "R"
+        "B"
       ],
       "keywords": [
-        "Flying"
+        "Vanishing"
       ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Wonders",
@@ -4875,18 +4866,14 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0019",
-      "mana_cost": "{2}{U}{B}",
-      "type_line": "Legendary World Enchantment",
-      "supertypes": [
-        "Legendary"
-      ],
+      "mana_cost": "{1}{U}{B}",
+      "type_line": "Sorcery",
+      "supertypes": [],
       "types": [
-        "Enchantment"
+        "Sorcery"
       ],
-      "subtypes": [
-        "World"
-      ],
-      "rules_text": "When The Night enters, each player discards a card, then draws a card.\nCreatures can't block unless their controller pays {2} for each blocker.\nWhenever a creature deals combat damage to a player, its controller creates a Treasure token, draws a card, and loses 1 life.",
+      "subtypes": [],
+      "rules_text": "You get an emblem with \"Creatures you control have skulk and 'Whenever this creature deals combat damage to a player, scry 1.'\"\nYou may look at face-down cards you own in exile.",
       "flavor_text": "\"In the stillness of night, secrets are whispered, and the unseen stirs.\"",
       "power": null,
       "toughness": null,
@@ -4894,12 +4881,14 @@
         "U",
         "B"
       ],
-      "keywords": [],
+      "keywords": [
+        "Skulk"
+      ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Night.png",
       "is_token": false,
-      "sentiment": "neutral",
+      "sentiment": "positive",
       "related_cards": []
     },
     {
