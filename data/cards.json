@@ -453,7 +453,7 @@
         "Rogue",
         "Assassin"
       ],
-      "rules_text": "Haste, first strike, deathtouch, Ward {2}\nSkulk (This creature can't be blocked by creatures with greater power.)\nSubversion — When The Rogue enters, gain control of target creature an opponent controls with the highest power. Untap it. It gains haste until end of turn.\nBackstab — Whenever The Rogue deals combat damage to a player, if it wasn't blocked, it deals triple damage instead and that player discards a card. You may cast target instant or sorcery card from that player's graveyard this turn without paying its mana cost.\nBetrayal — When The Rogue leaves, an opponent at random gains control of target creature you control with the lowest power.",
+      "rules_text": "Haste, first strike, deathtouch, ward {2}\nSkulk (This creature can't be blocked by creatures with greater power.)\nSubversion — When The Rogue enters, gain control of target creature an opponent controls with the highest power. Untap it. It gains haste until end of turn.\nBackstab — Whenever The Rogue deals combat damage to a player, if it wasn't blocked, it deals triple damage instead and that player discards a card. You may cast target instant or sorcery card from that player's graveyard this turn without paying its mana cost.\nBetrayal — When The Rogue leaves, an opponent at random gains control of target creature you control with the lowest power.",
       "flavor_text": "Trust is a currency best spent quickly.",
       "power": "3",
       "toughness": "2",
@@ -2754,7 +2754,7 @@
       "subtypes": [
         "Elemental"
       ],
-      "rules_text": "Vanishing 4 (This permanent enters with four time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice this and exile all of the marked player's nonland permanents. That player planeswalks to the Plane of Air.)\nFlash, Flying, Haste, Ward {W}\nWhen The Cyclone enters, mark the player who summoned it, and an opponent chosen at random gains control of it.\nElder Air Elemental attacks the marked player each combat if able and can't block. As long as Elder Air Elemental is on the battlefield, other creatures and players can't attack or target the marked player.",
+      "rules_text": "Vanishing 4 (This permanent enters with four time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice this and exile all of the marked player's nonland permanents. That player planeswalks to the Plane of Air.)\nFlash, flying, haste, ward {W}\nWhen The Cyclone enters, mark the player who summoned it, and an opponent chosen at random gains control of it.\nThe Cyclone attacks the marked player each combat if able and can't block. As long as The Cyclone is on the battlefield, other creatures and players can't attack or target the marked player.",
       "flavor_text": "\"Face me alone, mortal. Time grows short, and the winds of fate grow restless.\"",
       "power": "8",
       "toughness": "8",
@@ -2891,7 +2891,7 @@
       "subtypes": [
         "Demon"
       ],
-      "rules_text": "Flying, Haste\nWhen The Demon enters, choose a player. That player becomes marked. (A marked player's maximum hand size is reduced by one for each doom counter on The Demon.)\nWhenever The Demon deals combat damage to the marked player, put a doom counter on it and scry 1.\nAt the beginning of marked player's upkeep, The Demon deals damage to that player equal to the number of doom counters on it.\nWhen The Demon has five or more doom counters on it, the marked player loses the game.",
+      "rules_text": "Flying, haste\nWhen The Demon enters, choose a player. That player becomes marked. (A marked player's maximum hand size is reduced by one for each doom counter on The Demon.)\nWhenever The Demon deals combat damage to the marked player, put a doom counter on it and scry 1.\nAt the beginning of marked player's upkeep, The Demon deals damage to that player equal to the number of doom counters on it.\nWhen The Demon has five or more doom counters on it, the marked player loses the game.",
       "flavor_text": "\"Your soul caught my eye. Soon, it shall catch my claws.\"",
       "power": "4",
       "toughness": "4",
@@ -2930,7 +2930,7 @@
         "Merchant",
         "Horror"
       ],
-      "rules_text": "Flash, Deathtouch\nWhen The Foreign Trader enters, you may pay any amount of life in multiples of 5. For each 5 life paid this way, create three Treasure tokens, put an age counter on it, and scry 1. If you don't, sacrifice it and create a Treasure token.\nAt the beginning of your upkeep, for each age counter on The Foreign Trader, mill three cards.\nYour maximum hand size is increased by the number of age counters on The Foreign Trader and spells you cast cost {1} less for each age counter on it.\nWhenever you sacrifice a Treasure token, each opponent loses 1 life and you gain 1 life.",
+      "rules_text": "Flash, deathtouch\nWhen The Foreign Trader enters, you may pay any amount of life in multiples of 5. For each 5 life paid this way, create three Treasure tokens, put an age counter on it, and scry 1. If you don't, sacrifice it and create a Treasure token.\nAt the beginning of your upkeep, for each age counter on The Foreign Trader, mill three cards.\nYour maximum hand size is increased by the number of age counters on The Foreign Trader and spells you cast cost {1} less for each age counter on it.\nWhenever you sacrifice a Treasure token, each opponent loses 1 life and you gain 1 life.",
       "flavor_text": "\"Time is the only currency that cannot be counterfeited. Shall we trade?\"",
       "power": "1",
       "toughness": "4",
@@ -3186,7 +3186,7 @@
         "Human",
         "Wizard"
       ],
-      "rules_text": "Flash, Haste\nWhen The Juggler enters, exile the top three cards of your library face up. For as long as they remain exiled, you may cast spells from among them, and you may spend mana as though it were mana of any color to cast them.\nAt the beginning of your upkeep, you may return any number of exiled cards you own to your library, then exile that many cards from the top of your library face up.\nWhenever you cast a spell from exile, copy it and create a token copy of The Juggler. You may choose new targets for the copy.",
+      "rules_text": "Flash, haste\nWhen The Juggler enters, exile the top three cards of your library face up. For as long as they remain exiled, you may cast spells from among them, and you may spend mana as though it were mana of any color to cast them.\nAt the beginning of your upkeep, you may return any number of exiled cards you own to your library, then exile that many cards from the top of your library face up.\nWhenever you cast a spell from exile, copy it and create a token copy of The Juggler. You may choose new targets for the copy.",
       "flavor_text": "\"Reality is merely another ball to keep in the air.\"",
       "power": "3",
       "toughness": "3",
@@ -3426,7 +3426,7 @@
         "Giant",
         "Warrior"
       ],
-      "rules_text": "Haste, Trample, Ward {2}\nWhen The Mountain Man enters or attacks, you may search your library for up to two land cards, put them onto the battlefield tapped, then shuffle.\nThe Mountain Man's power and toughness are each equal to twice the number of lands you control, rounded down.\nLandfall — The Mountain Man deals damage equal to half the number of lands you control, rounded down, to any target.",
+      "rules_text": "Haste, trample, ward {2}\nWhen The Mountain Man enters or attacks, you may search your library for up to two land cards, put them onto the battlefield tapped, then shuffle.\nThe Mountain Man's power and toughness are each equal to twice the number of lands you control, rounded down.\nLandfall — The Mountain Man deals damage equal to half the number of lands you control, rounded down, to any target.",
       "flavor_text": "\"The peaks do not yield to those who climb them. They yield to those who become them.\"",
       "power": "*",
       "toughness": "*",
@@ -3498,7 +3498,7 @@
       "subtypes": [
         "Bird"
       ],
-      "rules_text": "Flash\nFlying, Ward {2}\nWhenever The Owl deals combat damage to a player, scry 1.\nWhenever you scry, you may pay {1}. If you do, gain 2 life and draw a card.\n{T}, Sacrifice The Owl: Scry 7, then target opponent may scry 3. Draw a card.\nWhen The Owl dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
+      "rules_text": "Flash\nFlying, ward {2}\nWhenever The Owl deals combat damage to a player, scry 1.\nWhenever you scry, you may pay {1}. If you do, gain 2 life and draw a card.\n{T}, Sacrifice The Owl: Scry 7, then target opponent may scry 3. Draw a card.\nWhen The Owl dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
       "flavor_text": "\"Perfect knowledge comes with perfect awareness.\"",
       "power": "1",
       "toughness": "3",
@@ -3535,7 +3535,7 @@
         "Angel",
         "Knight"
       ],
-      "rules_text": "Flying, Double Strike, Vigilance\nWhen The Paladin enters, choose one —\n• You create five 2/2 white Knight tokens with vigilance.\n• You gain 10 life and draw three cards.\n• You get an emblem with \"Creatures you control have protection from the color of your choice and lifelink.\"\nWhenever The Paladin attacks, exile target nonland permanent an opponent controls until The Paladin leaves.\nAt the beginning of your end step, return target permanent card from your graveyard to the battlefield.",
+      "rules_text": "Flying, double strike, vigilance\nWhen The Paladin enters, choose one —\n• You create five 2/2 white Knight tokens with vigilance.\n• You gain 10 life and draw three cards.\n• You get an emblem with \"Creatures you control have protection from the color of your choice and lifelink.\"\nWhenever The Paladin attacks, exile target nonland permanent an opponent controls until The Paladin leaves.\nAt the beginning of your end step, return target permanent card from your graveyard to the battlefield.",
       "flavor_text": "\"To serve justice is to wield both sword and shield — one to protect the innocent, one to strike down evil.\"",
       "power": "5",
       "toughness": "5",
@@ -3922,7 +3922,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "At the beginning of your upkeep, each player creates a 1/1 green and white Human Performer token.\nWhenever a creature dies, put a Spotlight counter on The Theater.\n{T}, Remove a Spotlight counter from The Theater: Choose one —\n• Encore performance — Create two 2/2 white Human Performer tokens with \"When this creature enters, tap target creature an opponent controls.\"\n• Inspire the audience — Each player draws a card, then you draw two additional cards.\n• Standing ovation — Each player gains 1 life, then you gain 1 life for each creature you control.",
+      "rules_text": "At the beginning of your upkeep, each player creates a 1/1 green and white Human Performer token.\nWhenever a creature dies, put a Spotlight counter on The Theatre.\n{T}, Remove a Spotlight counter from The Theatre: Choose one —\n• Encore performance — Create two 2/2 white Human Performer tokens with \"When this creature enters, tap target creature an opponent controls.\"\n• Inspire the audience — Each player draws a card, then you draw two additional cards.\n• Standing ovation — Each player gains 1 life, then you gain 1 life for each creature you control.",
       "flavor_text": "\"Every battle tells a story; every victory earns an ovation.\"",
       "power": null,
       "toughness": null,
@@ -3987,7 +3987,7 @@
       "subtypes": [
         "Shapeshifter"
       ],
-      "rules_text": "Flash, Haste\n{T}, Choose target creature. The Twin becomes a copy of that creature except it has the opposite characteristics at the time of copying: If the chosen creature is tapped, this is untapped. If it has +1/+1 counters, this gets -1/-1 counters of equal number (and vice versa). If it has \"can't block,\" this must block each turn if able (and vice versa). Power and toughness are swapped. It gains this ability.",
+      "rules_text": "Flash, haste\n{T}, Choose target creature. The Twin becomes a copy of that creature except it has the opposite characteristics at the time of copying: If the chosen creature is tapped, this is untapped. If it has +1/+1 counters, this gets -1/-1 counters of equal number (and vice versa). If it has \"can't block,\" this must block each turn if able (and vice versa). Power and toughness are swapped. It gains this ability.",
       "flavor_text": "\"In every reflection lies a truth reversed.\"",
       "power": "2",
       "toughness": "2",
@@ -4023,7 +4023,7 @@
         "Elder",
         "Noble"
       ],
-      "rules_text": "Vigilance, Menace, Indestructible\nWhen The Tyrant enters, you become the monarch.\nAs long as you're the monarch:\n• At the beginning of your upkeep, each opponent sacrifices a permanent. For each permanent sacrificed this way, create a Treasure token and put a +1/+1 counter on The Tyrant.\n• Whenever you cast a spell, copy that spell. You may choose new targets for the copy.\n• Other players can't cast spells during your turn, and your opponents can't attack you with fewer than three creatures.",
+      "rules_text": "Vigilance, menace, indestructible\nWhen The Tyrant enters, you become the monarch.\nAs long as you're the monarch:\n• At the beginning of your upkeep, each opponent sacrifices a permanent. For each permanent sacrificed this way, create a Treasure token and put a +1/+1 counter on The Tyrant.\n• Whenever you cast a spell, copy that spell. You may choose new targets for the copy.\n• Other players can't cast spells during your turn, and your opponents can't attack you with fewer than three creatures.",
       "flavor_text": "\"Every crown casts two shadows: one of glory above, one of graves below.\"",
       "power": "7",
       "toughness": "7",
@@ -4062,7 +4062,7 @@
         "Unicorn",
         "Spirit"
       ],
-      "rules_text": "Hexproof, Indestructible\n{T}, Shuffle The Unicorn into the Deck of Many Things: Choose one —\n• Rewrite the Past — Return all creatures put into your graveyard this turn to the battlefield.\n• Shape the Future — Shuffle up to five cards from your graveyard into your library, then draw two cards.\n• Unravel Time — Look at the top three cards of the Deck of Many Things. Exile one of them, shuffle one back into the Deck, and put the last one on top.\n• Divine Undoing — Choose a permanent that left the battlefield this game. Return it to the battlefield under your control.",
+      "rules_text": "Hexproof, indestructible\n{T}, Shuffle The Unicorn into the Deck of Many Things: Choose one —\n• Rewrite the Past — Return all creatures put into your graveyard this turn to the battlefield.\n• Shape the Future — Shuffle up to five cards from your graveyard into your library, then draw two cards.\n• Unravel Time — Look at the top three cards of the Deck of Many Things. Exile one of them, shuffle one back into the Deck, and put the last one on top.\n• Divine Undoing — Choose a permanent that left the battlefield this game. Return it to the battlefield under your control.",
       "flavor_text": "\"In its radiant presence, regret dissolves and time itself bows, offering a second chance to those who dare to dream anew.\"",
       "power": "6",
       "toughness": "6",
