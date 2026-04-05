@@ -902,7 +902,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When The Beast enters, roll 2d12. Put that many time counters on it and create that many 2/2 green Beast tokens.\nAt the beginning of your upkeep, remove a time counter. When the last counter is removed, sacrifice The Beast.\nCreatures you control are green Beasts in addition to their other colors and types and have base power and toughness 2/2.\nAt the beginning of combat on your turn, roll 2d6. Creatures you control have base power and toughness equal to the result until end of turn.\nFeral Rage — {0}, {T}: Until end of turn, creatures you control gain double strike and trample.",
+      "rules_text": "When The Beast enters, roll 2d12. Put that many time counters on it and create that many 2/2 green Beast tokens.\nAt the beginning of your upkeep, remove a time counter. When the last counter is removed, sacrifice The Beast.\nCreatures you control are green Beasts in addition to their other colors and types and have base power and toughness at least 2/2.\nAt the beginning of combat on your turn, roll 2d6. Creatures you control have base power and toughness equal to the result until end of turn.\nFeral Rage — {0}, {T}: Until end of turn, creatures you control gain double strike and trample.",
       "flavor_text": "Nature cares not for what you were—only what you become.",
       "power": null,
       "toughness": null,
@@ -1168,7 +1168,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Blink Step — Roll a d12 and put that many blink counters on you.\nAs long as you have a blink counter, at the beginning of combat on your turn, you may remove a blink counter. If you do, exile target creature you control, then return it to the battlefield under your control. It gains haste until end of turn.",
+      "rules_text": "Blink Step — Roll a d12 and put that many blink counters on you.\nYou get an emblem with \"At the beginning of combat on your turn, you may remove a blink counter from yourself. If you do, exile target creature you control, then return it to the battlefield under your control. It gains haste until end of turn.\"",
       "flavor_text": "The air shimmers where you stood, and you're already somewhere else.",
       "power": null,
       "toughness": null,
@@ -1356,7 +1356,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "Shroud, vanishing 10\nShimmer — When The Fey enters, exile your hand and library. Create X 0/1 green and blue Faerie tokens with flying, where X is the number of cards exiled this way.\nIf you would draw a card while your library has no cards in it, skip that draw instead.\nWhenever a Faerie you control leaves, look at three cards at random exiled with The Fey. You may cast one at random this turn without paying its mana cost.\n{T}, Sacrifice a Faerie: Exile target nonland permanent. Its controller reveals cards from the top of their library until they reveal a nonland permanent and puts it onto the battlefield. Put the rest on the bottom in a random order.\nWhen The Fey leaves, shuffle all cards exiled with it into their owner's library.",
+      "rules_text": "Shroud, vanishing 10\nShimmer — When The Fey enters, exile your hand and library. Create X 0/1 green and blue Faerie tokens with flying, where X is the number of cards exiled this way.\nIf you would draw a card while your library has no cards in it, skip that draw instead.\nWhenever a Faerie you control leaves, look at three cards at random exiled with The Fey. You may cast one of them this turn without paying its mana cost.\n{T}, Sacrifice a Faerie: Exile target nonland permanent. Its controller reveals cards from the top of their library until they reveal a nonland permanent and puts it onto the battlefield. Put the rest on the bottom in a random order.\nWhen The Fey leaves, shuffle all cards exiled with it into their owner's library.",
       "flavor_text": "Time bends like a willow in the Feywild, and every moment is a gamble with eternity.",
       "power": null,
       "toughness": null,
@@ -1643,7 +1643,7 @@
         "Aura",
         "Curse"
       ],
-      "rules_text": "Enchant player\nWhen Curse of Exhaustion enters, roll a d3. Put that many exhaustion counters on enchanted player.\nFor each exhaustion counter on enchanted player:\n0 — Sacrifice Curse of Exhaustion.\n1 — Skip your draw step unless you discard a card.\n2+ Creatures you control get -2/-2.\n3+ Spells you cast cost {1} more and abilities you activate cost {1} more to activate.\n4+ You lose half your life.\n5+ Creatures you control can't attack or block.\n6+ You lose the game.\nAt the beginning of your end step, if you haven't cast a spell or activated an ability this turn, remove an exhaustion counter. Otherwise, put an exhaustion counter on you.",
+      "rules_text": "Enchant player\nWhen Curse of Exhaustion enters, roll a d3. Put that many exhaustion counters on enchanted player.\nFor each exhaustion counter on enchanted player:\n0 — Sacrifice Curse of Exhaustion.\n1 — Skip your draw step unless you discard a card.\n2+ Creatures you control get -2/-2.\n3+ Spells you cast cost {1} more and abilities you activate cost {1} more to activate.\n4+ When you gain your fourth or more exhaustion counter, lose half your life, rounded up.\n5+ Creatures you control can't attack or block.\n6+ You lose the game.\nAt the beginning of your end step, if you haven't cast a spell or activated an ability this turn, remove an exhaustion counter. Otherwise, put an exhaustion counter on you.",
       "flavor_text": "Each step forward is two steps lost in the endless corridors of fatigue.",
       "power": null,
       "toughness": null,
@@ -2123,7 +2123,7 @@
         "Aura",
         "Curse"
       ],
-      "rules_text": "Enchant player, shroud\nWhen Curse of Petrification enters, you become petrified. (You can't cast spells or activate abilities except those of Curse of Petrification. Your creatures have indestructible, enter tapped, don't untap, and can't attack. All damage dealt to you or your permanents is reduced to 1. You can't receive poison counters.)\nWhenever you're dealt damage, put an erosion counter on Curse of Petrification.\n{G}, Pay X life or sacrifice X nontoken, nonland permanents: Put X erosion counters on Curse of Petrification. X can't be greater than 3. Activate only as a sorcery.\nWhen Curse of Petrification has seven or more erosion counters, sacrifice it.",
+      "rules_text": "Enchant player, shroud\nWhen Curse of Petrification enters, you become petrified. (You can't cast spells or activate abilities except those of Curse of Petrification. Your creatures have indestructible, enter tapped, don't untap, and can't attack. All damage dealt to you or your permanents is reduced to 1. You can't receive poison counters.)\nWhenever you're dealt damage, put an erosion counter on Curse of Petrification.\n{1}, Pay X life or sacrifice X nontoken, nonland permanents: Put X erosion counters on Curse of Petrification. X can't be greater than 3. Activate only as a sorcery.\nWhen Curse of Petrification has seven or more erosion counters, sacrifice it.",
       "flavor_text": "In stillness, eternity. In silence, preservation. In stone, waiting.",
       "power": null,
       "toughness": null,
@@ -3791,7 +3791,7 @@
         "Instant"
       ],
       "subtypes": [],
-      "rules_text": "Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.)\nPut X -1/-1 counters on target creature, where X is twice that creature's power. Then create X 1/1 green Snake tokens with deathtouch and infect.\nExile The Snakebite with three time counters on it and suspend 3. (At the beginning of your upkeep, remove a time counter. When the last is removed, cast this card without paying its mana cost.)\nWhen you cast The Snakebite from exile, double the number of poison counters each player has.",
+      "rules_text": "Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.)\nPut X -1/-1 counters on target creature, where X is twice that creature's power. Then create X 1/1 green Snake tokens with deathtouch and wither.\nExile The Snakebite with three time counters on it and suspend 3. (At the beginning of your upkeep, remove a time counter. When the last is removed, cast this card without paying its mana cost.)\nWhen you cast The Snakebite from exile, double the number of poison counters each player has.",
       "flavor_text": "\"First comes fear. Then pain. Finally, the blessed numbness of acceptance.\"",
       "power": null,
       "toughness": null,
@@ -3988,7 +3988,7 @@
       "subtypes": [
         "Shapeshifter"
       ],
-      "rules_text": "Flash, haste\n{T}, Choose target creature. The Twin becomes a copy of that creature except it has the opposite characteristics at the time of copying: If the chosen creature is tapped, this is untapped. If it has +1/+1 counters, this gets -1/-1 counters of equal number (and vice versa). If it has \"can't block,\" this must block each turn if able (and vice versa). Power and toughness are swapped. It gains this ability.",
+      "rules_text": "Flash, haste\n{T}: Choose target creature. The Twin becomes a copy of that creature except its power and toughness are swapped, it's untapped if the original is tapped (and vice versa), and +1/+1 counters on it become -1/-1 counters. It gains this ability.",
       "flavor_text": "\"In every reflection lies a truth reversed.\"",
       "power": "2",
       "toughness": "2",
@@ -4559,7 +4559,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Create an emblem with \"If you would lose the game, instead your life total becomes 1. Then, exile this emblem.\"",
+      "rules_text": "Create an emblem with \"If you would lose the game, instead your life total becomes 1. Then, this emblem ceases to exist.\"",
       "flavor_text": "\"I saw it then—the golden thread of fate, shimmering through the tapestry of existence. For a heartbeat, it wrapped around my soul and pulled me back from the brink. Now I understand why they call it the thread that cannot break.\" —Serra's Knight, sole survivor of the Fallen Gates",
       "power": null,
       "toughness": null,
