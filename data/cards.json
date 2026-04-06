@@ -47,7 +47,7 @@
       ],
       "subtypes": [],
       "rules_text": "When you draw The Comet from the Deck of Many Things, exile it with two time counters on it instead of casting it.\nSuspend 2 — {0}{U}{U} (Exile this with two time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost.)\nImpact — When you cast The Comet, you may choose target creature you control. If you do, all other creatures phase out until end of turn.\nUntil end of turn, the chosen creature gains flying, double strike, and \"Whenever this creature deals combat damage to a player, draw two cards.\"\nAt the beginning of your end step, if the chosen creature didn't deal combat damage to a player this turn, exile it.",
-      "flavor_text": "When heavens pierce the veil, one shall rise beyond the stars.",
+      "flavor_text": "It falls not to destroy, but to anoint.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -113,7 +113,7 @@
         "Curse"
       ],
       "rules_text": "Enchant player\n• If a source would deal damage to you or a permanent you control, it deals that much plus 2 damage instead.\n• Spells your opponents cast that target you cost {2} less.\n• At the beginning of your upkeep, you lose 2 life and sacrifice a permanent unless you discard a card.\n• Your maximum hand size is reduced by 3.\nEternal Gaze — The Euryale can't be removed in any way except by an effect from a card named The Fates.",
-      "flavor_text": "The medusa's cursed image lingers, forever petrifying its victim's fate.",
+      "flavor_text": "Her gaze finds you still, even behind closed eyes.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -145,7 +145,7 @@
       ],
       "subtypes": [],
       "rules_text": "The Fates can't be removed from the battlefield by any spell, ability, or effect.\n{0}, Shuffle The Fates into the Deck of Many Things: Choose one —\n• Rewind — Remove all effects, counters, and modifications applied by a card drawn from the Deck of Many Things. Return affected permanents and players to their state before that card was drawn.\n• Deny — Choose a spell, permanent, or card drawn from the Deck of Many Things. Exile it.\n• Cleanse — Exile target emblem or curse card named Curse of Weakness.\n• Weave — Look at the top three cards of the Deck of Many Things and put them back in any order. Then, you may draw a card from the Deck of Many Things.",
-      "flavor_text": "The threads of fate are woven, unraveled, and rewoven at the whims of the capricious Fates.",
+      "flavor_text": "What was written can be unwritten. What was done can be undone. But only once.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -279,7 +279,7 @@
       ],
       "subtypes": [],
       "rules_text": "Mirth — Draw three cards, scry 3, you may play an additional land this turn, create a Treasure token, and gain 5 life. (Treasure tokens are artifacts with \"{T}, Sacrifice this artifact: Add one mana of any color.\")\nYou may draw up to two additional cards from the Deck of Many Things.\nExile The Jester.",
-      "flavor_text": "The jester's wisdom lies hidden beneath the mirth and folly.",
+      "flavor_text": "The only honest fool is the one who knows the punchline before you do.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -314,7 +314,7 @@
         "Equipment"
       ],
       "rules_text": "Hexproof\nLiving weapon (When this enters, create a 0/0 black Phyrexian Germ token, then attach this to it.)\nEnhancement — At the beginning of your upkeep or whenever equipped creature deals combat damage to a player, put a power counter on The Key.\nEquipped creature gets +2/+0 for each power counter on The Key.\nTransmutation — {0}: Choose two — Haste, flying, fear, skulk, menace, intimidate, double strike, trample, bushido 3, flanking, battle cry, provoke, exalted, afflict 3, frenzy 3, deathtouch, toxic 2, prowess, infect, wither, or annihilator 1. Equipped creature loses abilities granted this way, then gains the chosen abilities until end of turn.\nEquip {0}",
-      "flavor_text": "The weapon adapts to its wielder's skill, becoming precisely what they need.",
+      "flavor_text": "It was a sword when she drew it, and a lance when she threw it, and an axe when the final blow fell.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -419,7 +419,7 @@
       ],
       "subtypes": [],
       "rules_text": "Tempt Fate — When The Puzzle enters, you may draw an additional card from the Deck of Many Things.\nEnchant player\nEnchanted player plays with their hand revealed and skips their draw step.\nConfusion — At the beginning of enchanted player's upkeep, that player exiles a card from their hand face down. They may look at and play that card as if it were in their hand.\nIneptitude — Whenever enchanted player casts a spell, if it wasn't cast from exile with The Puzzle, counter it.\nConsolation — At the beginning of enchanted player's end step, they draw a card.",
-      "flavor_text": "The mind, once brilliant, now struggles with even the simplest of tasks.",
+      "flavor_text": "He solved a thousand riddles in his youth. Now he cannot recall his own name.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -591,7 +591,7 @@
       ],
       "subtypes": [],
       "rules_text": "Transcendence — Roll two d8. If both results are the same, reroll. You get an enhancement emblem for each number rolled:\n1. Agility: \"Creatures you control get +2/+2 and have double strike and vigilance.\"\n2. Charisma: \"Whenever a creature enters under your control, create a 1/1 white Soldier token.\"\n3. Focus: \"You may cast spells as though they had flash. They cost {2} less.\"\n4. Fortitude: \"Your life total becomes 50. You have hexproof. At the beginning of your upkeep, gain 3 life.\"\n5. Intellect: \"At the beginning of your draw step, draw two additional cards.\"\n6. Wisdom: \"You have no maximum hand size. You may play two additional lands each turn.\"\n7. Wit: \"The first spell you cast each turn can't be countered and has cascade.\"\n8. Cunning: \"Whenever an opponent casts their first spell each turn, draw a card.\"",
-      "flavor_text": "In the star's light, mortal limits fall away.",
+      "flavor_text": "It did not make her stronger. It reminded her she had always been limitless.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -650,7 +650,7 @@
       ],
       "subtypes": [],
       "rules_text": "Disintegration — Destroy all enchantments you control. For each enchantment destroyed this way, you lose 2 life.\nUnmaking — Exile all artifacts you control. For each artifact exiled this way, target opponent chosen at random creates a Treasure token. Search your library and hand for all artifact cards and exile them.",
-      "flavor_text": "In an instant, a lifetime's collection of power crumbles to dust, while its greatest treasures vanish into eager hands.",
+      "flavor_text": "Every relic, every charm, every ring -- gone between one heartbeat and the next.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -681,7 +681,7 @@
       ],
       "subtypes": [],
       "rules_text": "Rightful Claim — When The Throne enters, search your library for up to two land cards, put them onto the battlefield tapped, then shuffle. Create X 2/2 white Knight tokens with vigilance, where X is the number of lands you control. Each opponent creates 2X 2/2 black Zombie tokens. Zombies your opponents control attack each combat if able.\nThrone's Authority — Other non-Soldier creatures you control get +1/+1 and have \"When this creature dies, create a 1/1 white Soldier token.\"\nRoyal Influence — {0}, {T}: Gain control of target creature an opponent controls for as long as you control The Throne. Untap it. It gains haste and \"Whenever this creature deals combat damage to a player, create two 1/1 white Soldier tokens.\" Activate only during your turn.",
-      "flavor_text": "A true ruler's influence persists long after the battle ends.",
+      "flavor_text": "The throne was empty when she arrived. It will never be empty again.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -774,7 +774,7 @@
         "Spirit"
       ],
       "rules_text": "Defender, flying, hexproof\nWhenever Soul Guardian blocks a creature, that creature gets -2/-2 until end of turn.\nWhenever a creature blocked by Soul Guardian dies during combat, that creature's controller discards a card.",
-      "flavor_text": null,
+      "flavor_text": "It does not guard the prison. It guards what remains of you.",
       "power": "6",
       "toughness": "8",
       "color_identity": [],
@@ -867,7 +867,7 @@
         "Equipment"
       ],
       "rules_text": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ token, then attach this to it.)\nEquipped creature gets +2/+2 and has flying and menace.\nAt the beginning of your upkeep, you may exile the top card of target opponent's library face down. You may look at and cast cards exiled with The Aberration, spending mana as though it were any color.\nWhenever equipped creature deals combat damage to a player, choose one —\n• Look at the top X cards of that player's library, where X is the damage dealt. Put one into your hand and the rest into their graveyard.\n• That player reveals their hand. You may cast a spell from it without paying its mana cost.\nEquip {0}",
-      "flavor_text": "The voices whisper secrets you were never meant to know, and truths you cannot un-learn.",
+      "flavor_text": "The voices whisper secrets you were never meant to know. They never stop.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -938,7 +938,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Book enters, roll a d6 and add 2. The result is the number of experience counters you get.\n{T}: Choose one —\n• Enlighten — Exile a card from your hand: Put a page counter on The Book. For each page counter on The Book, you may play an additional land on each of your turns and draw an additional card during each of your draw steps.\n• Comprehend — Look at the top X cards of your library, where X is the number of experience counters you have. You may cast one spell from among them without paying its mana cost if it shares a type with a card exiled with The Book. Put the rest on the bottom of your library in any order.",
-      "flavor_text": "Within its ever-shifting pages lie the secrets of a thousand worlds, each written in tongues both ancient and unspoken.",
+      "flavor_text": "Every page you turn reveals a language you didn't know you spoke.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -998,7 +998,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Campfire enters, choose three —\n• Return target permanent card from your graveyard to the battlefield.\n• Put three +1/+1 counters on each creature you control.\n• Draw four cards and gain 10 life.\n• Remove all counters from target permanent.\n• Create four 1/1 white Human creature tokens.\nAt the beginning of your upkeep, gain 2 life and scry 1.",
-      "flavor_text": "In its flames dance memories of peace long forgotten, a respite from the endless battles ahead.",
+      "flavor_text": "Sit. Rest. Remember who you were before the fighting began.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -1028,8 +1028,8 @@
         "Land"
       ],
       "subtypes": [],
-      "rules_text": "{T}: Add {G}.\nThe Cavern enters with a number of depth counters on it equal to the result of rolling a d12.\nEcholocation — As long as The Cavern has a depth counter on it, creatures you control can't be blocked by creatures with greater power.\nAt the beginning of your upkeep, remove a depth counter from The Cavern. If you do, scry 2.\n{G}, {T}: Target creature you control gains hexproof until end of turn.",
-      "flavor_text": "In these ancient depths, the line between climbing up and down becomes meaningless—there is only the path forward.",
+      "rules_text": "{T}: Add {G}.\nThe Cavern enters with a number of depth counters on it equal to the result of rolling a d12.\nEcholocation — As long as The Cavern has a depth counter on it, creatures you control can't be blocked by creatures with greater power.\nAt the beginning of your upkeep, remove a depth counter from The Cavern. If you do, scry 2.\n{1}, {T}: Target creature you control gains hexproof until end of turn.",
+      "flavor_text": "In the deepest dark, the blind have the advantage.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -1066,7 +1066,7 @@
         "Aura"
       ],
       "rules_text": "Enchant creature\nLiving Aura (When this enters, if you control no creatures, create a 0/0 Spirit token, then attach this to it.)\nEnchanted creature gets +4/+4, has flying and vigilance, is an Angel in addition to its other types, and has \"Whenever this deals combat damage to a player, exile target nonland permanent that player controls until The Celestial leaves.\"\nAt the beginning of your upkeep, create two 4/4 white Angel tokens with flying and vigilance.\nWhenever enchanted creature attacks, choose one —\n• Angels you control gain lifelink and double strike until end of turn.\n• Angels you control gain indestructible and \"Whenever this deals combat damage to a player, draw a card\" until end of turn.",
-      "flavor_text": "Not all who ascend are born with wings; some earn their place among the heavens.",
+      "flavor_text": "She knelt a mortal. She rose radiant.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -1105,7 +1105,7 @@
         "Homunculus"
       ],
       "rules_text": "Propagate — When The Construct enters, put X 0/1 blue and black Homunculus artifact tokens onto the battlefield, where X is the number of artifacts you control.\nWhenever a Homunculus enters under your control, each opponent loses 1 life. Then, if you control three or more Homunculi, draw a card.\n{T}, Sacrifice a Homunculus: Choose one — Activate only as a sorcery.\n• Replicate — Create a non-legendary token copy of The Construct.\n• Dominate — Gain control of target creature with power less than or equal to the number of Homunculi you control until end of turn. Untap it. It becomes a Homunculus in addition to its other types and gains haste.",
-      "flavor_text": "In its creation, you glimpse infinity—in its eyes, you command it.",
+      "flavor_text": "One became two. Two became many. Many became legion.",
       "power": "2",
       "toughness": "3",
       "color_identity": [
@@ -1200,7 +1200,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Door enters, if it isn't a token, put eight portal counters on it.\nPortal — {T}, Remove a portal counter: Choose one —\n• Search your library for a land and put it onto the battlefield tapped. Return it to your hand at the next end step unless you remove a portal counter.\n• Exile target permanent other than The Door. Return it under its owner's control at the next end step unless you remove a portal counter.\n• Put a permanent card from your hand onto the battlefield. Return it to your hand at the next end step unless you remove a portal counter.\n• Create a token copy of target permanent. It gains \"When The Door leaves, sacrifice this\" unless you remove a portal counter.\nWhen The Door has no portal counters, sacrifice it.",
-      "flavor_text": "Every doorway is a choice between here and elsewhere.",
+      "flavor_text": "Eight passages. Eight possibilities. Choose wisely -- each one closes behind you.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -1279,7 +1279,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Elemental enters, choose a color.\nYou and permanents you control gain protection from the chosen color. (They can't be dealt damage, enchanted, blocked, or targeted by anything of the chosen color.)\n{T}: Add three mana of the chosen color.\nSpells you cast of the chosen color cost {1} less.\nWhenever you cast a spell of the chosen color, you may change the chosen color.",
-      "flavor_text": "To master an element is not to control it, but to become one with its eternal nature.",
+      "flavor_text": "Choose your element. Become its vessel. Let all else break against you.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -1460,7 +1460,7 @@
       ],
       "subtypes": [],
       "rules_text": "Create a legendary 5/5 white Human Soldier creature token named Loyal Companion with vigilance, lifelink, and indestructible.\nLoyal Companion has \"Whenever you are dealt damage by a source an opponent controls, Loyal Companion deals that much damage to that source's controller.\"\nWhen you lose the game or are eliminated, exile Loyal Companion.",
-      "flavor_text": "Fate offers few moments of clarity—fewer still the wisdom to recognize them.",
+      "flavor_text": "It breathed its first breath when you breathed your last prayer.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -1611,7 +1611,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Map enters, put three seek counters on it.\n{T}, Remove a seek counter: Choose one —\n• Locate — Name a card. Reveal cards from the top of target player's library until you reveal it. Put it into your hand and shuffle the rest into that library. That player loses life equal to its mana value.\n• Plunder — Look at target player's hand and choose a nonland card. That player discards it. You may cast it this turn, spending mana as though it were any color. If you don't, exile it.\n• Cartograph — Search your library for an artifact, enchantment, or planeswalker card with mana value 4 or less and put it onto the battlefield. If it's a planeswalker, it enters with an additional loyalty counter. Then shuffle.",
-      "flavor_text": "Knowledge of a thing's true location grants power over its very existence.",
+      "flavor_text": "X marks the spot. Every spot.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -1644,7 +1644,7 @@
         "Curse"
       ],
       "rules_text": "Enchant player\nWhen Curse of Exhaustion enters, roll a d3. Put that many exhaustion counters on enchanted player.\nFor each exhaustion counter on enchanted player:\n0 — Sacrifice Curse of Exhaustion.\n1 — Skip your draw step unless you discard a card.\n2+ Creatures you control get -2/-2.\n3+ Spells you cast cost {1} more and abilities you activate cost {1} more to activate.\n4+ When you gain your fourth or more exhaustion counter, lose half your life, rounded up.\n5+ Creatures you control can't attack or block.\n6+ You lose the game.\nAt the beginning of your end step, if you haven't cast a spell or activated an ability this turn, remove an exhaustion counter. Otherwise, put an exhaustion counter on you.",
-      "flavor_text": "Each step forward is two steps lost in the endless corridors of fatigue.",
+      "flavor_text": "She stopped to rest, just for a moment. She never moved again.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -1780,7 +1780,7 @@
         "Desert"
       ],
       "rules_text": "Creatures you control have haste.\n{T}: Add one mana of any color .\nWhenever a land enters tapped under your control, untap it.\nYou may play an additional land on each of your turns.\nLandfall — Draw a card.",
-      "flavor_text": "The world yields to those who know the way, though only for a brief time.",
+      "flavor_text": "The road unrolled before her like a welcome mat for the multiverse.",
       "power": null,
       "toughness": null,
       "color_identity": [],
@@ -1842,8 +1842,8 @@
       "subtypes": [
         "Forest"
       ],
-      "rules_text": "When The Plant enters, search your library for a land and put it onto the battlefield tapped. Create a 0/1 green Plant token for each land you control.\n{T}: Add {G}{G}{G}.\nLandfall — Whenever a land you control enters, put a +1/+1 counter on each Plant you control.\n{G}: Choose one. The Plant doesn't untap during its controller's next untap step.\n• Overgrowth — Create X 0/1 green Plant tokens, where X is the number of lands you control.\n• Verdant — Until end of turn, lands you control become 2/2 Forest creatures that are still lands with \"Whenever this deals combat damage to a player, create a 0/1 green Plant token.\"\n• Entangle — Target land becomes a 0/4 Plant creature with defender and \"{T}: Tap or untap target creature.\" It's still a land.",
-      "flavor_text": "The forest holds secrets for those who know how to listen.",
+      "rules_text": "When The Plant enters, search your library for a land and put it onto the battlefield tapped. Create a 0/1 green Plant token for each land you control.\n{T}: Add {G}{G}{G}.\nLandfall — Whenever a land you control enters, put a +1/+1 counter on each Plant you control.\n{1}: Choose one. The Plant doesn't untap during its controller's next untap step.\n• Overgrowth — Create X 0/1 green Plant tokens, where X is the number of lands you control.\n• Verdant — Until end of turn, lands you control become 2/2 Forest creatures that are still lands with \"Whenever this deals combat damage to a player, create a 0/1 green Plant token.\"\n• Entangle — Target land becomes a 0/4 Plant creature with defender and \"{T}: Tap or untap target creature.\" It's still a land.",
+      "flavor_text": "First a seed. Then a sapling. Then a forest that remembers your name.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -1914,7 +1914,7 @@
         "Curse"
       ],
       "rules_text": "Enchant player, shroud\nWhen Curse of Restraint enters, roll a d6 and add 2. Put that many bind counters on it. You become restrained. (You can't cast more than one spell or activate more than one ability each turn. Artifacts and enchantments you control lose all abilities. Spells you cast cost {1} more for each bind counter on Curse of Restraint. Your creatures can't attack unless you pay {2} per attacker.)\nAt the beginning of your upkeep, you lose life equal to the number of bind counters on Curse of Restraint.\nWhenever a creature deals combat damage to you or a creature you control, it deals 2 additional damage.\n{0}, Pay X life and exile X cards from your hand or X nontoken permanents you control: Remove X bind counters from Curse of Restraint. X can't be greater than 2. Activate only as a sorcery.\nWhen Curse of Restraint has no bind counters, sacrifice it.\nEternal Damnation — You can't draw from the Deck of Many Things for the rest of the game.",
-      "flavor_text": "Freedom is a distant memory when bound by forces beyond mortal understanding.",
+      "flavor_text": "The chains tightened with every thought of escape.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -2086,7 +2086,7 @@
       ],
       "subtypes": [],
       "rules_text": "Choose one —\n• Compel — Target player draws a card from the Deck of Many Things.\n• Dictate — The next time a player would draw from the Deck of Many Things this game, they draw two cards from it instead and you choose which resolves first. Exile the other.\n• Deny — The next time target player would draw a card from the Deck of Many Things this game, that player skips that draw instead.\n• Wonder — Search your library for an artifact card and put it onto the battlefield. That artifact gains indestructible. Then shuffle your library.",
-      "flavor_text": "The stairway presents four paths: compulsion, mastery, denial, and wonder.",
+      "flavor_text": "Some stairs lead up. Some lead down. These lead everywhere at once.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -2196,7 +2196,7 @@
       ],
       "subtypes": [],
       "rules_text": "When Divine Intervention enters, exile it. You may cast it from exile without paying its mana cost any time you could cast an instant. If you do, choose a mode you haven't chosen this game:\n• Return all permanent cards from your graveyard to the battlefield.\n• Your life total becomes your starting life total.\n• Exile all nonland permanents your opponents control.\n• Search your library for up to five cards and put them into your hand.\nIf you would lose the game while Divine Intervention is in exile, you may cast it instead. If you do, your life total becomes your starting life total, remove all poison counters from you, reset all commander damage dealt to you, and return target creature from your graveyard to the battlefield tapped.\nWhen Divine Intervention is cast from exile, shuffle it into the Deck of Many Things.\nDivine Intervention enters with two intervention counters on it. When you cast Divine Intervention from exile, remove an intervention counter. When the last is removed, exile Divine Intervention permanently.",
-      "flavor_text": "The covenant is sealed in starlight. Choose wisely when to call upon it.",
+      "flavor_text": "Pray not for salvation. Pray for timing.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -2227,7 +2227,7 @@
       ],
       "subtypes": [],
       "rules_text": "When True Resurrection enters, exile it. You may cast it from exile without paying its mana cost any time you could cast an instant. If you do, choose one —\n• Choose a player who lost this game more than one turn ago. That player returns with their starting life total, no poison counters, no commander damage, seven cards in hand, and a tapped land from their hand on the battlefield. They skip their next draw step.\n• Return target creature card from any graveyard to the battlefield under your control tapped. It gains indestructible and \"If this creature would leave the battlefield, exile it instead.\" Restore all Auras and Equipment that were attached to it when it died.\nWhen True Resurrection is cast from exile, shuffle it into the Deck of Many Things.",
-      "flavor_text": "Death holds no dominion over those marked by the Tomb's ancient power.",
+      "flavor_text": "The grave opened. The light poured in. She blinked.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -2258,7 +2258,7 @@
       ],
       "subtypes": [],
       "rules_text": "Collapse — Destroy all artifacts you control. Sacrifice all lands you control. You can’t play lands during your next two turns.\nYou may draw a card from the Deck of Many Things.",
-      "flavor_text": "Sometimes fate offers a choice. Choose wisely — the path not taken may have been your salvation... or your doom.",
+      "flavor_text": "Everything you built. Everything you owned. Rubble.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -2465,7 +2465,7 @@
         "Spirit"
       ],
       "rules_text": "Trample\nWhen The Bear enters, put X +1/+1 counters on it where X is your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)\nWhenever The Bear deals combat damage to a player or permanent, double the number of +1/+1 counters on it.\nPay 2 life: Put a +1/+1 counter on The Bear. Activate only during your turn.",
-      "flavor_text": "\"To become the beast is to understand: nature's greatest strength lies not in teeth or claw, but in endless, unstoppable growth.\"",
+      "flavor_text": "The curse took his form. The blessing took everything else.",
       "power": "1",
       "toughness": "1",
       "color_identity": [
@@ -2531,7 +2531,7 @@
       ],
       "subtypes": [],
       "rules_text": "Choose target opponent. Gain control of all creatures that player controls until end of turn and they gain haste. For each creature that changed control this way, create a Treachery token. (It's an enchantment token with \"At the beginning of your upkeep, the chosen opponent loses 1 life.\" and \"Vanishing 3\".)\nWhenever a creature you control that you don't own deals combat damage to a player this turn, exile the top card of that player's library. You may play that card this turn without paying its mana cost.",
-      "flavor_text": "\"Loyalty is a fragile thing, easily shattered by the right whisper.\"\n— Kaya, the Betrayer",
+      "flavor_text": "\"They fought beside you yesterday. They'll fight against you now.\" -- Kaya, the Betrayer",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -2559,7 +2559,7 @@
       ],
       "subtypes": [],
       "rules_text": "You get an emblem with \"Once during each of your turns, you may have target creature you control get +10/+10 and gain trample until end of turn. When that creature deals combat damage this turn, destroy target artifact.\"",
-      "flavor_text": "\"In the space between heartbeats, worlds fall like autumn leaves from the branches of possibility.\"",
+      "flavor_text": "When the sky opens, even mountains bow.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -2659,7 +2659,7 @@
         "Advisor"
       ],
       "rules_text": "When The Courtesan enters, choose target artifact you control. It becomes an Artifact Creature with base power and toughness equal to its mana value and gains indestructible and two of the following at random:\n• Flying and vigilance\n• Deathtouch and lifelink\n• Double strike\n• Hexproof and ward {2}\n• \"Whenever this creature deals combat damage to a player, draw two cards.\"\n• \"At the beginning of your upkeep, create a Treasure token.\"\nIf you control no artifacts, search your library for an artifact card, put it onto the battlefield, then shuffle. It becomes a 4/4 Artifact Creature with two of the abilities above at random.\nWhen The Courtesan leaves, the chosen artifact remains a creature.",
-      "flavor_text": "\"In every blade sleeps a spirit. In every spirit sleeps a story.\"",
+      "flavor_text": "She spoke to the sword, and the sword answered.",
       "power": 2,
       "toughness": 3,
       "color_identity": [
@@ -2825,7 +2825,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "At the beginning of each opponent's upkeep, that player loses 1 life unless they pay {B}.\n{B}: Choose target creature an opponent controls. That creature's controller may pay {B}. If they don't, exile that creature and create a Soul Gem artifact token with:\n\"When this artifact enters, it gains a charge counter for each point of power the exiled creature had.\",\n\"Remove a charge counter: Add one mana of any color.\", and\n\"{B}, Pay X life, Sacrifice this artifact: Return the exiled creature to the battlefield under its owner's control, where X is that creature's mana value.\"\nIf The Demon's Lantern leaves, destroy all Soul Gems.",
+      "rules_text": "At the beginning of each opponent's upkeep, that player loses 1 life unless they pay {B}.\n{1}: Choose target creature an opponent controls. That creature's controller may pay {1}. If they don't, exile that creature and create a Soul Gem artifact token with:\n\"When this artifact enters, it gains a charge counter for each point of power the exiled creature had.\",\n\"Remove a charge counter: Add one mana of any color.\", and\n\"{B}, Pay X life, Sacrifice this artifact: Return the exiled creature to the battlefield under its owner's control, where X is that creature's mana value.\"\nIf The Demon's Lantern leaves, destroy all Soul Gems.",
       "flavor_text": "\"The gem's light glows brighter with every whisper of despair.\"",
       "power": null,
       "toughness": null,
@@ -2859,7 +2859,7 @@
       ],
       "subtypes": [],
       "rules_text": "Vanishing 3\nCaravan — When The Desert enters, search your library for up to three land cards, put them onto the battlefield tapped, then shuffle.\nYou may exile any number of permanents you control and up to three creatures other players control. When The Desert leaves, return all cards exiled with it to the battlefield under their owners'  control.",
-      "flavor_text": "The sands parted, and the caravan stepped through.",
+      "flavor_text": "One step across burning sand. The next, a thousand leagues away.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -2965,7 +2965,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Forge enters, create three Ember tokens. (Artifacts with \"{T}, Sacrifice this: Add {R}{R}.\")\n{T}, Sacrifice an Equipment you control: Search your library for an Equipment with equal or lesser mana value and put it onto the battlefield attached to a creature you control. It gains \"Equipped creature gets +4/+4\" and can't be unequipped. Then create an Ember token and shuffle.\nWhenever an Equipment enters under your control, create a 3/1 red and white Artificer token with haste and \"When this dies, attach target Equipment you control to target creature you control.\"\nWhenever you sacrifice an artifact, The Forge deals 2 damage to any target. If it was a token, The Forge deals 2 additional damage.",
-      "flavor_text": "\"In the heart of creation's flame, what was becomes what could be.\"",
+      "flavor_text": "She fed the forge a dagger. It returned a destiny.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -3026,7 +3026,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Empty Throne enters, create five Treasure tokens.\nDecree — {T}, Choose one —\n• Prosperity — Create two Treasure tokens and gain 2 life.\n• Nobility — Create two 1/1 white and black Noble tokens with \"Other creatures you control get +1/+0.\"\n• Ascension — Nobles you control gain flying and vigilance until the end of your next turn.\n• Tribute — Each opponent loses life equal to the number of Nobles you control.\nNobles you control have \"Whenever this creature attacks, create a Treasure token.\"",
-      "flavor_text": "\"Power seeks those who do not seek it, for they might wield it wisely.\"",
+      "flavor_text": "The throne sat empty for a thousand years. It was waiting for you.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -3055,7 +3055,7 @@
       ],
       "subtypes": [],
       "rules_text": "Search any player's library, hand, or graveyard. You may put a permanent card found this way onto the battlefield under your control or cast a nonpermanent card found this way without paying its mana cost. If you searched a library, its owner shuffles.",
-      "flavor_text": "\"Perfect knowledge requires perfect understanding.\"",
+      "flavor_text": "Ask anything. The answer will haunt you.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -3222,7 +3222,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Keep enters, draw two cards, create two Treasure tokens, then exile any number of nonland permanents you control. Those cards gain \"You may cast this card from exile.\"\nAt the beginning of your upkeep, you may return up to two cards exiled with The Keep to the battlefield under your control.\n{2}, {T}: Exile target permanent you control. It gains \"You may cast this card from exile.\"",
-      "flavor_text": "\"Within its ethereal walls, reality bends to the will of its master.\"",
+      "flavor_text": "A fortress between worlds, where even time asks permission to enter.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -3292,7 +3292,7 @@
         "Rogue"
       ],
       "rules_text": "Flash\nWhen The Locksmith enters, choose one —\n• Unlock — Until your next turn, target permanent loses all abilities and can't be sacrificed.\n• Duplicate — Create a colorless Key artifact token with \"{T}, Sacrifice this: Target permanent can't attack, block, or activate abilities until end of turn.\"\n{1}, {T}: Put a key counter on target artifact, creature, or enchantment. (Permanents with key counters have \"{T}: Add one mana of any color.\")\n{5}, {T}, Remove all key counters from permanents you control: Gain control of target permanent with mana value X or less, where X is the number of counters removed. Activate only as a sorcery and only once per game.",
-      "flavor_text": "\"Every barrier has a weakness. Every lock has a solution. I've mastered them all.\"",
+      "flavor_text": "There is no door I cannot open. That is both my gift and your warning.",
       "power": "2",
       "toughness": "3",
       "color_identity": [
@@ -3358,7 +3358,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Marriage enters, target player gains control of target nonland permanent you control, then you gain control of target nonland permanent they control. Put a blessing counter on each.\nPermanents with blessing counters have hexproof, vigilance, and \"At the beginning of your upkeep, create a 1/1 white and green Spirit token with 'Whenever this attacks, put a blessing counter on another target permanent you control.'\"\nAt the beginning of each end step, if you control four or more permanents with blessing counters, you may remove all blessing counters from permanents you control. If you do, search your library for any number of permanent cards with total mana value X or less, where X is twice the counters removed, and put them onto the battlefield with blessing counters.",
-      "flavor_text": "\"In union, we find strength neither could possess alone.\"",
+      "flavor_text": "The vows were spoken between worlds, and the multiverse bore witness.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -3392,7 +3392,7 @@
         "Cleric"
       ],
       "rules_text": "Flash\nWhenever a permanent not named The Midwife enters under your control, put a birth counter on it.\nWhen The Midwife enters, create two 1/1 white green Spirit tokens with lifelink.\nPermanents you control with birth counters on them have \"At the beginning of your upkeep, create a non-legendary token that's a copy of this permanent.\"",
-      "flavor_text": "\"Life begets life, each birth a miracle that echoes eternally.\"",
+      "flavor_text": "Where she walks, nothing remains barren.",
       "power": "2",
       "toughness": "6",
       "color_identity": [
@@ -3465,7 +3465,7 @@
       "subtypes": [
         "Horror"
       ],
-      "rules_text": "Hexproof\nWhen The Mute Hag enters, target opponent gets a deprivation counter of a type chosen at random from among types they don't have. The types are:\n• Sight — Can't look at cards in any zone except the battlefield.\n• Hearing — Can't activate nonmana abilities.\n• Speech — Can't cast spells during other players' turns.\nAt the beginning of each opponent's upkeep, if that player has one or more deprivation counters, they lose 2 life for each unless they sacrifice that many permanents. Then they get a deprivation counter of a random type they don't already have.\n{B}: Remove a deprivation counter from target player. Any player may activate this ability.",
+      "rules_text": "Hexproof\nWhen The Mute Hag enters, target opponent gets a deprivation counter of a type chosen at random from among types they don't have. The types are:\n• Sight — Can't look at cards in any zone except the battlefield.\n• Hearing — Can't activate nonmana abilities.\n• Speech — Can't cast spells during other players' turns.\nAt the beginning of each opponent's upkeep, if that player has one or more deprivation counters, they lose 2 life for each unless they sacrifice that many permanents. Then they get a deprivation counter of a random type they don't already have.\n{1}: Remove a deprivation counter from target player. Any player may activate this ability.",
       "flavor_text": "\"In the absence of one sense, terror fills all others.\"",
       "power": "2",
       "toughness": "4",
@@ -3500,7 +3500,7 @@
         "Bird"
       ],
       "rules_text": "Flash\nFlying, ward {2}\nWhenever you scry, you may pay {1}. If you do, gain 2 life and draw a card.\nAt the beginning of your upkeep, scry 1.\n{T}, Sacrifice The Owl: Scry 7, then target opponent may scry 3. Draw a card.\nWhen The Owl dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
-      "flavor_text": "\"Perfect knowledge comes with perfect awareness.\"",
+      "flavor_text": "It sees what you see. It sees what they see. It sees what no one sees.",
       "power": "1",
       "toughness": "3",
       "color_identity": [
@@ -3537,7 +3537,7 @@
         "Knight"
       ],
       "rules_text": "Flying, double strike, vigilance\nWhen The Paladin enters, choose one —\n• You create five 2/2 white Knight tokens with vigilance.\n• You gain 10 life and draw three cards.\n• You get an emblem with \"Creatures you control have protection from the color of your choice and lifelink.\"\nWhenever The Paladin attacks, exile target nonland permanent an opponent controls until The Paladin leaves.\nAt the beginning of your end step, return target permanent card from your graveyard to the battlefield.",
-      "flavor_text": "\"To serve justice is to wield both sword and shield — one to protect the innocent, one to strike down evil.\"",
+      "flavor_text": "She arrived without being summoned. Evil had that effect on her.",
       "power": "5",
       "toughness": "5",
       "color_identity": [
@@ -3575,7 +3575,7 @@
         "Spirit"
       ],
       "rules_text": "When The Peacock enters, creatures you control gain indestructible until end of turn.\nCreatures you control get +0/+4 and have hexproof.\nCreatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.\nCreatures you control get -1/+0.",
-      "flavor_text": "\"Beauty becomes burden, protection becomes prison.\"",
+      "flavor_text": "Invulnerable, immaculate, immovable.",
       "power": "3",
       "toughness": "5",
       "color_identity": [
@@ -3647,7 +3647,7 @@
         "Noble"
       ],
       "rules_text": "When The Queen Mother enters, create X 1/2 green and black Ant tokens with reach and vigilance, where X is 2 plus the result of rolling two four-sided dice.\nAnts you control have \"Whenever this creature blocks or becomes blocked, put a +1/+1 counter on it.\"\nThe Queen Mother has indestructible and hexproof as long as you control an Ant.\nWhenever The Queen Mother becomes the target of a spell or ability an opponent controls, create a 2/3 green and black Ant token with reach and vigilance.",
-      "flavor_text": "\"Their devotion transcends mere instinct — it is written in the very essence of their being.\"",
+      "flavor_text": "She speaks, and ten thousand legs answer.",
       "power": "4",
       "toughness": "6",
       "color_identity": [
@@ -3827,7 +3827,7 @@
       ],
       "subtypes": [],
       "rules_text": "If you would lose the game, instead shuffle your hand, your graveyard, and all permanents you own into your library, then draw seven cards and your life total becomes your starting life total. You may cast three spells from your hand without paying their mana costs.",
-      "flavor_text": "\"Death itself holds no dominion over those marked by fate.\"",
+      "flavor_text": "She died. And then she didn't.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -3857,7 +3857,7 @@
       ],
       "subtypes": [],
       "rules_text": "{T}: Add one mana of any color.\n{T}: Look at the top X cards of your library, where X is number of lands you control. You may reveal a land card from among them and put it onto the battlefield. If you do, you may cast a creature spell from your hand without paying its mana cost. Then roll a d6 and create that many 3/3 green Plant tokens with trample and haste under a random opponents' control. Those creatures must attack you each combat if able.\nLandfall — Whenever a land enters under your control, put a +1/+1 counter on target creature you control.",
-      "flavor_text": "\"Every secret has its price. Every truth its consequence.\"",
+      "flavor_text": "The briar whispers where treasure lies buried. The shambling mounds remember where you dug.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -3891,8 +3891,8 @@
         "Human",
         "Advisor"
       ],
-      "rules_text": "When The Teamster enters, choose one —\n• Begin a quest. (Create a Quest enchantment token with \"At the beginning of your upkeep, you lose 2 life\" and \"When you cast a spell with mana value 5 or greater, sacrifice this enchantment and search your library for a card, put it into your hand, then shuffle.\")\n• Accept a burden. (You get an emblem with \"At the beginning of your upkeep, you lose 2 life.\")\n{G}, Sacrifice The Teamster: Create a 4/4 black and white Avatar token with flying and lifelink, then create two Treasure tokens. Activate only if you don't control a Quest token or have an emblem from The Teamster.",
-      "flavor_text": "\"Accept your destiny, or be consumed by it.\"",
+      "rules_text": "When The Teamster enters, choose one —\n• Begin a quest. (Create a Quest enchantment token with \"At the beginning of your upkeep, you lose 2 life\" and \"When you cast a spell with mana value 5 or greater, sacrifice this enchantment and search your library for a card, put it into your hand, then shuffle.\")\n• Accept a burden. (You get an emblem with \"At the beginning of your upkeep, you lose 2 life.\")\n{1}, Sacrifice The Teamster: Create a 4/4 black and white Avatar token with flying and lifelink, then create two Treasure tokens. Activate only if you don't control a Quest token or have an emblem from The Teamster.",
+      "flavor_text": "The task was impossible. The payment was irresistible.",
       "power": "1",
       "toughness": "3",
       "color_identity": [
@@ -3924,7 +3924,7 @@
       ],
       "subtypes": [],
       "rules_text": "At the beginning of your upkeep, create a 1/1 green and white Human Performer token and put a Spotlight counter on The Theatre.\nWhenever a creature dies, you may put an additional Spotlight counter on The Theatre.\n{T}, Remove a Spotlight counter from The Theatre: Choose one —\n• Encore performance — Create two 2/2 white Human Performer tokens with \"When this creature enters, tap target creature an opponent controls.\"\n• Inspire the audience — Each player draws a card, then you draw two additional cards.\n• Standing ovation — Each player gains 1 life, then you gain 1 life for each creature you control.",
-      "flavor_text": "\"Every battle tells a story; every victory earns an ovation.\"",
+      "flavor_text": "The curtain rises. The audience holds its breath. You are both actor and playwright.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -3955,7 +3955,7 @@
       ],
       "subtypes": [],
       "rules_text": "Abilities you activate cost {X} less to activate, where X is half the number of lands you control, rounded down.\n{8}, {T}: Create a creature token with power and toughness each equal to X. Choose one —\n• A white Knight with first strike and vigilance.\n• A black Demon with menace and deathtouch.\n• A blue Elemental with flying and lifelink.\n{8}, {T}: Search your library for a creature card with mana value less than or equal to X, reveal it, and put it into your hand. Then shuffle. You may cast that card this turn without paying its mana cost.",
-      "flavor_text": "\"The call echoes across the planes, summoning champions of the highest virtue to stand against the tide.\"",
+      "flavor_text": "One note. Across every plane, every hero turns toward the sound.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -3989,7 +3989,7 @@
         "Shapeshifter"
       ],
       "rules_text": "Flash, haste\n{T}: Choose target creature. The Twin becomes a copy of that creature except its power and toughness are swapped, it's untapped if the original is tapped (and vice versa), and +1/+1 counters on it become -1/-1 counters. It gains this ability.",
-      "flavor_text": "\"In every reflection lies a truth reversed.\"",
+      "flavor_text": "It wore his face, but everything behind the eyes was wrong.",
       "power": "2",
       "toughness": "2",
       "color_identity": [
@@ -4161,7 +4161,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Wanderer enters, choose target nonland permanent you control. It gains indestructible and hexproof and one of the following at random —\n• Manaforge — \"{T}: Add three mana of any one color.\"\n• Insight — \"{T}: Draw two cards, then discard a card.\"\n• Replication — \"{T}, Pay 3 life: Create a token copy of this permanent.\"\n• Rebirth — \"{T}, Sacrifice this permanent: Return any number of permanent cards from your graveyard to the battlefield.\"\nThe chosen permanent becomes legendary in addition to its other types.",
-      "flavor_text": "\"In the hands of the chosen, the mundane awakens to extraordinary purpose.\"",
+      "flavor_text": "She touched the iron pan, and it sang with the voice of a god.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -4229,7 +4229,7 @@
         "Spirit"
       ],
       "rules_text": "Flying, hexproof, haste\n{1}: Look at the top three cards of your library, then put them back in any order.\n{T}: Draw a card.\nSovereign Wish — Sacrifice The Winged Serpent: Choose one —\n• Search your library for a card and put it onto the battlefield. If it's a creature, it gains haste.\n• Exile all creatures and planeswalkers your opponents control.\n• Gain control of all nonland permanents target opponent controls.\n• Target player's life total becomes 1 or 40.\n• Target player skips their next turn or you take an extra turn after this one.\n• Return any number of permanent cards from your graveyard to the battlefield.\n• Remove the Deck of Many Things from the game. Each player shuffles their hand, graveyard, and all permanents they own into their library, then draws seven cards. You may put any number of permanents from your hand onto the battlefield.",
-      "flavor_text": "Its wings span the frontier of possibility, where a desire becomes the fabric of destiny.",
+      "flavor_text": "Name your heart's desire. It has already been granted.",
       "power": "7",
       "toughness": "7",
       "color_identity": [
@@ -4369,7 +4369,7 @@
         "Advisor"
       ],
       "rules_text": "Flash\nWhen The Chancellor enters, scry 3.\nAt the beginning of your upkeep, look at the top three cards of target player's library. You may put them back in any order. If you looked at an opponent's library this way, draw a card.\n{T}, {1}: Choose target spell. You may copy it. If you do, choose new targets for the copy. That spell's controller reveals the top card of their library. Counter that spell unless its controller pays {X}, where X is the total mana cost of the card revealed this way.",
-      "flavor_text": "\"In one hand I hold what will be. In the other, what could be. Wisdom lies in knowing the difference between the two.\" —Archmage Remora of the Celestial Tower",
+      "flavor_text": "\"I do not predict the future. I arrange it.\" -- Archmage Remora",
       "power": "2",
       "toughness": "4",
       "color_identity": [
@@ -4436,7 +4436,7 @@
         "Treasure"
       ],
       "rules_text": "When The Coin enters, create three Gold tokens. (It's an artifact with \"Sacrifice this artifact: Add one mana of any color.\")\nAt the beginning of your upkeep, create a Gold token.\n{Q}, Sacrifice The Coin: Create X Gold tokens, where X is the number of artifacts you control.",
-      "flavor_text": "\"Some say fortune favors the bold. I say fortune favors those wise enough to recognize its true value.\" —Teysa Karlov",
+      "flavor_text": "\"Fortune doesn't favor the bold. Fortune favors whoever holds me.\" -- The Coin",
       "power": null,
       "toughness": null,
       "color_identity": [],
@@ -4462,7 +4462,7 @@
       ],
       "subtypes": [],
       "rules_text": "Gain control of target creature an opponent controls with power 3 or less until end of turn. Untap it. It gains haste until end of turn.\nYou get an emblem with \"Creatures you control with power 3 or less have menace.\"",
-      "flavor_text": "\"To wear the crown is to hold the strings of fate—and snap them at your whim.\" —Erasis, the Unbroken Tyrant",
+      "flavor_text": "\"It whispered to her: 'Wear me, and the small shall kneel.'\" -- The Crown of Friends",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -4559,7 +4559,7 @@
       ],
       "subtypes": [],
       "rules_text": "Create an emblem with \"If you would lose the game, instead your life total becomes 1. Then, this emblem ceases to exist.\"",
-      "flavor_text": "\"I saw it then—the golden thread of fate, shimmering through the tapestry of existence. For a heartbeat, it wrapped around my soul and pulled me back from the brink. Now I understand why they call it the thread that cannot break.\" —Serra's Knight, sole survivor of the Fallen Gates",
+      "flavor_text": "\"Not today.\" -- Serra's Knight, sole survivor of the Fallen Gates",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -4652,7 +4652,7 @@
       ],
       "subtypes": [],
       "rules_text": "Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.)\nExile all permanents you control and all cards in your hand. At the beginning of the next end step, return all cards exiled this way to the battlefield and to your hand. Until your next turn, you have hexproof and can't be attacked.",
-      "flavor_text": "\"The void embraces me like an old friend. But oh, how its kiss burns when it lets me go...\" —Journal of the Lost Wanderer, recovered from the Blind Eternities",
+      "flavor_text": "\"Gone for four minutes. Aged four years.\" -- Journal of the Lost Wanderer",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -4685,7 +4685,7 @@
       ],
       "subtypes": [],
       "rules_text": "Players can't cast more than one spell each turn.\nIf a player would gain or lose life, instead each player gains or loses that much life.\nWhenever a player would search their library for a card, instead each player may search their library for a card of that type, then each player shuffles.",
-      "flavor_text": "\"I give to each what I give to all. No more. No less. This is the way of perfect balance.\" —The Scales That Never Tip",
+      "flavor_text": "\"What touches one, touches all.\" -- The Scales That Never Tip",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -4718,7 +4718,7 @@
         "Equipment"
       ],
       "rules_text": "Living weapon (When this Equipment enters, create a 0/0 black Germ token, then attach this to it.)\nEquipped creature gets +4/+4, has haste, indestructible, and double strike.\nWhenever equipped creature deals combat damage to a player, you may exile target nonland permanent that player controls. If you do, that player creates a Treasure token.\nEquip {3}",
-      "flavor_text": "\"I am both blade and bearer, judgment and executioner. Through me, divine will shapes mortal fate—one cut at a time.\" —The Knife, to its first wielder",
+      "flavor_text": "\"It chose me. I wish it hadn't.\" -- The Knife's last wielder",
       "power": null,
       "toughness": null,
       "color_identity": [],
@@ -4752,7 +4752,7 @@
       ],
       "subtypes": [],
       "rules_text": "Activated abilities of permanents your opponents control cost {1} more to activate.\n{Q}, {T}: Target permanent loses all abilities until end of turn. If you targeted an artifact this way, create a Treasure token.\n{1}, {T}: Counter target activated or triggered ability from target artifact.\n{T}, Sacrifice The Lock: Gain control of target artifact. Its controller creates two Treasure tokens.",
-      "flavor_text": "\"The mechanisms of power are simple enough—tumblers, wards, and pins. The true challenge lies in knowing which secrets are better left locked away.\" —Master Artificer Jin, after sealing the Vault of Whispers",
+      "flavor_text": "\"Some things are locked away to protect us. Some things are locked away to protect themselves.\" -- Master Artificer Jin",
       "power": null,
       "toughness": null,
       "color_identity": [],
@@ -4780,7 +4780,7 @@
       ],
       "subtypes": [],
       "rules_text": "Choose one —\n• Search your library for an artifact card with uncommon rarity, put it onto the battlefield, then shuffle.\n• Draw two additional cards from the Deck of Many Things.",
-      "flavor_text": "\"A simple trinket, or the chance for something more? The choice reveals the soul's true desire.\"",
+      "flavor_text": "Two doors. One safe, one not. Guess which one she picked.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -4844,7 +4844,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Mystery enters, each player exiles the top three cards of their library face down.\nAt the beginning of each player's upkeep, that player may exile the top card of their library face down. They may cast from exile one of those cards exiled with The Mystery this turn at random without paying its mana cost. If they do, they lose life equal to the number of cards they own in exile that were exiled with The Mystery.\nWhen The Mystery leaves, shuffle all cards exiled with The Mystery into their owner's library.",
-      "flavor_text": "\"In seeking answers, we often find only deeper questions.\"",
+      "flavor_text": "The answer was there, hidden among the lies. But which card held the truth?",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -4906,7 +4906,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Order enters, choose a color.\nIf a source of the chosen color would deal damage to you or a creature you control, prevent that damage.\nSpells of the chosen color your opponents control cost {2} more.\nAt the beginning of your upkeep, you may change the chosen color.",
-      "flavor_text": "\"Through discipline and devotion, chaos itself bends to divine will.\"",
+      "flavor_text": "Let them cast their spells. None of that color shall touch us.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -4936,7 +4936,7 @@
       ],
       "subtypes": [],
       "rules_text": "When The Student enters, look at the top three cards of your library. You may reveal a land card from among them and put it into your hand. Put the rest on the bottom in any order.\nWhenever you would draw a card during your draw step, instead scry 1, then draw a card.\nAt the beginning of your end step, draw a card.",
-      "flavor_text": "\"Through patience and observation, wisdom reveals itself.\"",
+      "flavor_text": "She didn't learn magic. She learned how to learn. That was enough.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -4972,7 +4972,7 @@
         "Spirit"
       ],
       "rules_text": "Flying, haste\nWhen The Vulture enters or attacks, exile target artifact an opponent controls. At the beginning of that player's next upkeep, they may pay {3}. If they do, return that card to the battlefield under their control. If they don't, and it's still in exile at end of turn, put it into its owner's graveyard and create a Treasure token.",
-      "flavor_text": "\"The trinket vanishes with a mocking gleam, leaving only scattered feathers and fading echoes.\"",
+      "flavor_text": "It always knows which trinket you love most.",
       "power": "3",
       "toughness": "2",
       "color_identity": [
