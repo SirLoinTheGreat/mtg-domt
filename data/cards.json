@@ -1563,7 +1563,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0021",
-      "mana_cost": "{U}",
+      "mana_cost": "{U}{B}",
       "type_line": "Legendary Enchantment — Attribute",
       "supertypes": [
         "Legendary"
@@ -1579,7 +1579,8 @@
       "power": null,
       "toughness": null,
       "color_identity": [
-        "U"
+        "U",
+        "B"
       ],
       "keywords": [
         "Prowess",
