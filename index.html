@@ -750,7 +750,38 @@ function showCard(card) {
       } else if (e.changes && e.changes.length > 0) {
         detail = e.changes.map(c => {
           const fieldLabel = c.field.replace(/_/g, ' ');
-          return '<div class="changelog-detail">' + fieldLabel + ': changed</div>';
+          if (c.field === 'rules_text') {
+            // Show a short diff summary for rules text
+            const oldLen = (c.old || '').length;
+            const newLen = (c.new || '').length;
+            const diff = newLen - oldLen;
+            const diffStr = diff > 0 ? '+' + diff + ' chars' : diff + ' chars';
+            // Find first line that differs
+            const oldLines = (c.old || '').split('\n');
+            const newLines = (c.new || '').split('\n');
+            let firstDiff = '';
+            for (let i = 0; i < Math.max(oldLines.length, newLines.length); i++) {
+              if (oldLines[i] !== newLines[i]) {
+                firstDiff = (newLines[i] || '').substring(0, 80);
+                break;
+              }
+            }
+            return '<div class="changelog-detail">Rules text updated (' + diffStr + ')' +
+              (firstDiff ? ': "' + firstDiff.replace(/</g,'&lt;') + (firstDiff.length >= 80 ? '...' : '') + '"' : '') +
+              '</div>';
+          } else if (c.field === 'flavor_text') {
+            return '<div class="changelog-detail">Flavor text: "' +
+              ((c.new || '').substring(0, 60).replace(/</g,'&lt;')) +
+              (((c.new || '').length > 60) ? '...' : '') + '"</div>';
+          } else if (c.field === 'mana_cost') {
+            return '<div class="changelog-detail">Mana cost: ' + (c.old || 'none') + ' → ' + (c.new || 'none') + '</div>';
+          } else if (c.field === 'type_line') {
+            return '<div class="changelog-detail">Type: ' + (c.old || '') + ' → ' + (c.new || '') + '</div>';
+          } else if (c.field === 'power' || c.field === 'toughness') {
+            return '<div class="changelog-detail">' + fieldLabel + ': ' + (c.old || '—') + ' → ' + (c.new || '—') + '</div>';
+          } else {
+            return '<div class="changelog-detail">' + fieldLabel + ' updated</div>';
+          }
         }).join('');
       }
       return '<div class="changelog-entry">' +

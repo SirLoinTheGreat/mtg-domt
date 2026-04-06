@@ -19,7 +19,7 @@
       ],
       "subtypes": [],
       "rules_text": "Equilibrium — Each player's life total becomes equal to the highest life total among all players.\nParity — Each player sacrifices creatures, planeswalkers, artifacts, and enchantments until they control the same number of them as the player who controls the fewest.\nReckoning — Each player discards cards until their hand size is equal to the lowest hand size among all players.\nErosion — Each player sacrifices lands until they control the same number of lands as the player who controls the fewest.",
-      "flavor_text": "The scales of fate care not for your accumulated power.",
+      "flavor_text": "What took a lifetime to build, fate undoes in a breath.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -46,7 +46,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Suspend 2 — {0}{U}{U} (Exile this with two time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost.)\nImpact — When you cast The Comet, you may choose target creature you control. If you do, all other creatures phase out until end of turn.\nUntil end of turn, the chosen creature gains flying, double strike, and \"Whenever this creature deals combat damage to a player, draw two cards.\"\nAt the beginning of your end step, if the chosen creature didn't deal combat damage to a player this turn, exile it.",
+      "rules_text": "When you draw The Comet from the Deck of Many Things, exile it with two time counters on it instead of casting it.\nSuspend 2 — {0}{U}{U} (Exile this with two time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, you may cast it without paying its mana cost.)\nImpact — When you cast The Comet, you may choose target creature you control. If you do, all other creatures phase out until end of turn.\nUntil end of turn, the chosen creature gains flying, double strike, and \"Whenever this creature deals combat damage to a player, draw two cards.\"\nAt the beginning of your end step, if the chosen creature didn't deal combat damage to a player this turn, exile it.",
       "flavor_text": "When heavens pierce the veil, one shall rise beyond the stars.",
       "power": null,
       "toughness": null,
@@ -210,7 +210,7 @@
       "set": "original",
       "set_code": "DOMT-OG",
       "collector_number": "0007",
-      "mana_cost": "{1}{U}{B}",
+      "mana_cost": "{1}{U}{R}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
@@ -223,7 +223,7 @@
       "toughness": null,
       "color_identity": [
         "U",
-        "B"
+        "R"
       ],
       "keywords": [],
       "artist": "MidJourney",
@@ -253,7 +253,7 @@
         "Treasure"
       ],
       "rules_text": "Fortune — When Gem enters, create X Treasure tokens, where X is the number of lands on the battlefield.\nOpulence — At the beginning of your upkeep, create two Treasure tokens.\nLiquidate — {T}, Sacrifice Gem: Create ten Treasure tokens.",
-      "flavor_text": "A fortune beyond measure, yet still finite.",
+      "flavor_text": "Count it if you like. There will always be more.",
       "power": null,
       "toughness": null,
       "color_identity": [],
@@ -488,7 +488,7 @@
       ],
       "subtypes": [],
       "rules_text": "Bankruptcy — Sacrifice all artifacts you control, then exile all artifact cards from your hand and graveyard.\nForeclosure — Sacrifice all lands you control. For the next three turns, you can't play lands.\nAuction — Starting with the player to your left, each opponent gains control of a non-artifact, non-land permanent you control of their choice until all your remaining permanents are claimed.",
-      "flavor_text": "Fortunes built over lifetimes can vanish in an instant.",
+      "flavor_text": "The vaults stand open. The vaults stand empty.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -622,7 +622,7 @@
       ],
       "subtypes": [],
       "rules_text": "Radiance — Draw seven cards, scry 5, you may play up to two additional lands this turn, you have no maximum hand size for the rest of the game, gain 20 life, and create three Treasure tokens. (They're artifacts with \"{T}, Sacrifice this artifact: Add one mana of any color.\")\nIllumination — Search target player's library for an artifact card and put it onto the battlefield under your control. Then that player shuffles their library.",
-      "flavor_text": "In the sun's radiance, all knowledge and treasures are illuminated.",
+      "flavor_text": "The last thing you see before enlightenment is everything you were missing.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -2149,7 +2149,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0038",
-      "mana_cost": "{W}",
+      "mana_cost": "{W}{R}",
       "type_line": "Legendary Enchantment — Attribute",
       "supertypes": [
         "Legendary"
@@ -2166,7 +2166,7 @@
       "toughness": null,
       "color_identity": [
         "W",
-        "B"
+        "R"
       ],
       "keywords": [
         "Battle cry",
@@ -2195,7 +2195,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "When Divine Intervention enters, exile it. You may cast it from exile without paying its mana cost any time you could cast an instant. If you do, choose a mode you haven't chosen this game:\n• Return all permanent cards from your graveyard to the battlefield.\n• Your life total becomes your starting life total.\n• Exile all nonland permanents your opponents control.\n• Search your library for up to five cards and put them into your hand.\nIf you would lose the game while Divine Intervention is in exile, you may cast it instead. If you do, your life total becomes your starting life total, remove all poison counters from you, reset all commander damage dealt to you, and return target creature from your graveyard to the battlefield tapped.\nWhen Divine Intervention is cast from exile, shuffle it into the Deck of Many Things.",
+      "rules_text": "When Divine Intervention enters, exile it. You may cast it from exile without paying its mana cost any time you could cast an instant. If you do, choose a mode you haven't chosen this game:\n• Return all permanent cards from your graveyard to the battlefield.\n• Your life total becomes your starting life total.\n• Exile all nonland permanents your opponents control.\n• Search your library for up to five cards and put them into your hand.\nIf you would lose the game while Divine Intervention is in exile, you may cast it instead. If you do, your life total becomes your starting life total, remove all poison counters from you, reset all commander damage dealt to you, and return target creature from your graveyard to the battlefield tapped.\nWhen Divine Intervention is cast from exile, shuffle it into the Deck of Many Things.\nDivine Intervention enters with two intervention counters on it. When you cast Divine Intervention from exile, remove an intervention counter. When the last is removed, exile Divine Intervention permanently.",
       "flavor_text": "The covenant is sealed in starlight. Choose wisely when to call upon it.",
       "power": null,
       "toughness": null,
@@ -4392,7 +4392,7 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0004",
-      "mana_cost": "{2}{R}{W}",
+      "mana_cost": "{2}{R}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -4406,7 +4406,6 @@
       "power": null,
       "toughness": null,
       "color_identity": [
-        "W",
         "R"
       ],
       "keywords": [
@@ -4621,7 +4620,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "Shroud, indestructible\nYour life total becomes 10. You can't gain life.\nIf a source would deal damage to you, prevent all but 1 of that damage.\nAt the beginning of your upkeep, lose 1 life.\nSpells you cast cost {1} less.\nWhen this enchantment leaves, you lose the game.",
+      "rules_text": "Hexproof, indestructible\nYour life total becomes 10. You can't gain life.\nIf a source would deal damage to you, prevent all but 1 of that damage.\nAt the beginning of your upkeep, lose 1 life.\nSpells you cast cost {1} less.\nWhen this enchantment leaves, you lose the game.",
       "flavor_text": "\"The hourglass empties. The hand reaches. The last breath is always yours to take.\"",
       "power": null,
       "toughness": null,
