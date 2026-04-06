@@ -555,7 +555,7 @@
         "Spirit",
         "Avatar"
       ],
-      "rules_text": "Flying, indestructible, menace, deathtouch, wither\nProtection from abilities and colored spells\nWhen Avatar of Death enters, mark the player who drew it. Each player's life total becomes 10. A random opponent gains control of Avatar of Death.\nAvatar of Death attacks the marked player each combat if able and can't block.\nWhen Avatar of Death dies or the marked player loses the game, shuffle it into the Deck of Many Things.\nWhenever the marked player or Avatar of Death is targeted or dealt damage by an opponent, that opponent creates a token copy of Avatar of Death.\nCreatures dealt lethal damage by Avatar of Death are exiled. When Avatar of Death deals combat damage to a player, that player loses the game.",
+      "rules_text": "Flying, indestructible, menace, deathtouch, wither\nProtection from colored spells\nWhen Avatar of Death enters, mark the player who summoned it. Each player's life total becomes 10. A random opponent gains control of Avatar of Death.\nAvatar of Death attacks the marked player each combat if able and can't block.\nWhen Avatar of Death dies or the marked player loses the game, shuffle it into the Deck of Many Things.\nWhenever the marked player or Avatar of Death is targeted or dealt damage by an opponent, that opponent creates a token copy of Avatar of Death.\nCreatures dealt lethal damage by Avatar of Death are exiled. When Avatar of Death deals combat damage to a player, that player loses the game.",
       "flavor_text": "\"You mistake my patience for mercy.\" — Death",
       "power": "10",
       "toughness": "10",
