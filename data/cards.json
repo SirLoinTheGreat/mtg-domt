@@ -3465,10 +3465,10 @@
       "subtypes": [
         "Horror"
       ],
-      "rules_text": "Hexproof\nWhen The Mute Hag enters, target opponent gets a deprivation counter of a type chosen at random from among types they don't have. The types are:\n• Sight — Can't look at cards in any zone except the battlefield.\n• Hearing — Can't activate nonmana abilities.\n• Speech — Can't cast spells during other players' turns.\nAt the beginning of each opponent's upkeep, if that player has one or more deprivation counters, they lose 2 life for each unless they sacrifice that many permanents. Then they get a deprivation counter of a random type they don't already have.\n{1}: Remove a deprivation counter from target player. Any player may activate this ability.",
+      "rules_text": "Shroud, indestructible\nWhen The Mute Hag enters, each opponent gets a deprivation counter of a random type. The types are:\n• Sight — Can't scry, surveil, or search libraries. Spells and abilities you control can't target opponents' permanents.\n• Hearing — Can't cast spells or activate abilities during other players' turns.\n• Speech — Creatures you control can't attack or block.\nAt the beginning of each opponent's upkeep, if that player has fewer than three deprivation counters, they get one of a random type they don't already have.\nDeprivation counters can't be removed except by an effect from a card named The Fates.",
       "flavor_text": "\"In the absence of one sense, terror fills all others.\"",
-      "power": "2",
-      "toughness": "4",
+      "power": 2,
+      "toughness": 4,
       "color_identity": [
         "B"
       ],
