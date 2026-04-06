@@ -25,8 +25,12 @@ Each card has been carefully designed to maintain the spirit of its D&D counterp
 |:---:|:---:|:---:|
 | ![The Fates](assets/cards/original/The%20Fates.png) | ![Avatar of Death](assets/cards/original/The%20Skull%20(Avatar%20of%20Death).png) | ![The Moon](assets/cards/original/The%20Moon.png) |
 | *The Fates — The Safety Valve* | *The Skull — Avatar of Death* | *The Moon — Three Wishes* |
-| ![The Dragon](assets/cards/expansion/The%20Dragon.png) | ![The Paladin](assets/cards/harrow/The%20Paladin.png) | ![The Mute Hag](assets/cards/harrow/The%20Mute%20Hag.png) |
-| *The Dragon — Five-Color Lord* | *The Paladin — Divine Champion* | *The Mute Hag — Sense Deprivation* |
+| ![The Sun](assets/cards/original/The%20Sun.png) | ![The Void](assets/cards/original/The%20Void.png) | ![The Dragon](assets/cards/expansion/The%20Dragon.png) |
+| *The Sun — Radiance* | *The Void — Soul Imprisonment* | *The Dragon — Five-Color Lord* |
+| ![Gelatinous Cube](assets/cards/expansion/The%20Ooze%20(Gelatinous%20Cube).png) | ![The Paladin](assets/cards/harrow/The%20Paladin.png) | ![The Mute Hag](assets/cards/harrow/The%20Mute%20Hag.png) |
+| *The Ooze — Gelatinous Cube* | *The Paladin — Divine Champion* | *The Mute Hag — Sense Deprivation* |
+| ![The Unicorn](assets/cards/harrow/The%20Unicorn.png) | ![The Champion](assets/cards/wonder/The%20Champion.png) | ![The Knife](assets/cards/wonder/The%20Knife.png) |
+| *The Unicorn — Divine Undoing* | *The Champion — Wonder Deck* | *The Knife — Living Weapon* |
 
 ## Features
 
