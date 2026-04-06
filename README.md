@@ -2,7 +2,7 @@
 
 ![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)
 ![Cards: 148](https://img.shields.io/badge/Cards-148-gold)
-![Last Updated: March 2025](https://img.shields.io/badge/Last%20Updated-March%202025-blue)
+![Last Updated: April 2026](https://img.shields.io/badge/Last%20Updated-April%202026-blue)
 
 Welcome to a complete Magic: The Gathering crossover of D&D's infamous Deck of Many Things! This project reimagines one of tabletop gaming's most chaotic artifacts through the lens of Magic's mechanical framework.
 
@@ -12,21 +12,21 @@ This collection features **148 custom cards** spread across four versions of the
 
 | Set | Code | Cards | Source |
 |-----|------|-------|--------|
-| Original Deck | DOMT-OG | 22 + 4 support | D&D 5e DMG / Book of Many Things |
+| Original Deck | DOMT-OG | 22 + 5 support | D&D 5e DMG / Book of Many Things |
 | Expansion Deck | DOMT-EX | 45 | Book of Many Things (2023) |
 | Harrow Deck | DOMT-HW | 54 + 1 support | Pathfinder Harrow Deck |
 | Wonder Deck | DOMT-WO | 22 | Deck of Wonder (2023) |
 
 Each card has been carefully designed to maintain the spirit of its D&D counterpart while functioning within Magic's rules system. Where direct translation wasn't possible, we've created new interpretations that capture the original card's essence.
 
-## Gallery
+## Showcase
 
 | | | |
 |:---:|:---:|:---:|
 | ![The Fates](assets/cards/original/The%20Fates.png) | ![Avatar of Death](assets/cards/original/The%20Skull%20(Avatar%20of%20Death).png) | ![The Moon](assets/cards/original/The%20Moon.png) |
-| *The Fates — Safety Valve* | *Avatar of Death — The Skull* | *The Moon — Three Wishes* |
-| ![The Dawn](assets/cards/wonder/The%20Dawn.png) | ![Gelatinous Cube](assets/cards/expansion/The%20Ooze%20(Gelatinous%20Cube).png) | ![The Demon](assets/cards/harrow/The%20Demon.png) |
-| *The Dawn — Wonder Deck* | *Gelatinous Cube — The Ooze* | *The Demon — Harrow Deck* |
+| *The Fates — The Safety Valve* | *The Skull — Avatar of Death* | *The Moon — Three Wishes* |
+| ![The Dragon](assets/cards/expansion/The%20Dragon.png) | ![The Paladin](assets/cards/harrow/The%20Paladin.png) | ![The Mute Hag](assets/cards/harrow/The%20Mute%20Hag.png) |
+| *The Dragon — Five-Color Lord* | *The Paladin — Divine Champion* | *The Mute Hag — Sense Deprivation* |
 
 ## Features
 
@@ -34,8 +34,9 @@ Each card has been carefully designed to maintain the spirit of its D&D counterp
 - **Fate Point** mechanic for managing deck draws — risk vs. reward every turn
 - 11 custom mechanics and status conditions unique to this set
 - Optional rules for varied gameplay experiences (free first draw, multi-draw, d6 gambling)
-- High-resolution card images designed for printing with bleed margins
+- High-resolution card images (2010x2814) designed for printing with bleed margins
 - Machine-readable card database (`data/cards.json`) with full card data
+- Online gallery (`index.html`) with search, filtering, card detail view, and per-card changelog
 
 ## Using the Deck
 
@@ -58,16 +59,16 @@ Full rules: [Deck of Many Things Rules Card](assets/cards/original/Deck%20of%20M
 mtg-domt/
 ├── README.md                 # This file
 ├── LICENSE                   # CC BY-NC-SA 4.0
+├── index.html                # Online gallery (rollfor.gg/domt/)
 ├── assets/cards/
-│   ├── original/             # 26 PNGs — Original Deck + support cards
-│   ├── expansion/            # 45 PNGs — Expansion Deck
-│   ├── harrow/               # 55 PNGs — Harrow Deck + Plane of Air token
-│   └── wonder/               # 22 PNGs — Wonder Deck
+│   ├── original/             # Original Deck + support cards
+│   │   └── thumbs/           # JPEG thumbnails for gallery
+│   ├── expansion/            # Expansion Deck
+│   ├── harrow/               # Harrow Deck + Plane of Air token
+│   └── wonder/               # Wonder Deck
 ├── data/
-│   └── cards.json            # Machine-readable card database (148 cards)
-└── tools/
-    ├── validate_cards.py     # Cross-check cards.json against image files
-    └── card_stats.py         # Analytics: color distribution, type breakdown, etc.
+│   ├── cards.json            # Machine-readable card database (148 cards)
+│   └── card_history.json     # Per-card changelog for gallery
 ```
 
 ## How to Print
@@ -94,11 +95,7 @@ This project is not affiliated with, endorsed, or sponsored by Wizards of the Co
 ## Acknowledgments
 
 - Card art generated with **MidJourney** (with one piece by **Christopher Lovell** for The Euryale)
+- Card frames rendered via [Card Conjurer](https://cardconjurer.app/)
 - Special thanks to the D&D and MTG communities for their inspiration and feedback
-
-## Contact
-
-For questions, suggestions, or discussion:
-- Open an issue in this repository or contact me directly
 
 *"Sometimes the cards you're dealt become the fate you're given."*
