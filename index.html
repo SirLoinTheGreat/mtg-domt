@@ -523,7 +523,7 @@ async function init() {
   document.querySelector('.card-count').textContent =
     CARD_DATA.meta.total_cards + ' cards across four decks';
   try {
-    const histResp = await fetch('data/card_history.json');
+    const histResp = await fetch('data/card_history.json?' + CACHE_BUST);
     if (histResp.ok) {
       const histData = await histResp.json();
       cardHistory = histData.history || {};
