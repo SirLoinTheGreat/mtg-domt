@@ -744,51 +744,56 @@ function showCard(card) {
   if (entries.length > 0) {
     clSection.style.display = '';
     clDiv.innerHTML = entries.map(e => {
-      let detail = '';
+      let details = [];
       if (e.type === 'added') {
-        detail = '<div class="changelog-detail">Card added to the set</div>';
+        details.push('<div class="changelog-detail">Card added to the set</div>');
       } else if (e.changes && e.changes.length > 0) {
-        detail = e.changes.map(c => {
-          const fieldLabel = c.field.replace(/_/g, ' ');
+        e.changes.forEach(c => {
+          const esc = s => (s || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
           if (c.field === 'rules_text') {
-            // Show a short diff summary for rules text
-            const oldLen = (c.old || '').length;
-            const newLen = (c.new || '').length;
-            const diff = newLen - oldLen;
-            const diffStr = diff > 0 ? '+' + diff + ' chars' : diff + ' chars';
-            // Find first line that differs
             const oldLines = (c.old || '').split('\n');
             const newLines = (c.new || '').split('\n');
-            let firstDiff = '';
-            for (let i = 0; i < Math.max(oldLines.length, newLines.length); i++) {
+            // Collect all changed lines
+            const diffs = [];
+            const maxLen = Math.max(oldLines.length, newLines.length);
+            for (let i = 0; i < maxLen; i++) {
               if (oldLines[i] !== newLines[i]) {
-                firstDiff = (newLines[i] || '').substring(0, 80);
-                break;
+                if (!oldLines[i] && newLines[i]) {
+                  diffs.push('<span style="color:#7dba8a">+ ' + esc(newLines[i]).substring(0, 120) + '</span>');
+                } else if (oldLines[i] && !newLines[i]) {
+                  diffs.push('<span style="color:#c86060;text-decoration:line-through">' + esc(oldLines[i]).substring(0, 120) + '</span>');
+                } else {
+                  diffs.push('<span style="color:#c86060;text-decoration:line-through">' + esc(oldLines[i]).substring(0, 120) + '</span>');
+                  diffs.push('<span style="color:#7dba8a">+ ' + esc(newLines[i]).substring(0, 120) + '</span>');
+                }
               }
+              if (diffs.length >= 8) break;
             }
-            return '<div class="changelog-detail">Rules text updated (' + diffStr + ')' +
-              (firstDiff ? ': "' + firstDiff.replace(/</g,'&lt;') + (firstDiff.length >= 80 ? '...' : '') + '"' : '') +
-              '</div>';
+            if (diffs.length > 0) {
+              details.push('<div class="changelog-detail" style="margin-top:4px"><strong>Rules text:</strong></div>');
+              diffs.forEach(d => details.push('<div class="changelog-detail" style="font-size:.68rem;line-height:1.4;padding-left:8px">' + d + '</div>'));
+            }
           } else if (c.field === 'flavor_text') {
-            return '<div class="changelog-detail">Flavor text: "' +
-              ((c.new || '').substring(0, 60).replace(/</g,'&lt;')) +
-              (((c.new || '').length > 60) ? '...' : '') + '"</div>';
+            if (c.old) details.push('<div class="changelog-detail"><strong>Flavor:</strong> <span style="color:#c86060;text-decoration:line-through">"' + esc(c.old).substring(0, 80) + '"</span></div>');
+            if (c.new) details.push('<div class="changelog-detail"><strong>Flavor:</strong> <span style="color:#7dba8a">"' + esc(c.new).substring(0, 80) + '"</span></div>');
           } else if (c.field === 'mana_cost') {
-            return '<div class="changelog-detail">Mana cost: ' + (c.old || 'none') + ' → ' + (c.new || 'none') + '</div>';
+            details.push('<div class="changelog-detail"><strong>Mana cost:</strong> ' + esc(c.old || 'none') + ' → ' + esc(c.new || 'none') + '</div>');
           } else if (c.field === 'type_line') {
-            return '<div class="changelog-detail">Type: ' + (c.old || '') + ' → ' + (c.new || '') + '</div>';
+            details.push('<div class="changelog-detail"><strong>Type:</strong> ' + esc(c.old) + ' → ' + esc(c.new) + '</div>');
           } else if (c.field === 'power' || c.field === 'toughness') {
-            return '<div class="changelog-detail">' + fieldLabel + ': ' + (c.old || '—') + ' → ' + (c.new || '—') + '</div>';
+            details.push('<div class="changelog-detail"><strong>' + c.field + ':</strong> ' + (c.old || '—') + ' → ' + (c.new || '—') + '</div>');
+          } else if (c.field === 'name') {
+            details.push('<div class="changelog-detail"><strong>Renamed:</strong> ' + esc(c.old) + ' → ' + esc(c.new) + '</div>');
           } else {
-            return '<div class="changelog-detail">' + fieldLabel + ' updated</div>';
+            const fieldLabel = c.field.replace(/_/g, ' ');
+            details.push('<div class="changelog-detail"><strong>' + fieldLabel + ':</strong> ' + esc(String(c.old || '')) + ' → ' + esc(String(c.new || '')) + '</div>');
           }
-        }).join('');
+        });
       }
       return '<div class="changelog-entry">' +
         '<span class="changelog-date">' + e.date + '</span>' +
         '<div class="changelog-body">' +
-          '<div class="changelog-msg">' + e.message + '</div>' +
-          detail +
+          details.join('') +
         '</div>' +
       '</div>';
     }).join('');
