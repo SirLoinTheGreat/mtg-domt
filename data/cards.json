@@ -2645,8 +2645,8 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0008",
-      "mana_cost": "{3}",
-      "type_line": "Legendary Artifact Creature — Human Advisor",
+      "mana_cost": "{2}{U}",
+      "type_line": "Legendary Creature — Human Advisor",
       "supertypes": [
         "Legendary"
       ],
@@ -2658,12 +2658,12 @@
         "Human",
         "Advisor"
       ],
-      "rules_text": "Ward {W}\nWhen The Courtesan enters, search your library for an Equipment card, reveal it, put it into your hand, then shuffle.\n{W}: Until end of turn, target Equipment you control becomes an Artifact Creature — Construct with base power and toughness equal to its mana value. It gains flying if its mana value is 4 or greater, deathtouch if 3 or greater, and vigilance if 2 or greater. Activate only as a sorcery.\nWhenever an equipped creature you control deals combat damage to a player or dies, you gain 2 life, draw a card, and you may return it to its owner's hand.",
+      "rules_text": "When The Courtesan enters, choose target artifact you control. It becomes an Artifact Creature with base power and toughness equal to its mana value and gains indestructible and two of the following at random:\n• Flying and vigilance\n• Deathtouch and lifelink\n• Double strike\n• Hexproof and ward {2}\n• \"Whenever this creature deals combat damage to a player, draw two cards.\"\n• \"At the beginning of your upkeep, create a Treasure token.\"\nIf you control no artifacts, search your library for an artifact card, put it onto the battlefield, then shuffle. It becomes a 4/4 Artifact Creature with two of the abilities above at random.\nWhen The Courtesan leaves, the chosen artifact remains a creature.",
       "flavor_text": "\"In every blade sleeps a spirit. In every spirit sleeps a story.\"",
-      "power": "2",
-      "toughness": "3",
+      "power": 2,
+      "toughness": 3,
       "color_identity": [
-        "W"
+        "U"
       ],
       "keywords": [
         "Ward"
