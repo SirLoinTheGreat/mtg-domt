@@ -3923,7 +3923,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "At the beginning of your upkeep, each player creates a 1/1 green and white Human Performer token.\nWhenever a creature dies, put a Spotlight counter on The Theatre.\n{T}, Remove a Spotlight counter from The Theatre: Choose one —\n• Encore performance — Create two 2/2 white Human Performer tokens with \"When this creature enters, tap target creature an opponent controls.\"\n• Inspire the audience — Each player draws a card, then you draw two additional cards.\n• Standing ovation — Each player gains 1 life, then you gain 1 life for each creature you control.",
+      "rules_text": "At the beginning of your upkeep, create a 1/1 green and white Human Performer token and put a Spotlight counter on The Theatre.\nWhenever a creature dies, you may put an additional Spotlight counter on The Theatre.\n{T}, Remove a Spotlight counter from The Theatre: Choose one —\n• Encore performance — Create two 2/2 white Human Performer tokens with \"When this creature enters, tap target creature an opponent controls.\"\n• Inspire the audience — Each player draws a card, then you draw two additional cards.\n• Standing ovation — Each player gains 1 life, then you gain 1 life for each creature you control.",
       "flavor_text": "\"Every battle tells a story; every victory earns an ovation.\"",
       "power": null,
       "toughness": null,
