@@ -728,7 +728,7 @@
     },
     {
       "name": "Deck of Many Things",
-      "dnd_card_name": "Deck of Many Things Rules",
+      "dnd_card_name": "Deck of Many Things",
       "set": "original",
       "set_code": "DOMT-OG",
       "collector_number": "RULES",
@@ -2499,7 +2499,7 @@
         "Aura",
         "Curse"
       ],
-      "rules_text": "Enchant player\nVanishing 3 (This permanent enters with three time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nWhenever a creature enchanted player controls blocks or becomes blocked by a creature an opponent controls, that creature gets -2/-2 until end of combat.\nIf damage would be dealt to enchanted player or creatures they control by a source an opponent controls, that damage is doubled.",
+      "rules_text": "Enchant player\nVanishing 5 (This permanent enters with five time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nWhenever a creature enchanted player controls blocks or becomes blocked by a creature an opponent controls, that creature gets -2/-2 until end of combat.\nIf damage would be dealt to enchanted player or creatures they control by a source an opponent controls, that damage is doubled.",
       "flavor_text": "\"In the end, it wasn't the pain that broke him. It was knowing there would always be more.\"",
       "power": null,
       "toughness": null,
@@ -2722,7 +2722,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Each player chooses a nonland permanent they control. Target opponent chooses one of those permanents. That permanent's controller sacrifices it. That player creates a Clue token and a 1/1 black Crow token with flying.",
+      "rules_text": "Each player chooses a creature they control and an artifact or enchantment they control. An opponent chosen at random chooses one of those permanents for each player. Each player sacrifices the chosen permanent. For each permanent sacrificed this way, that permanent's controller's opponents each draw a card.",
       "flavor_text": "\"The crows care not for gold or flesh — only that a price is paid.\"",
       "power": null,
       "toughness": null,
@@ -3124,7 +3124,7 @@
         "Human",
         "Advisor"
       ],
-      "rules_text": "Flash\nWhen The Inquisitor enters, look at target opponent's hand. Name a card. Choose a card at random from their hand. If it's the named card, exile that card. Until the end of your next turn, that player can't cast spells or activate abilities.\n{T}, {W}, Sacrifice The Inquisitor: Look at target opponent's hand and choose up to three cards from it. That player exiles those cards. Until end of turn, you may cast one of the exiled cards without paying its mana cost. At the beginning of the next end step, return the other cards to their owner's hand.",
+      "rules_text": "Flash\nWhen The Inquisitor enters, look at target opponent's hand. You may exile a card from it. Until the end of your next turn, that player can't cast spells that share a card type with the exiled card.\n{T}, {W}, Sacrifice The Inquisitor: Look at target opponent's hand and choose up to three cards from it. That player exiles those cards. Until end of turn, you may cast one of the exiled cards without paying its mana cost. At the beginning of the next end step, return the other cards to their owner's hand.",
       "flavor_text": "\"Your secrets are but bargaining chips in our little game of truth.\"",
       "power": "2",
       "toughness": "3",
@@ -3221,7 +3221,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "When The Keep enters, exile any number of nonland permanents you control. Those cards gain \"You may cast this card from exile.\"\nAt the beginning of your upkeep, you may return one card exiled with The Keep to the battlefield under your control.\n{2}, {T}: Exile target permanent you control. It gains \"You may cast this card from exile.\"",
+      "rules_text": "When The Keep enters, draw two cards, create two Treasure tokens, then exile any number of nonland permanents you control. Those cards gain \"You may cast this card from exile.\"\nAt the beginning of your upkeep, you may return up to two cards exiled with The Keep to the battlefield under your control.\n{2}, {T}: Exile target permanent you control. It gains \"You may cast this card from exile.\"",
       "flavor_text": "\"Within its ethereal walls, reality bends to the will of its master.\"",
       "power": null,
       "toughness": null,
@@ -3499,7 +3499,7 @@
       "subtypes": [
         "Bird"
       ],
-      "rules_text": "Flash\nFlying, ward {2}\nWhenever The Owl deals combat damage to a player, scry 1.\nWhenever you scry, you may pay {1}. If you do, gain 2 life and draw a card.\n{T}, Sacrifice The Owl: Scry 7, then target opponent may scry 3. Draw a card.\nWhen The Owl dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
+      "rules_text": "Flash\nFlying, ward {2}\nWhenever you scry, you may pay {1}. If you do, gain 2 life and draw a card.\nAt the beginning of your upkeep, scry 1.\n{T}, Sacrifice The Owl: Scry 7, then target opponent may scry 3. Draw a card.\nWhen The Owl dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
       "flavor_text": "\"Perfect knowledge comes with perfect awareness.\"",
       "power": "1",
       "toughness": "3",
@@ -3574,7 +3574,7 @@
         "Bird",
         "Spirit"
       ],
-      "rules_text": "When The Peacock enters, creatures you control gain indestructible until end of turn.\nCreatures you control get +0/+4 and have hexproof.\nCreatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.\nEach source of damage dealt to you and permanents you control is increased by 1.",
+      "rules_text": "When The Peacock enters, creatures you control gain indestructible until end of turn.\nCreatures you control get +0/+4 and have hexproof.\nCreatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.\nCreatures you control get -1/+0.",
       "flavor_text": "\"Beauty becomes burden, protection becomes prison.\"",
       "power": "3",
       "toughness": "5",
@@ -4129,7 +4129,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "An opponent chosen at random secretly chooses one of these omens:\n• Peace — At the beginning of your next turn, draw three cards and gain 5 life.\n• War — At the beginning of your next turn, destroy target creature an opponent controls and create three 2/2 black Knight tokens.\nAt the beginning of your next upkeep, choose one —\n• Embrace — The chosen omen occurs.\n• Reject — The unchosen omen occurs.",
+      "rules_text": "An opponent chosen at random secretly chooses one of these omens:\n• Peace — At the beginning of your next turn, draw five cards, gain 10 life, and you may put a land card from your hand onto the battlefield.\n• War — At the beginning of your next turn, destroy target creature each opponent controls. Create three 3/3 black Knight tokens with menace.\nAt the beginning of your next upkeep, choose one —\n• Embrace — The chosen omen occurs.\n• Reject — The unchosen omen occurs.",
       "flavor_text": "\"Two futures dance before your eyes. One true, one false... but which is which?\"",
       "power": null,
       "toughness": null,
@@ -4193,7 +4193,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Roll a d6. An opponent chosen at random creates that many 2/2 blue, black, and red Shapeshifter tokens with the following abilities:\n• This creature can't be blocked by creatures that share a color with it.\n• This creature must attack the player who drew The Waxworks each combat if able.\n• When this creature dies, it deals 2 damage to the player who drew The Waxworks.",
+      "rules_text": "Roll a d6. An opponent chosen at random creates that many 3/3 blue, black, and red Shapeshifter tokens with the following abilities:\n• This creature can't be blocked by creatures that share a color with it.\n• This creature must attack the player who drew The Waxworks each combat if able.\n• This creature has all activated abilities of creatures the player who drew The Waxworks controls.\n• When this creature dies, it deals 2 damage to the player who drew The Waxworks.",
       "flavor_text": "\"In every reflection lies a darker self, yearning to destroy its origin.\"",
       "power": null,
       "toughness": null,
@@ -4652,7 +4652,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Split Second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.)\nExile all permanents you control and all cards in your hand. At the beginning of your next upkeep, you may return any number of permanent cards exiled this way to the battlefield under your control and any number of other cards exiled this way to your hand. If you do, you lose X life, where X is the number of cards returned from exile this way and you can't draw cards until your next turn.",
+      "rules_text": "Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.)\nExile all permanents you control and all cards in your hand. At the beginning of the next end step, return all cards exiled this way to the battlefield and to your hand. Until your next turn, you have hexproof and can't be attacked.",
       "flavor_text": "\"The void embraces me like an old friend. But oh, how its kiss burns when it lets me go...\" —Journal of the Lost Wanderer, recovered from the Blind Eternities",
       "power": null,
       "toughness": null,
@@ -4752,7 +4752,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "Activated abilities of artifacts your opponents control cost {1} more to activate.\n{Q}, {T}: Target permanent loses all abilities until end of turn. If you targeted an artifact this way, create a Treasure token.\n{1}, {T}: Counter target activated or triggered ability from target artifact.\n{T}, Sacrifice The Lock: Gain control of target artifact. Its controller creates two Treasure tokens.",
+      "rules_text": "Activated abilities of permanents your opponents control cost {1} more to activate.\n{Q}, {T}: Target permanent loses all abilities until end of turn. If you targeted an artifact this way, create a Treasure token.\n{1}, {T}: Counter target activated or triggered ability from target artifact.\n{T}, Sacrifice The Lock: Gain control of target artifact. Its controller creates two Treasure tokens.",
       "flavor_text": "\"The mechanisms of power are simple enough—tumblers, wards, and pins. The true challenge lies in knowing which secrets are better left locked away.\" —Master Artificer Jin, after sealing the Vault of Whispers",
       "power": null,
       "toughness": null,
@@ -4906,7 +4906,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When The Order enters, choose a color.\nIf a source of the chosen color would deal damage to you or a creature you control, prevent half that damage, rounded down.\nSpells of the chosen color your opponents control cost {2} more.\nAt the beginning of your upkeep, you may change the chosen color.",
+      "rules_text": "When The Order enters, choose a color.\nIf a source of the chosen color would deal damage to you or a creature you control, prevent that damage.\nSpells of the chosen color your opponents control cost {2} more.\nAt the beginning of your upkeep, you may change the chosen color.",
       "flavor_text": "\"Through discipline and devotion, chaos itself bends to divine will.\"",
       "power": null,
       "toughness": null,
@@ -4936,7 +4936,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When The Student enters, look at the top three cards of your library. You may reveal a land card from among them and put it into your hand. Put the rest on the bottom in any order.\nWhenever you would draw a card during your draw step, instead scry 1, then draw a card.\nAt the beginning of your end step, if you gained life this turn, draw a card.",
+      "rules_text": "When The Student enters, look at the top three cards of your library. You may reveal a land card from among them and put it into your hand. Put the rest on the bottom in any order.\nWhenever you would draw a card during your draw step, instead scry 1, then draw a card.\nAt the beginning of your end step, draw a card.",
       "flavor_text": "\"Through patience and observation, wisdom reveals itself.\"",
       "power": null,
       "toughness": null,
