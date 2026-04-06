@@ -1947,7 +1947,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "Indestructible\nWhen The Ring enters, roll a d20 put that many charge counters on it. You gain protection from everything until your next turn.\nAt the beginning of your upkeep, put two charge counters on The Ring.\n{T}, Remove X charge counters: Choose one —\n• Empower — Until end of turn, creatures you control get +X/+X and gain your choice of flying, vigilance, or trample.\n• Burden — Draw X cards and lose X life.\n• Corrupt — Target player loses X life and you gain X life.",
+      "rules_text": "Indestructible\nWhen The Ring enters, roll a d12 and add 4. Put that many charge counters on it. You gain protection from everything until your next turn.\nAt the beginning of your upkeep, put two charge counters on The Ring.\nAt the beginning of your end step, you lose 1 life for each charge counter on The Ring.\n{T}, Remove X charge counters: Choose one —\n• Empower — Until end of turn, creatures you control get +X/+X and gain your choice of flying, vigilance, or trample.\n• Burden — Draw X cards and lose X life.\n• Corrupt — Target player loses X life and you gain X life. X can't be greater than 10.",
       "flavor_text": "Some gifts are too powerful to resist, too precious to relinquish.",
       "power": null,
       "toughness": null,
