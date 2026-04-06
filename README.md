@@ -29,8 +29,8 @@ Each card has been carefully designed to maintain the spirit of its D&D counterp
 | *The Sun — Radiance* | *The Void — Soul Imprisonment* | *The Dragon — Five-Color Lord* |
 | ![Gelatinous Cube](assets/cards/expansion/The%20Ooze%20(Gelatinous%20Cube).png) | ![The Paladin](assets/cards/harrow/The%20Paladin.png) | ![The Mute Hag](assets/cards/harrow/The%20Mute%20Hag.png) |
 | *The Ooze — Gelatinous Cube* | *The Paladin — Divine Champion* | *The Mute Hag — Sense Deprivation* |
-| ![The Unicorn](assets/cards/harrow/The%20Unicorn.png) | ![The Champion](assets/cards/wonder/The%20Champion.png) | ![The Knife](assets/cards/wonder/The%20Knife.png) |
-| *The Unicorn — Divine Undoing* | *The Champion — Wonder Deck* | *The Knife — Living Weapon* |
+| ![The Unicorn](assets/cards/harrow/The%20Unicorn.png) | ![The Mage](assets/cards/expansion/The%20Mage.png) | ![The Key](assets/cards/original/The%20Key.png) |
+| *The Unicorn — Divine Undoing* | *The Mage — Level-Up Intelligence* | *The Key — Living Weapon* |
 
 ## Features
 
