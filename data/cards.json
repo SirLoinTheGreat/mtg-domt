@@ -1575,7 +1575,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, draw X cards. Spells you cast cost {X} less, where X is The Mage's level.\nLevel 2 — {2}: Intelligence\nCreatures you control have prowess. Spells you cast can't be countered.\nThe first instant or sorcery you cast each turn has \"When you cast this spell, copy it. You may choose new targets for the copy.\"\nLevel 3 — {3}: Intelligence\nSpells you cast have cascade.\nWhenever you cast a spell, you may draw a card, then discard a card.\nYou may cast spells from your graveyard and from exile.\nLevel 4 — {4}: Intelligence\nSpells you cast have convoke and storm.\nWhenever you cast a spell from anywhere other than your hand, copy it. You may choose new targets for the copy.\nCreatures you control have protection from colored spells. You have hexproof.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, scry X, then draw a card. The first spell you cast each turn costs {X} less, where X is The Mage's level.\nLevel 2 — {2}: Intelligence\nSpells you cast can't be countered and have convoke. Creatures you control have prowess.\nThe first instant or sorcery you cast each turn has \"When you cast this spell, copy it. You may choose new targets for the copy.\"\nLevel 3 — {3}: Intelligence\nSpells you cast have cascade.\nYou may cast instant and sorcery spells from your graveyard.\nLevel 4 — {4}: Intelligence\nSpells you cast have storm.\nWhenever you cast an instant or sorcery, copy it. You may choose new targets for the copy.\nYou have hexproof.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
