@@ -183,13 +183,13 @@
         "Demon",
         "Devil"
       ],
-      "rules_text": "Suspend X — {0}{R}{G} (X is the result of rolling a d4. Exile this with that many time counters. At the beginning of your upkeep, remove one. When the last is removed, cast it.)\nVendetta — When Vengeful Archfiend enters, a random opponent gains control of it, and you become its nemesis.\nHaste, trample, menace\nVengeful Archfiend can't block and attacks its nemesis each combat if able.\nTorment — Whenever Vengeful Archfiend deals combat damage to its nemesis, put a rage counter on it. That player discards a card and sacrifices a permanent.\nVengeful Archfiend gets +2/+0 for each rage counter on it.\nWhen Vengeful Archfiend leaves or its nemesis loses the game, shuffle it into the Deck of Many Things.",
+      "rules_text": "Suspend X — {0}{B}{R} (X is the result of rolling a d4. Exile this with that many time counters. At the beginning of your upkeep, remove one. When the last is removed, cast it.)\nVendetta — When Vengeful Archfiend enters, a random opponent gains control of it, and you become its nemesis.\nHaste, trample, menace\nVengeful Archfiend can't block and attacks its nemesis each combat if able.\nTorment — Whenever Vengeful Archfiend deals combat damage to its nemesis, put a rage counter on it. That player discards a card and sacrifices a permanent.\nVengeful Archfiend gets +2/+0 for each rage counter on it.\nWhen Vengeful Archfiend leaves or its nemesis loses the game, shuffle it into the Deck of Many Things.",
       "flavor_text": "\"Your soul bears my mark. Now suffer eternal persecution.\"",
       "power": "8",
       "toughness": "8",
       "color_identity": [
-        "R",
-        "G"
+        "B",
+        "R"
       ],
       "keywords": [
         "Suspend",
@@ -302,7 +302,7 @@
       "set": "original",
       "set_code": "DOMT-OG",
       "collector_number": "0010",
-      "mana_cost": "{1}{B}{R}{R}",
+      "mana_cost": "{2}{R}{R}",
       "type_line": "Legendary Artifact — Equipment",
       "supertypes": [
         "Legendary"
@@ -318,7 +318,6 @@
       "power": null,
       "toughness": null,
       "color_identity": [
-        "B",
         "R"
       ],
       "keywords": [
@@ -440,7 +439,7 @@
       "set": "original",
       "set_code": "DOMT-OG",
       "collector_number": "0014",
-      "mana_cost": "{1}{R}{R}",
+      "mana_cost": "{1}{B}{R}",
       "type_line": "Legendary Creature — Human Rogue Assassin",
       "supertypes": [
         "Legendary"
@@ -458,6 +457,7 @@
       "power": "3",
       "toughness": "2",
       "color_identity": [
+        "B",
         "R"
       ],
       "keywords": [
@@ -642,7 +642,7 @@
       "set": "original",
       "set_code": "DOMT-OG",
       "collector_number": "0020",
-      "mana_cost": "{2}{R}{W}",
+      "mana_cost": "{2}{R}{B}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
@@ -655,7 +655,7 @@
       "toughness": null,
       "color_identity": [
         "R",
-        "W"
+        "B"
       ],
       "keywords": [],
       "artist": "MidJourney",
@@ -1161,7 +1161,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0010",
-      "mana_cost": "{2}{W}{R}",
+      "mana_cost": "{2}{W}{U}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
@@ -1174,7 +1174,7 @@
       "toughness": null,
       "color_identity": [
         "W",
-        "R"
+        "U"
       ],
       "keywords": [],
       "artist": "MidJourney",
@@ -1305,7 +1305,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0014",
-      "mana_cost": "{W}",
+      "mana_cost": "{W}{U}",
       "type_line": "Legendary Enchantment — Attribute",
       "supertypes": [
         "Legendary"
@@ -1321,7 +1321,8 @@
       "power": null,
       "toughness": null,
       "color_identity": [
-        "W"
+        "W",
+        "U"
       ],
       "keywords": [
         "Bushido",
@@ -1484,7 +1485,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0019",
-      "mana_cost": "{B}{G}",
+      "mana_cost": "{W}{G}",
       "type_line": "Legendary Enchantment — Attribute",
       "supertypes": [
         "Legendary"
@@ -1500,7 +1501,7 @@
       "power": null,
       "toughness": null,
       "color_identity": [
-        "B",
+        "W",
         "G"
       ],
       "keywords": [
@@ -1803,7 +1804,7 @@
       "set_code": "DOMT-EX",
       "collector_number": "0028",
       "mana_cost": "{2}{B}",
-      "type_line": "Legendary Enchantment",
+      "type_line": "Sorcery",
       "supertypes": [
         "Legendary"
       ],
@@ -1811,7 +1812,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When The Pit enters, put 60 depth counters on it. Roll 6d6 and lose that much life. The Pit deals 2 damage to each creature you control for every 10 depth counters on it. They each get a fallen counter until their controller's next turn.\nCreatures with fallen counters:\n• Can't attack unless their controller pays {3} per attacker.\n• Have base power equal to half their original power, rounded down.\n• Combat damage dealt to them is doubled.\nWhenever a creature attacks you or enters under your control, The Pit deals 2 damage to it for every 10 depth counters on it and it gets a fallen counter until its controller's next turn.\nAt the beginning of your upkeep, remove 5 depth counters from The Pit. If it has no depth counters, sacrifice it.",
+      "rules_text": "Roll 3d6. Multiply the result by 3. You lose that much life.\nCreatures you control without flying fall — The Pit deals damage to each of them equal to half the life you lost this way, rounded down. Creatures that die this way are exiled instead of going to a graveyard.\nIf this would reduce your life total to 0 or less, instead your life total becomes 1 and you skip your next two turns.",
       "flavor_text": "The ground beneath your feet was never as solid as you believed.",
       "power": null,
       "toughness": null,
@@ -2423,7 +2424,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0001",
-      "mana_cost": "{3}{R}{R}{R}",
+      "mana_cost": "{3}{B}{R}{R}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
@@ -2435,6 +2436,7 @@
       "power": null,
       "toughness": null,
       "color_identity": [
+        "B",
         "R"
       ],
       "keywords": [
@@ -2524,7 +2526,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0004",
-      "mana_cost": "{1}{R}{R}{R}",
+      "mana_cost": "{2}{B}{R}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
@@ -2536,6 +2538,7 @@
       "power": null,
       "toughness": null,
       "color_identity": [
+        "B",
         "R"
       ],
       "keywords": [],
@@ -2850,7 +2853,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0014",
-      "mana_cost": "{2}{R}{W}",
+      "mana_cost": "{2}{G}{W}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -2864,7 +2867,7 @@
       "power": null,
       "toughness": null,
       "color_identity": [
-        "R",
+        "G",
         "W"
       ],
       "keywords": [],
@@ -3898,8 +3901,7 @@
       "toughness": "3",
       "color_identity": [
         "W",
-        "B",
-        "G"
+        "B"
       ],
       "keywords": [],
       "artist": "MidJourney",
@@ -4152,7 +4154,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0052",
-      "mana_cost": "{2}{U}{R}{G}",
+      "mana_cost": "{2}{G}{W}{U}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -4166,9 +4168,9 @@
       "power": null,
       "toughness": null,
       "color_identity": [
-        "U",
-        "R",
-        "G"
+        "G",
+        "W",
+        "U"
       ],
       "keywords": [
         "Indestructible",
@@ -4455,7 +4457,7 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0006",
-      "mana_cost": "{1}{U}",
+      "mana_cost": "{1}{R}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
@@ -4467,7 +4469,7 @@
       "power": null,
       "toughness": null,
       "color_identity": [
-        "U"
+        "R"
       ],
       "keywords": [
         "Haste",
@@ -4773,7 +4775,7 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0016",
-      "mana_cost": "{2}{U}{B}",
+      "mana_cost": "{2}{U}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
@@ -4785,8 +4787,7 @@
       "power": null,
       "toughness": null,
       "color_identity": [
-        "U",
-        "B"
+        "U"
       ],
       "keywords": [],
       "artist": "MidJourney",
@@ -4927,7 +4928,7 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0021",
-      "mana_cost": "{1}{G}{W}",
+      "mana_cost": "{1}{G}{U}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -4942,7 +4943,7 @@
       "toughness": null,
       "color_identity": [
         "G",
-        "W"
+        "U"
       ],
       "keywords": [
         "Scry"
