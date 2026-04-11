@@ -642,7 +642,7 @@
       "set": "original",
       "set_code": "DOMT-OG",
       "collector_number": "0020",
-      "mana_cost": "{2}{R}{B}",
+      "mana_cost": "{2}{B}{R}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
