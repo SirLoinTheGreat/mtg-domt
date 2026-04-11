@@ -3760,7 +3760,7 @@
         "Aura",
         "Curse"
       ],
-      "rules_text": "Enchant player\nWhen Curse of Leprosy enters and during your upkeep, put a disease counter on it.\nAt the beginning of your end step, lose 2 life for each disease counter on Curse of Leprosy.\nCreatures you control can't gain counters and get -1/-1 for each disease counter on Curse of Leprosy.\nPay X life, where X is twice the number of disease counters on Curse of Leprosy: Remove a disease counter. Activate only as a sorcery.",
+      "rules_text": "Enchant player\nWhen Curse of Leprosy enters and during your upkeep, put a disease counter on it.\nAt the beginning of your end step, lose 2 life for each disease counter on Curse of Leprosy.\nCreatures you control can't gain counters and get -1/-1 for each disease counter on Curse of Leprosy.\nPay X life, where X is twice the number of disease counters on Curse of Leprosy: Remove a disease counter. Activate only as a sorcery and only if Curse of Leprosy has two or more disease counters on it.",
       "flavor_text": "\"The flesh remembers what the mind wishes to forget.\"",
       "power": null,
       "toughness": null,
