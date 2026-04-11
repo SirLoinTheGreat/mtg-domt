@@ -3857,7 +3857,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "{T}: Add one mana of any color.\n{T}: Look at the top X cards of your library, where X is number of lands you control. You may reveal a land card from among them and put it onto the battlefield. If you do, you may cast a creature spell from your hand without paying its mana cost. Then roll a d6 and create that many 3/3 green Plant tokens with trample and haste under a random opponents' control. Those creatures must attack you each combat if able.\nLandfall — Whenever a land enters under your control, put a +1/+1 counter on target creature you control.",
+      "rules_text": "{T}: Add one mana of any color.\n{T}: Look at the top X cards of your library, where X is the number of lands you control. You may reveal a land card from among them and put it onto the battlefield. If you do, you may cast a creature spell from your hand without paying its mana cost. Then roll a d6. Create a number of 3/3 green Plant creature tokens with trample equal to the result plus two under a random opponent's control. Those creatures must attack you each combat if able.\nLandfall — Whenever a land enters under your control, put a +1/+1 counter on target creature you control.",
       "flavor_text": "The briar whispers where treasure lies buried. The shambling mounds remember where you dug.",
       "power": null,
       "toughness": null,
@@ -4435,7 +4435,7 @@
       "subtypes": [
         "Treasure"
       ],
-      "rules_text": "When The Coin enters, create three Gold tokens. (It's an artifact with \"Sacrifice this artifact: Add one mana of any color.\")\nAt the beginning of your upkeep, create a Gold token.\n{Q}, Sacrifice The Coin: Create X Gold tokens, where X is the number of artifacts you control.",
+      "rules_text": "When The Coin enters, create three Gold tokens. (It's an artifact with \"Sacrifice this artifact: Add one mana of any color.\")\nAt the beginning of your upkeep, create a Gold token.\nSacrifice The Coin: Create X Gold tokens, where X is the number of artifacts you control.",
       "flavor_text": "\"Fortune doesn't favor the bold. Fortune favors whoever holds me.\" -- The Coin",
       "power": null,
       "toughness": null,
@@ -4588,16 +4588,14 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "Creatures you control enter tapped.\nAt the beginning of your combat phase, if you didn't attack during your last turn, skip your combat phase this turn.\nVanishing 5 (This permanent enters with five time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, sacrifice it.)\nAt the beginning of your upkeep, you may pay 3 life. If you do, sacrifice The Dusk.",
+      "rules_text": "Creatures you control enter tapped.\nAt the beginning of your combat phase, if you didn't attack during your last turn, skip your combat phase this turn.\nAt the beginning of your upkeep, you may pay 5 life and sacrifice a creature. If you do, sacrifice The Dusk.",
       "flavor_text": "\"As the sun dips below the horizon, shadows lengthen, and the world grows weary.\"",
       "power": null,
       "toughness": null,
       "color_identity": [
         "B"
       ],
-      "keywords": [
-        "Vanishing"
-      ],
+      "keywords": [],
       "artist": "MidJourney",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Dusk.png",
