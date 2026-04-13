@@ -321,7 +321,7 @@
         "R"
       ],
       "keywords": [
-        "Shroud",
+        "Hexproof",
         "Living Weapon"
       ],
       "artist": "MidJourney",
@@ -831,7 +831,7 @@
       "type_line": "Token Artifact",
       "supertypes": [],
       "types": [
-        "Emblem"
+        "Artifact"
       ],
       "subtypes": [],
       "rules_text": "Tick Tock — When Temporal Stasis Sphere enters, roll a d4 and add 3 to the result. Put that many time counters on it. At the beginning of your upkeep, remove a time counter and mill three cards. When the last time counter is removed, exile Temporal Stasis Sphere at the beginning of the next end step.\nYou are dimensionally displaced. (A dimensionally displaced player can't be affected by any effect in the main game. They remain in the main game's turn order but can't interact with or be interacted with by other players. Spells you cast or permanents you play are exiled. Starting with your next turn, skip your draw step on even-numbered turns. Your maximum hand size is reduced by 2.)\nWhen Temporal Stasis Sphere leaves, return and cast all cards exiled with it and The Donjon onto the battlefield at the beginning of your next upkeep. For each card returned this way, lose 1 life.",
@@ -1019,7 +1019,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0006",
-      "mana_cost": "{2}{G}{G}",
+      "mana_cost": null,
       "type_line": "Legendary Land",
       "supertypes": [
         "Legendary"
@@ -1231,7 +1231,7 @@
         "Dragon",
         "Avatar"
       ],
-      "rules_text": "Devoid, flying, menace\nThe Dragon gains abilities based on colors of other Dragons you control:\n• White: Vigilance, protection from black. Other Dragons get +2/+2 and vigilance.\n• Blue: Ward {3}, hexproof. Other Dragons have ward {3} and can't be countered.\n• Black: Deathtouch, lifelink. Other Dragons have deathtouch and \"Whenever this deals damage, each opponent loses 1 life.\"\n• Red: Double strike. Other Dragons have first strike and \"When this attacks, it deals 2 damage to any target.\"\n• Green: Trample, reach. Other Dragons get +3/+1 and trample.\nWhenever The Dragon attacks, create two 3/3 Dragon tokens with flying of a random color. They gain that color's abilities.\nGrowth — {T}, Sacrifice a Dragon: Put three +1/+1 counters on The Dragon and draw a card.",
+      "rules_text": "Flying, menace\nThe Dragon gains abilities based on colors of other Dragons you control:\n• White: Vigilance, protection from black. Other Dragons get +2/+2 and vigilance.\n• Blue: Ward {3}, hexproof. Other Dragons have ward {3} and can't be countered.\n• Black: Deathtouch, lifelink. Other Dragons have deathtouch and \"Whenever this deals damage, each opponent loses 1 life.\"\n• Red: Double strike. Other Dragons have first strike and \"When this attacks, it deals 2 damage to any target.\"\n• Green: Trample, reach. Other Dragons get +3/+1 and trample.\nWhenever The Dragon attacks, create two 3/3 Dragon tokens with flying of a random color. They gain that color's abilities.\nGrowth — {T}, Sacrifice a Dragon: Put three +1/+1 counters on The Dragon and draw a card.",
       "flavor_text": "Fate is not a line, but a tapestry—and I am every thread.",
       "power": "5",
       "toughness": "5",
@@ -1243,7 +1243,6 @@
         "G"
       ],
       "keywords": [
-        "Devoid",
         "Flying",
         "Menace",
         "Vigilance",
@@ -1524,7 +1523,7 @@
       "set_code": "DOMT-EX",
       "collector_number": "0020",
       "mana_cost": "{W}{U}{R}{G}",
-      "type_line": "Legendary Enchantment — Attributes",
+      "type_line": "Legendary Enchantment — Attribute",
       "supertypes": [
         "Legendary"
       ],
@@ -1532,7 +1531,7 @@
         "Enchantment"
       ],
       "subtypes": [
-        "Attributes"
+        "Attribute"
       ],
       "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, draw a card, gain X life, and create X 1/1 Knight tokens with vigilance, where X is The Lance's level.\nLevel 2 — {2}: Attributes\nCreatures you control have exalted and mentor.\nAt the beginning of your upkeep, put a +1/+1 counter on each creature you control.\nLevel 3 — {3}: Attributes\nWhenever you attack, creatures you control get +X/+X until end of turn, where X is the number of attacking creatures.\nAt the beginning of your end step, proliferate.\nLevel 4 — {4}: Attributes\nWhenever you attack for the first time each turn, untap all creatures you control. After this phase, there is an additional combat phase.\nWhenever you proliferate, proliferate again.",
       "flavor_text": null,
@@ -2752,7 +2751,7 @@
       "subtypes": [
         "Elemental"
       ],
-      "rules_text": "Vanishing 4 (This permanent enters with four time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice this and exile all of the marked player's nonland permanents. That player planeswalks to the Plane of Air.)\nFlash, flying, haste, ward {W}\nWhen The Cyclone enters, mark the player who summoned it, and an opponent chosen at random gains control of it.\nThe Cyclone attacks the marked player each combat if able and can't block. As long as The Cyclone is on the battlefield, other creatures and players can't attack or target the marked player.",
+      "rules_text": "Vanishing 4 (This permanent enters with four time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice this and exile all of the marked player's nonland permanents. That player planeswalks to the Plane of Air.)\nFlash, flying, haste, ward {2}\nWhen The Cyclone enters, mark the player who summoned it, and an opponent chosen at random gains control of it.\nThe Cyclone attacks the marked player each combat if able and can't block. As long as The Cyclone is on the battlefield, other creatures and players can't attack or target the marked player.",
       "flavor_text": "\"Face me alone, mortal. Time grows short, and the winds of fate grow restless.\"",
       "power": "8",
       "toughness": "8",
@@ -3120,7 +3119,7 @@
         "Human",
         "Advisor"
       ],
-      "rules_text": "Flash\nWhen The Inquisitor enters, look at target opponent's hand. You may exile a card from it. Until the end of your next turn, that player can't cast spells that share a card type with the exiled card.\n{T}, {W}, Sacrifice The Inquisitor: Look at target opponent's hand and choose up to three cards from it. That player exiles those cards. Until end of turn, you may cast one of the exiled cards without paying its mana cost. At the beginning of the next end step, return the other cards to their owner's hand.",
+      "rules_text": "Flash\nWhen The Inquisitor enters, look at target opponent's hand. You may exile a card from it. Until the end of your next turn, that player can't cast spells that share a card type with the exiled card.\n{T}, {2}, Sacrifice The Inquisitor: Look at target opponent's hand and choose up to three cards from it. That player exiles those cards. Until end of turn, you may cast one of the exiled cards without paying its mana cost. At the beginning of the next end step, return the other cards to their owner's hand.",
       "flavor_text": "\"Your secrets are but bargaining chips in our little game of truth.\"",
       "power": "2",
       "toughness": "3",
@@ -3469,7 +3468,8 @@
         "B"
       ],
       "keywords": [
-        "Hexproof"
+        "Shroud",
+        "Indestructible"
       ],
       "artist": "MidJourney",
       "dnd_source": "Harrow Deck of Many Things",
@@ -3727,7 +3727,6 @@
         "R"
       ],
       "keywords": [
-        "Flash",
         "Ward"
       ],
       "artist": "MidJourney",
