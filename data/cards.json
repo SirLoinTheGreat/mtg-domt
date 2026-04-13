@@ -487,7 +487,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Bankruptcy — Sacrifice all artifacts you control, then exile all artifact cards from your hand and graveyard.\nForeclosure — Sacrifice all lands you control. For the next three turns, you can't play lands.\nAuction — Starting with the player to your left, each opponent gains control of a non-artifact, non-land permanent you control of their choice until all your remaining permanents are claimed.",
+      "rules_text": "Bankruptcy — Sacrifice all artifacts you control, then exile all artifact cards from your hand and graveyard.\nForeclosure — Sacrifice all lands you control. For the next three turns, you can't play lands.\nAuction — Starting with the player to your left and proceeding in turn order, each opponent chooses a non-artifact, non-land permanent you control and gains control of it. Repeat this process until you control no non-artifact, non-land permanents.",
       "flavor_text": "The vaults stand open. The vaults stand empty.",
       "power": null,
       "toughness": null,
@@ -4093,7 +4093,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When The Uprising enters, roll 3d6. Create that many 1/1 white Human Peasant tokens with \"When this creature dies, choose one — Each opponent draws a card, or creates a 2/2 black Knight token with vigilance.\"\nAt the beginning of your upkeep, put a shield counter on target Peasant you control.\nSacrifice a Peasant: Create two Treasure tokens and draw a card.\n{T}: Peasant tokens you control get +1/+0 and menace until end of turn.",
+      "rules_text": "When The Uprising enters, roll 3d6. Create that many 1/1 white Human Peasant creature tokens.\nAccident-Prone — At the beginning of each combat, if you control three or more Peasants, one of them chosen at random must attack if able.\nReputation — Whenever a Peasant you control dies, each opponent draws a card.\n{2}: Peasants you control get +2/+0 and gain haste until end of turn. Activate only as a sorcery.",
       "flavor_text": "\"Their loyalty was pure. Their competence... less so.\"",
       "power": null,
       "toughness": null,
@@ -4101,9 +4101,7 @@
         "W",
         "B"
       ],
-      "keywords": [
-        "Menace"
-      ],
+      "keywords": [],
       "artist": "MidJourney",
       "dnd_source": "Harrow Deck of Many Things",
       "image_file": "assets/cards/harrow/The Uprising.png",
