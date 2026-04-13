@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "1.0.0",
-    "last_updated": "2026-04-04",
+    "last_updated": "2026-04-13",
     "total_cards": 148
   },
   "cards": [
@@ -162,7 +162,7 @@
       "sentiment": "positive",
       "related_cards": [
         "Curse of Weakness",
-        "Deck of Many Things Rules"
+        "Deck of Many Things"
       ]
     },
     {
@@ -232,7 +232,7 @@
       "is_token": false,
       "sentiment": "negative",
       "related_cards": [
-        "Deck of Many Things Rules"
+        "Deck of Many Things"
       ]
     },
     {
@@ -293,7 +293,7 @@
       "is_token": false,
       "sentiment": "positive",
       "related_cards": [
-        "Deck of Many Things Rules"
+        "Deck of Many Things"
       ]
     },
     {
@@ -2225,7 +2225,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "When True Resurrection enters, exile it. You may cast it from exile without paying its mana cost any time you could cast an instant. If you do, choose one —\n• Choose a player who lost this game more than one turn ago. That player returns with their starting life total, no poison counters, no commander damage, seven cards in hand, and a tapped land from their hand on the battlefield. They skip their next draw step.\n• Return target creature card from any graveyard to the battlefield under your control tapped. It gains indestructible and \"If this creature would leave the battlefield, exile it instead.\" Restore all Auras and Equipment that were attached to it when it died.\nWhen True Resurrection is cast from exile, shuffle it into the Deck of Many Things.",
+      "rules_text": "When True Resurrection enters, exile it.\nAs long as True Resurrection is exiled, if you would lose the game, instead your life total becomes your starting life total, remove all poison counters, curses, and -1/-1 counters from you and permanents you control, and return all creature cards from your graveyard to your hand. You skip your next draw step. Then shuffle True Resurrection into the Deck of Many Things.\nYou may cast True Resurrection from exile without paying its mana cost any time you could cast an instant. If you do, return target creature card from any graveyard to the battlefield under its owner's control with indestructible until end of turn. Restore all Auras and Equipment that were attached to it when it died. Then shuffle True Resurrection into the Deck of Many Things.",
       "flavor_text": "The grave opened. The light poured in. She blinked.",
       "power": null,
       "toughness": null,
@@ -2233,9 +2233,7 @@
         "W",
         "B"
       ],
-      "keywords": [
-        "Indestructible"
-      ],
+      "keywords": [],
       "artist": "MidJourney",
       "dnd_source": "Deck of Many More Things",
       "image_file": "assets/cards/expansion/The Tomb (True Resurrection).png",
@@ -2795,7 +2793,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "If you would roll a die or flip a coin, instead roll two dice or flip two coins and choose one of those results.\nWhenever you win a coin flip or roll a die using this ability, draw a card.\nAt the beginning of your end step, if you've drawn three or more cards this turn, you may sacrifice The Dance. If you do, take an extra turn after this one.",
+      "rules_text": "Initiative — If you would roll a die or flip a coin, instead roll two dice or flip two coins and choose one of those results.\nYou may cast spells as though they had flash.\nWhenever you cast a spell during another player's turn, draw a card.",
       "flavor_text": "\"To master chance is to learn its rhythm, to feel its pulse, to know its steps.\"",
       "power": null,
       "toughness": null,
@@ -3089,7 +3087,7 @@
         "Aura",
         "Curse"
       ],
-      "rules_text": "Enchant player\nEnchanted player plays with their hand revealed, skips their draw step, and can't cast spells during their main phases.\nMental Decay — At the beginning of enchanted player's upkeep, that player draws a card and exiles three cards from their hand face down. They may look at and play those cards as if they were in their hand.\nProfound Confusion — Spells cast by enchanted player cost {1} more. If a spell wasn't cast from exile with The Idiot, counter that spell.\nLost Wisdom — At the beginning of enchanted player's end step, if they have no cards in hand, they draw three cards, then discard three cards at random.",
+      "rules_text": "Enchant player\nThe Idiot has hexproof from enchanted player.\nMindless — Enchanted player casts spells and activates abilities without choosing targets or modes. When a spell or ability that player controls would require a target or choice, choose it at random from the legal options.\nDrooling — At the beginning of enchanted player's upkeep, that player mills two cards, then discards a card at random.\nBlank Slate — Enchanted player can't look at the top card of their library or any face-down cards, and loses 1 life whenever they draw a card.",
       "flavor_text": "\"Once-sharp thoughts now scatter like leaves in a storm, never to be gathered again.\"",
       "power": null,
       "toughness": null,
@@ -3097,9 +3095,7 @@
         "U",
         "B"
       ],
-      "keywords": [
-        "Enchant"
-      ],
+      "keywords": [],
       "artist": "MidJourney",
       "dnd_source": "Harrow Deck of Many Things",
       "image_file": "assets/cards/harrow/The Idiot.png",
@@ -4618,17 +4614,14 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "Hexproof, indestructible\nYour life total becomes 10. You can't gain life.\nIf a source would deal damage to you, prevent all but 1 of that damage.\nAt the beginning of your upkeep, lose 1 life. If you've lost 5 or more life total from Omen of Death, sacrifice it and your life total becomes 5.\nSpells you cast cost {1} less.",
+      "rules_text": "When Omen of Death enters, you lose 7 life.\nYour life total can't become greater than 25.\nYou can't gain life.\nHarbinger — Whenever a creature deals combat damage to you, you lose the game.\nAt the beginning of your third upkeep after Omen of Death entered the battlefield, exile it.",
       "flavor_text": "\"The hourglass empties. The hand reaches. The last breath is always yours to take.\"",
       "power": null,
       "toughness": null,
       "color_identity": [
         "B"
       ],
-      "keywords": [
-        "Shroud",
-        "Indestructible"
-      ],
+      "keywords": [],
       "artist": "MidJourney",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The End (Omen of Death).png",
