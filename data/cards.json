@@ -4772,7 +4772,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Choose one —\n• Search your library for an artifact card with uncommon rarity, put it onto the battlefield, then shuffle.\n• Draw two additional cards from the Deck of Many Things.",
+      "rules_text": "Choose one —\n• Search your library for an artifact card with mana value 3 or less, put it onto the battlefield, then shuffle your library.\n• Draw two additional cards from the Deck of Many Things.",
       "flavor_text": "Two doors. One safe, one not. Guess which one she picked.",
       "power": null,
       "toughness": null,
