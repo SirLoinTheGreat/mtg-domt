@@ -12,7 +12,7 @@ This collection features **148 custom cards** spread across four versions of the
 
 | Set | Code | Cards | Source |
 |-----|------|-------|--------|
-| Original Deck | DOMT-OG | 22 + 5 support | D&D 5e DMG / Book of Many Things |
+| Original Deck | DOMT-OG | 22 + 5 support | Adventures in the Forgotten Realms (D&D) |
 | Expansion Deck | DOMT-EX | 45 | Book of Many Things (2023) |
 | Harrow Deck | DOMT-HW | 54 + 1 support | Pathfinder Harrow Deck |
 | Wonder Deck | DOMT-WO | 22 | Deck of Wonder (2023) |
@@ -101,5 +101,11 @@ This project is not affiliated with, endorsed, or sponsored by Wizards of the Co
 - Card art generated with **MidJourney** (with one piece by **Christopher Lovell** for The Euryale)
 - Card frames rendered via [Card Conjurer](https://cardconjurer.app/)
 - Special thanks to the D&D and MTG communities for their inspiration and feedback
+
+## Gallery
+
+[![Gallery](https://img.shields.io/badge/Gallery-rollfor.gg%2Fdomt-d4af3c?style=for-the-badge)](https://rollfor.gg/domt/)
+
+🎴 **Browse all 148 cards in the online gallery:** [rollfor.gg/domt](https://rollfor.gg/domt/)
 
 *"Sometimes the cards you're dealt become the fate you're given."*
