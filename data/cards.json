@@ -1028,7 +1028,7 @@
         "Land"
       ],
       "subtypes": [],
-      "rules_text": "{T}: Add {G}.\nThe Cavern enters with a number of depth counters on it equal to the result of rolling a d12.\nEcholocation — As long as The Cavern has a depth counter on it, creatures you control can't be blocked by creatures with greater power.\nAt the beginning of your upkeep, remove a depth counter from The Cavern. If you do, scry 2.\n{1}, {T}: Target creature you control gains hexproof until end of turn.",
+      "rules_text": "{T}: Add {G}.\nThe Cavern enters with a number of depth counters on it equal to the result of rolling a d12.\nBlindsight — As long as The Cavern has a depth counter on it, creatures you control have first strike and reach.\nAt the beginning of your upkeep, remove a depth counter from The Cavern.\n{1}, {T}: Target creature you control gains hexproof until end of turn.",
       "flavor_text": "In the deepest dark, the blind have the advantage.",
       "power": null,
       "toughness": null,
@@ -1036,10 +1036,9 @@
         "G"
       ],
       "keywords": [
-        "Deathtouch",
+        "First Strike",
         "Reach",
-        "Menace",
-        "Convoke"
+        "Hexproof"
       ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Many More Things",
