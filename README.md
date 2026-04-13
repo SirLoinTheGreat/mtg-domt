@@ -68,8 +68,11 @@ mtg-domt/
 │   ├── original/             # Original Deck + support cards
 │   │   └── thumbs/           # JPEG thumbnails for gallery
 │   ├── expansion/            # Expansion Deck
+│   │   └── thumbs/
 │   ├── harrow/               # Harrow Deck + Plane of Air token
+│   │   └── thumbs/
 │   └── wonder/               # Wonder Deck
+│       └── thumbs/
 ├── data/
 │   ├── cards.json            # Machine-readable card database (148 cards)
 │   └── card_history.json     # Per-card changelog for gallery
