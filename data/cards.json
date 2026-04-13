@@ -4451,13 +4451,15 @@
       "set_code": "DOMT-WO",
       "collector_number": "0006",
       "mana_cost": "{1}{R}",
-      "type_line": "Sorcery",
-      "supertypes": [],
+      "type_line": "Legendary Artifact",
+      "supertypes": [
+        "Legendary"
+      ],
       "types": [
-        "Sorcery"
+        "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "Gain control of target creature an opponent controls with power 3 or less until end of turn. Untap it. It gains haste until end of turn.\nYou get an emblem with \"Creatures you control with power 3 or less have menace.\"",
+      "rules_text": "Creatures you control with power 3 or less have menace.\n{T}: Gain control of target creature with power 3 or less until end of turn. Untap it. It gains haste until end of turn.",
       "flavor_text": "\"It whispered to her: 'Wear me, and the small shall kneel.'\" -- The Crown of Friends",
       "power": null,
       "toughness": null,
