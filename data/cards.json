@@ -46,7 +46,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Suspend 2 — {0}{U}{U} (When you draw The Comet from the Deck of Many Things, exile it with two time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, cast it without paying its mana cost.)\nImpact — When you cast The Comet, you may choose target creature you control. If you do, all other creatures phase out until end of turn.\nUntil end of turn, the chosen creature gains flying, double strike, and \"Whenever this creature deals combat damage to a player, draw two cards.\"\nAt the beginning of your end step, if a creature was chosen this way and that creature didn't deal combat damage to a player this turn, exile it.",
+      "rules_text": "Suspend 2 — {0}{U}{U} (When you draw The Comet from the Deck of Many Things, instead of casting it immediately, exile it with two time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, cast it without paying its mana cost.)\nImpact — When you cast The Comet, you may choose target creature you control. If you do, all other creatures phase out until end of turn.\nUntil end of turn, the chosen creature gains flying, double strike, and \"Whenever this creature deals combat damage to a player, draw two cards.\"\nAt the beginning of your end step, if a creature was chosen this way and that creature didn't deal combat damage to a player this turn, exile it.",
       "flavor_text": "It falls not to destroy, but to anoint.",
       "power": null,
       "toughness": null,
