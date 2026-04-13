@@ -409,14 +409,16 @@
       "set_code": "DOMT-OG",
       "collector_number": "0013",
       "mana_cost": "{1}{W}{U}",
-      "type_line": "Legendary Enchantment",
+      "type_line": "Legendary Enchantment — Aura",
       "supertypes": [
         "Legendary"
       ],
       "types": [
         "Enchantment"
       ],
-      "subtypes": [],
+      "subtypes": [
+        "Aura"
+      ],
       "rules_text": "Tempt Fate — When The Puzzle enters, you may draw an additional card from the Deck of Many Things.\nEnchant player\nEnchanted player plays with their hand revealed and skips their draw step.\nConfusion — At the beginning of enchanted player's upkeep, that player exiles a card from their hand face down. They may look at and play that card as if it were in their hand.\nIneptitude — Whenever enchanted player casts a spell, if it wasn't cast from exile with The Puzzle, counter it.\nConsolation — At the beginning of enchanted player's end step, they draw a card.",
       "flavor_text": "He solved a thousand riddles in his youth. Now he cannot recall his own name.",
       "power": null,
@@ -590,7 +592,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Transcendence — Roll two d8. If both results are the same, reroll. You get an enhancement emblem for each number rolled:\n1. Agility: \"Creatures you control get +2/+2 and have double strike and vigilance.\"\n2. Charisma: \"Whenever a creature enters under your control, create a 1/1 white Soldier token.\"\n3. Focus: \"You may cast spells as though they had flash. They cost {2} less.\"\n4. Fortitude: \"Your life total becomes 50. You have hexproof. At the beginning of your upkeep, gain 3 life.\"\n5. Intellect: \"At the beginning of your draw step, draw two additional cards.\"\n6. Wisdom: \"You have no maximum hand size. You may play two additional lands each turn.\"\n7. Wit: \"The first spell you cast each turn can't be countered and has cascade.\"\n8. Cunning: \"Whenever an opponent casts their first spell each turn, draw a card.\"",
+      "rules_text": "Transcendence — Roll two d8. If both results are the same, reroll. You get an enhancement emblem for each number rolled:\n1. Agility: \"Creatures you control get +2/+2 and have double strike and vigilance.\"\n2. Charisma: \"Whenever a creature enters under your control, create a 1/1 white Soldier token.\"\n3. Focus: \"You may cast spells as though they had flash. They cost {2} less.\"\n4. Fortitude: \"If your life total is less than 50, it becomes 50. You have hexproof. At the beginning of your upkeep, gain 3 life.\"\n5. Intellect: \"At the beginning of your draw step, draw two additional cards.\"\n6. Wisdom: \"You have no maximum hand size. You may play two additional lands each turn.\"\n7. Wit: \"The first spell you cast each turn can't be countered and has cascade.\"\n8. Cunning: \"Whenever an opponent casts their first spell each turn, draw a card.\"",
       "flavor_text": "It did not make her stronger. It reminded her she had always been limitless.",
       "power": null,
       "toughness": null,
@@ -680,7 +682,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "Rightful Claim — When The Throne enters, search your library for up to two land cards, put them onto the battlefield tapped, then shuffle. Create X 2/2 white Knight tokens with vigilance, where X is the number of lands you control. Each opponent creates 2X 2/2 black Zombie tokens. Zombies your opponents control attack each combat if able.\nThrone's Authority — Other non-Soldier creatures you control get +1/+1 and have \"When this creature dies, create a 1/1 white Soldier token.\"\nRoyal Influence — {0}, {T}: Gain control of target creature an opponent controls for as long as you control The Throne. Untap it. It gains haste and \"Whenever this creature deals combat damage to a player, create two 1/1 white Soldier tokens.\" Activate only during your turn.",
+      "rules_text": "Rightful Claim — When The Throne enters, search your library for up to two land cards, put them onto the battlefield tapped, then shuffle. Create X 2/2 white Knight tokens with vigilance, where X is the number of lands you control. Each opponent creates 2X 2/2 black Zombie tokens. Zombie tokens created by Rightful Claim attack each combat if able.\nThrone's Authority — Other non-Soldier creatures you control get +1/+1 and have \"When this creature dies, create a 1/1 white Soldier token.\"\nRoyal Influence — {0}, {T}: Gain control of target creature an opponent controls for as long as you control The Throne. Untap it. It gains haste and \"Whenever this creature deals combat damage to a player, create two 1/1 white Soldier tokens.\" Activate only during your turn.",
       "flavor_text": "The throne was empty when she arrived. It will never be empty again.",
       "power": null,
       "toughness": null,
@@ -1139,7 +1141,7 @@
         "Aura",
         "Curse"
       ],
-      "rules_text": "Enchant player\nWhen Curse of Death's Door enters, enchanted player's life total becomes 0.\nEnchanted player can't lose the game for having 0 or less life and can't gain life except from this curse.\nAt the beginning of enchanted player's upkeep, roll a d20:\n• 1 | Two death counters.\n• 2–9 | One death counter.\n• 10–19 | One life counter.\n• 20 | Gain 1 life and sacrifice Curse of Death's Door.\nWhenever enchanted player is dealt damage, they get a death counter.\nWhen enchanted player has three or more death counters, they lose the game.\nWhen enchanted player has three or more life counters, they gain 1 life and sacrifice Curse of Death's Door.",
+      "rules_text": "Enchant player\nWhen Curse of Death's Door enters, enchanted player's life total becomes 0.\nEnchanted player can't lose the game for having 0 or less life and can't gain life except from this curse.\nAt the beginning of enchanted player's upkeep, roll a d20:\n• 1 | Two death counters.\n• 2–9 | One death counter.\n• 10–19 | One life counter.\n• 20 | Gain 1 life, then sacrifice Curse of Death's Door.\nWhenever enchanted player is dealt damage, they get a death counter.\nWhen enchanted player has three or more death counters, they lose the game.\nWhen enchanted player has three or more life counters, they gain 1 life and sacrifice Curse of Death's Door.",
       "flavor_text": "Some corpses refuse to let go of life. Others refuse to let life go.",
       "power": null,
       "toughness": null,
@@ -1198,7 +1200,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "When The Door enters, if it isn't a token, put eight portal counters on it.\nPortal — {T}, Remove a portal counter: Choose one —\n• Search your library for a land and put it onto the battlefield tapped. Return it to your hand at the next end step unless you remove a portal counter.\n• Exile target permanent other than The Door. Return it under its owner's control at the next end step unless you remove a portal counter.\n• Put a permanent card from your hand onto the battlefield. Return it to your hand at the next end step unless you remove a portal counter.\n• Create a token copy of target permanent. It gains \"When The Door leaves, sacrifice this\" unless you remove a portal counter.\nWhen The Door has no portal counters, sacrifice it.",
+      "rules_text": "When The Door enters, if it isn't a token, put eight portal counters on it.\nPortal — {T}, Remove a portal counter: Choose one —\n• Search your library for a land and put it onto the battlefield tapped. Return it to your hand at the next end step unless you remove a portal counter.\n• Exile target permanent other than The Door. Return it under its owner's control at the next end step unless you remove a portal counter.\n• Put a permanent card with mana value 6 or less from your hand onto the battlefield. Return it to your hand at the next end step unless you remove a portal counter.\n• Create a token copy of target permanent. It gains \"When The Door leaves, sacrifice this\" unless you remove a portal counter.\nWhen The Door has no portal counters, sacrifice it.",
       "flavor_text": "Eight passages. Eight possibilities. Choose wisely -- each one closes behind you.",
       "power": null,
       "toughness": null,
