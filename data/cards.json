@@ -144,7 +144,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "The Fates can't be removed from the battlefield by any spell, ability, or effect.\n{0}, Shuffle The Fates into the Deck of Many Things: Choose one —\n• Rewind — Remove all effects, counters, and modifications applied by a card drawn from the Deck of Many Things. Return affected permanents and players to their state before that card was drawn.\n• Deny — Choose a spell, permanent, or card drawn from the Deck of Many Things. Exile it.\n• Cleanse — Exile target emblem or curse card named Curse of Weakness.\n• Weave — Look at the top three cards of the Deck of Many Things and put them back in any order. Then, you may draw a card from the Deck of Many Things.",
+      "rules_text": "The Fates can't be removed from the battlefield by spells or abilities your opponents control.\n{0}, Shuffle The Fates into the Deck of Many Things: Choose one —\n• Rewind — Remove all effects, counters, and modifications applied by a card drawn from the Deck of Many Things. Return affected permanents and players to their state before that card was drawn.\n• Deny — Choose a spell, permanent, or card drawn from the Deck of Many Things. Exile it.\n• Cleanse — Exile target emblem or curse card named Curse of Weakness.\n• Weave — Look at the top three cards of the Deck of Many Things and put them back in any order. Then, you may draw a card from the Deck of Many Things.",
       "flavor_text": "What was written can be unwritten. What was done can be undone. But only once.",
       "power": null,
       "toughness": null,
