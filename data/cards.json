@@ -649,7 +649,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Disintegration — Destroy all enchantments you control. For each enchantment destroyed this way, you lose 2 life.\nUnmaking — Exile all artifacts you control. For each artifact exiled this way, target opponent chosen at random creates a Treasure token. Search your library and hand for all artifact cards and exile them.",
+      "rules_text": "Disintegration — Destroy all Equipment you control.\nVanishing — Exile all non-Equipment artifacts you control.",
       "flavor_text": "Every relic, every charm, every ring -- gone between one heartbeat and the next.",
       "power": null,
       "toughness": null,
