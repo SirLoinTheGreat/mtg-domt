@@ -1233,7 +1233,7 @@
         "Dragon",
         "Avatar"
       ],
-      "rules_text": "Flying, menace\nThe Dragon gains abilities based on colors of other Dragons you control:\n• White: Vigilance, protection from black. Other Dragons get +2/+2 and vigilance.\n• Blue: Ward {3}, hexproof. Other Dragons have ward {3} and can't be countered.\n• Black: Deathtouch, lifelink. Other Dragons have deathtouch and \"Whenever this deals damage, each opponent loses 1 life.\"\n• Red: Double strike. Other Dragons have first strike and \"When this attacks, it deals 2 damage to any target.\"\n• Green: Trample, reach. Other Dragons get +3/+1 and trample.\nWhenever The Dragon attacks, create two 3/3 Dragon tokens with flying of a random color. They gain that color's abilities.\nGrowth — {T}, Sacrifice a Dragon: Put three +1/+1 counters on The Dragon and draw a card.",
+      "rules_text": "Flying, menace\nThe Dragon gains abilities based on colors of other Dragons you control:\n• White: Vigilance, protection from black. Other Dragons get +2/+2 and vigilance.\n• Blue: Ward {3}, hexproof. Other Dragons have ward {3} and can't be countered.\n• Black: Deathtouch, lifelink. Other Dragons have deathtouch and \"Whenever this deals damage, each opponent loses 1 life.\"\n• Red: Double strike. Other Dragons have first strike and \"When this attacks, it deals 2 damage to any target.\"\n• Green: Trample, reach. Other Dragons get +3/+1 and trample.\nWhenever The Dragon attacks, create two 3/3 Dragon tokens with flying of a random color.\nGrowth — {T}, Sacrifice a Dragon: Put three +1/+1 counters on The Dragon and draw a card.",
       "flavor_text": "Fate is not a line, but a tapestry—and I am every thread.",
       "power": "5",
       "toughness": "5",
