@@ -904,7 +904,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When The Beast enters, roll 2d12. Put that many time counters on it and create that many 2/2 green Beast tokens.\nAt the beginning of your upkeep, remove a time counter. When the last counter is removed, sacrifice The Beast.\nCreatures you control are green Beasts in addition to their other colors and types and have base power and toughness at least 2/2.\nAt the beginning of combat on your turn, roll 2d6. Creatures you control have base power and toughness equal to the result until end of turn.\nFeral Rage — {0}, {T}: Until end of turn, creatures you control gain double strike and trample.",
+      "rules_text": "When The Beast enters, roll 2d12. Put that many time counters on it and create that many 2/2 green Beast tokens.\nAt the beginning of your upkeep, remove a time counter. When the last counter is removed, sacrifice The Beast.\nCreatures you control are green Beasts in addition to their other colors and types and have base power and toughness at least 2/2.\nAt the beginning of combat on your turn, roll 2d6. Creatures you control have base power and toughness equal to the result until end of turn.\nFeral Rage — {0}, {T}: Until end of turn, creatures you control gain double strike and trample. Activate only once each turn.",
       "flavor_text": "Nature cares not for what you were—only what you become.",
       "power": null,
       "toughness": null,
