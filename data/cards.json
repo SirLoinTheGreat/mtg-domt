@@ -76,7 +76,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Vanishing — When you draw this card, you become dimensionally displaced. Create a Temporal Stasis Sphere emblem and exile all permanents you control until that emblem leaves.\nEternal Damnation — You can't draw from the Deck of Many Things for the remainder of the game.",
+      "rules_text": "Vanishing — When you draw this card, you become dimensionally displaced. Create a Temporal Stasis Sphere artifact token and exile all permanents you control until that token leaves the battlefield.\nEternal Damnation — You can't draw from the Deck of Many Things for the remainder of the game.",
       "flavor_text": "The cruelest prison has no walls—only the endless moment between tick and tock.",
       "power": null,
       "toughness": null,
@@ -836,7 +836,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "Tick Tock — When Temporal Stasis Sphere enters, roll a d4 and add 3 to the result. Put that many time counters on it. At the beginning of your upkeep, remove a time counter and mill three cards. When the last time counter is removed, exile Temporal Stasis Sphere at the beginning of the next end step.\nYou are dimensionally displaced. (A dimensionally displaced player can't be affected by any effect in the main game. They remain in the main game's turn order but can't interact with or be interacted with by other players. Spells you cast or permanents you play are exiled. Starting with your next turn, skip your draw step on even-numbered turns. Your maximum hand size is reduced by 2.)\nWhen Temporal Stasis Sphere leaves, return and cast all cards exiled with it and The Donjon onto the battlefield at the beginning of your next upkeep. For each card returned this way, lose 1 life.",
+      "rules_text": "Tick Tock — When Temporal Stasis Sphere enters, roll a d4 and add 3 to the result. Put that many time counters on it. At the beginning of your upkeep, remove a time counter and mill three cards. When the last time counter is removed, exile Temporal Stasis Sphere at the beginning of the next end step.\nYou are dimensionally displaced. (A dimensionally displaced player can't be affected by any effect in the main game. They remain in the main game's turn order but can't interact with or be interacted with by other players. Spells you cast or permanents you play are exiled. Skip the draw step of every other turn of yours, beginning with your next turn. Your maximum hand size is reduced by 2.)\nWhen Temporal Stasis Sphere leaves, return and cast all cards exiled with it and The Donjon onto the battlefield at the beginning of your next upkeep. For each card returned this way, lose 1 life.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
