@@ -1535,7 +1535,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, draw a card, gain X life, and create X 1/1 Knight tokens with vigilance, where X is The Lance's level.\nLevel 2 — {2}: Attributes\nCreatures you control have exalted and mentor.\nAt the beginning of your upkeep, put a +1/+1 counter on each creature you control.\nLevel 3 — {3}: Attributes\nWhenever you attack, creatures you control get +X/+X until end of turn, where X is the number of attacking creatures.\nAt the beginning of your end step, proliferate.\nLevel 4 — {4}: Attributes\nWhenever you attack for the first time each turn, untap all creatures you control. After this phase, there is an additional combat phase.\nWhenever you proliferate, proliferate again.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, draw a card, gain X life, and create X 1/1 Knight tokens with vigilance, where X is The Lance's level.\nLevel 2 — {2}: Attributes\nCreatures you control have exalted and mentor.\nAt the beginning of your upkeep, put a +1/+1 counter on each creature you control.\nLevel 3 — {3}: Attributes\nWhenever you attack, creatures you control get +X/+X until end of turn, where X is the number of attacking creatures.\nAt the beginning of your end step, proliferate.\nLevel 4 — {4}: Attributes\nWhenever you attack for the first time each turn, untap all creatures you control. After this phase, there is an additional combat phase.\nThe first time you proliferate each turn, proliferate an additional time.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
