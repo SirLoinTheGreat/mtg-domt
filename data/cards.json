@@ -3572,7 +3572,7 @@
         "Bird",
         "Spirit"
       ],
-      "rules_text": "When The Peacock enters, creatures you control gain indestructible until end of turn.\nCreatures you control get +0/+4 and have hexproof.\nCreatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.\nCreatures you control get -1/+0.",
+      "rules_text": "When The Peacock enters, creatures you control gain indestructible until end of turn.\nCreatures you control get -1/+4 and have hexproof.\nCreatures can't attack you unless their controller pays {2} for each creature they control that's attacking you.",
       "flavor_text": "Invulnerable, immaculate, immovable.",
       "power": "3",
       "toughness": "5",
@@ -3683,7 +3683,7 @@
         "Rabbit",
         "Noble"
       ],
-      "rules_text": "Double strike, haste\nIf a creature would deal combat damage to any target, it deals double that damage instead.\nWhenever The Rabbit Prince deals combat damage to a player for the first time each turn, you may have target creature you control gain double strike and haste until end of turn. That creature gets +X/+0 until end of turn, where X is the amount of combat damage The Rabbit Prince dealt to that player this turn. Then untap all creatures you control. After this phase, there is an additional combat phase.",
+      "rules_text": "Double strike, haste\nIf a creature you control would deal combat damage to any target, it deals double that damage instead.\nWhenever The Rabbit Prince deals combat damage to a player for the first time each turn, you may have target creature you control gain double strike and haste until end of turn. That creature gets +X/+0 until end of turn, where X is the amount of combat damage The Rabbit Prince dealt to that player this turn. Then untap all creatures you control. After this phase, there is an additional combat phase.",
       "flavor_text": "\"In the Court of Swift Justice, every strike tells two tales.\"— The Rabbit Prince",
       "power": "4",
       "toughness": "2",
