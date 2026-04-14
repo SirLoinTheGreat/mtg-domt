@@ -1706,7 +1706,7 @@
         "Horror",
         "Beast"
       ],
-      "rules_text": "When The Monstrosity enters, roll a d20. Its base power and toughness each become the result of the roll plus 5. An opponent chosen at random gains control of it.\nHaste, trample, menace\nThe Monstrosity can't block.\nThe Monstrosity attacks the player who drew it each combat if able until that player has 0 or less life or The Monstrosity leaves. When either condition is met, shuffle The Monstrosity into the Deck of Many Things.",
+      "rules_text": "When The Monstrosity enters, roll a d20. Its base power and toughness each become the result of the roll plus 5. An opponent chosen at random gains control of it.\nHaste, trample, menace\nThe Monstrosity can't block.\nThe Monstrosity attacks each combat if able, and it can't attack any player other than the player who drew it. When the player who drew The Monstrosity has 0 or less life or has left the game, or when The Monstrosity leaves the battlefield, shuffle The Monstrosity into the Deck of Many Things.",
       "flavor_text": "Some horrors need no explanation—only survival.",
       "power": "*",
       "toughness": "*",
