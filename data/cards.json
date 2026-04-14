@@ -711,7 +711,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Soul Imprisonment — When you draw this card, exile your soul and you become incapacitated. Create a colorless Soul Prison artifact token.\nEternal Damnation — You can't draw from the Deck of Many Things for the remainder of the game.",
+      "rules_text": "Soul Imprisonment — When you draw this card, create a colorless Soul Prison artifact token.\nEternal Damnation — You can't draw from the Deck of Many Things for the remainder of the game.",
       "flavor_text": "The soul knows its jailer, but the body knows only emptiness.",
       "power": null,
       "toughness": null,
