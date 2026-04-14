@@ -4059,7 +4059,7 @@
         "Unicorn",
         "Spirit"
       ],
-      "rules_text": "Hexproof, indestructible\n{T}, Shuffle The Unicorn into the Deck of Many Things: Choose one —\n• Rewrite the Past — Return all creatures put into your graveyard this turn to the battlefield.\n• Shape the Future — Shuffle up to five cards from your graveyard into your library, then draw two cards.\n• Unravel Time — Look at the top three cards of the Deck of Many Things. Exile one of them, shuffle one back into the Deck, and put the last one on top.\n• Divine Undoing — Choose a permanent that left the battlefield this game. Return it to the battlefield under your control.",
+      "rules_text": "Hexproof, indestructible\n{T}, Shuffle The Unicorn into the Deck of Many Things: Choose one —\n• Rewrite the Past — Return all creatures put into your graveyard this turn to the battlefield.\n• Shape the Future — Shuffle up to five cards from your graveyard into your library, then draw two cards.\n• Unravel Time — Look at the top three cards of the Deck of Many Things. Exile one of them, shuffle one back into the Deck, and put the last one on top.\n• Divine Undoing — Choose a permanent card you own that left the battlefield this game. Return it to the battlefield under your control.",
       "flavor_text": "\"In its radiant presence, regret dissolves and time itself bows, offering a second chance to those who dare to dream anew.\"",
       "power": "6",
       "toughness": "6",
