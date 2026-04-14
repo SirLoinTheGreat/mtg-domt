@@ -969,7 +969,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "The Bridge enters with a number of portal counters on it equal to 2 plus the result of rolling a d12.\n{T}, Remove a portal counter: Exile target creature you control, then return it to the battlefield under your control. You may have it enter the battlefield as a copy of another creature on the battlefield until end of turn.\nWhen The Bridge has no portal counters on it, sacrifice it.",
+      "rules_text": "The Bridge enters with a number of portal counters on it equal to 2 plus the result of rolling a d12.\n{T}, Remove a portal counter: Exile target creature you control, then return it to the battlefield under your control. It gains haste and can't be blocked this turn.\nWhenever a creature returned with The Bridge deals combat damage to a player, draw a card.\nWhen The Bridge has no portal counters on it, sacrifice it.",
       "flavor_text": "Step through. You'll arrive before you know where you're going.",
       "power": null,
       "toughness": null,
