@@ -4362,7 +4362,7 @@
         "Human",
         "Advisor"
       ],
-      "rules_text": "Flash\nWhen The Chancellor enters, scry 3.\nAt the beginning of your upkeep, look at the top three cards of target player's library. You may put them back in any order. If you looked at an opponent's library this way, draw a card.\n{T}, {1}: Choose target spell. You may copy it. If you do, choose new targets for the copy. That spell's controller reveals the top card of their library. Counter that spell unless its controller pays {X}, where X is the total mana cost of the card revealed this way.",
+      "rules_text": "Flash\nWhen The Chancellor enters, scry 3.\nAt the beginning of your upkeep, look at the top three cards of target player's library. You may put them back in any order. If you looked at an opponent's library this way, draw a card.\n{1}, {T}: Choose target spell. You may copy it. If you do, choose new targets for the copy. That spell's controller reveals the top card of their library. Counter that spell unless its controller pays {X}, where X is the mana value of the card revealed this way.",
       "flavor_text": "\"I do not predict the future. I arrange it.\" -- Archmage Remora",
       "power": "2",
       "toughness": "4",
@@ -4395,7 +4395,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When The Chaos enters, roll a six-sided die. You and each permanent you control gains protection from a color based on the result until your next upkeep:\n1 Protection from red and white\n2 Protection from blue and red\n3 Protection from black and blue\n4 Protection from green and black\n5 Protection from white and green\n6 Protection from all colors and colorless\nAt the beginning of your upkeep, roll a six-sided die and apply the above effect.",
+      "rules_text": "When The Chaos enters, roll a six-sided die. You and each creature you control gain protection based on the result until your next upkeep:\n1 Protection from red and white\n2 Protection from blue and red\n3 Protection from black and blue\n4 Protection from green and black\n5 Protection from white and green\n6 Protection from all colors and colorless\nAt the beginning of your upkeep, roll a six-sided die and apply the above effect.",
       "flavor_text": "\"Chaos does not choose sides. It merely chooses, and we must adapt to its whims.\" —Zariel, Archduke of Avernus",
       "power": null,
       "toughness": null,
@@ -4642,7 +4642,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.)\nExile all permanents you control and all cards in your hand. At the beginning of the next end step, return all cards exiled this way to the battlefield and to your hand. Until your next turn, you have hexproof and can't be attacked.",
+      "rules_text": "Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.)\nExile all permanents you control and all cards in your hand. At the beginning of your next upkeep, return all cards exiled this way to the battlefield and to your hand. Until your next turn, you have hexproof and can't be attacked.",
       "flavor_text": "\"Gone for four minutes. Aged four years.\" -- Journal of the Lost Wanderer",
       "power": null,
       "toughness": null,
@@ -4961,7 +4961,7 @@
         "Bird",
         "Spirit"
       ],
-      "rules_text": "Flying, haste\nWhen The Vulture enters or attacks, exile target artifact an opponent controls. At the beginning of that player's next upkeep, they may pay {3}. If they do, return that card to the battlefield under their control. If they don't, and it's still in exile at end of turn, put it into its owner's graveyard and create a Treasure token.",
+      "rules_text": "Flying, haste\nWhen The Vulture enters or attacks, exile target artifact an opponent controls. At the beginning of that player's next upkeep, they may pay {3}. If they do, return that card to the battlefield under their control. If they don't, at the beginning of that turn's end step, put that card into its owner's graveyard and create a Treasure token.",
       "flavor_text": "It always knows which trinket you love most.",
       "power": "3",
       "toughness": "2",
