@@ -4742,7 +4742,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "Activated abilities of permanents your opponents control cost {1} more to activate.\n{Q}, {T}: Target permanent loses all abilities until end of turn. If you targeted an artifact this way, create a Treasure token.\n{1}, {T}: Counter target activated or triggered ability from target artifact.\n{T}, Sacrifice The Lock: Gain control of target artifact. Its controller creates two Treasure tokens.",
+      "rules_text": "Activated abilities of permanents your opponents control cost {1} more to activate.\n{T}: Target permanent loses all abilities until end of turn. If you targeted an artifact this way, create a Treasure token.\n{1}, {T}: Counter target activated or triggered ability if its source is an artifact.\n{T}, Sacrifice The Lock: Gain control of target artifact. Its controller creates two Treasure tokens.",
       "flavor_text": "\"Some things are locked away to protect us. Some things are locked away to protect themselves.\" -- Master Artificer Jin",
       "power": null,
       "toughness": null,
