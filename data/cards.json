@@ -1429,7 +1429,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When The Giant enters, you gain 20 life.\nEach creature you control has base power and toughness at least 10/10, trample, reach, and \"This creature can block up to three creatures each combat and deals excess combat damage to attacking player while blocking.\"\nIf a source an opponent controls would deal damage to you or permanents you control, prevent 1 of that damage.",
+      "rules_text": "When The Giant enters, you gain 20 life.\nEach creature you control with base power less than 10 has base power 10. Each creature you control with base toughness less than 10 has base toughness 10.\nEach creature you control has trample, reach, and \"This creature can block up to three creatures each combat. If this creature is blocking and would deal combat damage to an attacking creature in excess of that creature's toughness, the excess damage is dealt to that creature's controller instead.\"\nIf a source an opponent controls would deal damage to you or permanents you control, prevent 1 of that damage.",
       "flavor_text": "\"The good news is we can see the objective. The bad news is it can reach us too.\" —Scout's last report",
       "power": null,
       "toughness": null,
