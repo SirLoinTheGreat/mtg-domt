@@ -3888,7 +3888,7 @@
         "Human",
         "Advisor"
       ],
-      "rules_text": "When The Teamster enters, choose one —\n• Begin a quest. (Create a Quest enchantment token with \"At the beginning of your upkeep, you lose 2 life\" and \"When you cast a spell with mana value 5 or greater, sacrifice this enchantment and search your library for a card, put it into your hand, then shuffle.\")\n• Accept a burden. (You get an emblem with \"At the beginning of your upkeep, you lose 2 life\" and \"When you cast a spell with mana value 5 or greater, you lose this emblem.\")\n{1}, Sacrifice The Teamster: Create a 4/4 black and white Avatar token with flying and lifelink, then create two Treasure tokens. Activate only if you don't control a Quest token from The Teamster and don't have an emblem from The Teamster.",
+      "rules_text": "When The Teamster enters, choose one —\n• Begin a quest. (Create a Quest enchantment token with \"At the beginning of your upkeep, you lose 2 life\" and \"When you cast a spell with mana value 5 or greater, sacrifice this enchantment, search your library for a card and put it into your hand, then shuffle. Draw two cards.\")\n• Accept a burden. (You get an emblem with \"At the beginning of your upkeep, you lose 2 life\" and \"When you cast a spell with mana value 5 or greater, you lose this emblem.\")\n{1}, Sacrifice The Teamster: Create a 4/4 black and white Avatar token with flying and lifelink, then create two Treasure tokens. Activate only if you don't control a Quest token from The Teamster and don't have an emblem from The Teamster.",
       "flavor_text": "The task was impossible. The payment was irresistible.",
       "power": "1",
       "toughness": "3",
