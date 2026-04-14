@@ -1645,7 +1645,7 @@
         "Aura",
         "Curse"
       ],
-      "rules_text": "Enchant player\nWhen Curse of Exhaustion enters, roll a d3. Put that many exhaustion counters on enchanted player.\nFor each exhaustion counter on enchanted player:\n0 — Sacrifice Curse of Exhaustion.\n1 — Skip your draw step unless you discard a card.\n2+ Creatures you control get -2/-2.\n3+ Spells you cast cost {1} more and abilities you activate cost {1} more to activate.\n4+ When you gain your fourth or more exhaustion counter, lose half your life, rounded up.\n5+ Creatures you control can't attack or block.\n6+ You lose the game.\nAt the beginning of your end step, if you haven't cast a spell or activated an ability this turn, remove an exhaustion counter. Otherwise, put an exhaustion counter on you.",
+      "rules_text": "Enchant player\nWhen Curse of Exhaustion enters, roll a d3. Put that many exhaustion counters on enchanted player.\n1+ — Skip your draw step unless you discard a card.\n2+ — Creatures you control get -2/-2.\n3+ — Spells and nonmana activated abilities you play cost {1} more.\n4 — When this counter is added, you lose half your life, rounded up.\n5+ — Creatures you control can't attack or block.\n6 — When this counter is added, you lose the game.\nAt the beginning of your end step, if you cast a spell or activated a nonmana ability this turn, put an exhaustion counter on you. Otherwise, remove one. If you have no exhaustion counters, sacrifice Curse of Exhaustion.",
       "flavor_text": "She stopped to rest, just for a moment. She never moved again.",
       "power": null,
       "toughness": null,
