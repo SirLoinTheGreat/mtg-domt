@@ -682,7 +682,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "Rightful Claim — When The Throne enters, search your library for up to two land cards, put them onto the battlefield tapped, then shuffle. Create X 2/2 white Knight tokens with vigilance, where X is the number of lands you control. Each opponent creates 2X 2/2 black Zombie tokens. Zombie tokens created by Rightful Claim attack each combat if able.\nThrone's Authority — Other non-Soldier creatures you control get +1/+1 and have \"When this creature dies, create a 1/1 white Soldier token.\"\nRoyal Influence — {0}, {T}: Gain control of target creature an opponent controls for as long as you control The Throne. Untap it. It gains haste and \"Whenever this creature deals combat damage to a player, create two 1/1 white Soldier tokens.\" Activate only during your turn.",
+      "rules_text": "Rightful Claim — When The Throne enters, search your library for up to two land cards, put them onto the battlefield tapped, then shuffle. Create X 2/2 white Knight tokens with vigilance, where X is the number of lands you control. Each opponent creates 2X 2/2 black Zombie tokens. Zombie tokens created by Rightful Claim attack each combat if able.\nThrone's Authority — Other non-Soldier creatures you control get +1/+1 and have \"When this creature dies, create a 1/1 white Soldier token.\"\nRoyal Influence — {2}, {T}: Gain control of target creature an opponent controls until end of turn. Untap it. It gains haste and \"Whenever this creature deals combat damage to a player this turn, create two 1/1 white Soldier tokens.\" Activate only during your turn.",
       "flavor_text": "The throne was empty when she arrived. It will never be empty again.",
       "power": null,
       "toughness": null,
