@@ -454,7 +454,7 @@
         "Rogue",
         "Assassin"
       ],
-      "rules_text": "Haste, first strike, deathtouch, ward {2}\nSkulk (This creature can't be blocked by creatures with greater power.)\nSubversion — When The Rogue enters, gain control of target creature an opponent controls with the highest power. Untap it. It gains haste until end of turn.\nBackstab — Whenever The Rogue deals combat damage to a player, if it wasn't blocked, it deals triple damage instead and that player discards a card. You may cast target instant or sorcery card from that player's graveyard this turn without paying its mana cost.\nBetrayal — When The Rogue leaves, an opponent at random gains control of target creature you control with the lowest power.",
+      "rules_text": "Haste, first strike, deathtouch, ward {2}\nSkulk (This creature can't be blocked by creatures with greater power.)\nSubversion — When The Rogue enters, gain control of target creature an opponent controls with the highest power. Untap it. It gains haste until end of turn.\nBackstab — If The Rogue would deal combat damage to a player and it wasn't blocked, it deals three times that much damage to that player instead. When it deals combat damage to a player this way, that player discards a card. You may cast target instant or sorcery card from that player's graveyard this turn without paying its mana cost.\nBetrayal — When The Rogue leaves, an opponent at random gains control of target creature you control with the lowest power.",
       "flavor_text": "Trust is a currency best spent quickly.",
       "power": "3",
       "toughness": "2",
