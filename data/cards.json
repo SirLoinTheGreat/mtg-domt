@@ -1316,7 +1316,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nIf damage would be dealt to you or a creature you control, prevent X of that damage. Creatures you control have bushido X, where X is The Expert's level.\nWhenever one or more creatures you control deal combat damage to a player, draw a card.\nLevel 2 — {2}: Dexterity\nCreatures you control have first strike, haste, and flanking.\nDamage dealt by creatures you control can't be prevented.\nLevel 3 — {3}: Dexterity\nCreature spells you cast have flash.\nCreatures you control have flying, hexproof, and \"If this creature would be dealt damage, you may have it phase out instead.\"\nLevel 4 — {4}: Dexterity\nCreatures you control have skulk and double strike.\nWhenever a creature you control deals combat damage to a creature, you may have it deal that much damage to another target creature that creature's controller controls.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nIf damage would be dealt to you or a creature you control, prevent X of that damage. Creatures you control have bushido X, where X is The Expert's level.\nWhenever one or more creatures you control deal combat damage to a player, draw a card.\nLevel 2 — {2}: Dexterity\nCreatures you control have first strike and haste.\nWhenever a creature you control deals combat damage to a player, you may have it deal 1 damage to target creature or planeswalker that player controls.\nLevel 3 — {3}: Dexterity\nCreature spells you cast have flash.\nCreatures you control have flying, hexproof, and \"If this creature would be dealt damage, you may have it phase out instead.\"\nLevel 4 — {4}: Dexterity\nCreatures you control have skulk and double strike.\nWhenever a creature you control deals combat damage to a creature, you may have it deal that much damage to another target creature that creature's controller controls.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -1328,7 +1328,6 @@
         "Bushido",
         "First strike",
         "Haste",
-        "Flanking",
         "Flash",
         "Flying",
         "Hexproof",
@@ -1496,7 +1495,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nCreatures you control get +0/+X, absorb X, and ward {X}, where X is The Juggernaut's level.\nWhenever one or more creatures you control are dealt damage and survive, draw a card.\nLevel 2 — {2}: Constitution\nCreatures you control have vigilance and enter with a shield counter.\nYour opponents can't reduce your creatures' toughness or cause you to sacrifice permanents.\nLevel 3 — {3}: Constitution\nCreatures you control have persist.\nWhenever a creature you control is dealt damage and survives, put that many +1/+1 counters on it.\nLevel 4 — {4}: Constitution\nCreatures you control have indestructible and \"Whenever this creature attacks, defending player sacrifices a nonland permanent.\"",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nCreatures you control get +0/+X, absorb X, and ward {X}, where X is The Juggernaut's level.\nWhenever one or more creatures you control are dealt damage and survive, draw a card.\nLevel 2 — {2}: Constitution\nCreatures you control have vigilance and enter with a shield counter.\nYour opponents can't reduce your creatures' toughness or cause you to sacrifice permanents.\nLevel 3 — {3}: Constitution\nCreatures you control have persist.\nWhenever a creature you control is dealt damage and survives, put that many +1/+1 counters on it.\nLevel 4 — {4}: Constitution\nCreatures you control have indestructible. Each creature you control can block an additional creature, and a creature you control blocking alone can block a creature with menace.\nWhenever a creature you control is dealt damage and survives, it deals that much damage to that source's controller.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -1524,7 +1523,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0020",
-      "mana_cost": "{W}{U}{R}{G}",
+      "mana_cost": "{W}{U}{B}{R}{G}",
       "type_line": "Legendary Enchantment — Attribute",
       "supertypes": [
         "Legendary"
@@ -1535,19 +1534,20 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, draw a card, gain X life, and create X 1/1 Knight tokens with vigilance, where X is The Lance's level.\nLevel 2 — {2}: Attributes\nCreatures you control have exalted and mentor.\nAt the beginning of your upkeep, put a +1/+1 counter on each creature you control.\nLevel 3 — {3}: Attributes\nWhenever you attack, creatures you control get +X/+X until end of turn, where X is the number of attacking creatures.\nAt the beginning of your end step, proliferate.\nLevel 4 — {4}: Attributes\nWhenever you attack for the first time each turn, untap all creatures you control. After this phase, there is an additional combat phase.\nThe first time you proliferate each turn, proliferate an additional time.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nWhen The Lance enters, put a +1/+1 counter on each creature you control.\nCreatures you control have exalted.\nAt the beginning of your upkeep, put X +1/+1 counters distributed among any number of creatures you control, draw X cards, and create an X/X white Champion creature token, where X is The Lance's level.\nLevel 2 — {2}: Ascension\nCreatures you control have evolve and mentor.\nWhenever one or more +1/+1 counters are put on creatures you control, proliferate.\nLevel 3 — {3}: Ascension\nWhenever you attack, double the number of +1/+1 counters on each attacking creature.\nAt the beginning of your end step, proliferate.\nLevel 4 — {4}: Ascension\nWhenever you attack for the first time each turn, untap all creatures you control. After this phase, there is an additional combat phase.\nThe first time you proliferate each turn, proliferate an additional time.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
       "color_identity": [
         "W",
         "U",
+        "B",
         "R",
         "G"
       ],
       "keywords": [
-        "Vigilance",
         "Exalted",
+        "Evolve",
         "Mentor",
         "Proliferate"
       ],
@@ -1575,7 +1575,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, scry X, then draw a card. The first spell you cast each turn costs {X} less, where X is The Mage's level.\nLevel 2 — {2}: Intelligence\nSpells you cast can't be countered and have convoke. Creatures you control have prowess.\nThe first instant or sorcery you cast each turn has \"When you cast this spell, copy it. You may choose new targets for the copy.\"\nLevel 3 — {3}: Intelligence\nSpells you cast have cascade.\nYou may cast instant and sorcery spells from your graveyard.\nLevel 4 — {4}: Intelligence\nSpells you cast have storm.\nWhenever you cast an instant or sorcery, copy it. You may choose new targets for the copy.\nYou have hexproof.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, scry X, then draw a card. The first spell you cast each turn costs {X} less, where X is The Mage's level.\nLevel 2 — {2}: Intelligence\nSpells you cast can't be countered. Creatures you control have prowess. Instant and sorcery spells you cast have rebound.\nThe first instant or sorcery you cast each turn has \"When you cast this spell, copy it. You may choose new targets for the copy.\"\nLevel 3 — {3}: Intelligence\nSpells you cast have cascade.\nYou may cast instant and sorcery spells from your graveyard.\nLevel 4 — {4}: Intelligence\nSpells you cast have storm.\nWhenever you cast an instant or sorcery, copy it. You may choose new targets for the copy.\nYou may cast spells as though they had flash.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -1585,10 +1585,10 @@
       ],
       "keywords": [
         "Prowess",
+        "Rebound",
         "Cascade",
         "Storm",
-        "Hexproof",
-        "Protection"
+        "Flash"
       ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Many More Things",
@@ -1877,7 +1877,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, scry X and gain X life, where X is The Priest's level.\nAt the beginning of your end step, if you gained life this turn, draw a card.\nLevel 2 — {2}: Wisdom\nCreatures you control have lifelink.\nWhenever you gain life, put a +1/+1 counter on target creature you control.\nLevel 3 — {3}: Wisdom\nWhenever a creature enters, you gain 1 life.\nWhenever you gain life, you may pay {1}. If you do, create a 1/1 white Spirit token with lifelink.\nLevel 4 — {4}: Wisdom\nAt the beginning of your end step, return target creature card with mana value X or less from any graveyard to the battlefield under your control, where X is the life you gained this turn.\nWhenever a creature enters under your control, you gain life equal to its toughness.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, look at the top X cards of target opponent's library, where X is The Priest's level. You may put any number of them on the bottom of that library in any order. Gain X life.\nAt the beginning of your end step, if you gained life this turn, draw a card.\nLevel 2 — {2}: Wisdom\nCreatures you control have lifelink.\nWhenever you gain life, put a +1/+1 counter on target creature you control, then surveil 1.\nLevel 3 — {3}: Wisdom\nWhenever a creature enters, you gain 1 life.\nWhenever you gain life, you may pay {1}. If you do, create a 1/1 white Spirit token with lifelink.\nLevel 4 — {4}: Wisdom\nAt the beginning of your end step, return target creature card with mana value X or less from any graveyard to the battlefield under your control, where X is the life you gained this turn.\nWhenever a creature enters under your control, you gain life equal to its toughness.\nYou have hexproof.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -1886,7 +1886,8 @@
       ],
       "keywords": [
         "Lifelink",
-        "Convoke"
+        "Surveil",
+        "Hexproof"
       ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Many More Things",
@@ -2159,7 +2160,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, create X 0/1 black and white Follower tokens with battle cry, where X is The Tavern's level.\nCreatures you control have training.\nLevel 2 — {2}: Charisma\nCreatures you control have \"Whenever this creature becomes trained, draw a card\" and \"Tap three untapped creatures you control: Tap target creature an opponent controls.\"\nLevel 3 — {3}: Charisma\nAt the beginning of your upkeep, gain control of target creature an opponent controls with power X or less until end of turn, where X is the number of creatures you control. It gains haste.\nWhenever a creature enters under your control, put a +1/+1 counter on it.\nLevel 4 — {4}: Charisma\nWhenever a noncommander creature enters under an opponent's control, it enters under your control instead.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, create X 0/1 black and white Follower tokens with battle cry, where X is The Tavern's level.\nCreatures you control have training.\nLevel 2 — {2}: Charisma\nCreatures you control have \"Whenever this creature becomes trained, draw a card\" and \"Tap two untapped creatures you control: Tap target creature an opponent controls.\"\nCreature spells you cast have convoke.\nLevel 3 — {3}: Charisma\nAt the beginning of your upkeep, gain control of target creature an opponent controls with power X or less until end of turn, where X is the number of creatures you control. It gains haste.\nWhenever a creature enters under your control, put a +1/+1 counter on it.\nLevel 4 — {4}: Charisma\nWhenever a noncommander creature enters under an opponent's control, it enters under your control instead.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -2170,6 +2171,7 @@
       "keywords": [
         "Battle cry",
         "Training",
+        "Convoke",
         "Haste"
       ],
       "artist": "MidJourney",
@@ -2359,7 +2361,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nCreatures you control get +X/+X, frenzy X, and rampage X, where X is The Warrior's level.\nWhenever one or more creatures you control fight, block, or become blocked, draw a card.\nLevel 2 — {2}: Strength\nCreatures you control have trample and riot.\nAt the beginning of combat on your turn, target creature you control may fight target creature an opponent controls.\nLevel 3 — {3}: Strength\nCreatures you control have menace and deathtouch.\nWhenever a creature you control deals combat damage to a player, put two +1/+1 counters on it.\nLevel 4 — {4}: Strength\nCreatures you control have reach and can't be prevented from dealing combat damage. Each creature you control can block an additional creature, and a creature you control blocking alone can block a creature with menace.\nIf a creature you control would deal combat damage, it deals double that damage instead.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nCreatures you control get +X/+X, frenzy X, and rampage X, where X is The Warrior's level.\nWhenever one or more creatures you control fight, block, or become blocked, draw a card.\nLevel 2 — {2}: Strength\nCreatures you control have trample and riot.\nAt the beginning of combat on your turn, target creature you control may fight target creature an opponent controls.\nLevel 3 — {3}: Strength\nCreatures you control have menace and deathtouch.\nWhenever a creature you control deals combat damage to a player, put two +1/+1 counters on it and amass Orcs 2.\nLevel 4 — {4}: Strength\nCreatures you control have reach and can't be prevented from dealing combat damage.\nIf a creature you control would deal combat damage, it deals double that damage instead.\nWhenever a creature you control attacks, defending player sacrifices a nonland permanent.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -2374,7 +2376,8 @@
         "Riot",
         "Menace",
         "Deathtouch",
-        "Reach"
+        "Reach",
+        "Amass"
       ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Many More Things",
