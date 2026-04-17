@@ -1316,7 +1316,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nIf damage would be dealt to you or a creature you control, prevent X of that damage. Creatures you control have bushido X, where X is The Expert's level.\nWhenever one or more creatures you control deal combat damage to a player, draw a card.\nLevel 2 — {2}: Dexterity\nCreatures you control have first strike and haste.\nWhenever a creature you control deals combat damage to a player, you may have it deal 1 damage to target creature or planeswalker that player controls.\nLevel 3 — {3}: Dexterity\nCreature spells you cast have flash.\nCreatures you control have flying, hexproof, and \"If this creature would be dealt damage, you may have it phase out instead.\"\nLevel 4 — {4}: Dexterity\nCreatures you control have skulk and double strike.\nWhenever a creature you control deals combat damage to a creature, you may have it deal that much damage to another target creature that creature's controller controls.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nIf damage would be dealt to you or a creature you control, prevent 2X of that damage. Creatures you control have bushido 2X, where X is The Expert's level.\nCreatures you control have first strike.\nWhenever one or more creatures you control deal combat damage to a player, draw a card.\nLevel 2 — {2}: Dexterity\nCreatures you control have double strike and haste.\nWhenever a creature you control deals combat damage to a player, you may have it deal 1 damage to target creature or planeswalker that player controls.\nLevel 3 — {3}: Dexterity\nCreature spells you cast have flash.\nCreature cards in your hand have ninjitsu {1}{U}. ({1}{U}, Reveal this card from your hand: Return an unblocked attacker you control to its owner's hand. Put this card onto the battlefield from your hand tapped and attacking.)\nCreatures you control have flying and hexproof, and \"If this creature would be dealt damage, you may have it phase out instead.\"\nLevel 4 — {4}: Dexterity\nCreatures you control have skulk and can't be blocked except by three or more creatures.\nWhenever a creature you control deals combat damage to a creature, you may have it deal that much damage to another target creature that creature's controller controls.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -1327,12 +1327,13 @@
       "keywords": [
         "Bushido",
         "First strike",
+        "Double strike",
         "Haste",
         "Flash",
         "Flying",
         "Hexproof",
-        "Skulk",
-        "Double strike"
+        "Ninjitsu",
+        "Skulk"
       ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Many More Things",
@@ -1495,7 +1496,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nCreatures you control get +0/+X, absorb X, and ward {X}, where X is The Juggernaut's level.\nWhenever one or more creatures you control are dealt damage and survive, draw a card.\nLevel 2 — {2}: Constitution\nCreatures you control have vigilance and enter with a shield counter.\nYour opponents can't reduce your creatures' toughness or cause you to sacrifice permanents.\nLevel 3 — {3}: Constitution\nCreatures you control have persist.\nWhenever a creature you control is dealt damage and survives, put that many +1/+1 counters on it.\nLevel 4 — {4}: Constitution\nCreatures you control have indestructible. Each creature you control can block an additional creature, and a creature you control blocking alone can block a creature with menace.\nWhenever a creature you control is dealt damage and survives, it deals that much damage to that source's controller.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nCreatures you control get +0/+X and ward X, where X is The Juggernaut's level.\nIf damage would be dealt to a creature you control, prevent X of that damage and put a +1/+1 counter on that creature for each 1 damage prevented this way.\nWhenever one or more creatures you control are dealt damage and survive, draw a card.\nLevel 2 — {2}: Constitution\nCreatures you control have vigilance and enter with a shield counter.\nYour opponents can't reduce your creatures' toughness or cause you to sacrifice permanents.\nLevel 3 — {3}: Constitution\nCreatures you control have persist.\nIf one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.\nLevel 4 — {4}: Constitution\nCreatures you control have indestructible. Each creature you control can block an additional creature, and a creature you control blocking alone can block a creature with menace.\nWhenever a creature you control is dealt damage and survives, it deals that much damage to that source's controller.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -1504,7 +1505,6 @@
         "G"
       ],
       "keywords": [
-        "Absorb",
         "Ward",
         "Vigilance",
         "Persist",
@@ -1575,7 +1575,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, scry X, then draw a card. The first spell you cast each turn costs {X} less, where X is The Mage's level.\nLevel 2 — {2}: Intelligence\nSpells you cast can't be countered. Creatures you control have prowess. Instant and sorcery spells you cast have rebound.\nThe first instant or sorcery you cast each turn has \"When you cast this spell, copy it. You may choose new targets for the copy.\"\nLevel 3 — {3}: Intelligence\nSpells you cast have cascade.\nYou may cast instant and sorcery spells from your graveyard.\nLevel 4 — {4}: Intelligence\nSpells you cast have storm.\nWhenever you cast an instant or sorcery, copy it. You may choose new targets for the copy.\nYou may cast spells as though they had flash.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, scry X, then draw a card. The first spell you cast each turn costs {X} less, where X is The Mage's level.\nLevel 2 — {2}: Intelligence\nSpells you cast can't be countered. Creatures you control have prowess. Instant and sorcery spells you cast have rebound.\nThe first instant or sorcery you cast each turn has \"When you cast this spell, copy it. You may choose new targets for the copy.\"\nLevel 3 — {3}: Intelligence\nSpells you cast have cascade and delve.\nYou may cast instant and sorcery spells from your graveyard or from exile.\nLevel 4 — {4}: Intelligence\nSpells you cast have storm.\nWhenever you cast an instant or sorcery, copy it. You may choose new targets for the copy.\nYou may cast spells as though they had flash.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -1587,6 +1587,7 @@
         "Prowess",
         "Rebound",
         "Cascade",
+        "Delve",
         "Storm",
         "Flash"
       ],
@@ -2160,7 +2161,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, create X 0/1 black and white Follower tokens with battle cry, where X is The Tavern's level.\nCreatures you control have training.\nLevel 2 — {2}: Charisma\nCreatures you control have \"Whenever this creature becomes trained, draw a card\" and \"Tap two untapped creatures you control: Tap target creature an opponent controls.\"\nCreature spells you cast have convoke.\nLevel 3 — {3}: Charisma\nAt the beginning of your upkeep, gain control of target creature an opponent controls with power X or less until end of turn, where X is the number of creatures you control. It gains haste.\nWhenever a creature enters under your control, put a +1/+1 counter on it.\nLevel 4 — {4}: Charisma\nWhenever a noncommander creature enters under an opponent's control, it enters under your control instead.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, create X 0/1 black and white Follower tokens with battle cry, where X is The Tavern's level.\nCreatures you control have training.\nLevel 2 — {2}: Charisma\nCreatures you control have \"Whenever this creature becomes trained, draw a card\" and \"Tap two untapped creatures you control: Tap target creature an opponent controls.\"\nCreature spells you cast have convoke.\nLevel 3 — {3}: Charisma\nAt the beginning of your upkeep, gain control of target creature an opponent controls with power X or less until end of turn, where X is the number of creatures you control. It gains haste.\nWhenever a creature enters under your control, put a +1/+1 counter on it.\nLevel 4 — {4}: Charisma\nWhenever a noncommander creature enters under an opponent's control, it enters under your control instead.\nCreatures you control get +1/+1 for each different creature type among Cleric, Rogue, Warrior, and Wizard you control.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
