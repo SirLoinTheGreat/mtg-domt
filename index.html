@@ -709,7 +709,7 @@ transition:color .2s;z-index:1001;
   font-size:.7rem;font-weight:600;color:var(--gold);
   white-space:nowrap;min-width:72px;
 }
-.changelog-body{}
+.changelog-body{flex:1;min-width:0;}
 .changelog-msg{
   font-family:system-ui,-apple-system,sans-serif;
   font-size:.82rem;color:#b0a080;
@@ -717,6 +717,7 @@ transition:color .2s;z-index:1001;
 .changelog-detail{
   font-family:system-ui,-apple-system,sans-serif;
   font-size:.7rem;color:var(--text-dim);margin-top:2px;
+  overflow-wrap:break-word;word-wrap:break-word;
 }
 
 /* Related cards */
@@ -1446,23 +1447,22 @@ function showCard(card) {
             for (let i = 0; i < maxLen; i++) {
               if (oldLines[i] !== newLines[i]) {
                 if (!oldLines[i] && newLines[i]) {
-                  diffs.push('<span style="color:#7dba8a">+ ' + esc(newLines[i]).substring(0, 120) + '</span>');
+                  diffs.push('<span style="color:#7dba8a">+ ' + esc(newLines[i]) + '</span>');
                 } else if (oldLines[i] && !newLines[i]) {
-                  diffs.push('<span style="color:#c86060;text-decoration:line-through">' + esc(oldLines[i]).substring(0, 120) + '</span>');
+                  diffs.push('<span style="color:#c86060;text-decoration:line-through">' + esc(oldLines[i]) + '</span>');
                 } else {
-                  diffs.push('<span style="color:#c86060;text-decoration:line-through">' + esc(oldLines[i]).substring(0, 120) + '</span>');
-                  diffs.push('<span style="color:#7dba8a">+ ' + esc(newLines[i]).substring(0, 120) + '</span>');
+                  diffs.push('<span style="color:#c86060;text-decoration:line-through">' + esc(oldLines[i]) + '</span>');
+                  diffs.push('<span style="color:#7dba8a">+ ' + esc(newLines[i]) + '</span>');
                 }
               }
-              if (diffs.length >= 8) break;
             }
             if (diffs.length > 0) {
               details.push('<div class="changelog-detail" style="margin-top:4px"><strong>Rules text:</strong></div>');
               diffs.forEach(d => details.push('<div class="changelog-detail" style="font-size:.68rem;line-height:1.4;padding-left:8px">' + d + '</div>'));
             }
           } else if (c.field === 'flavor_text') {
-            if (c.old) details.push('<div class="changelog-detail"><strong>Flavor:</strong> <span style="color:#c86060;text-decoration:line-through">"' + esc(c.old).substring(0, 80) + '"</span></div>');
-            if (c.new) details.push('<div class="changelog-detail"><strong>Flavor:</strong> <span style="color:#7dba8a">"' + esc(c.new).substring(0, 80) + '"</span></div>');
+            if (c.old) details.push('<div class="changelog-detail"><strong>Flavor:</strong> <span style="color:#c86060;text-decoration:line-through">"' + esc(c.old) + '"</span></div>');
+            if (c.new) details.push('<div class="changelog-detail"><strong>Flavor:</strong> <span style="color:#7dba8a">"' + esc(c.new) + '"</span></div>');
           } else if (c.field === 'mana_cost') {
             details.push('<div class="changelog-detail"><strong>Mana cost:</strong> ' + esc(c.old || 'none') + ' → ' + esc(c.new || 'none') + '</div>');
           } else if (c.field === 'type_line') {
