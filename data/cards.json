@@ -1496,7 +1496,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nCreatures you control get +0/+X and ward X, where X is The Juggernaut's level.\nWhenever one or more creatures you control are dealt damage and survive, draw a card.\nLevel 2 — {2}: Constitution\nCreatures you control have vigilance and enter with a +1/+1 counter on them.\nYour opponents can't reduce your creatures' toughness or cause you to sacrifice permanents.\nLevel 3 — {3}: Constitution\nCreatures you control have persist.\nIf one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.\nLevel 4 — {4}: Constitution\nCreatures you control have indestructible. Each creature you control can block an additional creature, and a creature you control blocking alone can block a creature with menace.\nWhenever a creature you control is dealt damage, put a +1/+1 counter on it.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nCreatures you control get +0/+X and ward X, where X is The Juggernaut's level.\nWhenever one or more creatures you control are dealt damage and survive, draw a card.\nLevel 2 — {2}: Constitution\nCreatures you control have persist and enter with a +1/+1 counter on them.\nWhenever a creature you control is dealt damage, put a +1/+1 counter on it.\nYour opponents can't cause you to sacrifice permanents.\nLevel 3 — {3}: Constitution\nIf one or more +1/+1 counters would be put on a creature you control, that many plus one +1/+1 counters are put on it instead.\nEach creature you control assigns combat damage equal to its toughness rather than its power.\nLevel 4 — {4}: Constitution\nCreatures you control have indestructible.\nEach creature you control can block an additional creature each combat, and a creature you control blocking alone can block a creature with menace.\nWhenever a source deals damage to a creature you control, that creature deals that much damage to that source.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -1506,7 +1506,6 @@
       ],
       "keywords": [
         "Ward",
-        "Vigilance",
         "Persist",
         "Indestructible"
       ],
