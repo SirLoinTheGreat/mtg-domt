@@ -1877,7 +1877,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, look at the top X cards of target opponent's library, where X is The Priest's level. You may put any number of them on the bottom of that library in any order. Gain X life.\nAt the beginning of your end step, if you gained life this turn, draw a card.\nLevel 2 — {2}: Wisdom\nCreatures you control have lifelink.\nWhenever you gain life, put a +1/+1 counter on target creature you control, then surveil 1.\nLevel 3 — {3}: Wisdom\nWhenever a creature enters, you gain 1 life.\nWhenever you gain life, you may pay {1}. If you do, create a 1/1 white Spirit token with lifelink.\nLevel 4 — {4}: Wisdom\nAt the beginning of your end step, return target creature card with mana value X or less from any graveyard to the battlefield under your control, where X is the life you gained this turn.\nWhenever a creature enters under your control, you gain life equal to its toughness.\nYou have hexproof.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, look at the top X cards of target opponent's library, where X is The Priest's level. You may put any number of them on the bottom of that library in any order. Gain X life.\nAt the beginning of your end step, if you gained life this turn, draw a card.\nLevel 2 — {2}: Wisdom\nCreatures you control have lifelink and vigilance.\nWhenever you gain life, put a +1/+1 counter on target creature you control, then surveil 1.\nLevel 3 — {3}: Wisdom\nWhenever a creature enters, you gain 1 life.\nWhenever you gain life, you may pay {1}. If you do, create a 1/1 white Spirit token with lifelink.\nLevel 4 — {4}: Wisdom\nAt the beginning of your end step, return target creature card with mana value X or less from any graveyard to the battlefield under your control, where X is the life you gained this turn.\nWhenever a creature enters under your control, you gain life equal to its toughness.\nYou have hexproof.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -1886,6 +1886,7 @@
       ],
       "keywords": [
         "Lifelink",
+        "Vigilance",
         "Surveil",
         "Hexproof"
       ],
