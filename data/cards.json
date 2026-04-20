@@ -4433,7 +4433,7 @@
       "subtypes": [
         "Treasure"
       ],
-      "rules_text": "When The Coin enters, create three Gold tokens. (It's an artifact with \"Sacrifice this artifact: Add one mana of any color.\")\nAt the beginning of your upkeep, create a Gold token.\nSacrifice The Coin: Create X Gold tokens, where X is the number of artifacts you control.",
+      "rules_text": "When The Coin enters, create five Gold tokens. (They're artifacts with \"Sacrifice this artifact: Add one mana of any color.\")\nAt the beginning of your upkeep, create a Gold token.\nSacrifice The Coin. Choose one —\n• Create X Treasure tokens, where X is the number of artifacts you control.\n• Draw X cards, where X is the number of artifacts you control.",
       "flavor_text": "\"Fortune doesn't favor the bold. Fortune favors whoever holds me.\" -- The Coin",
       "power": null,
       "toughness": null,
@@ -4461,7 +4461,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "Creatures you control with power 3 or less have menace.\n{T}: Gain control of target creature with power 3 or less until end of turn. Untap it. It gains haste until end of turn.",
+      "rules_text": "When The Crown enters, target creature an opponent controls attacks a player or planeswalker of your choice other than you this turn if able.\nCreatures you control with power 4 or less have menace.\n{T}: Gain control of target creature with power 4 or less until end of turn. Untap it. It gains haste until end of turn.",
       "flavor_text": "\"It whispered to her: 'Wear me, and the small shall kneel.'\" -- The Crown of Friends",
       "power": null,
       "toughness": null,
@@ -4528,7 +4528,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "You get an emblem with \"Creatures you control get +0/+1 and have ward {1}.\"\nGain 3 life.",
+      "rules_text": "You get an emblem with \"Creatures you control get +1/+1 and have ward {1}.\"\nGain 3 life.",
       "flavor_text": "\"At the height of the sun's power, blades never dull, and warriors never tire.\"",
       "power": null,
       "toughness": null,
@@ -4551,7 +4551,7 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0009",
-      "mana_cost": "{2}{W}{W}",
+      "mana_cost": "{1}{W}{W}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
@@ -4866,7 +4866,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "You get an emblem with \"Creatures you control have skulk and 'Whenever this creature deals combat damage to a player, scry 1.'\"\nYou may look at face-down cards you own in exile.",
+      "rules_text": "You get an emblem with \"Creatures you control have menace and 'Whenever this creature deals combat damage to a player, scry 2, then you may look at that player's hand.'\"\nYou may look at face-down cards you own in exile.",
       "flavor_text": "\"In the stillness of night, secrets are whispered, and the unseen stirs.\"",
       "power": null,
       "toughness": null,
@@ -4875,7 +4875,7 @@
         "B"
       ],
       "keywords": [
-        "Skulk"
+        "Menace"
       ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Wonders",
