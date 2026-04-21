@@ -1460,7 +1460,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Create a legendary 5/5 white Human Soldier creature token named Loyal Companion with vigilance, lifelink, and indestructible.\nLoyal Companion has \"Whenever you are dealt damage by a source an opponent controls, Loyal Companion deals that much damage to that source's controller.\"\nWhen you lose the game or are eliminated, exile Loyal Companion.",
+      "rules_text": "Create a legendary 5/5 white Human Soldier creature token named Loyal Companion with vigilance, lifelink, and indestructible.\nLoyal Companion has \"Whenever you are dealt damage by a source an opponent controls, Loyal Companion deals that much damage to that source's controller\" and \"When Loyal Companion dies, you may draw a card from the Deck of Many Things.\"\nWhen you lose the game, exile Loyal Companion.",
       "flavor_text": "It breathed its first breath when you breathed your last prayer.",
       "power": null,
       "toughness": null,
