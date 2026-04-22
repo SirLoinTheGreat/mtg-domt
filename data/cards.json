@@ -2052,7 +2052,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0035",
-      "mana_cost": "{4}",
+      "mana_cost": "{W}{U}{B}{R}{G}",
       "type_line": "Legendary Artifact",
       "supertypes": [
         "Legendary"
