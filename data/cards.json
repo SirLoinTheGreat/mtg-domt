@@ -2958,7 +2958,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0017",
-      "mana_cost": "{2}{R}{W}",
+      "mana_cost": "{2}{W}{R}",
       "type_line": "Legendary Artifact",
       "supertypes": [
         "Legendary"
