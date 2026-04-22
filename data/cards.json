@@ -3019,7 +3019,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0019",
-      "mana_cost": "{3}{B}{B}",
+      "mana_cost": "{3}{W}{B}",
       "type_line": "Legendary Artifact",
       "supertypes": [
         "Legendary"
