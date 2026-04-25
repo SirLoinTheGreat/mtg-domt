@@ -69,7 +69,7 @@
       "set": "original",
       "set_code": "DOMT-OG",
       "collector_number": "0003",
-      "mana_cost": "{4}{B}{B}{B}{U}{U}{U}",
+      "mana_cost": "{4}{U}{U}{U}{B}{B}{B}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
@@ -135,7 +135,7 @@
       "set": "original",
       "set_code": "DOMT-OG",
       "collector_number": "0005",
-      "mana_cost": "{8}{W}{U}{G}{R}",
+      "mana_cost": "{8}{W}{U}{R}{G}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -482,7 +482,7 @@
       "set": "original",
       "set_code": "DOMT-OG",
       "collector_number": "0015",
-      "mana_cost": "{2}{R}{B}",
+      "mana_cost": "{2}{B}{R}",
       "type_line": "Sorcery",
       "supertypes": [],
       "types": [
@@ -511,7 +511,7 @@
       "set": "original",
       "set_code": "DOMT-OG",
       "collector_number": "0016",
-      "mana_cost": "{2}{U}{W}",
+      "mana_cost": "{2}{W}{U}",
       "type_line": "Legendary Creature — Human Wizard",
       "supertypes": [
         "Legendary"
@@ -895,7 +895,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0002",
-      "mana_cost": "{3}{G}{R}",
+      "mana_cost": "{3}{R}{G}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -990,7 +990,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0005",
-      "mana_cost": "{2}{G}{W}",
+      "mana_cost": "{2}{W}{G}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -1348,7 +1348,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0015",
-      "mana_cost": "{2}{G}{U}",
+      "mana_cost": "{2}{U}{G}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -1732,7 +1732,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0026",
-      "mana_cost": "{G}{G}{B}{B}",
+      "mana_cost": "{B}{B}{G}{G}",
       "type_line": "Legendary Creature — Ooze Horror",
       "supertypes": [
         "Legendary"
@@ -2852,7 +2852,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0014",
-      "mana_cost": "{2}{G}{W}",
+      "mana_cost": "{2}{W}{G}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -3349,7 +3349,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0029",
-      "mana_cost": "{2}{G}{W}",
+      "mana_cost": "{2}{W}{G}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -3380,7 +3380,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0030",
-      "mana_cost": "{2}{G}{W}{W}",
+      "mana_cost": "{2}{W}{W}{G}",
       "type_line": "Legendary Creature — Human Cleric",
       "supertypes": [
         "Legendary"
@@ -3914,7 +3914,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0045",
-      "mana_cost": "{3}{G}{W}",
+      "mana_cost": "{3}{W}{G}",
       "type_line": "Legendary Artifact",
       "supertypes": [
         "Legendary"
@@ -4050,7 +4050,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0049",
-      "mana_cost": "{3}{G}{W}{U}",
+      "mana_cost": "{3}{W}{U}{G}",
       "type_line": "Legendary Enchantment Creature — Unicorn Spirit",
       "supertypes": [
         "Legendary"
@@ -4149,7 +4149,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0052",
-      "mana_cost": "{2}{G}{W}{U}",
+      "mana_cost": "{2}{W}{U}{G}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -4284,7 +4284,7 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0001",
-      "mana_cost": "{3}{U}{U}{W}{W}",
+      "mana_cost": "{3}{W}{W}{U}{U}",
       "type_line": "Legendary Enchantment — Saga",
       "supertypes": [
         "Legendary"
@@ -4682,7 +4682,7 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0013",
-      "mana_cost": "{2}{U}{W}",
+      "mana_cost": "{2}{W}{U}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -4936,7 +4936,7 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0021",
-      "mana_cost": "{1}{G}{U}",
+      "mana_cost": "{1}{U}{G}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -4969,7 +4969,7 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0022",
-      "mana_cost": "{1}{R}{B}",
+      "mana_cost": "{1}{B}{R}",
       "type_line": "Legendary Creature — Bird Spirit",
       "supertypes": [
         "Legendary"
