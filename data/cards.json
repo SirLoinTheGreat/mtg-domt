@@ -4521,14 +4521,18 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0008",
-      "mana_cost": "{1}{W}",
-      "type_line": "Sorcery",
-      "supertypes": [],
-      "types": [
-        "Sorcery"
+      "mana_cost": "{2}{W}{W}",
+      "type_line": "Legendary World Enchantment",
+      "supertypes": [
+        "Legendary"
       ],
-      "subtypes": [],
-      "rules_text": "You get an emblem with \"Creatures you control get +1/+1 and have ward {1}.\"\nGain 3 life.",
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [
+        "World"
+      ],
+      "rules_text": "When The Day enters, each player creates two 1/1 white Soldier tokens with vigilance and gains 3 life.\nCreatures have first strike. Damage dealt by creatures can't be prevented.\nAt the beginning of each player's upkeep, that player may have target creature they control gain double strike until end of turn.",
       "flavor_text": "\"At the height of the sun's power, blades never dull, and warriors never tire.\"",
       "power": null,
       "toughness": null,
@@ -4536,7 +4540,9 @@
         "W"
       ],
       "keywords": [
-        "Ward"
+        "First strike",
+        "Vigilance",
+        "Double strike"
       ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Wonders",
@@ -4579,23 +4585,29 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0010",
-      "mana_cost": "{1}{B}",
-      "type_line": "Legendary Enchantment",
+      "mana_cost": "{2}{W}{B}",
+      "type_line": "Legendary World Enchantment",
       "supertypes": [
         "Legendary"
       ],
       "types": [
         "Enchantment"
       ],
-      "subtypes": [],
-      "rules_text": "Creatures you control enter tapped.\nAt the beginning of your combat phase, if you didn't attack during your last turn, skip your combat phase this turn.\nAt the beginning of your upkeep, you may pay 5 life and sacrifice a creature. If you do, sacrifice The Dusk.",
+      "subtypes": [
+        "World"
+      ],
+      "rules_text": "When The Dusk enters, each player exiles all creatures they control, then returns them to the battlefield tapped under their owners' control. Each player creates two 1/1 black Spirit tokens with flying and loses 3 life.\nCreatures have menace and lifelink.\nAt the beginning of each player's upkeep, that player may put a -1/-1 counter on target creature an opponent controls.",
       "flavor_text": "\"As the sun dips below the horizon, shadows lengthen, and the world grows weary.\"",
       "power": null,
       "toughness": null,
       "color_identity": [
+        "W",
         "B"
       ],
-      "keywords": [],
+      "keywords": [
+        "Menace",
+        "Lifelink"
+      ],
       "artist": "MidJourney",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Dusk.png",
@@ -4859,14 +4871,18 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0019",
-      "mana_cost": "{1}{U}{B}",
-      "type_line": "Sorcery",
-      "supertypes": [],
-      "types": [
-        "Sorcery"
+      "mana_cost": "{2}{U}{B}",
+      "type_line": "Legendary World Enchantment",
+      "supertypes": [
+        "Legendary"
       ],
-      "subtypes": [],
-      "rules_text": "You get an emblem with \"Creatures you control have menace and 'Whenever this creature deals combat damage to a player, scry 2, then you may look at that player's hand.'\"\nYou may look at face-down cards you own in exile.",
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [
+        "World"
+      ],
+      "rules_text": "When The Night enters, each player exiles the top four cards of their library face-down. Each player creates two 1/1 black Bat creature tokens with flying and loses 3 life.\nCreatures have menace. Players may look at the top card of each library at any time.\nAt the beginning of each player's upkeep, that player may scry 2, then put a card from their hand on the bottom of their library.",
       "flavor_text": "\"In the stillness of night, secrets are whispered, and the unseen stirs.\"",
       "power": null,
       "toughness": null,
