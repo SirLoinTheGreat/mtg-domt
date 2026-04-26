@@ -255,7 +255,7 @@ export async function startBulkDownload(scope) {
     triggerDownload(blob, filename);
     showCompletion({ scope, missing });
   } catch (err) {
-    if (err.name === 'AbortError') {
+    if (err.name === 'AbortError' || ctrl.signal.aborted) {
       closeModal();
       return;
     }
