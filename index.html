@@ -533,6 +533,15 @@ margin-top:.2rem;
 font-style:italic;text-transform:none;letter-spacing:.04em;
 color:var(--text-dim);
 }
+/* Sub-section header (Rules & Reference, Cards) — smaller, more discreet */
+.set-header.set-subheader{padding:1.4rem 0 .6rem}
+.set-header.set-subheader .set-divider svg{
+flex:0 1 160px;opacity:.4;
+}
+.set-header.set-subheader h2{
+font-size:clamp(.9rem,1.6vw,1.05rem);
+opacity:.85;letter-spacing:.18em;
+}
 
 /* LIGHTBOX */
 .lightbox{
@@ -1234,29 +1243,62 @@ function render() {
 
   let html = '';
   let currentSet = '';
+  let inRefSection = null;  // null = not yet decided; true/false once first card of set rendered
 
-  // Group by set
+  // Group by set; reference cards (rules / GM / FAQ / glossary) come first within their set
   const setOrder = ['original', 'expansion', 'harrow', 'wonder'];
   const sorted = [...visible].sort((a, b) => {
     const si = setOrder.indexOf(a.set) - setOrder.indexOf(b.set);
     if (si !== 0) return si;
+    const ar = a.is_reference ? 0 : 1;
+    const br = b.is_reference ? 0 : 1;
+    if (ar !== br) return ar - br;
     return (a.collector_number || '').localeCompare(b.collector_number || '');
   });
 
   for (const card of sorted) {
     if (card.set !== currentSet && activeSet === 'all') {
       currentSet = card.set;
+      inRefSection = null;
       const setCards = sorted.filter(c => c.set === currentSet);
+      const setRefCount = setCards.filter(c => c.is_reference).length;
+      const setMainCount = setCards.length - setRefCount;
+      const meta = setRefCount > 0
+        ? `<em>${SET_SOURCES[currentSet] || ''}</em> &mdash; ${setMainCount} cards + ${setRefCount} reference`
+        : `<em>${SET_SOURCES[currentSet] || ''}</em> &mdash; ${setCards.length} cards`;
       html += `<div class="set-header">
         <div class="set-divider">
           ${DIVIDER_SVG('left')}
           <h2>${SET_NAMES[currentSet] || currentSet}</h2>
           ${DIVIDER_SVG('right')}
         </div>
-        <div class="set-meta"><em>${SET_SOURCES[currentSet] || ''}</em> &mdash; ${setCards.length} cards</div>
+        <div class="set-meta">${meta}</div>
       </div>`;
     } else if (card.set !== currentSet) {
       currentSet = card.set;
+      inRefSection = null;
+    }
+
+    // Sub-section header: emit when transitioning between reference and non-reference cards
+    const isRef = !!card.is_reference;
+    if (isRef && inRefSection !== true) {
+      inRefSection = true;
+      html += `<div class="set-header set-subheader">
+        <div class="set-divider">
+          ${DIVIDER_SVG('left')}
+          <h2>Rules &amp; Reference</h2>
+          ${DIVIDER_SVG('right')}
+        </div>
+      </div>`;
+    } else if (!isRef && inRefSection === true) {
+      inRefSection = false;
+      html += `<div class="set-header set-subheader">
+        <div class="set-divider">
+          ${DIVIDER_SVG('left')}
+          <h2>Cards</h2>
+          ${DIVIDER_SVG('right')}
+        </div>
+      </div>`;
     }
 
     const imgPath = card.image_file || '';

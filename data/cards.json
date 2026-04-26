@@ -6,6 +6,132 @@
   },
   "cards": [
     {
+      "name": "Deck of Many Things",
+      "dnd_card_name": "Deck of Many Things",
+      "set": "original",
+      "set_code": "DOMT-OG",
+      "collector_number": "REF-1",
+      "mana_cost": null,
+      "type_line": "Rules Card",
+      "supertypes": [],
+      "types": [
+        "Rules Card"
+      ],
+      "subtypes": [],
+      "rules_text": "The Deck of Many Things is a shared deck in the command zone.\nDRAW AT YOUR OWN RISK!\nSetup —\n• Shuffle the Deck and place it in the command zone.\n• Each player begins the game with 1 Fate Point (maximum 1).\nDrawing —\nBeginning on your fifth turn, once during your precombat main phase, you may spend a Fate Point to draw a card from the Deck.\nGaining Fate Points —\nIf you have no Fate Points, you may roll a d6 during your main phase. On a 6, you gain 1 Fate Point. If you already have one, you may draw a card from the Deck instead.\nResolution —\nCards drawn from the Deck are cast immediately without paying their mana cost. Drawing from the Deck can't be countered, doesn't use the stack, and can only be responded to by The Fates.\n• Cards that would leave the battlefield are shuffled back into the Deck, except The Jester and The Fool, which are exiled.\n• Resolve drawn cards one at a time in the order drawn.\n• Emblems from the Deck can't be removed except by effects that specifically remove emblems.\n• The legend rule doesn't apply to permanents from the Deck.\nFate Glimpsed Once —\nA player can't cast the same card from the Deck more than once per game. If you would reveal a card you've already cast from the Deck, shuffle it back and reveal another.\nThe Deck Vanishes —\nOnce every player has cast at least one card from the Deck, exile the Deck. No further cards can be drawn from it this game.\nOptional Rules —\n• Each player may draw one card from the Deck at the start of the game without spending a Fate Point.\n• When drawing, you may declare 1 to 4 cards instead of one. Resolve each in order.",
+      "flavor_text": "\"Sometimes the cards you're dealt become the fate you're given.\"",
+      "power": null,
+      "toughness": null,
+      "color_identity": [],
+      "keywords": [],
+      "artist": "MidJourney",
+      "dnd_source": "Original Deck of Many Things",
+      "image_file": "assets/cards/original/Deck of Many Things Rules.png",
+      "is_token": false,
+      "sentiment": "neutral",
+      "related_cards": [
+        "The Fates",
+        "The Fool",
+        "The Jester"
+      ],
+      "rarity": "reference",
+      "is_reference": true
+    },
+    {
+      "name": "Game Master",
+      "dnd_card_name": "Game Master",
+      "set": "original",
+      "set_code": "DOMT-OG",
+      "collector_number": "REF-2",
+      "mana_cost": null,
+      "type_line": "Legendary Player",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Player"
+      ],
+      "subtypes": [],
+      "rules_text": "Game Master exists in a separate command zone. It has no life total, can't win or lose the game, can't be targeted or dealt damage, can't gain or lose abilities, goes last in turn order, and can be given control of permanents from the Deck of Many Things.\nSpells, abilities, or effects can target permanents under Game Master's control.\n(Game Master acts as a pseudo-player. It controls permanents but isn't a player and can't make choices that require player decision-making beyond basic combat. Effects that refer to \"each player\" or \"all players\" or \"opponents\" don't include Game Master unless specifically stated otherwise.)\nIf a creature Game Master controls doesn't specify which player it is attacking, that creature attacks a player chosen at random.",
+      "flavor_text": null,
+      "power": null,
+      "toughness": null,
+      "color_identity": [],
+      "keywords": [],
+      "artist": "MidJourney",
+      "dnd_source": "Original Deck of Many Things",
+      "image_file": "assets/cards/original/Game Master.png",
+      "is_token": false,
+      "is_reference": true,
+      "sentiment": "neutral",
+      "related_cards": [],
+      "rarity": "reference"
+    },
+    {
+      "name": "FAQ",
+      "dnd_card_name": "FAQ",
+      "set": "original",
+      "set_code": "DOMT-OG",
+      "collector_number": "REF-3",
+      "mana_cost": null,
+      "type_line": "Reference Card",
+      "supertypes": [],
+      "types": [
+        "Reference Card"
+      ],
+      "subtypes": [],
+      "rules_text": "Common questions and edge cases for the Deck of Many Things.\nFormat —\nThe Deck is a singleton format — only one copy of each card across the four sub-decks (Original, Expansion, Harrow, Wonder). Sub-decks may be played separately or combined.\nGame Master Mode —\nOptional fifth seat. The Game Master is a pseudo-player that controls permanents transferred from the Deck. Goes last in turn order, has no life total, can't be targeted, can't win or lose. See the Game Master rules card for specifics.\n\"Each player\" / \"each opponent\" —\nExcludes the Game Master unless explicitly stated. The GM is a pseudo-player, not a real one.\nTargeting the GM —\nThe Game Master itself is not a valid target. Permanents under GM control can be targeted normally.\nDrawing from the Deck —\nSpend 1 Fate Point on your precombat main phase from turn 5 onward. The drawn card is cast free. Drawing can't be countered or responded to except by The Fates.\nLegend rule —\nDoesn't apply to permanents drawn from the Deck. Multiple legendary copies may coexist.\nReshuffling —\nDeck permanents shuffle back when they leave the battlefield, except The Jester and The Fool, which are exiled.\nOne card per player per game —\nA player can't cast the same Deck card more than once. If repeated, shuffle and re-reveal.\nThe Deck vanishes —\nOnce every player has drawn at least once, exile the Deck. No further draws.\nConflicting effects —\nResolve in the order cards were drawn. Multiple Deck emblems stack and apply simultaneously.",
+      "flavor_text": "\"Read the card. The card is the rules. Then ask the table.\"",
+      "power": null,
+      "toughness": null,
+      "color_identity": [],
+      "keywords": [],
+      "artist": "MidJourney",
+      "dnd_source": "Original Deck of Many Things",
+      "image_file": "assets/cards/original/FAQ.png",
+      "is_token": false,
+      "is_reference": true,
+      "sentiment": "neutral",
+      "related_cards": [
+        "Deck of Many Things",
+        "Game Master",
+        "Glossary"
+      ],
+      "rarity": "reference"
+    },
+    {
+      "name": "Glossary",
+      "dnd_card_name": "Glossary",
+      "set": "original",
+      "set_code": "DOMT-OG",
+      "collector_number": "REF-4",
+      "mana_cost": null,
+      "type_line": "Reference Card",
+      "supertypes": [],
+      "types": [
+        "Reference Card"
+      ],
+      "subtypes": [],
+      "rules_text": "Custom mechanics and statuses used across the Deck of Many Things.\nFate Points —\nA resource each player begins with (maximum 1). Spend 1 to draw from the Deck. If you have none, roll a d6 in your main phase — on a 6, gain 1.\nEternal Damnation —\nPermanent lockout from drawing further cards from the Deck. Existing emblems and permanents remain.\nIncapacitated —\nEmblem status (Soul Prison): can't gain life, attack with creatures, or activate non-mana abilities. May cast only one spell per turn.\nEngulfed —\nStatus from the Gelatinous Cube: you are removed from active play until the Cube leaves the battlefield.\nMarked —\nPlayer-tracking status (Avatar of Death, The Demon, Vengeful Archfiend). A specified creature must attack the marked player each combat if able.\nDimensionally Displaced —\nStatus from the Donjon and Temporal Stasis Sphere: your body is incapacitated and you can't draw further cards. A wish spell or specific effect reveals your prison.\nDeprivation Counters —\nThe Mute Hag inflicts these on a player for sight, hearing, or speech. Each counter restricts that sense in-game.\nDespair Counters —\nThe Soul Prison accumulates these each upkeep. Spells cost {1} more for each Despair Counter.\nVanishing —\nA permanent enters with N time counters; remove one each upkeep. When the last is removed, the permanent's effect resolves and it is sacrificed.",
+      "flavor_text": "\"What we name, we can survive.\"",
+      "power": null,
+      "toughness": null,
+      "color_identity": [],
+      "keywords": [],
+      "artist": "MidJourney",
+      "dnd_source": "Original Deck of Many Things",
+      "image_file": "assets/cards/original/Glossary.png",
+      "is_token": false,
+      "is_reference": true,
+      "sentiment": "neutral",
+      "related_cards": [
+        "Deck of Many Things",
+        "Game Master",
+        "FAQ"
+      ],
+      "rarity": "reference"
+    },
+    {
       "name": "The Balance",
       "dnd_card_name": "The Balance",
       "set": "original",
@@ -751,37 +877,6 @@
         "Soul Prison"
       ],
       "rarity": "mythic"
-    },
-    {
-      "name": "Deck of Many Things",
-      "dnd_card_name": "Deck of Many Things",
-      "set": "original",
-      "set_code": "DOMT-OG",
-      "collector_number": "RULES",
-      "mana_cost": null,
-      "type_line": "Rules Card",
-      "supertypes": [],
-      "types": [
-        "Rules Card"
-      ],
-      "subtypes": [],
-      "rules_text": "The Deck of Many Things is a shared deck in the command zone.\nDRAW AT YOUR OWN RISK!\nSetup —\n• Shuffle the Deck and place it in the command zone.\n• Each player begins the game with 1 Fate Point (maximum 1).\nDrawing —\nBeginning on your fifth turn, once during your precombat main phase, you may spend a Fate Point to draw a card from the Deck.\nGaining Fate Points —\nIf you have no Fate Points, you may roll a d6 during your main phase. On a 6, you gain 1 Fate Point. If you already have one, you may draw a card from the Deck instead.\nResolution —\nCards drawn from the Deck are cast immediately without paying their mana cost. Drawing from the Deck can't be countered, doesn't use the stack, and can only be responded to by The Fates.\n• Cards that would leave the battlefield are shuffled back into the Deck, except The Jester and The Fool, which are exiled.\n• Resolve drawn cards one at a time in the order drawn.\n• Emblems from the Deck can't be removed except by effects that specifically remove emblems.\n• The legend rule doesn't apply to permanents from the Deck.\nFate Glimpsed Once —\nA player can't cast the same card from the Deck more than once per game. If you would reveal a card you've already cast from the Deck, shuffle it back and reveal another.\nThe Deck Vanishes —\nOnce every player has cast at least one card from the Deck, exile the Deck. No further cards can be drawn from it this game.\nOptional Rules —\n• Each player may draw one card from the Deck at the start of the game without spending a Fate Point.\n• When drawing, you may declare 1 to 4 cards instead of one. Resolve each in order.",
-      "flavor_text": "\"Sometimes the cards you're dealt become the fate you're given.\"",
-      "power": null,
-      "toughness": null,
-      "color_identity": [],
-      "keywords": [],
-      "artist": "MidJourney",
-      "dnd_source": "Original Deck of Many Things",
-      "image_file": "assets/cards/original/Deck of Many Things Rules.png",
-      "is_token": true,
-      "sentiment": "neutral",
-      "related_cards": [
-        "The Fates",
-        "The Fool",
-        "The Jester"
-      ],
-      "rarity": "token"
     },
     {
       "name": "Soul Guardian",
