@@ -7,7 +7,19 @@ import { mulberry32, freshSeed, shuffle } from './seeded-rng.js';
 
 const CACHE_BUST = String(Date.now());
 const ALL_SETS = ['original', 'expansion', 'harrow', 'wonder'];
-const CARD_BACK_SRC = 'assets/cards/original/Card%20Back.png';
+
+// Anchor data + asset URLs to this SCRIPT's location, not the page's.
+// When the page is served at /simulator/ (nginx URL rewrite) instead of
+// /simulator.html, relative URLs like 'data/cards.json' resolve to
+// /simulator/data/cards.json and 404 — which silently kills the preload.
+// import.meta.url always points to /assets/js/simulator.js, so '../../'
+// resolves to the project root regardless of how the page was reached.
+const PROJECT_BASE = new URL('../../', import.meta.url).href;
+function projectUrl(path) {
+  return new URL(path, PROJECT_BASE).href;
+}
+
+const CARD_BACK_SRC = projectUrl('assets/cards/original/Card%20Back.png');
 const MIN_DRAW = 1;
 const MAX_DRAW = 13;
 
@@ -106,8 +118,8 @@ async function init() {
   let cardsData, history;
   try {
     [cardsData, history] = await Promise.all([
-      fetch('data/cards.json?' + CACHE_BUST).then(r => r.json()),
-      fetch('data/card_history.json?' + CACHE_BUST).then(r => r.json()).catch(() => ({})),
+      fetch(projectUrl('data/cards.json') + '?' + CACHE_BUST).then(r => r.json()),
+      fetch(projectUrl('data/card_history.json') + '?' + CACHE_BUST).then(r => r.json()).catch(() => ({})),
     ]);
   } catch (err) {
     console.error('[simulator] failed to load card data', err);
@@ -745,7 +757,8 @@ function thumbUrl(card) {
 
 // --- Helpers ---
 function imgUrl(card) {
-  return (card.image_file || '').split('/').map(encodeURIComponent).join('/') + '?' + CACHE_BUST;
+  const path = (card.image_file || '').split('/').map(encodeURIComponent).join('/');
+  return projectUrl(path) + '?' + CACHE_BUST;
 }
 
 // --- Image preloading ---

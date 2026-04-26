@@ -9,6 +9,14 @@ let CACHE_BUST = 'v=' + Date.now();
 let lightbox = null;
 const lbNavStack = [];
 
+// Anchor data + asset URLs to this script's location (not the page's URL).
+// Required because pages may be served at /simulator/ via nginx URL rewrites,
+// where relative URLs would resolve against the wrong directory and 404.
+const PROJECT_BASE = new URL('../../', import.meta.url).href;
+function projectUrl(path) {
+  return new URL(path, PROJECT_BASE).href;
+}
+
 const EXTENDED_RULES_MAP = {
   'Game Master': { url: 'data/game_master_rules.html', title: 'Game Master Mode — Full Rules' },
 };
@@ -82,7 +90,7 @@ function ensureMarkup() {
 
 function showCard(card) {
   const imgPath = (card.image_file || '').split('/').map(p => encodeURIComponent(p)).join('/');
-  document.getElementById('lb-img').src = imgPath + '?' + CACHE_BUST;
+  document.getElementById('lb-img').src = projectUrl(imgPath) + '?' + CACHE_BUST;
 
   // Card name (serif)
   document.getElementById('lb-name').textContent = card.name +
@@ -108,7 +116,7 @@ function showCard(card) {
   document.getElementById('lb-set-info').innerHTML =
     card.set_code + ' &bull; #' + (card.collector_number || 'TOKEN') +
     '<br>Art by ' + (card.artist || 'Unknown');
-  document.getElementById('lb-fullsize-btn').href = fullImgUrl;
+  document.getElementById('lb-fullsize-btn').href = projectUrl(fullImgUrl);
 
   // Sync URL hash for shareable deep link (without triggering hashchange)
   const slug = slugify(card.name);
@@ -159,7 +167,7 @@ function showCard(card) {
     extSection.style.display = '';
     extTitle.textContent = extConfig.title;
     extDiv.innerHTML = '<div class="ext-loading">Loading rules…</div>';
-    fetch(extConfig.url + '?' + CACHE_BUST)
+    fetch(projectUrl(extConfig.url) + '?' + CACHE_BUST)
       .then(r => r.ok ? r.text() : Promise.reject(r.status))
       .then(html => { extDiv.innerHTML = html; })
       .catch(err => { extDiv.innerHTML = '<div class="ext-error">Could not load extended rules.</div>'; });
@@ -182,7 +190,7 @@ function showCard(card) {
       const fileName = parts.pop().replace(/\.png$/, '.jpg');
       const thumbPath = [...parts, 'thumbs', fileName].map(p => encodeURIComponent(p)).join('/');
       return '<div class="related-card-thumb" onclick="navigateToCard(\'' + rc.name.replace(/'/g, "\\'") + '\')">' +
-        '<img src="' + thumbPath + '?' + CACHE_BUST + '" alt="' + rc.name + '" loading="lazy">' +
+        '<img src="' + projectUrl(thumbPath) + '?' + CACHE_BUST + '" alt="' + rc.name + '" loading="lazy">' +
         '<div class="related-card-name">' + rc.name + '</div>' +
       '</div>';
     }).join('');
