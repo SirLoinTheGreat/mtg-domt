@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Deck of Many Things — MTG Crossover Gallery</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/card-lightbox.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -544,291 +545,6 @@ flex:0 1 160px;opacity:.4;
 font-size:clamp(.9rem,1.6vw,1.05rem);
 opacity:.85;letter-spacing:.18em;
 }
-/* Extended rules section in lightbox (Game Master full rules, etc.) */
-.lb-extended{
-font-family:'Cinzel',serif;font-size:.86rem;line-height:1.55;
-color:var(--text);
-}
-.lb-extended .ext-rules > p,
-.lb-extended .ext-rules > ul,
-.lb-extended .ext-rules > ol,
-.lb-extended .ext-rules > dl{margin:.6rem 0}
-.lb-extended .ext-intro{
-font-style:italic;color:var(--text-dim);
-border-left:2px solid rgba(212,175,60,.35);
-padding-left:.9rem;margin:.7rem 0;
-}
-.lb-extended h3{
-font-family:'Cinzel Decorative',serif;font-weight:700;
-font-size:.95rem;color:var(--gold);
-margin:1.4rem 0 .5rem;letter-spacing:.08em;
-text-transform:uppercase;
-border-bottom:1px solid rgba(212,175,60,.18);
-padding-bottom:.3rem;
-}
-.lb-extended h4{
-font-family:'Cinzel',serif;font-weight:600;
-font-size:.85rem;color:var(--gold-dim);
-margin:.9rem 0 .3rem;letter-spacing:.08em;
-text-transform:uppercase;
-}
-.lb-extended ul, .lb-extended ol{
-padding-left:1.4rem;
-}
-.lb-extended li{margin:.3rem 0}
-.lb-extended strong{color:var(--gold-dim)}
-.lb-extended em{color:var(--text)}
-.lb-extended .ext-table{
-width:100%;border-collapse:collapse;
-font-size:.78rem;margin:.6rem 0;
-}
-.lb-extended .ext-table th{
-text-align:left;padding:.4rem .5rem;
-background:rgba(212,175,60,.06);
-color:var(--gold-dim);font-weight:600;
-border-bottom:1px solid rgba(212,175,60,.25);
-letter-spacing:.04em;
-}
-.lb-extended .ext-table td{
-padding:.4rem .5rem;
-border-bottom:1px solid rgba(255,255,255,.05);
-vertical-align:top;
-}
-.lb-extended .ext-table tr:hover td{background:rgba(255,255,255,.02)}
-.lb-extended .ext-faq dt{
-font-weight:600;color:var(--gold-dim);
-margin:.7rem 0 .2rem;
-font-style:italic;
-}
-.lb-extended .ext-faq dd{
-margin:0 0 .3rem 0;color:var(--text);
-}
-.lb-extended .ext-note{
-font-style:italic;color:var(--text-dim);
-font-size:.82rem;
-}
-.lb-extended .ext-footer{
-margin-top:1.2rem;padding-top:.6rem;
-border-top:1px solid rgba(212,175,60,.15);
-text-align:center;
-}
-.lb-extended .ext-loading,
-.lb-extended .ext-error{
-color:var(--text-dim);font-style:italic;padding:.5rem 0;
-}
-
-/* LIGHTBOX */
-.lightbox{
-position:fixed;inset:0;z-index:1000;
-display:none;align-items:center;justify-content:center;
-background:rgba(0,0,0,.88);
-backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
-cursor:pointer;
-}
-.lightbox.open{display:flex}
-@keyframes lightbox-in{
-from{opacity:0;transform:scale(.96)}
-to{opacity:1;transform:scale(1)}
-}
-.lightbox-close{
-position:fixed;top:1.5rem;right:1.5rem;
-font-size:1.5rem;color:var(--text-dim);cursor:pointer;
-background:none;border:none;
-font-family:'Cinzel',serif;
-transition:color .2s;z-index:1001;
-}
-.lightbox-close:hover{color:var(--gold)}
-
-/* Enhanced lightbox layout */
-.lightbox-content{
-  display:flex;gap:0;align-items:stretch;
-  max-width:1100px;width:95vw;max-height:90vh;
-  cursor:default;
-  animation:lightbox-in .3s ease;
-  border-radius:12px;overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 40px rgba(201,168,76,.08);
-}
-.lightbox-card-col{
-  flex:0 0 280px;background:#1a1510;
-  display:flex;flex-direction:column;align-items:center;
-  padding:24px 20px;gap:12px;
-}
-.lb-back{
-  width:100%;font-size:.75rem;color:var(--text-dim);
-  cursor:pointer;background:none;border:none;text-align:left;
-  font-family:system-ui,-apple-system,sans-serif;
-  padding:0;opacity:.5;transition:opacity .2s;height:18px;
-}
-.lb-back:hover{opacity:1;color:var(--gold)}
-.lb-back:empty{cursor:default}
-.lightbox-card-col img{
-  width:220px;height:auto;border-radius:10px;
-  box-shadow:0 8px 32px rgba(0,0,0,.6),0 0 20px rgba(201,168,76,.1);
-  position:relative;z-index:1;
-}
-/* Sigil pulse — a single gold ring expanding from the card edge on open */
-.lightbox-card-col .sigil-wrap{position:relative}
-.lightbox-card-col .sigil-pulse{
-  position:absolute;inset:0;border-radius:10px;
-  pointer-events:none;
-  box-shadow:0 0 0 2px rgba(244,210,122,.65),0 0 24px 6px rgba(244,210,122,.35);
-  opacity:0;
-}
-.lightbox.open .lightbox-card-col .sigil-pulse{
-  animation:sigil-pulse .9s cubic-bezier(.2,.7,.2,1);
-}
-@keyframes sigil-pulse{
-  0%{opacity:0;transform:scale(.98)}
-  20%{opacity:1}
-  100%{opacity:0;transform:scale(1.18)}
-}
-.lb-set-info{
-  text-align:center;font-family:system-ui,-apple-system,sans-serif;
-  font-size:.65rem;color:var(--text-dim);letter-spacing:.06em;
-  line-height:1.6;
-}
-.lb-actions{
-  display:flex;flex-direction:column;gap:6px;width:100%;
-  margin-top:6px;
-}
-.lb-action{
-  display:inline-flex;align-items:center;justify-content:center;
-  gap:6px;
-  font-family:'Cinzel',serif;font-size:.7rem;font-weight:600;
-  color:var(--gold-dim);background:rgba(201,168,76,.05);
-  border:1px solid rgba(201,168,76,.18);border-radius:3px;
-  padding:7px 14px;cursor:pointer;text-decoration:none;
-  letter-spacing:.14em;text-transform:uppercase;
-  transition:all .25s ease;
-  position:relative;overflow:hidden;
-}
-.lb-action:hover{
-  color:var(--gold-bright);background:rgba(244,210,122,.1);
-  border-color:rgba(244,210,122,.35);
-  box-shadow:0 0 16px rgba(244,210,122,.15);
-}
-.lb-action.flash{
-  color:var(--gold-bright);background:rgba(244,210,122,.18);
-  border-color:rgba(244,210,122,.55);
-  letter-spacing:.08em;
-}
-.lb-action.flash::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(120deg,transparent 30%,rgba(244,210,122,.35) 50%,transparent 70%);
-  background-size:200% 100%;
-  animation:share-flash 1.2s ease;
-}
-@keyframes share-flash{
-  from{background-position:200% 0}
-  to{background-position:-100% 0}
-}
-/* Backwards compat */
-.lb-fullsize{display:none}
-.lightbox-detail-col{
-  flex:1 1 400px;overflow-y:auto;max-height:90vh;
-  padding:28px 32px;background:#111;
-  border-left:1px solid rgba(201,168,76,.08);
-  scrollbar-width:thin;scrollbar-color:rgba(201,168,76,.2) transparent;
-}
-.lightbox-detail-col::-webkit-scrollbar{width:6px}
-.lightbox-detail-col::-webkit-scrollbar-thumb{background:rgba(201,168,76,.2);border-radius:3px}
-
-.lb-name{
-  font-family:Georgia,'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;
-  color:var(--gold);letter-spacing:.02em;line-height:1.2;
-}
-.lb-type{
-  font-family:Georgia,'Cormorant Garamond',serif;font-size:.85rem;
-  color:var(--text-dim);font-style:italic;margin-top:4px;
-}
-.lb-badges{display:flex;gap:8px;margin-top:10px;margin-bottom:24px;flex-wrap:wrap}
-.lb-badge{
-  font-family:system-ui,-apple-system,sans-serif;font-size:.68rem;
-  padding:3px 10px;border-radius:4px;letter-spacing:.03em;
-}
-.lb-badge-mana{
-  background:rgba(201,168,76,.1);color:var(--gold);
-  border:1px solid rgba(201,168,76,.15);
-}
-.lb-badge-positive{
-  background:rgba(100,180,120,.08);color:#7dba8a;
-  border:1px solid rgba(100,180,120,.12);
-}
-.lb-badge-negative{
-  background:rgba(200,80,80,.08);color:#c86060;
-  border:1px solid rgba(200,80,80,.12);
-}
-.lb-badge-neutral{
-  background:rgba(180,180,180,.06);color:#999;
-  border:1px solid rgba(180,180,180,.1);
-}
-
-.lb-section{margin-bottom:24px}
-.lb-section-title{
-  font-family:system-ui,-apple-system,sans-serif;font-size:.65rem;
-  color:var(--gold);letter-spacing:.14em;text-transform:uppercase;
-  margin-bottom:10px;padding-bottom:8px;
-  border-bottom:1px solid rgba(201,168,76,.08);
-}
-.lb-rules{
-  font-family:system-ui,-apple-system,sans-serif;
-  font-size:.88rem;line-height:1.75;color:#c8b890;
-  white-space:pre-wrap;
-}
-.lb-flavor{
-  font-family:Georgia,'Cormorant Garamond',serif;
-  font-style:italic;color:var(--text-dim);font-size:.85rem;
-  border-left:2px solid rgba(201,168,76,.15);padding-left:14px;
-  margin-top:16px;line-height:1.6;
-}
-
-/* Changelog */
-.changelog-entry{
-  display:flex;gap:12px;align-items:baseline;
-  padding:8px 0;
-}
-.changelog-date{
-  font-family:system-ui,-apple-system,sans-serif;
-  font-size:.7rem;font-weight:600;color:var(--gold);
-  white-space:nowrap;min-width:72px;
-}
-.changelog-body{flex:1;min-width:0;}
-.changelog-msg{
-  font-family:system-ui,-apple-system,sans-serif;
-  font-size:.82rem;color:#b0a080;
-}
-.changelog-detail{
-  font-family:system-ui,-apple-system,sans-serif;
-  font-size:.7rem;color:var(--text-dim);margin-top:2px;
-  overflow-wrap:break-word;word-wrap:break-word;
-}
-
-/* Related cards */
-.related-cards-grid{
-  display:flex;gap:10px;flex-wrap:wrap;
-}
-.related-card-thumb{
-  width:80px;cursor:pointer;border-radius:6px;overflow:hidden;
-  transition:transform .2s;
-  box-shadow:0 2px 8px rgba(0,0,0,.4);
-}
-.related-card-thumb:hover{transform:scale(1.08)}
-.related-card-thumb img{width:100%;display:block}
-.related-card-name{
-  font-family:system-ui,-apple-system,sans-serif;
-  font-size:.6rem;color:var(--text-dim);text-align:center;
-  padding:3px;background:rgba(0,0,0,.6);
-}
-
-/* Lightbox responsive */
-@media(max-width:768px){
-  .lightbox-content{flex-direction:column;max-height:95vh;width:95vw;border-radius:8px}
-  .lightbox-card-col{flex:0 0 auto;padding:16px;flex-direction:row;gap:16px}
-  .lightbox-card-col img{width:140px}
-  .lb-set-info{text-align:left}
-  .lightbox-detail-col{padding:20px;max-height:none}
-}
-
 /* NO RESULTS */
 .no-results{
 grid-column:1/-1;text-align:center;
@@ -1119,48 +835,6 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
 <div class="loading">Drawing from the Deck</div>
 </main>
 
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-close" title="Close">&times;</button>
-  <div class="lightbox-content">
-    <div class="lightbox-card-col">
-      <button class="lb-back" id="lb-back"></button>
-      <div class="sigil-wrap">
-        <img id="lb-img" src="" alt="">
-        <div class="sigil-pulse" aria-hidden="true"></div>
-      </div>
-      <div class="lb-set-info" id="lb-set-info"></div>
-      <div class="lb-actions">
-        <button class="lb-action" id="lb-share" type="button">✦ Share Card</button>
-        <a class="lb-action" id="lb-fullsize-btn" href="#" target="_blank" rel="noopener">⤢ Full Size</a>
-      </div>
-    </div>
-    <div class="lightbox-detail-col">
-      <div class="lb-section">
-        <div class="lb-name" id="lb-name"></div>
-        <div class="lb-type" id="lb-type"></div>
-        <div class="lb-badges" id="lb-badges"></div>
-      </div>
-      <div class="lb-section">
-        <div class="lb-section-title">Rules Text</div>
-        <div class="lb-rules" id="lb-rules"></div>
-        <div class="lb-flavor" id="lb-flavor"></div>
-      </div>
-      <div class="lb-section" id="lb-extended-section" style="display:none">
-        <div class="lb-section-title" id="lb-extended-title">Full Rules</div>
-        <div class="lb-extended" id="lb-extended"></div>
-      </div>
-      <div class="lb-section" id="lb-related-section" style="display:none">
-        <div class="lb-section-title">Related Cards</div>
-        <div class="related-cards-grid" id="lb-related"></div>
-      </div>
-      <div class="lb-section" id="lb-changelog-section" style="display:none">
-        <div class="lb-section-title">Changelog</div>
-        <div id="lb-changelog"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <footer class="footer">
 <div class="footer-panel">
 <div class="footer-title">Forge &amp; Source</div>
@@ -1346,17 +1020,6 @@ function sentimentGlyph(sent) {
   return '◆';
 }
 
-// URL slug for a card name (used in share links: #card/the-talons)
-function slugify(name) {
-  return name.toLowerCase()
-    .replace(/[\u2018\u2019']/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-function findCardBySlug(slug) {
-  return allCards.find(c => slugify(c.name) === slug);
-}
-
 async function init() {
   try {
     const cardResp = await fetch('data/cards.json?' + CACHE_BUST);
@@ -1393,22 +1056,19 @@ async function init() {
   }
   render();
 
-  // Open card from URL hash (e.g. #card/the-talons)
-  handleHashRoute();
-}
-
-function handleHashRoute() {
-  const m = (location.hash || '').match(/^#card\/(.+)$/);
-  if (!m) return;
-  const card = findCardBySlug(decodeURIComponent(m[1]));
-  if (card) {
-    lbNavStack.length = 0;
-    showCard(card);
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
+  // Hand cards + history off to the lightbox module (which also handles hash routing).
+  // The module is loaded as type="module" and may finish loading after init()'s awaits
+  // resolve, so retry briefly until it's ready.
+  const handoff = () => window.__initLightbox({ cards: allCards, history: cardHistory, cacheBust: CACHE_BUST });
+  if (window.__initLightbox) handoff();
+  else {
+    let tries = 0;
+    const t = setInterval(() => {
+      if (window.__initLightbox) { clearInterval(t); handoff(); }
+      else if (++tries > 50) { clearInterval(t); console.warn('Lightbox module failed to load.'); }
+    }, 40);
   }
 }
-window.addEventListener('hashchange', handleHashRoute);
 
 function matchesFilters(card) {
   // Set filter
@@ -1586,229 +1246,6 @@ document.getElementById('search').addEventListener('input', e => {
   }, 200);
 });
 
-// Lightbox
-const lightbox = document.getElementById('lightbox');
-const lbNavStack = [];
-
-function showCard(card) {
-  const imgPath = (card.image_file || '').split('/').map(p => encodeURIComponent(p)).join('/');
-  document.getElementById('lb-img').src = imgPath + '?' + CACHE_BUST;
-
-  // Card name (serif)
-  document.getElementById('lb-name').textContent = card.name +
-    (card.dnd_card_name && card.dnd_card_name !== card.name
-      ? ' / ' + card.dnd_card_name : '');
-
-  // Type line (serif italic)
-  document.getElementById('lb-type').textContent = card.type_line || '';
-
-  // Badges
-  const badgesEl = document.getElementById('lb-badges');
-  let badges = '';
-  if (card.mana_cost) {
-    badges += '<span class="lb-badge lb-badge-mana">' + card.mana_cost + '</span>';
-  }
-  const sentiment = card.sentiment || 'neutral';
-  const sentLabel = sentiment.charAt(0).toUpperCase() + sentiment.slice(1);
-  badges += '<span class="lb-badge lb-badge-' + sentiment + '">' + sentLabel + '</span>';
-  badgesEl.innerHTML = badges;
-
-  // Set info under card image (full-size + share moved to button row)
-  const fullImgUrl = (card.image_file || '').split('/').map(p => encodeURIComponent(p)).join('/');
-  document.getElementById('lb-set-info').innerHTML =
-    card.set_code + ' &bull; #' + (card.collector_number || 'TOKEN') +
-    '<br>Art by ' + (card.artist || 'Unknown');
-  document.getElementById('lb-fullsize-btn').href = fullImgUrl;
-
-  // Sync URL hash for shareable deep link (without triggering hashchange)
-  const slug = slugify(card.name);
-  const newHash = '#card/' + slug;
-  if (location.hash !== newHash) {
-    history.replaceState(null, '', newHash);
-  }
-
-  // Replay sigil pulse — force restart the CSS animation
-  const pulse = document.querySelector('.lightbox-card-col .sigil-pulse');
-  if (pulse) {
-    pulse.style.animation = 'none';
-    void pulse.offsetWidth;
-    pulse.style.animation = '';
-  }
-
-  // Back button
-  const backBtn = document.getElementById('lb-back');
-  if (lbNavStack.length > 0) {
-    backBtn.textContent = '\u2190 Back';
-    backBtn.onclick = function() {
-      const prev = lbNavStack.pop();
-      showCard(prev);
-    };
-  } else {
-    backBtn.textContent = '';
-    backBtn.onclick = null;
-  }
-
-  // Rules text (sans-serif)
-  document.getElementById('lb-rules').textContent = card.rules_text || '';
-
-  // Flavor text (serif italic)
-  const flavorEl = document.getElementById('lb-flavor');
-  if (card.flavor_text) {
-    flavorEl.textContent = card.flavor_text;
-    flavorEl.style.display = '';
-  } else {
-    flavorEl.style.display = 'none';
-  }
-
-  // Extended rules — for cards that have a longer rules companion (e.g. Game Master)
-  const extSection = document.getElementById('lb-extended-section');
-  const extDiv = document.getElementById('lb-extended');
-  const extTitle = document.getElementById('lb-extended-title');
-  const EXTENDED_RULES_MAP = {
-    'Game Master': { url: 'data/game_master_rules.html', title: 'Game Master Mode — Full Rules' },
-  };
-  const extConfig = EXTENDED_RULES_MAP[card.name];
-  if (extConfig) {
-    extSection.style.display = '';
-    extTitle.textContent = extConfig.title;
-    extDiv.innerHTML = '<div class="ext-loading">Loading rules…</div>';
-    fetch(extConfig.url + '?' + CACHE_BUST)
-      .then(r => r.ok ? r.text() : Promise.reject(r.status))
-      .then(html => { extDiv.innerHTML = html; })
-      .catch(err => { extDiv.innerHTML = '<div class="ext-error">Could not load extended rules.</div>'; });
-  } else {
-    extSection.style.display = 'none';
-    extDiv.innerHTML = '';
-  }
-
-  // Related cards
-  const relSection = document.getElementById('lb-related-section');
-  const relGrid = document.getElementById('lb-related');
-  const related = (card.related_cards || [])
-    .map(name => allCards.find(c => c.name === name))
-    .filter(Boolean);
-
-  if (related.length > 0) {
-    relSection.style.display = '';
-    relGrid.innerHTML = related.map(rc => {
-      const parts = (rc.image_file || '').split('/');
-      const fileName = parts.pop().replace(/\.png$/, '.jpg');
-      const thumbPath = [...parts, 'thumbs', fileName].map(p => encodeURIComponent(p)).join('/');
-      return '<div class="related-card-thumb" onclick="navigateToCard(\'' + rc.name.replace(/'/g, "\\'") + '\')">' +
-        '<img src="' + thumbPath + '?' + CACHE_BUST + '" alt="' + rc.name + '" loading="lazy">' +
-        '<div class="related-card-name">' + rc.name + '</div>' +
-      '</div>';
-    }).join('');
-  } else {
-    relSection.style.display = 'none';
-  }
-
-  // Changelog
-  const clSection = document.getElementById('lb-changelog-section');
-  const clDiv = document.getElementById('lb-changelog');
-  const entries = cardHistory[card.name] || [];
-
-  if (entries.length > 0) {
-    clSection.style.display = '';
-    clDiv.innerHTML = entries.map(e => {
-      let details = [];
-      if (e.type === 'added') {
-        details.push('<div class="changelog-detail">Card added to the set</div>');
-      } else if (e.changes && e.changes.length > 0) {
-        e.changes.forEach(c => {
-          const esc = s => (s || '').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-          if (c.field === 'rules_text') {
-            const oldLines = (c.old || '').split('\n');
-            const newLines = (c.new || '').split('\n');
-            // Collect all changed lines
-            const diffs = [];
-            const maxLen = Math.max(oldLines.length, newLines.length);
-            for (let i = 0; i < maxLen; i++) {
-              if (oldLines[i] !== newLines[i]) {
-                if (!oldLines[i] && newLines[i]) {
-                  diffs.push('<span style="color:#7dba8a">+ ' + esc(newLines[i]) + '</span>');
-                } else if (oldLines[i] && !newLines[i]) {
-                  diffs.push('<span style="color:#c86060;text-decoration:line-through">' + esc(oldLines[i]) + '</span>');
-                } else {
-                  diffs.push('<span style="color:#c86060;text-decoration:line-through">' + esc(oldLines[i]) + '</span>');
-                  diffs.push('<span style="color:#7dba8a">+ ' + esc(newLines[i]) + '</span>');
-                }
-              }
-            }
-            if (diffs.length > 0) {
-              details.push('<div class="changelog-detail" style="margin-top:4px"><strong>Rules text:</strong></div>');
-              diffs.forEach(d => details.push('<div class="changelog-detail" style="font-size:.68rem;line-height:1.4;padding-left:8px">' + d + '</div>'));
-            }
-          } else if (c.field === 'flavor_text') {
-            if (c.old) details.push('<div class="changelog-detail"><strong>Flavor:</strong> <span style="color:#c86060;text-decoration:line-through">"' + esc(c.old) + '"</span></div>');
-            if (c.new) details.push('<div class="changelog-detail"><strong>Flavor:</strong> <span style="color:#7dba8a">"' + esc(c.new) + '"</span></div>');
-          } else if (c.field === 'mana_cost') {
-            details.push('<div class="changelog-detail"><strong>Mana cost:</strong> ' + esc(c.old || 'none') + ' → ' + esc(c.new || 'none') + '</div>');
-          } else if (c.field === 'type_line') {
-            details.push('<div class="changelog-detail"><strong>Type:</strong> ' + esc(c.old) + ' → ' + esc(c.new) + '</div>');
-          } else if (c.field === 'power' || c.field === 'toughness') {
-            details.push('<div class="changelog-detail"><strong>' + c.field + ':</strong> ' + (c.old || '—') + ' → ' + (c.new || '—') + '</div>');
-          } else if (c.field === 'name') {
-            details.push('<div class="changelog-detail"><strong>Renamed:</strong> ' + esc(c.old) + ' → ' + esc(c.new) + '</div>');
-          } else {
-            const fieldLabel = c.field.replace(/_/g, ' ');
-            details.push('<div class="changelog-detail"><strong>' + fieldLabel + ':</strong> ' + esc(String(c.old || '')) + ' → ' + esc(String(c.new || '')) + '</div>');
-          }
-        });
-      }
-      return '<div class="changelog-entry">' +
-        '<span class="changelog-date">' + e.date + '</span>' +
-        '<div class="changelog-body">' +
-          details.join('') +
-        '</div>' +
-      '</div>';
-    }).join('');
-  } else {
-    clSection.style.display = 'none';
-  }
-
-  // Scroll detail panel to top
-  document.querySelector('.lightbox-detail-col').scrollTop = 0;
-}
-
-function openLightbox(tile) {
-  const cardName = tile.dataset.rawname;
-  const card = allCards.find(c => c.name === cardName);
-  if (!card) return;
-  lbNavStack.length = 0;
-  showCard(card);
-  lightbox.classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-
-function navigateToCard(name) {
-  const card = allCards.find(c => c.name === name);
-  if (!card) return;
-  // Push current card onto nav stack
-  const currentName = document.getElementById('lb-name').textContent.split(' / ')[0];
-  const currentCard = allCards.find(c => c.name === currentName);
-  if (currentCard) lbNavStack.push(currentCard);
-  showCard(card);
-}
-function closeLightbox() {
-  lightbox.classList.remove('open');
-  document.body.style.overflow = '';
-  // Clear the card hash, but keep other hashes (none currently)
-  if ((location.hash || '').match(/^#card\//)) {
-    history.replaceState(null, '', location.pathname + location.search);
-  }
-}
-lightbox.addEventListener('click', e => {
-  if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
-    closeLightbox();
-  }
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape' && lightbox.classList.contains('open')) {
-    closeLightbox();
-  }
-});
-
 // Draw a Card — picks a random visible card and opens its lightbox
 document.getElementById('draw-btn').addEventListener('click', () => {
   const visible = allCards.filter(matchesFilters);
@@ -1817,39 +1254,9 @@ document.getElementById('draw-btn').addEventListener('click', () => {
   const btn = document.getElementById('draw-btn');
   btn.classList.add('drawing');
   setTimeout(() => {
-    lbNavStack.length = 0;
-    showCard(card);
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    if (window.openLightbox) window.openLightbox(card);
     btn.classList.remove('drawing');
   }, 380);
-});
-
-// Share button — copies deep link, flashes sealed-confirmation
-document.getElementById('lb-share').addEventListener('click', () => {
-  const url = location.origin + location.pathname + location.hash;
-  const btn = document.getElementById('lb-share');
-  const original = btn.textContent;
-  const writeFallback = () => {
-    const ta = document.createElement('textarea');
-    ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
-    document.body.appendChild(ta); ta.select();
-    try { document.execCommand('copy'); } catch (_) {}
-    document.body.removeChild(ta);
-  };
-  const onCopied = () => {
-    btn.textContent = '✦ Sealed to your clipboard ✦';
-    btn.classList.add('flash');
-    setTimeout(() => {
-      btn.textContent = original;
-      btn.classList.remove('flash');
-    }, 1600);
-  };
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(url).then(onCopied).catch(() => { writeFallback(); onCopied(); });
-  } else {
-    writeFallback(); onCopied();
-  }
 });
 
 init();
@@ -1887,5 +1294,10 @@ window.addEventListener('load', () => {
 });
 </script>
 <script type="module" src="./assets/js/bulk-download.js"></script>
+<script type="module">
+  import { init as initLightbox } from './assets/js/card-lightbox.js';
+  // The gallery's existing init() runs after fetch; expose a hook so we can call initLightbox after data loads.
+  window.__initLightbox = initLightbox;
+</script>
 </body>
 </html>
