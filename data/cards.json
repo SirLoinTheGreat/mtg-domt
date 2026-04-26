@@ -44,14 +44,16 @@
       "set_code": "DOMT-OG",
       "collector_number": "REF-2",
       "mana_cost": null,
-      "type_line": "Legendary Player",
+      "type_line": "Legendary Character — Pseudo-Player",
       "supertypes": [
         "Legendary"
       ],
       "types": [
-        "Player"
+        "Character"
       ],
-      "subtypes": [],
+      "subtypes": [
+        "Pseudo-Player"
+      ],
       "rules_text": "Game Master exists in a separate command zone as a pseudo-player. No life total. Can't win, lose, be targeted, or be dealt damage. Goes last in turn order.\nCan be given control of permanents from the Deck of Many Things. Permanents under Game Master's control can be targeted normally.\n(\"Each player\" / \"all players\" / \"opponents\" exclude Game Master unless stated. If a creature Game Master controls doesn't specify a target, it attacks a player chosen at random.)",
       "flavor_text": "\"The deck has a hand. The hand has no face.\"",
       "power": null,
@@ -65,7 +67,7 @@
       "is_reference": true,
       "sentiment": "neutral",
       "related_cards": [],
-      "rarity": "reference"
+      "rarity": "mythic"
     },
     {
       "name": "FAQ",
@@ -1804,7 +1806,7 @@
       "is_token": false,
       "sentiment": "negative",
       "related_cards": [],
-      "rarity": "uncommon"
+      "rarity": "rare"
     },
     {
       "name": "The Mine",
@@ -2084,7 +2086,7 @@
       "is_token": false,
       "sentiment": "negative",
       "related_cards": [],
-      "rarity": "uncommon"
+      "rarity": "rare"
     },
     {
       "name": "The Ring",
@@ -2688,7 +2690,7 @@
       "is_token": false,
       "sentiment": "negative",
       "related_cards": [],
-      "rarity": "uncommon"
+      "rarity": "rare"
     },
     {
       "name": "The Betrayal",
