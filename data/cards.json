@@ -828,7 +828,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Disintegration — Destroy all Equipment you control.\nVanishing — Exile all non-Equipment artifacts you control.",
+      "rules_text": "Disintegration — Destroy all Equipment you control.\nVanishing — Exile all non-Equipment artifacts you control. For each artifact card exiled this way, each opponent creates a Treasure token. Then The Talons deals damage equal to the number of artifact cards exiled this way to you.",
       "flavor_text": "Every relic, every charm, every ring -- gone between one heartbeat and the next.",
       "power": null,
       "toughness": null,
@@ -2665,7 +2665,7 @@
         "Bear",
         "Spirit"
       ],
-      "rules_text": "Trample\nWhen The Bear enters, put X +1/+1 counters on it where X is your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)\nWhenever The Bear deals combat damage to a player or permanent, double the number of +1/+1 counters on it.\nPay 2 life: Put a +1/+1 counter on The Bear. Activate only during your turn.",
+      "rules_text": "Trample, ward {2}\nWhen The Bear enters, put X +1/+1 counters on it where X is your devotion to green. (Each {G} in the mana costs of permanents you control counts toward your devotion to green.)\nRoar — Whenever The Bear deals combat damage to a player or permanent, double the number of +1/+1 counters on it. Then each other player loses 2 life and discards a card unless they sacrifice a permanent.\nPay 2 life: Put a +1/+1 counter on The Bear. Activate only during your turn.",
       "flavor_text": "The curse took his form. The blessing took everything else.",
       "power": "1",
       "toughness": "1",
@@ -3516,7 +3516,7 @@
         "Human",
         "Rogue"
       ],
-      "rules_text": "Flash\nWhen The Locksmith enters, choose one —\n• Unlock — Until your next turn, target permanent loses all abilities and can't be sacrificed.\n• Duplicate — Create a colorless Key artifact token with \"{T}, Sacrifice this: Target permanent can't attack, block, or activate abilities until end of turn.\"\n{1}, {T}: Put a key counter on target artifact, creature, or enchantment. (Permanents with key counters have \"{T}: Add one mana of any color.\")\n{5}, {T}, Remove all key counters from permanents you control: Gain control of target permanent with mana value X or less, where X is the number of counters removed. Activate only as a sorcery and only once per game.",
+      "rules_text": "Flash\nWhen The Locksmith enters, choose one —\n• Unlock — Until your next turn, target permanent loses all abilities and can't be sacrificed.\n• Duplicate — Create a colorless Key artifact token with \"{T}, Sacrifice this: Target permanent can't attack, block, or activate abilities until end of turn.\"\n• Pick the Lock — Look at the top five cards of the Deck of Many Things and put them back in any order. Then put a key counter on The Locksmith.\n{1}, {T}: Put a key counter on target artifact, creature, or enchantment. (Permanents with key counters have \"{T}: Add one mana of any color.\")\n{5}, {T}, Remove all key counters from permanents you control: Gain control of target permanent with mana value X or less, where X is the number of counters removed. Activate only as a sorcery and only once per game.",
       "flavor_text": "There is no door I cannot open. That is both my gift and your warning.",
       "power": "2",
       "toughness": "3",
@@ -3731,7 +3731,7 @@
       "subtypes": [
         "Bird"
       ],
-      "rules_text": "Flash\nFlying, ward {2}\nWhenever you scry, gain 2 life and draw a card.\nAt the beginning of your upkeep, scry 2.\n{T}, Sacrifice The Owl: Scry 7, then target opponent may scry 3. Draw three cards.\nWhen The Owl dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
+      "rules_text": "Flash\nFlying, ward {2}\nWhenever you scry, gain 2 life and draw a card.\nAt the beginning of your upkeep, scry 2.\n{T}, Sacrifice The Owl: Scry 7, then look at the top three cards of each opponent's library. You may put any of those cards on the bottom of their owners' libraries. Then target opponent may scry 3. You draw three cards.\nWhen The Owl dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
       "flavor_text": "It sees what you see. It sees what they see. It sees what no one sees.",
       "power": "1",
       "toughness": "3",
@@ -4232,7 +4232,7 @@
       "subtypes": [
         "Shapeshifter"
       ],
-      "rules_text": "Flash, haste\n{T}: Choose target creature. The Twin becomes a copy of that creature except its power and toughness are swapped, it's untapped if the original is tapped (and vice versa), and +1/+1 counters on it become -1/-1 counters. It gains this ability.",
+      "rules_text": "Flash, haste\n{T}: Choose target creature. The Twin becomes a copy of that creature except its power and toughness are swapped, and +1/+1 counters on it become -1/-1 counters. It gains this ability. The chosen creature becomes twinned with The Twin.\nIf The Twin or a creature twinned with The Twin would leave the battlefield, instead both that creature and The Twin are put into their owners' graveyards.",
       "flavor_text": "It wore his face, but everything behind the eyes was wrong.",
       "power": "2",
       "toughness": "2",
@@ -4583,7 +4583,7 @@
         "Human",
         "Knight"
       ],
-      "rules_text": "First strike, vigilance\nAt the beginning of combat on your turn, put a shield counter on The Champion. (If it would be dealt damage or destroyed, remove a shield counter from it instead.)\nThe Champion gets +1/+1 for each shield counter on it. Other creatures you control get +X/+0, where X is the number of shield counters on The Champion.",
+      "rules_text": "First strike, vigilance\nWhen The Champion enters, put two shield counters on it and create a 2/2 white Knight token with vigilance for each opponent.\nAt the beginning of combat on your turn, put a shield counter on The Champion. (If it would be dealt damage or destroyed, remove a shield counter from it instead.)\nThe Champion gets +1/+1 for each shield counter on it. Other creatures you control get +X/+0, where X is the number of shield counters on The Champion.\nWhenever The Champion would be dealt lethal damage, instead remove all shield counters from it. If you do, untap it and exile target nonland permanent an opponent controls.",
       "flavor_text": "\"With each battle won, another hero rises to follow. Such is the way of legends.\" —Elspeth Tirel",
       "power": "4",
       "toughness": "4",
@@ -4690,7 +4690,7 @@
       "subtypes": [
         "Treasure"
       ],
-      "rules_text": "When The Coin enters, create five Gold tokens. (They're artifacts with \"Sacrifice this artifact: Add one mana of any color.\")\nAt the beginning of your upkeep, create a Gold token.\nSacrifice The Coin. Choose one —\n• Create X Treasure tokens, where X is the number of artifacts you control.\n• Draw X cards, where X is the number of artifacts you control.",
+      "rules_text": "When The Coin enters, create five Gold tokens. (They're artifacts with \"Sacrifice this artifact: Add one mana of any color.\")\nAt the beginning of your upkeep, create a Gold token.\nSacrifice The Coin. Choose one —\n• Create X Treasure tokens, where X is the number of artifacts you control.\n• Draw X cards, where X is the number of artifacts you control.\n• Heads or Tails — Flip X coins, where X is the number of artifacts you control. For each flip you win, target opponent loses 3 life and you gain 3 life.",
       "flavor_text": "\"Fortune doesn't favor the bold. Fortune favors whoever holds me.\" -- The Coin",
       "power": null,
       "toughness": null,
@@ -4719,7 +4719,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "When The Crown enters, target creature an opponent controls attacks a player or planeswalker of your choice other than you this turn if able.\nCreatures you control with power 4 or less have menace.\n{T}: Gain control of target creature with power 4 or less until end of turn. Untap it. It gains haste until end of turn.",
+      "rules_text": "When The Crown enters, you become the monarch. Each opponent chooses a creature they control with power 4 or less. Each chosen creature attacks a player or planeswalker of your choice other than you this turn if able.\nCreatures you control with power 4 or less have menace.\n{T}: Gain control of target creature with power 4 or less until end of turn. Untap it. It gains haste until end of turn.",
       "flavor_text": "\"It whispered to her: 'Wear me, and the small shall kneel.'\" -- The Crown of Friends",
       "power": null,
       "toughness": null,
@@ -5025,7 +5025,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "Activated abilities of permanents your opponents control cost {1} more to activate.\n{T}: Target permanent loses all abilities until end of turn. If you targeted an artifact this way, create a Treasure token.\n{1}, {T}: Counter target activated or triggered ability if its source is an artifact.\n{T}, Sacrifice The Lock: Gain control of target artifact. Its controller creates two Treasure tokens.",
+      "rules_text": "Activated abilities of permanents your opponents control cost {1} more to activate.\n{T}: Target permanent loses all abilities until end of turn. If you targeted an artifact this way, create a Treasure token.\n{1}, {T}: Counter target activated or triggered ability. If its source is an artifact, gain control of that artifact instead.\n{T}, Sacrifice The Lock: Each opponent reveals their hand. Choose any number of nonland cards they reveal. Those cards' controllers exile them face-down until your next end step.",
       "flavor_text": "\"Some things are locked away to protect us. Some things are locked away to protect themselves.\" -- Master Artificer Jin",
       "power": null,
       "toughness": null,
@@ -5187,7 +5187,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When The Order enters, choose a color.\nIf a source of the chosen color would deal damage to you or a creature you control, prevent that damage.\nSpells of the chosen color your opponents control cost {2} more.\nAt the beginning of your upkeep, you may change the chosen color.",
+      "rules_text": "When The Order enters, choose a color.\nIf a source of the chosen color would deal damage to you or a creature you control, prevent that damage. Whenever damage is prevented this way, target creature you control gets +X/+X until end of turn, where X is the damage prevented.\nSpells of the chosen color your opponents control cost {2} more.\nAt the beginning of your upkeep, you may change the chosen color.",
       "flavor_text": "Let them cast their spells. None of that color shall touch us.",
       "power": null,
       "toughness": null,
