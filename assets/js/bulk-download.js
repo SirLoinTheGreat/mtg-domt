@@ -269,15 +269,20 @@ export async function startBulkDownload(scope) {
 // --- Wiring ---
 
 function wireButtons() {
+  const available = bulkDownloadAvailable();
   const buttons = document.querySelectorAll('[data-download-scope]');
   buttons.forEach(btn => {
-    if (btn.dataset.dlWired === '1') return;
-    btn.dataset.dlWired = '1';
-    btn.addEventListener('click', () => {
-      const scope = btn.dataset.downloadScope;
-      startBulkDownload(scope);
-    });
-    if (!bulkDownloadAvailable()) btn.disabled = true;
+    if (btn.dataset.dlWired !== '1') {
+      btn.dataset.dlWired = '1';
+      btn.addEventListener('click', () => {
+        const scope = btn.dataset.downloadScope;
+        startBulkDownload(scope);
+      });
+    }
+    // Re-evaluate disabled state on every call — both directions.
+    // gallery:ready re-fires after cards data loads; without this, buttons
+    // that started disabled in markup would never re-enable.
+    btn.disabled = !available;
   });
 
   const cancel = document.getElementById('dl-modal-cancel');
