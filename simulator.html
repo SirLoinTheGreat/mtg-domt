@@ -172,6 +172,105 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   border-color: var(--gold-bright);
 }
 
+.rule-toggles {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+.rule-toggle {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: .82rem;
+  letter-spacing: .04em;
+  text-transform: none;
+  padding: .4rem .85rem;
+  background: transparent;
+  border: 1px dashed var(--gold-dim);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all .2s ease;
+  border-radius: 2px;
+}
+.rule-toggle:hover {
+  border-color: var(--gold);
+  color: var(--text);
+}
+.rule-toggle.active {
+  border-style: solid;
+  border-color: var(--gold);
+  background: linear-gradient(180deg, rgba(212,175,60,.10), rgba(212,175,60,.03));
+  color: var(--gold-bright);
+}
+
+.fate-display {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .35rem .8rem;
+  border: 1px solid var(--gold-dim);
+  border-radius: 2px;
+  background: rgba(0,0,0,.25);
+  font-family: 'Cinzel', serif;
+  font-size: .82rem;
+  color: var(--text);
+  letter-spacing: .06em;
+}
+.fate-display[data-disabled="true"] {
+  opacity: .35;
+}
+.fate-icon {
+  color: var(--gold-bright);
+  font-size: 1rem;
+  text-shadow: 0 0 8px rgba(244,210,122,.5);
+}
+.fate-label {
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .7rem;
+  color: var(--text-dim);
+}
+.fate-count {
+  font-weight: 700;
+  color: var(--gold-bright);
+  min-width: 1.2em;
+  text-align: center;
+}
+.fate-roll {
+  margin-left: .35rem;
+  padding: .3rem .65rem;
+  font-family: 'Cinzel', serif;
+  font-size: .72rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px solid var(--gold-dim);
+  color: var(--text);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all .2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+}
+.fate-roll:hover:not(:disabled) {
+  border-color: var(--gold-bright);
+  color: var(--gold-bright);
+  box-shadow: 0 0 6px var(--rune-glow);
+}
+.fate-roll:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+.fate-roll.rolling {
+  animation: dice-shake .4s ease-in-out;
+}
+@keyframes dice-shake {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-12deg); }
+  50% { transform: rotate(8deg); }
+  75% { transform: rotate(-6deg); }
+}
+
 /* Stage: the play area */
 .stage {
   position: relative;
@@ -647,6 +746,8 @@ width:100%;max-width:480px;
     margin-top: .5rem;
     padding-right: 1.5rem;
   }
+  .rule-toggles { flex-wrap: wrap; justify-content: center; }
+  .fate-display { font-size: .78rem; padding: .35rem .6rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -675,7 +776,25 @@ width:100%;max-width:480px;
       <button type="button" class="set-toggle active" data-set="wonder">Wonder</button>
     </div>
 
+    <div class="rule-toggles" role="group" aria-label="Optional rules">
+      <button type="button" class="rule-toggle active" data-rule="useFatePoints" id="toggle-fp">
+        <span class="rule-label">Use Fate Points</span>
+      </button>
+      <button type="button" class="rule-toggle" data-rule="accumulateFP" id="toggle-acc">
+        <span class="rule-label">Allow Accumulation</span>
+      </button>
+    </div>
+
     <div class="draw-controls" role="group" aria-label="Draw cards">
+      <div class="fate-display" id="fate-display">
+        <span class="fate-icon" aria-hidden="true">&#x2726;</span>
+        <span class="fate-label">Fate:</span>
+        <span class="fate-count" id="fate-count">1</span>
+        <button type="button" class="fate-roll" id="fate-roll-btn" title="Roll a d6 — on a 6, gain 1 Fate Point">
+          <span aria-hidden="true">&#x1F3B2;</span>
+          <span>Roll d6</span>
+        </button>
+      </div>
       <button type="button" class="draw-preset" data-draw="1">Draw 1</button>
       <button type="button" class="draw-preset" data-draw="2">Draw 2</button>
       <button type="button" class="draw-preset" data-draw="3">Draw 3</button>

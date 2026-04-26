@@ -43,12 +43,15 @@ const state = {
   discard: [],
   lastDrawN: null,
   isAnimating: false,      // Phase 4: gates controls during choreography
+  useFatePoints: true,     // default ON — drawing costs 1 FP
+  accumulateFP: false,     // default OFF — canonical max-1 cap
+  fatePoints: 1,           // initial; persists across reshuffles, resets to 1 on Reset Session
 };
 
 // --- URL state ---
 function readURLState() {
   const params = new URLSearchParams(window.location.search);
-  const result = { sets: null, seed: null, n: null };
+  const result = { sets: null, seed: null, n: null, fp: null, acc: null };
 
   if (params.has('sets')) {
     const raw = (params.get('sets') || '').toLowerCase();
@@ -69,6 +72,13 @@ function readURLState() {
     if (Number.isFinite(raw) && raw >= MIN_DRAW && raw <= MAX_DRAW) result.n = raw;
   }
 
+  if (params.has('fp')) {
+    result.fp = params.get('fp') !== 'off';  // 'off' = false, anything else = true
+  }
+  if (params.has('acc')) {
+    result.acc = params.get('acc') === 'on';  // 'on' = true, anything else = false
+  }
+
   return result;
 }
 
@@ -79,6 +89,9 @@ function writeURLState({ includeSeed = false } = {}) {
   if (sortedSets.length < 4) {
     params.set('sets', sortedSets.map(s => SET_TO_INITIAL[s]).join(''));
   }
+  // Persist non-default rule toggles
+  if (!state.useFatePoints) params.set('fp', 'off');  // default is ON, so only write when OFF
+  if (state.accumulateFP) params.set('acc', 'on');    // default is OFF, so only write when ON
   if (includeSeed && state.seed != null && state.lastDrawN != null) {
     params.set('seed', String(state.seed >>> 0));
     params.set('n', String(state.lastDrawN));
@@ -107,6 +120,8 @@ async function init() {
   // Read URL state for replay/config.
   const urlState = readURLState();
   if (urlState.sets) state.activeSets = urlState.sets;
+  if (urlState.fp !== null) state.useFatePoints = urlState.fp;
+  if (urlState.acc !== null) state.accumulateFP = urlState.acc;
   state.seed = urlState.seed != null ? urlState.seed : freshSeed();
   state.rng = mulberry32(state.seed);
 
@@ -134,6 +149,7 @@ async function init() {
   rebuildDeck();
   renderAll();
   wireControls();
+  renderFateDisplay();
 
   // Replay mode: if seed AND n were both in URL, auto-draw n cards.
   if (urlState.seed != null && urlState.n != null) {
@@ -171,6 +187,15 @@ async function draw(n) {
       showToast(`Only ${state.deck.length} card${state.deck.length === 1 ? '' : 's'} remain. Reshuffle to refill.`);
     }
     return;
+  }
+
+  // Fate Point consumption (if rule is active)
+  if (state.useFatePoints) {
+    if (state.fatePoints < 1) {
+      showToast('No Fate Points. Roll a d6 — on a 6, gain one.');
+      return;
+    }
+    state.fatePoints -= 1;
   }
 
   state.isAnimating = true;
@@ -226,6 +251,7 @@ async function draw(n) {
   // Update deck stack visual (now thinner) and discard stack (now fatter).
   renderDeck();
   renderDiscard();
+  renderFateDisplay();
 
   state.isAnimating = false;
   renderControls();
@@ -344,6 +370,17 @@ function renderControls() {
     else pill.classList.remove('active');
     pill.disabled = state.isAnimating;
   });
+  // Rule-toggle visual state
+  const fpToggle = document.getElementById('toggle-fp');
+  if (fpToggle) {
+    fpToggle.classList.toggle('active', state.useFatePoints);
+    fpToggle.disabled = state.isAnimating;
+  }
+  const accToggle = document.getElementById('toggle-acc');
+  if (accToggle) {
+    accToggle.classList.toggle('active', state.accumulateFP);
+    accToggle.disabled = state.isAnimating;
+  }
   document.querySelectorAll('.draw-preset').forEach(b => {
     b.disabled = state.isAnimating;
   });
@@ -600,8 +637,10 @@ function resetSession() {
   state.seed = freshSeed();
   state.rng = mulberry32(state.seed);
   state.lastDrawN = null;
+  state.fatePoints = 1;  // fresh session
   rebuildDeck();  // already clears spread + discard
   renderAll();
+  renderFateDisplay();
   showToast('Session reset.', 1500);
 
   writeURLState();  // sets only — fresh session, no draw to replay
@@ -713,6 +752,72 @@ function showToast(message, durationMs = 2400) {
   }, durationMs);
 }
 
+// --- Fate Points ---
+function rollD6() {
+  if (state.isAnimating) return;
+  if (!state.useFatePoints) return;  // shouldn't happen — button hidden
+  // Canonical: can only roll when at 0
+  if (!state.accumulateFP && state.fatePoints >= 1) {
+    showToast('You already have a Fate Point. Spend it before rolling.');
+    return;
+  }
+  const btn = document.getElementById('fate-roll-btn');
+  if (btn) {
+    btn.classList.remove('rolling');
+    void btn.offsetWidth;
+    btn.classList.add('rolling');
+    setTimeout(() => btn.classList.remove('rolling'), 400);
+  }
+  const result = 1 + Math.floor(Math.random() * 6);
+  if (result === 6) {
+    state.fatePoints += 1;
+    showToast(`\u{1F3B2} Rolled 6 — gained a Fate Point. (Now: ${state.fatePoints})`, 2400);
+  } else {
+    showToast(`\u{1F3B2} Rolled ${result} — no change.`, 1800);
+  }
+  renderFateDisplay();
+  renderControls();
+}
+
+function renderFateDisplay() {
+  const display = document.getElementById('fate-display');
+  const count = document.getElementById('fate-count');
+  const rollBtn = document.getElementById('fate-roll-btn');
+  if (!display) return;
+  count.textContent = String(state.fatePoints);
+  if (state.useFatePoints) {
+    display.removeAttribute('data-disabled');
+    // Roll button enabled iff we CAN roll
+    // - Always rollable in accumulation mode
+    // - In canonical mode, rollable only when FP=0
+    if (state.accumulateFP) {
+      rollBtn.disabled = false;
+    } else {
+      rollBtn.disabled = (state.fatePoints >= 1);
+    }
+  } else {
+    display.setAttribute('data-disabled', 'true');
+    rollBtn.disabled = true;
+  }
+}
+
+function toggleRule(ruleName) {
+  if (state.isAnimating) return;
+  if (ruleName === 'useFatePoints') {
+    state.useFatePoints = !state.useFatePoints;
+  } else if (ruleName === 'accumulateFP') {
+    state.accumulateFP = !state.accumulateFP;
+    // If switching back to canonical and FP > 1, cap to 1
+    if (!state.accumulateFP && state.fatePoints > 1) {
+      state.fatePoints = 1;
+      showToast('Switched to canonical rules — Fate Points capped at 1.');
+    }
+  }
+  renderFateDisplay();
+  renderControls();
+  writeURLState();  // persist toggle state
+}
+
 // --- Wiring ---
 function wireControls() {
   document.querySelectorAll('.set-toggle').forEach(pill => {
@@ -801,6 +906,15 @@ function wireControls() {
     const sm = document.getElementById('share-modal');
     if (sm && sm.getAttribute('data-open') === 'true') closeShareModal();
   });
+
+  // Fate Point rule toggles
+  document.querySelectorAll('.rule-toggle').forEach(btn => {
+    btn.addEventListener('click', () => toggleRule(btn.dataset.rule));
+  });
+
+  // Roll d6 button
+  const rollBtn = document.getElementById('fate-roll-btn');
+  if (rollBtn) rollBtn.addEventListener('click', rollD6);
 }
 
 if (document.readyState === 'loading') {
