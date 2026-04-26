@@ -38,6 +38,30 @@ function buildFileList(scope) {
   return entries;
 }
 
+// Fetch a single card PNG with one retry. Returns Response on success, null on permanent failure.
+async function fetchCardWithRetry(url, signal) {
+  for (let attempt = 0; attempt < 2; attempt++) {
+    if (signal.aborted) throw new DOMException('Aborted', 'AbortError');
+    try {
+      const resp = await fetch(url, { signal });
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+      return resp;
+    } catch (err) {
+      if (err.name === 'AbortError') throw err;
+      if (attempt === 0) {
+        await new Promise((res, rej) => {
+          const t = setTimeout(res, 500);
+          signal.addEventListener('abort', () => { clearTimeout(t); rej(new DOMException('Aborted', 'AbortError')); }, { once: true });
+        });
+        continue;
+      }
+      console.warn('[bulk-download] fetch failed, skipping:', url, err.message);
+      return null;
+    }
+  }
+  return null;
+}
+
 let _activeAbortController = null;
 
 // --- Public surface ---
