@@ -243,6 +243,7 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
 .zone-count { display: block; margin-top: .2rem; color: var(--text); font-weight: 600; }
 
 .spread-area {
+  position: relative;       /* anchor for absolute .anim-card children */
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -273,7 +274,131 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   text-align: center;
   margin-top: 1rem;
 }
+/* JS controls visibility now (CSS sibling selector unreliable with absolute children). */
 .spread-area:not(:empty) ~ .empty-prompt { display: none; }
+
+/* === Phase 4: Animated draw choreography === */
+
+/* Invisible spread slot — placeholder in the flex layout that anim-cards target. */
+.spread-slot {
+  width: 200px;
+  height: 280px;
+  flex: 0 0 auto;
+  visibility: hidden;
+}
+
+.anim-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 280px;
+  perspective: 1200px;
+  /* Initial transform set inline by JS to deck position. */
+  transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+  pointer-events: none;
+  will-change: transform;
+  z-index: 10;
+}
+.anim-card.lifting {
+  transform: translate(var(--start-x, 0), calc(var(--start-y, 0px) - 12px)) scale(1.05);
+  transition: transform .2s ease-out;
+}
+.anim-card.sliding {
+  transform: translate(var(--target-x, 0), var(--target-y, 0));
+  transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+}
+.anim-card.settled {
+  transform: translate(var(--target-x, 0), var(--target-y, 0));
+  pointer-events: auto;
+  cursor: pointer;
+}
+.anim-card.discarding {
+  transition: transform .4s cubic-bezier(.55, .05, .35, 1), opacity .4s ease-out;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.anim-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+}
+.anim-card.flipped .anim-card-inner {
+  transform: rotateY(180deg);
+}
+
+.anim-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: var(--card-shadow);
+}
+.anim-face-front {
+  transform: rotateY(180deg);
+}
+
+/* Resolution beat: sentiment-tinted luminescence */
+.anim-card.beating .anim-card-inner {
+  animation: card-luminesce var(--lum-duration, 500ms) ease-out;
+}
+@keyframes card-luminesce {
+  0%   { filter: drop-shadow(0 0 0 transparent); }
+  40%  { filter: drop-shadow(0 0 24px var(--lum-color, rgba(244,210,122,.8))) drop-shadow(0 0 8px var(--lum-color, rgba(244,210,122,1))); }
+  100% { filter: drop-shadow(0 0 8px var(--lum-color, rgba(244,210,122,.4))); }
+}
+
+/* Settled hover highlight */
+.anim-card.settled {
+  transition: transform .2s ease;
+}
+.anim-card.settled:hover {
+  transform: translate(var(--target-x, 0), calc(var(--target-y, 0px) - 6px));
+}
+.anim-card.settled .anim-face-front {
+  transition: filter .25s ease;
+}
+.anim-card.settled:hover .anim-face-front {
+  filter: drop-shadow(0 0 18px rgba(244,210,122,.4));
+}
+
+/* Particle bloom layer */
+.anim-bloom {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+.bloom-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  pointer-events: none;
+  --tx: 0; --ty: 0;
+  animation: particle-drift var(--p-duration, 700ms) cubic-bezier(.2, .6, .4, 1) forwards;
+}
+@keyframes particle-drift {
+  0%   { transform: translate(-50%, -50%) translate(0, 0) scale(0.4); opacity: 0; }
+  20%  { opacity: 1; transform: translate(-50%, -50%) translate(calc(var(--tx) * .3), calc(var(--ty) * .3)) scale(1); }
+  100% { opacity: 0; transform: translate(-50%, -50%) translate(var(--tx), var(--ty)) scale(0.6); }
+}
+
+/* Per-color particle styling */
+.bloom-particle[data-c="W"] { background: radial-gradient(circle, #fffbe6 0%, rgba(255,251,230,.6) 60%, transparent 100%); box-shadow: 0 0 12px rgba(255,251,230,.7); }
+.bloom-particle[data-c="U"] { background: radial-gradient(circle, #6db5ff 0%, rgba(109,181,255,.6) 60%, transparent 100%); box-shadow: 0 0 12px rgba(109,181,255,.7); }
+.bloom-particle[data-c="B"] { background: radial-gradient(circle, #1a1a1a 0%, rgba(80,80,80,.6) 60%, transparent 100%); box-shadow: 0 0 12px rgba(60,30,80,.7); }
+.bloom-particle[data-c="R"] { background: radial-gradient(circle, #ff8050 0%, rgba(255,128,80,.6) 60%, transparent 100%); box-shadow: 0 0 12px rgba(255,80,40,.8); }
+.bloom-particle[data-c="G"] { background: radial-gradient(circle, #80d090 0%, rgba(128,208,144,.6) 60%, transparent 100%); box-shadow: 0 0 12px rgba(128,208,144,.7); }
+.bloom-particle[data-c="C"] { background: radial-gradient(circle, #c0c0c0 0%, rgba(192,192,192,.6) 60%, transparent 100%); box-shadow: 0 0 10px rgba(192,192,192,.5); }
 
 /* Toast container (top-center, transient messages) */
 .toast-container {

@@ -1,5 +1,5 @@
 // Playtest Simulator — core state machine + draw orchestration.
-// Phase 3: cards appear/disappear instantly. Phase 4 will add choreography.
+// Phase 4: cards animate (lift, slide, flip, resolution beat).
 // Phase 5 will wire reshuffle / reset / discard modal. Phase 6 adds URL state.
 
 import { mulberry32, freshSeed, shuffle } from './seeded-rng.js';
@@ -9,6 +9,24 @@ const ALL_SETS = ['original', 'expansion', 'harrow', 'wonder'];
 const CARD_BACK_SRC = 'assets/cards/original/Card%20Back.png';
 const MIN_DRAW = 1;
 const MAX_DRAW = 13;
+
+// --- Animation tuning ---
+const ANIM = {
+  liftMs: 200,
+  slideMs: 300,
+  flipMs: 300,
+  beatMs: 500,
+  cascadeStaggerMs: 100,    // for Draw 4+ flip cascade
+  perCardSequentialMs: 1300, // total per-card budget for Draw 1-3
+  discardSlideMs: 400,
+};
+
+const SENTIMENT_LUM = {
+  positive: 'rgba(125, 186, 138, .85)',  // warm gold-green
+  negative: 'rgba(217, 119, 66, .85)',   // ember red
+  mixed:    'rgba(180, 140, 220, .85)',  // cool violet
+  neutral:  'rgba(244, 210, 122, .85)',  // pure gold
+};
 
 const state = {
   allCards: [],            // raw cards.json entries
@@ -20,7 +38,7 @@ const state = {
   spread: [],
   discard: [],
   lastDrawN: null,
-  isAnimating: false,      // always false in Phase 3; Phase 4 will gate animations
+  isAnimating: false,      // Phase 4: gates controls during choreography
 };
 
 // --- Bootstrap ---
@@ -79,7 +97,7 @@ function rebuildDeck() {
 }
 
 // --- Drawing ---
-function draw(n) {
+async function draw(n) {
   if (state.isAnimating) return;
   if (!Number.isFinite(n) || n < MIN_DRAW || n > MAX_DRAW) {
     showToast(`Draw count must be between ${MIN_DRAW} and ${MAX_DRAW}.`);
@@ -93,15 +111,63 @@ function draw(n) {
     }
     return;
   }
-  // Move current spread to discard (in Phase 3, instantly; Phase 4 will animate).
+
+  state.isAnimating = true;
+  renderControls();
+
+  const spreadArea = document.getElementById('spread-area');
+  const deckEl = document.getElementById('deck-stack');
+  const discardEl = document.getElementById('discard-stack');
+
+  // Move previous spread to discard model (instantly in state) then animate the visuals.
   for (const card of state.spread) state.discard.push(card);
   state.spread = [];
+
+  // Kick off the discard slide-out, but DON'T await it — overlap with the new lift.
+  const discardPromise = animateSpreadToDiscard(spreadArea, discardEl);
+
+  // Update the empty-prompt visibility immediately for the new spread (will become hidden once cards arrive)
+  const emptyPrompt = document.getElementById('empty-prompt');
+  if (emptyPrompt) emptyPrompt.style.display = 'none';
+
   // Draw N from top of deck.
-  for (let i = 0; i < n; i++) {
-    state.spread.push(state.deck.shift());
-  }
+  const drawnCards = [];
+  for (let i = 0; i < n; i++) drawnCards.push(state.deck.shift());
+  state.spread = drawnCards.slice();
   state.lastDrawN = n;
-  renderAll();
+
+  // Build invisible spread slots for layout positioning.
+  const slots = buildSpreadSlots(n, spreadArea);
+
+  // Wait briefly for slot layout to settle before measuring.
+  // (Ensures getBoundingClientRect on the slots returns final positions.)
+  await sleep(0);
+
+  // Animate cards arriving — adaptive per spec.
+  if (n >= 4) {
+    // Cascading: lift + slide all together, then flip in cascade.
+    await Promise.all(drawnCards.map((card, i) =>
+      animateCardArrival(card, slots[i], deckEl, spreadArea, {
+        delay: 0,
+        flipDelay: i * ANIM.cascadeStaggerMs,
+      })
+    ));
+  } else {
+    // Sequential: one full sequence per card before starting the next.
+    for (let i = 0; i < drawnCards.length; i++) {
+      await animateCardArrival(drawnCards[i], slots[i], deckEl, spreadArea);
+    }
+  }
+
+  // Make sure the discard slide-out finished (usually well before the arrivals).
+  await discardPromise;
+
+  // Update deck stack visual (now thinner) and discard stack (now fatter).
+  renderDeck();
+  renderDiscard();
+
+  state.isAnimating = false;
+  renderControls();
 }
 
 // --- Set toggles ---
@@ -135,8 +201,12 @@ function toggleSet(setKey) {
 
 // --- Rendering ---
 function renderAll() {
+  // Phase 4: clear any anim-cards in the spread (instant — set rebuild has no animation).
+  const spreadArea = document.getElementById('spread-area');
+  if (spreadArea) spreadArea.innerHTML = '';
+  const emptyPrompt = document.getElementById('empty-prompt');
+  if (emptyPrompt) emptyPrompt.style.display = state.spread.length === 0 ? '' : 'none';
   renderDeck();
-  renderSpread();
   renderDiscard();
   renderControls();
 }
@@ -159,23 +229,6 @@ function renderDeck() {
     img.style.zIndex = String(layers - i);
     stack.appendChild(img);
   }
-}
-
-function renderSpread() {
-  const area = document.getElementById('spread-area');
-  if (!area) return;
-  area.innerHTML = '';
-  for (const card of state.spread) {
-    const img = document.createElement('img');
-    img.className = 'spread-card';
-    img.src = imgUrl(card);
-    img.alt = card.name;
-    img.dataset.cardname = card.name;
-    img.title = card.name;
-    img.addEventListener('click', () => openCardLightbox(card));
-    area.appendChild(img);
-  }
-  // The empty-prompt below the spread auto-hides via CSS (`.spread-area:not(:empty) ~ .empty-prompt`).
 }
 
 function renderDiscard() {
@@ -211,16 +264,28 @@ function renderDiscard() {
 }
 
 function renderControls() {
-  // Update set-toggle active states.
+  // Update set-toggle active states + disabled-during-anim.
   document.querySelectorAll('.set-toggle').forEach(pill => {
     if (state.activeSets.has(pill.dataset.set)) pill.classList.add('active');
     else pill.classList.remove('active');
+    pill.disabled = state.isAnimating;
   });
-  // Reshuffle is enabled when there's something to fold back in (Phase 5 wires the click).
+  document.querySelectorAll('.draw-preset').forEach(b => {
+    b.disabled = state.isAnimating;
+  });
+  const drawNBtn = document.getElementById('draw-n-btn');
+  if (drawNBtn) drawNBtn.disabled = state.isAnimating;
+  const drawNInput = document.getElementById('draw-n');
+  if (drawNInput) drawNInput.disabled = state.isAnimating;
+  // Reshuffle is enabled when there's something to fold back in.
   const reshuffle = document.getElementById('reshuffle-btn');
   if (reshuffle) {
-    reshuffle.disabled = (state.discard.length === 0 && state.spread.length === 0);
+    reshuffle.disabled = state.isAnimating || (state.discard.length === 0 && state.spread.length === 0);
   }
+  const reset = document.getElementById('reset-btn');
+  if (reset) reset.disabled = state.isAnimating;
+  const share = document.getElementById('share-btn');
+  if (share) share.disabled = state.isAnimating;
 }
 
 function openCardLightbox(card) {
@@ -229,6 +294,161 @@ function openCardLightbox(card) {
   } else {
     console.warn('[simulator] lightbox not available');
   }
+}
+
+// --- Animation helpers ---
+function sentimentColor(card) {
+  return SENTIMENT_LUM[card.sentiment || 'neutral'] || SENTIMENT_LUM.neutral;
+}
+
+// Get pixel position of an element relative to the spread-area container
+function getRelativePos(el, container) {
+  const r = el.getBoundingClientRect();
+  const cr = container.getBoundingClientRect();
+  return { x: r.left - cr.left, y: r.top - cr.top };
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function buildSpreadSlots(n, spreadArea) {
+  spreadArea.innerHTML = '';
+  const slots = [];
+  for (let i = 0; i < n; i++) {
+    const slot = document.createElement('div');
+    slot.className = 'spread-slot';
+    slot.style.width = '200px';
+    slot.style.height = '280px';
+    slot.style.flex = '0 0 auto';
+    slot.style.visibility = 'hidden';
+    slots.push(slot);
+    spreadArea.appendChild(slot);
+  }
+  return slots;
+}
+
+function createAnimCard(card, startX, startY, targetX, targetY) {
+  const wrap = document.createElement('div');
+  wrap.className = 'anim-card';
+  wrap.dataset.cardname = card.name;
+  wrap.style.setProperty('--start-x', startX + 'px');
+  wrap.style.setProperty('--start-y', startY + 'px');
+  wrap.style.setProperty('--target-x', targetX + 'px');
+  wrap.style.setProperty('--target-y', targetY + 'px');
+  // Initial transform must match the --start vars (otherwise no transition baseline).
+  wrap.style.transform = `translate(${startX}px, ${startY}px)`;
+
+  const inner = document.createElement('div');
+  inner.className = 'anim-card-inner';
+
+  const back = document.createElement('img');
+  back.className = 'anim-face anim-face-back';
+  back.src = CARD_BACK_SRC;
+  back.alt = '';
+
+  const front = document.createElement('img');
+  front.className = 'anim-face anim-face-front';
+  front.src = imgUrl(card);
+  front.alt = card.name;
+
+  inner.appendChild(back);
+  inner.appendChild(front);
+
+  const bloom = document.createElement('div');
+  bloom.className = 'anim-bloom';
+
+  wrap.appendChild(inner);
+  wrap.appendChild(bloom);
+
+  // Click-to-lightbox once settled
+  wrap.addEventListener('click', () => {
+    if (wrap.classList.contains('settled')) openCardLightbox(card);
+  });
+
+  return wrap;
+}
+
+function spawnBloom(card, bloomEl) {
+  const colors = (card.color_identity && card.color_identity.length > 0) ? card.color_identity : ['C'];
+  const particleCount = 3 + Math.floor(Math.random() * 5);  // 3-7 particles
+  for (let i = 0; i < particleCount; i++) {
+    const p = document.createElement('div');
+    p.className = 'bloom-particle';
+    const c = colors[Math.floor(Math.random() * colors.length)];
+    p.dataset.c = c;
+    // Random target offset within a ring around the card center
+    const angle = Math.random() * Math.PI * 2;
+    const dist = 60 + Math.random() * 80;
+    const tx = Math.cos(angle) * dist;
+    const ty = Math.sin(angle) * dist;
+    p.style.setProperty('--tx', tx + 'px');
+    p.style.setProperty('--ty', ty + 'px');
+    p.style.setProperty('--p-duration', (600 + Math.random() * 300) + 'ms');
+    bloomEl.appendChild(p);
+    // Auto-remove after animation completes
+    setTimeout(() => p.remove(), 1100);
+  }
+}
+
+// Animate one card from deck position to its spread slot.
+async function animateCardArrival(card, slotEl, deckEl, spreadArea, opts = {}) {
+  const { delay = 0, flipDelay = 0 } = opts;
+  if (delay > 0) await sleep(delay);
+
+  // Compute positions relative to spread-area
+  const deckPos = getRelativePos(deckEl, spreadArea);
+  const slotPos = getRelativePos(slotEl, spreadArea);
+
+  const animCard = createAnimCard(card, deckPos.x, deckPos.y, slotPos.x, slotPos.y);
+  animCard.style.setProperty('--lum-color', sentimentColor(card));
+  spreadArea.appendChild(animCard);
+
+  // Force layout, then start lift on the next frame so the initial transform is committed.
+  void animCard.offsetWidth;
+  await new Promise(r => requestAnimationFrame(r));
+  animCard.classList.add('lifting');
+  await sleep(ANIM.liftMs);
+
+  // Slide to target
+  animCard.classList.remove('lifting');
+  animCard.classList.add('sliding');
+  await sleep(ANIM.slideMs);
+
+  // Optional cascade-only delay before flip
+  if (flipDelay > 0) await sleep(flipDelay);
+
+  // Flip
+  animCard.classList.add('flipped');
+  await sleep(ANIM.flipMs);
+
+  // Resolution beat: luminescence + bloom in parallel
+  animCard.classList.add('beating');
+  spawnBloom(card, animCard.querySelector('.anim-bloom'));
+  await sleep(ANIM.beatMs);
+
+  // Settle: clear transient classes, mark interactable.
+  animCard.classList.remove('lifting', 'sliding', 'beating');
+  animCard.classList.add('settled');
+  return animCard;
+}
+
+// Animate the previous spread sliding into the discard pile.
+// Resolves when the slide finishes; safe to run in parallel with the next arrival.
+async function animateSpreadToDiscard(spreadArea, discardEl) {
+  const oldCards = Array.from(spreadArea.querySelectorAll('.anim-card.settled'));
+  if (oldCards.length === 0) return;
+
+  const targetPos = getRelativePos(discardEl, spreadArea);
+  oldCards.forEach((c, i) => {
+    c.classList.remove('settled');
+    c.classList.add('discarding');
+    // Override transform inline so the discard motion takes precedence over CSS class transforms.
+    c.style.transform = `translate(${targetPos.x}px, ${targetPos.y}px) rotate(${(i % 2 === 0 ? -1 : 1) * 8}deg)`;
+    c.style.opacity = '0';
+  });
+  await sleep(ANIM.discardSlideMs);
+  oldCards.forEach(c => c.remove());
 }
 
 // --- Helpers ---
