@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Playtest Simulator — The Deck of Many Things</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/css/card-lightbox.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--gold:#d4af3c;--gold-bright:#f4d27a;--gold-dim:#6b5320;
+--ink:#0a0805;--ink-warm:#1a120a;
+--text:#d4c5a0;--text-dim:#8a7e60;
+--ember:#d97742;
+--rune-glow:rgba(244,210,122,.6);
+--card-shadow:0 8px 32px rgba(0,0,0,.7),0 2px 8px rgba(0,0,0,.5);
+--card-halo:0 0 30px rgba(244,210,122,.35),0 0 60px rgba(212,175,60,.18);
+}
+html{scroll-behavior:smooth}
+body{
+font-family:'Cormorant Garamond',Georgia,serif;
+background:var(--ink);color:var(--text);
+min-height:100vh;overflow-x:hidden;
+}
+body::before{
+content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+background:
+  radial-gradient(ellipse at 20% 0%,rgba(201,168,76,.04) 0%,transparent 50%),
+  radial-gradient(ellipse at 80% 100%,rgba(201,168,76,.03) 0%,transparent 50%),
+  url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+}
+/* Gold-dust ambient drift — three slow parallax layers of motes */
+body::after{
+content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+opacity:.55;
+background:
+  radial-gradient(1px 1px at 12% 18%,rgba(244,210,122,.55),transparent 50%),
+  radial-gradient(1px 1px at 38% 72%,rgba(244,210,122,.45),transparent 50%),
+  radial-gradient(1px 1px at 64% 28%,rgba(244,210,122,.5),transparent 50%),
+  radial-gradient(1px 1px at 88% 62%,rgba(244,210,122,.4),transparent 50%),
+  radial-gradient(2px 2px at 24% 48%,rgba(244,210,122,.35),transparent 50%),
+  radial-gradient(2px 2px at 76% 12%,rgba(244,210,122,.3),transparent 50%);
+background-size:600px 600px,600px 600px,800px 800px,800px 800px,1200px 1200px,1200px 1200px;
+animation:gold-drift 110s linear infinite;
+}
+@keyframes gold-drift{
+  from{background-position:0 0,0 0,0 0,0 0,0 0,0 0}
+  to  {background-position:-200px -600px,180px -600px,-160px -800px,220px -800px,-120px -1200px,140px -1200px}
+}
+@media (prefers-reduced-motion: reduce){
+  body::after{animation:none}
+}
+
+/* HEADER */
+.header{
+position:relative;z-index:1;text-align:center;
+padding:3rem 1.5rem 2rem;
+border-bottom:1px solid rgba(201,168,76,.15);
+}
+.header h1{
+font-family:'Cinzel Decorative',serif;font-weight:900;
+font-size:clamp(1.8rem,5vw,3.2rem);
+color:var(--gold);letter-spacing:.08em;
+text-shadow:0 0 40px rgba(201,168,76,.2);
+margin-bottom:.3rem;
+}
+.header .subtitle{
+font-family:'Cinzel',serif;font-weight:400;
+font-size:clamp(.7rem,1.6vw,.9rem);
+color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
+}
+
+/* Back to gallery link */
+.back-link {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: .82rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color .2s ease;
+  z-index: 10;
+}
+.back-link:hover { color: var(--gold-bright); }
+
+/* Sticky controls bar (parallel to .controls in gallery) */
+.sim-controls {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 8, 5, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gold-dim);
+  padding: 1rem 0;
+}
+.sim-controls-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.set-toggles, .draw-controls, .session-controls {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.set-toggle, .draw-preset, .session-controls button, .draw-free button {
+  font-family: 'Cinzel', serif;
+  font-size: .78rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .45rem .9rem;
+  background: transparent;
+  border: 1px solid var(--gold-dim);
+  color: var(--text);
+  cursor: pointer;
+  transition: all .2s ease;
+  border-radius: 2px;
+}
+.set-toggle:hover, .draw-preset:hover, .session-controls button:hover:not(:disabled), .draw-free button:hover {
+  border-color: var(--gold-bright);
+  color: var(--gold-bright);
+  box-shadow: 0 0 8px var(--rune-glow);
+}
+.set-toggle.active {
+  background: linear-gradient(180deg, rgba(212,175,60,.12), rgba(212,175,60,.04));
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}
+.session-controls button:disabled, .draw-preset:disabled, .draw-free button:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.draw-free {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-left: .5rem;
+  padding-left: 1rem;
+  border-left: 1px solid var(--gold-dim);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .9rem;
+  color: var(--text-dim);
+}
+.draw-free input {
+  width: 3.5rem;
+  padding: .35rem .5rem;
+  background: rgba(0,0,0,.3);
+  border: 1px solid var(--gold-dim);
+  color: var(--text);
+  font-family: 'Cinzel', serif;
+  font-size: .85rem;
+  text-align: center;
+  border-radius: 2px;
+}
+.draw-free input:focus {
+  outline: none;
+  border-color: var(--gold-bright);
+}
+
+/* Stage: the play area */
+.stage {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(180px, auto) 1fr minmax(180px, auto);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  min-height: 70vh;
+  align-items: start;
+}
+
+.deck-zone, .discard-zone, .spread-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.spread-zone {
+  min-height: 400px;
+  justify-content: center;
+}
+
+.deck-stack, .discard-stack {
+  position: relative;
+  width: 180px;
+  height: 252px;  /* 180:252 ≈ 5:7 card ratio */
+}
+
+/* Card-back stack visualization: layered card backs with slight offset */
+.deck-stack img.deck-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  /* JS will adjust top/left per-layer for stack depth illusion */
+}
+
+.discard-stack img.discard-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  cursor: pointer;
+}
+
+.discard-zone:focus-visible { outline: 2px solid var(--gold-bright); outline-offset: 4px; }
+.discard-zone[data-empty="true"] .discard-stack { opacity: 0.2; pointer-events: none; }
+
+.zone-meta {
+  margin-top: 1rem;
+  font-family: 'Cinzel', serif;
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-align: center;
+}
+.zone-label { display: block; }
+.zone-count { display: block; margin-top: .2rem; color: var(--text); font-weight: 600; }
+
+.spread-area {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 350px;
+  width: 100%;
+}
+
+.spread-area img.spread-card {
+  width: 200px;
+  height: 280px;
+  border-radius: 8px;
+  box-shadow: var(--card-shadow), 0 0 30px rgba(244, 210, 122, .15);
+  cursor: pointer;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.spread-area img.spread-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-shadow), 0 0 45px rgba(244, 210, 122, .35);
+}
+
+.empty-prompt {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 1rem;
+}
+.spread-area:not(:empty) ~ .empty-prompt { display: none; }
+
+/* Toast container (top-center, transient messages) */
+.toast-container {
+  position: fixed;
+  top: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  align-items: center;
+  pointer-events: none;
+}
+.toast {
+  background: rgba(26, 18, 10, 0.95);
+  border: 1px solid var(--gold);
+  color: var(--gold-bright);
+  font-family: 'Cinzel', serif;
+  font-size: .85rem;
+  letter-spacing: .06em;
+  padding: .75rem 1.25rem;
+  border-radius: 3px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.7), 0 0 30px rgba(244, 210, 122, .15);
+  animation: toast-in .3s ease-out;
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Generic simulator modal (used by discard-modal + share-modal) */
+.sim-modal-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+.sim-modal-scrim[data-open="true"] { display: flex; }
+body:has(.sim-modal-scrim[data-open="true"]) { overflow: hidden; }
+
+.sim-modal {
+  position: relative;
+  background: var(--ink-warm);
+  border: 1px solid var(--gold-dim);
+  outline: 3px solid var(--gold);
+  outline-offset: -6px;
+  padding: 2rem 2.5rem;
+  max-width: 600px;
+  width: 90vw;
+  max-height: 85vh;
+  overflow-y: auto;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--text);
+  box-shadow: 0 20px 80px rgba(0,0,0,.8), 0 0 60px rgba(212,175,60,.15);
+}
+.sim-modal h3 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold-bright);
+  text-align: center;
+  margin-bottom: 1.4rem;
+  letter-spacing: .04em;
+}
+.sim-modal-close {
+  position: absolute;
+  top: .8rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+}
+.sim-modal-close:hover { color: var(--gold-bright); }
+
+#share-url {
+  width: 100%;
+  padding: .6rem;
+  background: rgba(0,0,0,.4);
+  border: 1px solid var(--gold-dim);
+  color: var(--text);
+  font-family: monospace;
+  font-size: .85rem;
+  border-radius: 2px;
+  margin: .8rem 0;
+}
+#share-copy-btn {
+  display: block;
+  margin: 0 auto;
+  padding: .5rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-bright);
+  font-family: 'Cinzel', serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+}
+#share-copy-btn:hover {
+  background: rgba(212,175,60,.1);
+}
+
+.discard-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: .75rem;
+}
+.discard-list img {
+  width: 100%;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform .2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,.6);
+}
+.discard-list img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(212,175,60,.25);
+}
+
+/* FOOTER — Forge & Source panel */
+.footer{
+position:relative;z-index:1;
+margin-top:3rem;padding:3rem 1.5rem 2.5rem;
+border-top:1px solid rgba(212,175,60,.18);
+background:linear-gradient(180deg,transparent,rgba(26,18,10,.5));
+text-align:center;
+}
+.footer-panel{
+max-width:760px;margin:0 auto;
+display:flex;flex-direction:column;align-items:center;gap:1.4rem;
+}
+.footer-title{
+font-family:'Cinzel Decorative',serif;font-weight:700;
+font-size:.95rem;color:var(--gold);
+letter-spacing:.22em;text-transform:uppercase;
+}
+.footer-links{
+display:flex;flex-wrap:wrap;justify-content:center;
+gap:.6rem 2rem;align-items:center;
+}
+.footer-link{
+display:inline-flex;align-items:center;gap:.5rem;
+font-family:'Cinzel',serif;font-size:.82rem;font-weight:600;
+color:var(--gold);text-decoration:none;
+letter-spacing:.1em;
+padding:.5rem .9rem;
+border:1px solid rgba(212,175,60,.25);border-radius:2px;
+background:rgba(212,175,60,.04);
+transition:all .25s ease;
+}
+.footer-link:hover{
+color:var(--gold-bright);
+border-color:rgba(244,210,122,.55);
+background:rgba(244,210,122,.1);
+box-shadow:0 0 18px rgba(244,210,122,.18);
+}
+.footer-link svg{width:16px;height:16px;flex:0 0 auto}
+.footer-meta{
+font-family:'Cormorant Garamond',serif;
+font-size:.85rem;color:var(--text-dim);
+font-style:italic;line-height:1.7;
+}
+.footer-meta strong{color:var(--text);font-weight:600;font-style:normal}
+.footer-quote{
+font-family:'Cormorant Garamond',serif;font-style:italic;
+color:var(--gold-dim);font-size:.95rem;
+padding-top:1rem;
+border-top:1px solid rgba(212,175,60,.1);
+width:100%;max-width:480px;
+}
+
+/* Mobile responsive: stage flips vertical */
+@media (max-width: 900px) {
+  .stage {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .deck-stack, .discard-stack {
+    width: 140px;
+    height: 196px;
+  }
+  .spread-area img.spread-card {
+    width: 160px;
+    height: 224px;
+  }
+  .sim-controls-inner {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .draw-free {
+    border-left: none;
+    border-top: 1px solid var(--gold-dim);
+    padding-left: 0;
+    padding-top: .5rem;
+    margin-left: 0;
+  }
+  .back-link {
+    position: static;
+    display: block;
+    text-align: right;
+    margin-top: .5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <a class="back-link" href="./index.html">&larr; Back to Gallery</a>
+  <h1>The Deck of Many Things</h1>
+  <div class="subtitle">Playtest Simulator</div>
+</header>
+
+<nav class="sim-controls">
+  <div class="sim-controls-inner">
+    <div class="set-toggles" role="group" aria-label="Active sub-decks">
+      <button type="button" class="set-toggle active" data-set="original">Original</button>
+      <button type="button" class="set-toggle active" data-set="expansion">Expansion</button>
+      <button type="button" class="set-toggle active" data-set="harrow">Harrow</button>
+      <button type="button" class="set-toggle active" data-set="wonder">Wonder</button>
+    </div>
+
+    <div class="draw-controls" role="group" aria-label="Draw cards">
+      <button type="button" class="draw-preset" data-draw="1">Draw 1</button>
+      <button type="button" class="draw-preset" data-draw="2">Draw 2</button>
+      <button type="button" class="draw-preset" data-draw="3">Draw 3</button>
+      <button type="button" class="draw-preset" data-draw="4">Draw 4</button>
+      <label class="draw-free">
+        Draw N:
+        <input type="number" id="draw-n" min="1" max="13" value="1">
+        <button type="button" id="draw-n-btn">Go</button>
+      </label>
+    </div>
+
+    <div class="session-controls" role="group" aria-label="Session controls">
+      <button type="button" id="reshuffle-btn" disabled>&#x21bb; Reshuffle</button>
+      <button type="button" id="reset-btn">&#x2298; Reset Session</button>
+      <button type="button" id="share-btn">&#x2398; Share Link</button>
+    </div>
+  </div>
+</nav>
+
+<main class="stage" id="stage">
+  <section class="deck-zone" aria-label="The Deck">
+    <div class="deck-stack" id="deck-stack" aria-hidden="true">
+      <!-- JS will populate visible card-back stack here -->
+    </div>
+    <div class="zone-meta">
+      <span class="zone-label">The Deck</span>
+      <span class="zone-count" id="deck-count">&mdash; / &mdash;</span>
+    </div>
+  </section>
+
+  <section class="spread-zone" aria-label="Active Draw">
+    <div class="spread-area" id="spread-area">
+      <!-- Cards land here on draw -->
+    </div>
+    <div class="empty-prompt" id="empty-prompt">Spend a Fate Point. Draw from the Deck.</div>
+  </section>
+
+  <section class="discard-zone" aria-label="Discard Pile" tabindex="0" role="button" data-empty="true">
+    <div class="discard-stack" id="discard-stack">
+      <!-- Top few discarded cards visible -->
+    </div>
+    <div class="zone-meta">
+      <span class="zone-label">Discard</span>
+      <span class="zone-count" id="discard-count">0</span>
+    </div>
+  </section>
+</main>
+
+<!-- Toast container (for transient messages like "Only X cards remain") -->
+<div class="toast-container" id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Discard history modal (Phase 5 will populate + open) -->
+<div class="sim-modal-scrim" id="discard-modal" role="dialog" aria-modal="true" aria-labelledby="discard-modal-title" aria-hidden="true">
+  <div class="sim-modal">
+    <button type="button" class="sim-modal-close" aria-label="Close">&times;</button>
+    <h3 id="discard-modal-title">Session History</h3>
+    <div class="discard-list" id="discard-list"></div>
+  </div>
+</div>
+
+<!-- Share-link fallback modal (Phase 6 will populate + open if clipboard fails) -->
+<div class="sim-modal-scrim" id="share-modal" role="dialog" aria-modal="true" aria-labelledby="share-modal-title" aria-hidden="true">
+  <div class="sim-modal">
+    <button type="button" class="sim-modal-close" aria-label="Close">&times;</button>
+    <h3 id="share-modal-title">Share Link</h3>
+    <p>Copy this URL to share:</p>
+    <input type="text" id="share-url" readonly>
+    <button type="button" id="share-copy-btn">Copy</button>
+  </div>
+</div>
+
+<footer class="footer">
+<div class="footer-panel">
+<div class="footer-title">Forge &amp; Source</div>
+<div class="footer-links">
+<a class="footer-link" href="https://github.com/SirLoinTheGreat/mtg-domt" rel="noopener">
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.16c-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.78 1.19 1.78 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18.92-.26 1.92-.39 2.91-.39s1.99.13 2.91.39c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.69 5.39-5.25 5.68.41.36.78 1.06.78 2.14v3.18c0 .31.21.67.8.55C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+GitHub Repository
+</a>
+<a class="footer-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener">
+CC BY-NC-SA 4.0
+</a>
+</div>
+<div class="footer-meta">
+A fan-made crossover by <strong>SirLoinTheGreat</strong> &mdash; not affiliated with Wizards of the Coast or Hasbro.<br>
+Card art generated with MidJourney. All trademarks belong to their respective owners.
+</div>
+<div class="footer-quote">
+&ldquo;Sometimes the cards you&rsquo;re dealt become the fate you&rsquo;re given.&rdquo;
+</div>
+</div>
+</footer>
+
+<!-- Phase 3 will add module scripts here:
+     <script type="module" src="./assets/js/seeded-rng.js"></script>
+     <script type="module" src="./assets/js/simulator.js"></script>
+-->
+
+</body>
+</html>
