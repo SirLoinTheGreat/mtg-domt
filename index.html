@@ -1375,7 +1375,9 @@ async function init() {
   const allBtn = document.getElementById('download-all-btn');
   const allSub = document.getElementById('download-all-sublabel');
   if (allBtn && allSub) {
-    allSub.textContent = `(${allCards.length} cards · ~1 GB)`;
+    // ~7 MB per card on average (measured: 1.0 GB / 149 cards across all sets)
+    const estGB = (allCards.length * 7 / 1024).toFixed(1);
+    allSub.textContent = `(${allCards.length} cards · ~${estGB} GB)`;
     // The bulk-download module enables/disables based on bulkDownloadAvailable()
     // — re-fire gallery:ready so it re-checks and enables the button.
     window.dispatchEvent(new CustomEvent('gallery:ready'));

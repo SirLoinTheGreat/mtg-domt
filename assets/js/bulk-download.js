@@ -220,7 +220,7 @@ export async function startBulkDownload(scope) {
     return;
   }
 
-  const label = SET_LABELS[scope] || scope;
+  const label = SET_LABELS[scope];
   const ctrl = new AbortController();
   _activeAbortController = ctrl;
   const missing = [];
