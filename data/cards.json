@@ -2800,7 +2800,7 @@
         "Dwarf",
         "Artificer"
       ],
-      "rules_text": "When The Brass Dwarf enters, create three Forge tokens. (They're artifacts with \"{T}, Sacrifice this artifact: Create a token that's a copy of target artifact you control except it's also a 2/2 red and white Construct artifact creature with haste.\")\nArtifacts you control have \"{T}: Add {R}.\"\nWhenever you sacrifice an artifact, The Brass Dwarf deals 2 damage to any target. If the sacrificed artifact was a token, create a Treasure token.",
+      "rules_text": "When The Brass Dwarf enters, create three Forge tokens. (They're artifacts with \"{T}, Sacrifice this artifact: Create a token that's a copy of target nontoken artifact you control except it's also a 2/2 red and white Construct artifact creature with haste.\")\nArtifacts you control have \"{T}: Add {R}.\"\nWhenever you sacrifice an artifact, The Brass Dwarf deals 2 damage to any target. If the sacrificed artifact was a token, create a Treasure token.",
       "flavor_text": "\"In my forge, even scrap metal dreams of becoming masterworks.\"",
       "power": "2",
       "toughness": "4",
@@ -3181,7 +3181,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "When The Forge enters, create three Ember tokens. (Artifacts with \"{T}, Sacrifice this: Add {R}{R}.\")\n{T}, Sacrifice an Equipment you control: Search your library for an Equipment with equal or lesser mana value and put it onto the battlefield attached to a creature you control. It gains \"Equipped creature gets +4/+4\" and can't be unequipped. Then create an Ember token and shuffle.\nWhenever an Equipment enters under your control, create a 3/1 red and white Artificer token with haste and \"When this dies, attach target Equipment you control to target creature you control.\"\nWhenever you sacrifice an artifact, The Forge deals 2 damage to any target. If it was a token, The Forge deals 2 additional damage.",
+      "rules_text": "When The Forge enters, create three Ember tokens. (Artifacts with \"{T}, Sacrifice this: Add {R}{R}.\")\n{T}, Sacrifice an Equipment you control: Search your library for an Equipment with equal or lesser mana value and put it onto the battlefield attached to a creature you control. It gains \"Equipped creature gets +4/+4.\" Its equip ability can't be activated, and it remains attached to that creature for as long as that creature is on the battlefield. Then create an Ember token and shuffle.\nWhenever an Equipment enters under your control, create a 3/1 red and white Artificer token with haste and \"When this dies, attach target Equipment you control to target creature you control.\"\nWhenever you sacrifice an artifact, The Forge deals 2 damage to any target. If it was a token, The Forge deals 2 additional damage.",
       "flavor_text": "She fed the forge a dagger. It returned a destiny.",
       "power": null,
       "toughness": null,
@@ -3444,7 +3444,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "When The Keep enters, draw two cards, create two Treasure tokens, then exile any number of nonland permanents you control. Those cards gain \"You may cast this card from exile.\"\nAt the beginning of your upkeep, you may return up to two cards exiled with The Keep to the battlefield under your control.\n{2}, {T}: Exile target permanent you control. It gains \"You may cast this card from exile.\"",
+      "rules_text": "When The Keep enters, draw two cards, create two Treasure tokens, then exile any number of permanents you control. Those cards gain \"You may play this card from exile.\"\nAt the beginning of your upkeep, you may return up to two cards exiled with The Keep to the battlefield under your control.\n{2}, {T}: Exile target permanent you control. It gains \"You may play this card from exile.\"",
       "flavor_text": "A fortress between worlds, where even time asks permission to enter.",
       "power": null,
       "toughness": null,
@@ -3619,7 +3619,7 @@
         "Human",
         "Cleric"
       ],
-      "rules_text": "Flash\nWhenever a permanent not named The Midwife enters under your control, put a birth counter on it.\nWhen The Midwife enters, create two 1/1 white green Spirit tokens with lifelink.\nPermanents you control with birth counters on them have \"At the beginning of your upkeep, create a non-legendary token that's a copy of this permanent.\"",
+      "rules_text": "Flash\nWhen The Midwife enters, create two 1/1 white and green Spirit tokens with lifelink.\nWhenever a nontoken permanent not named The Midwife enters under your control, put a birth counter on it.\nAt the beginning of your upkeep, you may remove a birth counter from a permanent you control. If you do, create a non-legendary token that's a copy of that permanent.",
       "flavor_text": "Where she walks, nothing remains barren.",
       "power": "2",
       "toughness": "6",
@@ -3769,7 +3769,7 @@
         "Angel",
         "Knight"
       ],
-      "rules_text": "Flying, double strike, vigilance\nWhen The Paladin enters, choose one —\n• You create five 2/2 white Knight tokens with vigilance.\n• You gain 10 life and draw three cards.\n• You get an emblem with \"Creatures you control have protection from the color of your choice and lifelink.\"\nWhenever The Paladin attacks, exile target nonland permanent an opponent controls until The Paladin leaves.\nAt the beginning of your end step, return target permanent card from your graveyard to the battlefield.",
+      "rules_text": "Flying, double strike, vigilance\nWhen The Paladin enters, choose one —\n• You create five 2/2 white Knight tokens with vigilance.\n• You gain 10 life and draw three cards.\n• You get an emblem with \"Creatures you control have protection from the color of your choice and lifelink.\"\nWhenever The Paladin attacks, exile target nonland permanent an opponent controls until The Paladin leaves.\nAt the beginning of your end step, return target creature card with mana value 6 or less from your graveyard to the battlefield.",
       "flavor_text": "She arrived without being summoned. Evil had that effect on her.",
       "power": "5",
       "toughness": "5",
@@ -3959,7 +3959,7 @@
       "subtypes": [
         "Demon"
       ],
-      "rules_text": "Flying, ward {2}\nCurse of Deception — Whenever a player casts a spell that targets only a single creature or player, roll a d6. On a 1 or 2, that spell's controller transforms their most powerful creature into a 1/1 green Frog token until end of turn. (It loses all abilities.)\nWhenever a creature becomes a Frog this way, The Rakshasa's controller draws a card.\nWhen The Rakshasa leaves, shuffle it into the Deck of Many Things.",
+      "rules_text": "Flying, ward {2}\nCurse of Deception — Whenever a player casts a spell that targets only a single creature or player, roll a d6. On a 1 or 2, the creature that spell's controller controls with the highest power becomes a 1/1 green Frog token until end of turn. If multiple creatures are tied for highest power, that player chooses one. (The Frog loses all abilities.)\nWhenever a creature becomes a Frog this way, The Rakshasa's controller draws a card.\nWhen The Rakshasa leaves, shuffle it into the Deck of Many Things.",
       "flavor_text": "Every deception carries a price. The Rakshasa simply collects.",
       "power": "5",
       "toughness": "5",
@@ -4197,7 +4197,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "Abilities you activate cost {X} less to activate, where X is half the number of lands you control, rounded down.\n{8}, {T}: Create a creature token with power and toughness each equal to X. Choose one —\n• A white Knight with first strike and vigilance.\n• A black Demon with menace and deathtouch.\n• A blue Elemental with flying and lifelink.\n{8}, {T}: Search your library for a creature card with mana value less than or equal to X, reveal it, and put it into your hand. Then shuffle. You may cast that card this turn without paying its mana cost.",
+      "rules_text": "Activated abilities of permanents you control cost {1} less to activate for each two lands you control. This effect can't reduce a cost below {1}.\n{8}, {T}: Create a creature token with power and toughness each equal to half the number of lands you control, rounded down. Choose one —\n• A white Knight with first strike and vigilance.\n• A black Demon with menace and deathtouch.\n• A blue Elemental with flying and lifelink.\n{8}, {T}: Search your library for a creature card with mana value less than or equal to half the number of lands you control rounded down, reveal it, and put it into your hand. Then shuffle. You may cast that card this turn without paying its mana cost.",
       "flavor_text": "One note. Across every plane, every hero turns toward the sound.",
       "power": null,
       "toughness": null,
