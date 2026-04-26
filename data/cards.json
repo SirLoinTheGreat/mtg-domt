@@ -4825,7 +4825,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Create an emblem with \"If you would lose the game, instead your life total becomes 1. Then, this emblem ceases to exist.\"",
+      "rules_text": "Create an emblem with \"The next time you would lose the game, instead your life total becomes 1, then exile this emblem.\"",
       "flavor_text": "\"Not today.\" -- Serra's Knight, sole survivor of the Fallen Gates",
       "power": null,
       "toughness": null,
