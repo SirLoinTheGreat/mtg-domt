@@ -3,6 +3,10 @@
 
 import { downloadZip } from '../vendor/client-zip-2.x.js';
 
+// Library is ready iff the import resolved and exported the expected function.
+// Hoisted to top so it's set before any consumer (e.g. wireButtons) reads it.
+const _libraryReady = typeof downloadZip === 'function';
+
 const SET_LABELS = {
   all: 'All Cards',
   original: 'Original',
@@ -11,7 +15,6 @@ const SET_LABELS = {
   wonder: 'Wonder',
 };
 
-let _libraryReady = false;
 let _activeAbortController = null;
 
 // --- Public surface ---
@@ -37,9 +40,6 @@ function wireButtons() {
     if (!bulkDownloadAvailable()) btn.disabled = true;
   });
 }
-
-// Library import succeeded (we got here without throwing)
-_libraryReady = typeof downloadZip === 'function';
 
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', wireButtons);
