@@ -542,6 +542,78 @@ flex:0 1 160px;opacity:.4;
 font-size:clamp(.9rem,1.6vw,1.05rem);
 opacity:.85;letter-spacing:.18em;
 }
+/* Extended rules section in lightbox (Game Master full rules, etc.) */
+.lb-extended{
+font-family:'Cinzel',serif;font-size:.86rem;line-height:1.55;
+color:var(--text);
+}
+.lb-extended .ext-rules > p,
+.lb-extended .ext-rules > ul,
+.lb-extended .ext-rules > ol,
+.lb-extended .ext-rules > dl{margin:.6rem 0}
+.lb-extended .ext-intro{
+font-style:italic;color:var(--text-dim);
+border-left:2px solid rgba(212,175,60,.35);
+padding-left:.9rem;margin:.7rem 0;
+}
+.lb-extended h3{
+font-family:'Cinzel Decorative',serif;font-weight:700;
+font-size:.95rem;color:var(--gold);
+margin:1.4rem 0 .5rem;letter-spacing:.08em;
+text-transform:uppercase;
+border-bottom:1px solid rgba(212,175,60,.18);
+padding-bottom:.3rem;
+}
+.lb-extended h4{
+font-family:'Cinzel',serif;font-weight:600;
+font-size:.85rem;color:var(--gold-dim);
+margin:.9rem 0 .3rem;letter-spacing:.08em;
+text-transform:uppercase;
+}
+.lb-extended ul, .lb-extended ol{
+padding-left:1.4rem;
+}
+.lb-extended li{margin:.3rem 0}
+.lb-extended strong{color:var(--gold-dim)}
+.lb-extended em{color:var(--text)}
+.lb-extended .ext-table{
+width:100%;border-collapse:collapse;
+font-size:.78rem;margin:.6rem 0;
+}
+.lb-extended .ext-table th{
+text-align:left;padding:.4rem .5rem;
+background:rgba(212,175,60,.06);
+color:var(--gold-dim);font-weight:600;
+border-bottom:1px solid rgba(212,175,60,.25);
+letter-spacing:.04em;
+}
+.lb-extended .ext-table td{
+padding:.4rem .5rem;
+border-bottom:1px solid rgba(255,255,255,.05);
+vertical-align:top;
+}
+.lb-extended .ext-table tr:hover td{background:rgba(255,255,255,.02)}
+.lb-extended .ext-faq dt{
+font-weight:600;color:var(--gold-dim);
+margin:.7rem 0 .2rem;
+font-style:italic;
+}
+.lb-extended .ext-faq dd{
+margin:0 0 .3rem 0;color:var(--text);
+}
+.lb-extended .ext-note{
+font-style:italic;color:var(--text-dim);
+font-size:.82rem;
+}
+.lb-extended .ext-footer{
+margin-top:1.2rem;padding-top:.6rem;
+border-top:1px solid rgba(212,175,60,.15);
+text-align:center;
+}
+.lb-extended .ext-loading,
+.lb-extended .ext-error{
+color:var(--text-dim);font-style:italic;padding:.5rem 0;
+}
 
 /* LIGHTBOX */
 .lightbox{
@@ -949,6 +1021,10 @@ margin-left:.5rem;vertical-align:middle;
         <div class="lb-section-title">Rules Text</div>
         <div class="lb-rules" id="lb-rules"></div>
         <div class="lb-flavor" id="lb-flavor"></div>
+      </div>
+      <div class="lb-section" id="lb-extended-section" style="display:none">
+        <div class="lb-section-title" id="lb-extended-title">Full Rules</div>
+        <div class="lb-extended" id="lb-extended"></div>
       </div>
       <div class="lb-section" id="lb-related-section" style="display:none">
         <div class="lb-section-title">Related Cards</div>
@@ -1442,6 +1518,27 @@ function showCard(card) {
     flavorEl.style.display = '';
   } else {
     flavorEl.style.display = 'none';
+  }
+
+  // Extended rules — for cards that have a longer rules companion (e.g. Game Master)
+  const extSection = document.getElementById('lb-extended-section');
+  const extDiv = document.getElementById('lb-extended');
+  const extTitle = document.getElementById('lb-extended-title');
+  const EXTENDED_RULES_MAP = {
+    'Game Master': { url: 'data/game_master_rules.html', title: 'Game Master Mode — Full Rules' },
+  };
+  const extConfig = EXTENDED_RULES_MAP[card.name];
+  if (extConfig) {
+    extSection.style.display = '';
+    extTitle.textContent = extConfig.title;
+    extDiv.innerHTML = '<div class="ext-loading">Loading rules…</div>';
+    fetch(extConfig.url + '?' + CACHE_BUST)
+      .then(r => r.ok ? r.text() : Promise.reject(r.status))
+      .then(html => { extDiv.innerHTML = html; })
+      .catch(err => { extDiv.innerHTML = '<div class="ext-error">Could not load extended rules.</div>'; });
+  } else {
+    extSection.style.display = 'none';
+    extDiv.innerHTML = '';
   }
 
   // Related cards

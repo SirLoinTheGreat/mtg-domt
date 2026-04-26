@@ -1,0 +1,116 @@
+<div class="ext-rules">
+
+<p class="ext-intro">The <strong>Game Master</strong> is an optional fifth seat at the table. It's not a player in the rules sense — it's a <em>pseudo-player</em> that controls permanents transferred to it by the Deck of Many Things, attacks when those permanents tell it to, and otherwise sits in silence at the head of the table while the actual players race each other.</p>
+
+<p class="ext-intro">GM Mode turns DoMT from "spice the players add to their decks" into "the Deck itself takes a seat." It's the difference between rolling on a chaos table and playing <em>against</em> the dungeon.</p>
+
+<h3>When to use it</h3>
+<p>GM Mode is <strong>opt-in</strong>. Decide before the game starts whether the table is playing with GM Mode on.</p>
+<ul>
+  <li><strong>GM Mode ON</strong> (recommended for 3+ players, 4-player Commander): The Game Master card enters the shared command zone at game start. All cards that transfer permanents to "a random opponent" or "another player" send those permanents to the GM instead.</li>
+  <li><strong>GM Mode OFF</strong> (1v1 or casual): The Game Master card is left in the box. Cards behave as written.</li>
+</ul>
+<p>The mode affects roughly 30 cards across the four sub-decks. Most cards play the same either way; differences cluster around control-transfer effects.</p>
+
+<h3>Setup</h3>
+<ol>
+  <li>Place the <strong>Game Master</strong> card face-up in the shared command zone, visible to all players.</li>
+  <li>The GM has <strong>no library, hand, graveyard, or exile zone</strong> of its own.</li>
+  <li>Designate a physical area on the table as the <strong>GM Zone</strong> where its controlled permanents go.</li>
+  <li>The GM has <strong>no life total</strong> and <strong>does not draw an opening hand</strong>.</li>
+  <li>The GM does <em>not</em> draw cards from the Deck of Many Things on its own — only player-triggered effects send things to it.</li>
+</ol>
+
+<h3>Turn structure</h3>
+<p>The GM goes <strong>last</strong> in turn order each round. Its turn is highly abbreviated:</p>
+<table class="ext-table">
+  <thead><tr><th>Phase / Step</th><th>What happens</th></tr></thead>
+  <tbody>
+    <tr><td>Untap</td><td>GM permanents untap normally</td></tr>
+    <tr><td>Upkeep</td><td>Triggered abilities resolve. GM cannot pay costs requiring choices beyond mana</td></tr>
+    <tr><td>Draw</td><td><strong>Skipped</strong> (no library)</td></tr>
+    <tr><td>First main</td><td><strong>Skipped</strong> (no spells, no decision-requiring abilities)</td></tr>
+    <tr><td>Combat — beginning</td><td>"At the beginning of combat" triggers fire</td></tr>
+    <tr><td>Combat — declare attackers</td><td>All untapped GM creatures <strong>must attack if able</strong>. See target selection below</td></tr>
+    <tr><td>Combat — declare blockers</td><td>Defending players block normally</td></tr>
+    <tr><td>Combat — damage</td><td>Resolved as normal</td></tr>
+    <tr><td>Combat — end</td><td>"End of combat" triggers fire</td></tr>
+    <tr><td>Second main</td><td><strong>Skipped</strong></td></tr>
+    <tr><td>End</td><td>"Beginning of end step" triggers fire</td></tr>
+    <tr><td>Cleanup</td><td>GM has no hand size limit</td></tr>
+  </tbody>
+</table>
+
+<h4>Attack target selection</h4>
+<ol>
+  <li><strong>If the card that gave the creature to the GM specifies a target</strong> (e.g., <em>"That creature must attack you each combat"</em>), the creature attacks that specified player.</li>
+  <li><strong>If no target is specified</strong>, the GM creature attacks <strong>a player chosen uniformly at random</strong> from the remaining players (excluding the GM).</li>
+  <li><strong>If a creature has menace, trample, or other combat keywords</strong>, those apply normally during the defending player's blocking step.</li>
+  <li><strong>If multiple GM creatures attack</strong> with no specified target, <strong>roll independently for each</strong> — they may attack different players.</li>
+</ol>
+
+<h3>Cards that interact with GM Mode</h3>
+<p>These cards behave differently when GM Mode is on. Cards not listed below behave exactly as written.</p>
+<table class="ext-table">
+  <thead><tr><th>Card</th><th>As written</th><th>GM Mode adjustment</th></tr></thead>
+  <tbody>
+    <tr><td>The Tangled Briar</td><td>"...under a random opponent's control"</td><td>Plant tokens go to the <strong>GM</strong>. They must attack you (the controller of Briar) each combat.</td></tr>
+    <tr><td>Elder Air Elemental</td><td>"an opponent chosen at random gains control of it"</td><td>The Elemental goes to the <strong>GM</strong>. It attacks the marked player each combat per its existing text.</td></tr>
+    <tr><td>Avatar of Death (The Skull)</td><td>Marks a player; attacks marked player</td><td>If GM Mode is on, GM controls Avatar of Death after summoning. The marked player remains a real player.</td></tr>
+    <tr><td>Vengeful Archfiend (The Flames)</td><td>Marked player planeswalks on timer</td><td>Marked player must be a real player; GM cannot be marked.</td></tr>
+    <tr><td>The Demon</td><td>Marks a player</td><td>Cannot mark the GM.</td></tr>
+    <tr><td>"Each opponent" / "each other player"</td><td>—</td><td>Do <strong>not</strong> include the GM.</td></tr>
+    <tr><td>"Target opponent"</td><td>—</td><td>Cannot target the GM unless the card explicitly says so.</td></tr>
+    <tr><td>Permanents under GM control</td><td>—</td><td><strong>Can</strong> be targeted by spells and abilities normally.</td></tr>
+  </tbody>
+</table>
+
+<h3>Combat edge cases</h3>
+<ul>
+  <li><strong>Multiple GM creatures attacking the same player.</strong> Allowed. Independently rolled or specified target.</li>
+  <li><strong>GM creature with vigilance.</strong> Doesn't tap when attacking; can be re-attacked next combat.</li>
+  <li><strong>GM creature dies.</strong> Goes to its <strong>owner's</strong> graveyard, not the GM's zone — the GM has no graveyard. <em>Owner</em> = the player who originally cast or generated it.</li>
+  <li><strong>GM creature exiled.</strong> Goes to its owner's exile zone, same logic.</li>
+  <li><strong>GM gains a triggered ability that requires a choice</strong> (e.g., "draw a card or gain 3 life"). The GM cannot make the choice. The trigger <strong>does not happen</strong> — it fizzles. (House rule alternative: choice goes to the GM-affecting card's original controller. Pick one and stick with it.)</li>
+  <li><strong>GM permanent with an activated ability requiring a choice.</strong> GM cannot activate it. Mana abilities still produce mana, which burns at end of GM turn.</li>
+</ul>
+
+<h3>Win/Loss conditions</h3>
+<ul>
+  <li>The GM <strong>cannot win or lose</strong>. It is neutral pressure on the table.</li>
+  <li>Players win and lose against each other normally. Last player standing wins.</li>
+  <li>If a card or effect would cause the GM to "lose the game" or "win the game," it is ignored.</li>
+  <li><strong>If the last two players are eliminated simultaneously</strong> and the GM controls living permanents, the game is a draw. The GM does not "win by being last."</li>
+</ul>
+
+<h3>House rule recommendations</h3>
+<ul>
+  <li><strong>GM as Aggressor (default):</strong> All GM creatures attack on every combat if able.</li>
+  <li><strong>GM as Spectator:</strong> GM creatures only attack when their card-of-record specifically says they must. <em>Less hostile; good for casual tables.</em></li>
+  <li><strong>GM as Auctioneer:</strong> When a GM creature would attack and no target is specified, the active player chooses the target. <em>Faster; more political.</em></li>
+</ul>
+<p class="ext-note">Pick one and stick with it for the game.</p>
+
+<h3>FAQ — quick reference</h3>
+<dl class="ext-faq">
+  <dt>Does the GM count for "each player" effects?</dt>
+  <dd>No. The GM is a pseudo-player; "each player" / "all players" / "opponents" all exclude the GM unless explicitly stated.</dd>
+  <dt>Can I cast counterspells or removal at the GM's permanents?</dt>
+  <dd>Yes. The GM's permanents are valid targets even though the GM is not.</dd>
+  <dt>Can the GM be milled?</dt>
+  <dd>No. The GM has no library.</dd>
+  <dt>What happens if a card says "each opponent loses 3 life"?</dt>
+  <dd>Real opponents lose 3; GM is unaffected.</dd>
+  <dt>"Create a token under target opponent's control" — can I target the GM?</dt>
+  <dd>No. "Target opponent" requires a real player.</dd>
+  <dt>The Tangled Briar makes plant tokens "under a random opponent's control" — is that the GM in GM Mode?</dt>
+  <dd>Yes. All "random opponent gains control" effects route to the GM. The plants still attack the Briar's controller per the card's existing rule.</dd>
+  <dt>What if a card has no GM-mode entry in the table above?</dt>
+  <dd>Play it as written. Most cards are unaffected by GM Mode.</dd>
+  <dt>Can the GM card itself be targeted or destroyed?</dt>
+  <dd>No. The GM card sits in the shared command zone and is not a permanent — it's a rules card. Removing it ends GM Mode for the rest of the game.</dd>
+</dl>
+
+<p class="ext-note ext-footer">House-rule adjustments are encouraged — DoMT is a sandbox, not a tournament format.</p>
+
+</div>
