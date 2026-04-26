@@ -3731,7 +3731,7 @@
       "subtypes": [
         "Bird"
       ],
-      "rules_text": "Flash\nFlying, ward {2}\nWhenever you scry, you may pay {1}. If you do, gain 2 life and draw a card.\nAt the beginning of your upkeep, scry 1.\n{T}, Sacrifice The Owl: Scry 7, then target opponent may scry 3. Draw a card.\nWhen The Owl dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
+      "rules_text": "Flash\nFlying, ward {2}\nWhenever you scry, gain 2 life and draw a card.\nAt the beginning of your upkeep, scry 2.\n{T}, Sacrifice The Owl: Scry 7, then target opponent may scry 3. Draw three cards.\nWhen The Owl dies, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
       "flavor_text": "It sees what you see. It sees what they see. It sees what no one sees.",
       "power": "1",
       "toughness": "3",
@@ -5088,7 +5088,7 @@
         "Aura",
         "Curse"
       ],
-      "rules_text": "Enchant player\nReveal the first card you draw each turn.\nWhenever you cast a spell, mill cards equal to that spell's mana value. If at least one creature card was milled this way, counter that spell unless you pay {2}.\nAt the beginning of your end step, if you had a spell countered this turn, lose 2 life.",
+      "rules_text": "Enchant player\nReveal the first card you draw each turn.\nWhenever you cast a spell, mill cards equal to that spell's mana value. If one or more creature cards were milled this way, counter that spell unless you pay {1} for each creature card milled this way.\nAt the beginning of your end step, lose 2 life for each spell countered by The Monster this turn.",
       "flavor_text": "\"Look upon me, mortal. Let my visage burn itself into your dreams, until every shadow bears my face and every mirror holds my gaze.\" — The Monster",
       "power": null,
       "toughness": null,
