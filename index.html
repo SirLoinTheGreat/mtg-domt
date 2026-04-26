@@ -605,6 +605,80 @@ border-top:1px solid rgba(212,175,60,.1);
 width:100%;max-width:480px;
 }
 
+/* FAQ — Rules edge-case rulings */
+.faq{
+position:relative;z-index:1;
+max-width:880px;margin:3rem auto 0;padding:2.5rem 1.5rem .5rem;
+}
+.faq-title{
+font-family:'Cinzel Decorative',serif;font-weight:700;
+font-size:1.1rem;color:var(--gold);
+letter-spacing:.22em;text-transform:uppercase;
+text-align:center;margin:0 0 1rem;
+}
+.faq-intro{
+font-family:'Cormorant Garamond',serif;font-style:italic;
+color:var(--text-dim);font-size:.95rem;line-height:1.6;
+text-align:center;max-width:620px;margin:0 auto 2rem;
+}
+.faq-category{
+font-family:'Cinzel',serif;font-weight:600;
+font-size:.82rem;color:var(--gold-dim);
+letter-spacing:.18em;text-transform:uppercase;
+margin:1.8rem 0 .6rem;
+padding-bottom:.4rem;
+border-bottom:1px solid rgba(212,175,60,.15);
+}
+.faq-category:first-of-type{margin-top:0}
+.faq details{
+border:1px solid rgba(212,175,60,.15);
+border-radius:2px;
+margin:.5rem 0;
+background:rgba(26,18,10,.3);
+transition:border-color .2s ease,box-shadow .2s ease;
+}
+.faq details:hover{border-color:rgba(212,175,60,.32)}
+.faq details[open]{
+border-color:rgba(212,175,60,.4);
+box-shadow:0 0 14px rgba(212,175,60,.06);
+}
+.faq summary{
+cursor:pointer;
+padding:.85rem 2.4rem .85rem 1rem;
+font-family:'Cinzel',serif;font-size:.92rem;font-weight:500;
+color:var(--text);
+list-style:none;
+position:relative;
+line-height:1.4;
+transition:color .2s ease;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+content:'+';
+position:absolute;right:1rem;top:50%;
+transform:translateY(-50%);
+font-size:1.2rem;color:var(--gold-dim);
+font-family:'Cinzel',serif;font-weight:300;
+transition:color .2s ease;
+}
+.faq details[open] summary::after{content:'−';color:var(--gold)}
+.faq details[open] summary{color:var(--gold-bright)}
+.faq summary:hover{color:var(--gold-bright)}
+.faq-answer{
+padding:0 1rem 1rem;
+font-family:'Cormorant Garamond',serif;
+font-size:1rem;line-height:1.65;color:var(--text-dim);
+}
+.faq-answer p{margin:0 0 .6rem}
+.faq-answer p:last-child{margin-bottom:0}
+.faq-answer strong{color:var(--text);font-weight:600;font-style:normal}
+.faq-answer em{color:var(--gold-dim);font-style:italic}
+@media(max-width:768px){
+.faq{padding:2rem 1rem 0}
+.faq summary{font-size:.88rem;padding:.75rem 2.2rem .75rem .85rem}
+.faq-answer{font-size:.95rem;padding:0 .85rem .85rem}
+}
+
 /* RESPONSIVE */
 @media(max-width:768px){
 .gallery{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.2rem;padding:1rem}
@@ -835,6 +909,145 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
 <div class="loading">Drawing from the Deck</div>
 </main>
 
+<section class="faq" id="faq">
+<h2 class="faq-title">Rules FAQ &amp; Edge Cases</h2>
+<p class="faq-intro">Official rulings for ambiguous interactions, custom mechanics, and unusual game states. When in doubt at the table, The Fates can undo any draw &mdash; this is the set's built-in safety valve.</p>
+
+<h3 class="faq-category">General Deck Rules</h3>
+
+<details>
+<summary>Can I respond to a Deck draw with instant-speed effects from my hand?</summary>
+<div class="faq-answer"><p>No. Cards drawn from the Deck of Many Things are cast immediately without paying mana costs, cannot be countered, and don't use the stack. The only card that can respond to a Deck draw is The Fates.</p></div>
+</details>
+
+<details>
+<summary>If a card drawn from the Deck creates a permanent, and that permanent is later bounced to hand, where does it go?</summary>
+<div class="faq-answer"><p>It goes to your hand first (as the bounce effect specifies), then the Deck's replacement rule applies &mdash; it should be shuffled back into the Deck of Many Things instead of staying in your hand. If you cast it from your hand, it uses the stack normally and can be countered.</p></div>
+</details>
+
+<details>
+<summary>If The Jester draws me 2 more Deck cards, and one of those is The Fool (which also draws a Deck card), do all of these resolve in sequence?</summary>
+<div class="faq-answer"><p>Yes. Resolve each card drawn completely in sequence before moving on to the next draw. The Jester's draw triggers &rarr; resolve Card A completely &rarr; resolve Card B completely &rarr; if Card B is The Fool, its forced draw triggers &rarr; resolve Card C completely &rarr; then continue your normal turn.</p></div>
+</details>
+
+<details>
+<summary>Does the Legend rule apply to permanents drawn from the Deck?</summary>
+<div class="faq-answer"><p>No. The Rules card explicitly states: <em>"The Legend rule does not apply to permanents drawn from the Deck of Many Things."</em></p></div>
+</details>
+
+<details>
+<summary>Can I draw from the Deck if I already have a Fate Point but don't want to spend it?</summary>
+<div class="faq-answer"><p>Drawing from the Deck requires spending a Fate Point. You cannot draw without spending one.</p></div>
+</details>
+
+<details>
+<summary>If I gain a Fate Point but already have one, what happens?</summary>
+<div class="faq-answer"><p>If you would gain a Fate Point but already have one, you may instead draw a card from the Deck of Many Things immediately.</p></div>
+</details>
+
+<h3 class="faq-category">The Fates</h3>
+
+<details>
+<summary>Can The Fates' "Rewind" ability undo itself?</summary>
+<div class="faq-answer"><p>No. Shuffling The Fates into the Deck is part of the cost of activating any of its abilities. By the time Rewind resolves, The Fates is already in the Deck. You cannot choose to undo the draw of The Fates with its own Rewind.</p></div>
+</details>
+
+<details>
+<summary>If The Fates uses "Deny" to exile a permanent that created tokens, do the tokens also leave?</summary>
+<div class="faq-answer"><p>No. Tokens created by a permanent exist independently once created. Exiling the source permanent with Deny does not affect tokens already on the battlefield.</p></div>
+</details>
+
+<details>
+<summary>Can "Cleanse" remove any emblem, or only those created by the Deck?</summary>
+<div class="faq-answer"><p>The card text reads <em>"Exile target emblem or curse card named Curse of Weakness."</em> This targets any emblem (including those created by the Deck) or the specific curse.</p></div>
+</details>
+
+<details>
+<summary>Does "Weave" (look at top 3 of the Deck, reorder, then draw) count as a Fate Point spend?</summary>
+<div class="faq-answer"><p>No. The Fates' Weave ability lets you look at the top three cards and reorder them, then optionally draw a card from the Deck. This draw is part of the ability's effect, not a Fate Point expenditure. It does not require or consume a Fate Point.</p></div>
+</details>
+
+<details>
+<summary>Can I use The Fates' Rewind on a card another player drew?</summary>
+<div class="faq-answer"><p>Yes. The Fates' abilities do not specify "a card you drew." You can use Rewind to undo any card drawn from the Deck by any player.</p></div>
+</details>
+
+<h3 class="faq-category">Avatar of Death (The Skull)</h3>
+
+<details>
+<summary>If the marked player gains Hexproof or Shroud, can Avatar of Death still attack them?</summary>
+<div class="faq-answer"><p>Yes. Attacking does not target. <em>"Must attack the marked player"</em> is a combat requirement, not a targeted ability. Hexproof and Shroud do not prevent being attacked.</p></div>
+</details>
+
+<details>
+<summary>If a player creates a token copy of Avatar of Death, which one is "real" for shuffle-into-Deck purposes?</summary>
+<div class="faq-answer"><p>Only the original Avatar of Death (the non-token copy) is shuffled into the Deck when it dies or the marked player loses. Token copies cease to exist when they leave the battlefield, as per normal MTG token rules.</p></div>
+</details>
+
+<details>
+<summary>"A random opponent gains control" &mdash; how is randomness determined?</summary>
+<div class="faq-answer"><p>The controller of Avatar of Death should be determined by the most appropriate random method available &mdash; rolling a die, flipping coins, or any method the table agrees on. Each opponent (excluding the marked player) should have an equal chance.</p></div>
+</details>
+
+<details>
+<summary>What happens when Avatar of Death deals combat damage to a player who isn't the marked player?</summary>
+<div class="faq-answer"><p>Avatar of Death must attack the marked player if able. If it somehow deals combat damage to a different player (e.g., through redirection effects), that player loses the game &mdash; the <em>"deals combat damage to a player, that player loses the game"</em> ability applies to any player, not just the marked player.</p></div>
+</details>
+
+<h3 class="faq-category">Soul Prison</h3>
+
+<details>
+<summary>Can you sacrifice Soul Prison itself to its own "sacrifice creatures totaling 15+ power" clause?</summary>
+<div class="faq-answer"><p>No. Soul Prison is an artifact, not a creature. You can only sacrifice creatures you control to meet the 15+ combined power requirement. Soul Guardians (6/8 creatures) created by Soul Prison do count, but two Soul Guardians only total 12 power &mdash; you need additional creatures.</p></div>
+</details>
+
+<h3 class="faq-category">The Unicorn &mdash; Divine Undoing</h3>
+
+<details>
+<summary>What does "Undo one choice you made during the game" mean in MTG rules?</summary>
+<div class="faq-answer">
+<p>This is the most ambiguous ability in the set. Until an official ruling is established, use this guideline: a "choice" is any decision point where you had alternatives &mdash; casting a spell, attacking with a creature, activating an ability, choosing a target, or making a game choice (like which card to discard). "Reverse visible effects" means undo the direct consequences: if you chose to attack and a creature died in combat, that creature returns to the battlefield. The table should agree on what reversal is fair and practical. If consensus can't be reached, the active player decides.</p>
+<p><strong>Practical suggestion:</strong> Treat this as <em>"Return one permanent that left the battlefield this game to the battlefield under its owner's control, or return one card that was exiled or discarded to its owner's hand."</em> This captures the spirit of undoing a choice while being rules-parseable.</p>
+</div>
+</details>
+
+<h3 class="faq-category">The Comet &amp; Suspend</h3>
+
+<details>
+<summary>The Deck rules say cards are cast immediately, but The Comet has Suspend. Which takes priority?</summary>
+<div class="faq-answer"><p>The Comet's Suspend overrides the normal Deck casting rule. When you draw The Comet from the Deck of Many Things, exile it with two time counters instead of casting it immediately. At the beginning of your upkeep, remove a time counter. When the last is removed, cast it without paying its mana cost. This delayed casting is the intended design &mdash; it represents the D&amp;D Comet's conditional nature.</p></div>
+</details>
+
+<h3 class="faq-category">Eternal Damnation</h3>
+
+<details>
+<summary>Can Eternal Damnation be removed by any means other than The Fates?</summary>
+<div class="faq-answer"><p>No. Eternal Damnation is a permanent game state change. Only The Fates' Rewind ability can undo it &mdash; by rewinding the entire draw that caused it (The Void or The Donjon). No other card in the set removes Eternal Damnation.</p></div>
+</details>
+
+<details>
+<summary>If I have Eternal Damnation and The Jester tells me to draw from the Deck, what happens?</summary>
+<div class="faq-answer"><p>The instruction to draw is simply ignored. You cannot draw from the Deck by any means while you have Eternal Damnation.</p></div>
+</details>
+
+<h3 class="faq-category">Miscellaneous</h3>
+
+<details>
+<summary>Do mana costs on Deck cards matter?</summary>
+<div class="faq-answer"><p>Not for casting &mdash; all cards are cast for free from the Deck. Mana costs serve two purposes: (1) they establish color identity for game effects that reference it, and (2) if a card is somehow bounced to your hand and you want to cast it normally, the mana cost applies.</p></div>
+</details>
+
+<details>
+<summary>Can I choose not to cast a card drawn from the Deck?</summary>
+<div class="faq-answer"><p>No. Cards drawn from the Deck are cast immediately and mandatorily. You cannot choose to "hold" a drawn card.</p></div>
+</details>
+
+<details>
+<summary>What if I draw a card that requires targets and there are no valid targets?</summary>
+<div class="faq-answer"><p>If a spell requires targets and no valid targets exist, the spell is countered by game rules (fails to resolve). It then follows the Deck's replacement rule &mdash; shuffle it back into the Deck instead of going to the graveyard.</p></div>
+</details>
+</section>
+
 <footer class="footer">
 <div class="footer-panel">
 <div class="footer-title">Forge &amp; Source</div>
@@ -845,6 +1058,10 @@ GitHub Repository
 </a>
 <a class="footer-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener">
 CC BY-NC-SA 4.0
+</a>
+<a class="footer-link" href="#faq">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+Rules FAQ
 </a>
 </div>
 <div class="footer-meta">
