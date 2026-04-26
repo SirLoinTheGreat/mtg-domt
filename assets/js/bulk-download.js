@@ -172,6 +172,27 @@ function showError(err) {
 
 let _activeAbortController = null;
 
+function todayStamp() {
+  const d = new Date();
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+}
+
+function triggerDownload(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => {
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, 1000);
+}
+
 // --- Public surface ---
 
 export function bulkDownloadAvailable() {
@@ -179,8 +200,70 @@ export function bulkDownloadAvailable() {
 }
 
 export async function startBulkDownload(scope) {
-  console.log('[bulk-download] starting', scope);
-  // Implementation in later tasks
+  if (!bulkDownloadAvailable()) {
+    console.warn('[bulk-download] not available');
+    return;
+  }
+  if (!Object.prototype.hasOwnProperty.call(SET_LABELS, scope)) {
+    console.warn('[bulk-download] unknown scope:', scope);
+    return;
+  }
+  if (_activeAbortController) {
+    console.warn('[bulk-download] download already in progress');
+    return;
+  }
+
+  const entries = buildFileList(scope);
+  if (entries.length === 0) {
+    console.warn('[bulk-download] no cards for scope', scope);
+    return;
+  }
+
+  const label = SET_LABELS[scope] || scope;
+  const ctrl = new AbortController();
+  _activeAbortController = ctrl;
+  const missing = [];
+
+  openModal(`Bundling ${label}…`);
+  updateModal({ index: 0, total: entries.length, currentName: 'Preparing…' });
+
+  // Build an async iterable of zip-input objects, fetched sequentially.
+  async function* zipInputs() {
+    for (let i = 0; i < entries.length; i++) {
+      if (ctrl.signal.aborted) return;
+      const entry = entries[i];
+      updateModal({ index: i, total: entries.length, currentName: entry.displayName });
+      const resp = await fetchCardWithRetry(entry.url, ctrl.signal);
+      if (resp === null) {
+        missing.push(entry.displayName);
+        continue;
+      }
+      yield {
+        name: entry.zipPath,
+        lastModified: new Date(),
+        input: resp,
+      };
+    }
+    updateModal({ index: entries.length, total: entries.length, currentName: 'Sealing archive…' });
+  }
+
+  try {
+    const zipResponse = downloadZip(zipInputs());
+    const blob = await zipResponse.blob();
+    if (ctrl.signal.aborted) return; // user cancelled while sealing
+    const filename = `domt-${scope}-${todayStamp()}.zip`;
+    triggerDownload(blob, filename);
+    showCompletion({ scope, missing });
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      closeModal();
+      return;
+    }
+    console.error('[bulk-download] failed:', err);
+    showError(err);
+  } finally {
+    if (_activeAbortController === ctrl) _activeAbortController = null;
+  }
 }
 
 // --- Wiring ---
