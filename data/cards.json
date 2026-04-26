@@ -52,8 +52,8 @@
         "Player"
       ],
       "subtypes": [],
-      "rules_text": "Game Master exists in a separate command zone. It has no life total, can't win or lose the game, can't be targeted or dealt damage, can't gain or lose abilities, goes last in turn order, and can be given control of permanents from the Deck of Many Things.\nSpells, abilities, or effects can target permanents under Game Master's control.\n(Game Master acts as a pseudo-player. It controls permanents but isn't a player and can't make choices that require player decision-making beyond basic combat. Effects that refer to \"each player\" or \"all players\" or \"opponents\" don't include Game Master unless specifically stated otherwise.)\nIf a creature Game Master controls doesn't specify which player it is attacking, that creature attacks a player chosen at random.",
-      "flavor_text": null,
+      "rules_text": "Game Master exists in a separate command zone as a pseudo-player. No life total. Can't win, lose, be targeted, or be dealt damage. Goes last in turn order.\nCan be given control of permanents from the Deck of Many Things. Permanents under Game Master's control can be targeted normally.\n(\"Each player\" / \"all players\" / \"opponents\" exclude Game Master unless stated. If a creature Game Master controls doesn't specify a target, it attacks a player chosen at random.)",
+      "flavor_text": "\"The deck has a hand. The hand has no face.\"",
       "power": null,
       "toughness": null,
       "color_identity": [],
