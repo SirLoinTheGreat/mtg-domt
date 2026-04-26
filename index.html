@@ -1833,5 +1833,24 @@ document.getElementById('lb-share').addEventListener('click', () => {
 
 init();
 </script>
+<!-- Bulk Download Progress Modal -->
+<div class="dl-modal-scrim" id="dl-modal" role="dialog" aria-modal="true" aria-labelledby="dl-modal-title" aria-hidden="true">
+  <div class="dl-modal" data-state="progress">
+    <h3 id="dl-modal-title">Bundling…</h3>
+    <div class="dl-modal-bar"><div class="dl-modal-bar-fill"></div></div>
+    <div class="dl-modal-status">
+      <span class="dl-modal-progress-text">0 of 0</span>
+      <span class="dl-modal-divider"> &mdash; </span>
+      <span class="current-card">Preparing…</span>
+    </div>
+    <div class="dl-modal-actions">
+      <button type="button" class="filter-btn" id="dl-modal-cancel">Cancel</button>
+    </div>
+    <details class="dl-modal-details" hidden>
+      <summary>Details</summary>
+      <pre></pre>
+    </details>
+  </div>
+</div>
 </body>
 </html>
