@@ -363,7 +363,7 @@ function renderDiscard() {
     const card = state.discard[state.discard.length - 1 - i];
     const img = document.createElement('img');
     img.className = 'discard-card';
-    img.src = imgUrl(card);
+    img.src = thumbUrl(card);
     img.alt = card.name;
     img.dataset.cardname = card.name;
     img.title = card.name;
@@ -475,7 +475,7 @@ function createAnimCard(card, startX, startY, targetX, targetY) {
 
   const front = document.createElement('img');
   front.className = 'anim-face anim-face-front';
-  front.src = imgUrl(card);
+  front.src = thumbUrl(card);  // 400px JPG — fast preload, crisp at 280px display
   front.alt = card.name;
 
   inner.appendChild(back);
@@ -746,13 +746,13 @@ function closeShareModal() {
 }
 
 function thumbUrl(card) {
-  // Use the JPG thumbnail (~30KB) instead of the full PNG (~7MB).
+  // Use the 400px JPG thumbnail (~30-65KB) instead of the full 2010×2814 PNG (~7MB).
   // image_file format: assets/cards/<set>/<file>.png  →  assets/cards/<set>/thumbs/<file>.jpg
   const path = card.image_file || '';
   const parts = path.split('/');
   const fileName = parts.pop().replace(/\.png$/, '.jpg');
   const thumbPath = [...parts, 'thumbs', fileName].map(encodeURIComponent).join('/');
-  return thumbPath + '?' + CACHE_BUST;
+  return projectUrl(thumbPath) + '?' + CACHE_BUST;
 }
 
 // --- Helpers ---
@@ -777,7 +777,10 @@ function preloadInner() {
   const indicator = document.getElementById('preload-indicator');
   const counter = document.getElementById('preload-counter');
   // Build the unique URL list for the active deck (dedupe just in case).
-  const urls = Array.from(new Set(state.deck.map(imgUrl)));
+  // Preload thumbnails (~50KB each, 7MB total for full deck) — same URLs the
+  // spread + discard render uses. Full PNGs (~7MB each) only load on demand
+  // when the user opens the lightbox.
+  const urls = Array.from(new Set(state.deck.map(thumbUrl)));
   const total = urls.length;
   if (total === 0) {
     if (indicator) indicator.style.display = 'none';
