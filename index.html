@@ -1363,6 +1363,8 @@ async function init() {
     return;
   }
   allCards = CARD_DATA.cards;
+  window.__galleryCards = allCards;
+  window.__galleryMeta = CARD_DATA.meta;
   const total = CARD_DATA.meta.total_cards;
   document.querySelector('.card-count').innerHTML =
     '<span class="count-num">' + total + '</span> cards drawn from four decks';
