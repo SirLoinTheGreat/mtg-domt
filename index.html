@@ -1052,6 +1052,10 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
 <h1>The Deck of Many Things</h1>
 <div class="subtitle">Magic: The Gathering Crossover</div>
 <div class="card-count">Loading cards...</div>
+<button type="button" class="download-btn-global" data-download-scope="all" id="download-all-btn" disabled title="Download all card art as one ZIP">
+  <span class="label">Download All Cards</span>
+  <span class="sublabel" id="download-all-sublabel">(loading…)</span>
+</button>
 </header>
 
 <nav class="controls">
@@ -1368,6 +1372,14 @@ async function init() {
   const total = CARD_DATA.meta.total_cards;
   document.querySelector('.card-count').innerHTML =
     '<span class="count-num">' + total + '</span> cards drawn from four decks';
+  const allBtn = document.getElementById('download-all-btn');
+  const allSub = document.getElementById('download-all-sublabel');
+  if (allBtn && allSub) {
+    allSub.textContent = `(${allCards.length} cards · ~1 GB)`;
+    // The bulk-download module enables/disables based on bulkDownloadAvailable()
+    // — re-fire gallery:ready so it re-checks and enables the button.
+    window.dispatchEvent(new CustomEvent('gallery:ready'));
+  }
   try {
     const histResp = await fetch('data/card_history.json?' + CACHE_BUST);
     if (histResp.ok) {
@@ -1472,7 +1484,7 @@ function render() {
         </div>
         <div class="set-meta">${meta}</div>
         <button type="button" class="download-btn" data-download-scope="${currentSet}" title="Download every card in this set as a ZIP">
-          <span class="glyph">&#x25BC;</span>
+          <span class="glyph" aria-hidden="true">&#x25BC;</span>
           <span>Download Set</span>
         </button>
       </div>`;
