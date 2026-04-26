@@ -502,8 +502,13 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   transform: rotateY(180deg);
 }
 
-/* Resolution beat: sentiment-tinted luminescence */
-.anim-card.beating .anim-card-inner {
+/* Resolution beat: sentiment-tinted luminescence.
+   Apply the filter to the OUTER .anim-card, NOT the inner — `filter` flattens
+   3D rendering on whichever element it's applied to, and the inner is the 3D
+   context for the flip (transform-style: preserve-3d + backface-visibility on
+   the faces). Putting the filter on the inner would briefly un-cull the back
+   face mid-beat, causing a "card → back-flash → card" glitch. */
+.anim-card.beating {
   animation: card-luminesce var(--lum-duration, 500ms) ease-out;
 }
 @keyframes card-luminesce {
