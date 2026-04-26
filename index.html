@@ -1467,7 +1467,7 @@ function render() {
   });
 
   for (const card of sorted) {
-    if (card.set !== currentSet && activeSet === 'all') {
+    if (card.set !== currentSet) {
       currentSet = card.set;
       inRefSection = null;
       const setCards = sorted.filter(c => c.set === currentSet);
@@ -1488,9 +1488,6 @@ function render() {
           <span>Download Set</span>
         </button>
       </div>`;
-    } else if (card.set !== currentSet) {
-      currentSet = card.set;
-      inRefSection = null;
     }
 
     // Sub-section header: emit when transitioning between reference and non-reference cards
