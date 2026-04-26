@@ -1021,7 +1021,7 @@
       "subtypes": [
         "Equipment"
       ],
-      "rules_text": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ token, then attach this to it.)\nEquipped creature gets +2/+2 and has flying and menace.\nAt the beginning of your upkeep, you may exile the top card of target opponent's library face down. You may look at and cast cards exiled with The Aberration, spending mana as though it were any color.\nWhenever equipped creature deals combat damage to a player, choose one —\n• Look at the top X cards of that player's library, where X is the damage dealt. Put one into your hand and the rest into their graveyard.\n• That player reveals their hand. You may cast a spell from it without paying its mana cost.\nEquip {0}",
+      "rules_text": "Living weapon (When this Equipment enters, create a 0/0 black Phyrexian Germ token, then attach this to it.)\nEquipped creature gets +2/+2 and has flying and menace.\nAt the beginning of your upkeep, you may exile the top card of target opponent's library face down. You may look at and cast cards exiled with The Aberration, spending mana as though it were any color.\nWhenever equipped creature deals combat damage to a player, choose one —\n• Look at the top X cards of that player's library, where X is the damage dealt. Put one into your hand and the rest into their graveyard.\n• That player reveals their hand. You may exile a card from it. You may cast that card without paying its mana cost any time you could cast a sorcery this turn.\nEquip {0}",
       "flavor_text": "The voices whisper secrets you were never meant to know. They never stop.",
       "power": null,
       "toughness": null,
@@ -1960,7 +1960,7 @@
       "subtypes": [
         "Desert"
       ],
-      "rules_text": "Creatures you control have haste.\n{T}: Add one mana of any color .\nWhenever a land enters tapped under your control, untap it.\nYou may play an additional land on each of your turns.\nLandfall — Draw a card.",
+      "rules_text": "Creatures you control have haste.\n{T}: Add one mana of any color.\nWhenever a land enters tapped under your control, untap it.\nYou may play an additional land on each of your turns.\nLandfall — Draw a card. This ability triggers only once each turn.",
       "flavor_text": "The road unrolled before her like a welcome mat for the multiverse.",
       "power": null,
       "toughness": null,
@@ -2351,7 +2351,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, create X 0/1 black and white Follower tokens with battle cry, where X is The Tavern's level.\nCreatures you control have training.\nLevel 2 — {2}: Charisma\nCreatures you control have \"Whenever this creature becomes trained, draw a card\" and \"Tap two untapped creatures you control: Tap target creature an opponent controls.\"\nCreature spells you cast have convoke.\nLevel 3 — {3}: Charisma\nAt the beginning of your upkeep, gain control of target creature an opponent controls with power X or less until end of turn, where X is the number of creatures you control. It gains haste.\nWhenever a creature enters under your control, put a +1/+1 counter on it.\nLevel 4 — {4}: Charisma\nWhenever a creature enters under an opponent's control, you may pay {2}. If you do, gain control of that creature.\nCreatures you control get +1/+1 for each different creature type among Cleric, Rogue, Warrior, and Wizard you control.",
+      "rules_text": "(Gain the next level as a sorcery to add its ability.)\nAt the beginning of your upkeep, create X 0/1 black and white Follower tokens with battle cry, where X is The Tavern's level.\nCreatures you control have training.\nLevel 2 — {2}: Charisma\nCreatures you control have \"Whenever this creature becomes trained, draw a card\" and \"Tap two untapped creatures you control: Tap target creature an opponent controls.\"\nCreature spells you cast have convoke.\nLevel 3 — {3}: Charisma\nAt the beginning of your upkeep, gain control of target creature an opponent controls with power X or less until end of turn, where X is the number of creatures you control. It gains haste.\nWhenever a creature enters under your control, put a +1/+1 counter on it.\nLevel 4 — {4}: Charisma\nWhenever a noncommander creature enters under an opponent's control, you may pay {2}. If you do, gain control of that creature.\nCreatures you control get +1/+1 for each different creature type among Cleric, Rogue, Warrior, and Wizard you control.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -2701,7 +2701,7 @@
         "Aura",
         "Curse"
       ],
-      "rules_text": "Enchant player\nVanishing 5 (This permanent enters with five time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nWhenever a creature enchanted player controls blocks or becomes blocked by a creature an opponent controls, that creature gets -2/-2 until end of combat.\nIf damage would be dealt to enchanted player or creatures they control by a source an opponent controls, that damage is doubled.",
+      "rules_text": "Enchant player\nVanishing 5 (This permanent enters with five time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nWhenever a creature enchanted player controls blocks or becomes blocked by a creature an opponent controls, the creature enchanted player controls gets -2/-2 until end of combat.\nIf damage would be dealt to enchanted player or creatures they control by a source an opponent controls, that source deals double that damage instead.",
       "flavor_text": "\"In the end, it wasn't the pain that broke him. It was knowing there would always be more.\"",
       "power": null,
       "toughness": null,
@@ -2733,7 +2733,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Choose target opponent. Gain control of all creatures that player controls until end of turn and they gain haste. For each creature that changed control this way, create a Treachery token. (It's an enchantment token with \"At the beginning of your upkeep, the chosen opponent loses 1 life.\" and \"Vanishing 3\".)\nWhenever a creature you control that you don't own deals combat damage to a player this turn, exile the top card of that player's library. You may play that card this turn without paying its mana cost.",
+      "rules_text": "Choose target opponent. Gain control of all creatures that player controls until end of turn and they gain haste. For each creature that changed control this way, create a Treachery enchantment token attached to that player. (It's an Aura Curse with \"Enchant player\", \"At the beginning of enchanted player's upkeep, that player loses 1 life,\" and Vanishing 3.)\nWhenever a creature you control that you don't own deals combat damage to a player this turn, exile the top card of that player's library. You may play that card this turn without paying its mana cost.",
       "flavor_text": "\"They fought beside you yesterday. They'll fight against you now.\" -- Kaya, the Betrayer",
       "power": null,
       "toughness": null,
@@ -2830,7 +2830,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "When you cast The Carnival, exile the top nine cards of the Deck of Many Things. An opponent looks at those cards, turns them face down, and shuffles them. Choose one at random, reveal it, then cast it without paying its mana cost. Put the remaining exiled cards into the Deck of Many Things and shuffle.\nFlip a coin. If you win the flip, repeat the above process. If you lose the flip, discard a card at random.",
+      "rules_text": "When you cast The Carnival, exile the top nine cards of the Deck of Many Things. An opponent looks at those cards, turns them face down, and shuffles them. Choose one at random, reveal it, then cast it without paying its mana cost. If that card requires targets, target The Carnival's controller wherever legal; otherwise its controller chooses targets. Put the remaining exiled cards into the Deck of Many Things and shuffle.\nFlip a coin. If you win the flip, repeat the above process. If you lose the flip, discard a card at random.",
       "flavor_text": "\"Behind these curtains lie nine fates. Choose carefully — or don't. The show must go on.\"",
       "power": null,
       "toughness": null,
@@ -2866,7 +2866,7 @@
         "Human",
         "Advisor"
       ],
-      "rules_text": "When The Courtesan enters, choose target artifact you control. It becomes an Artifact Creature with base power and toughness equal to its mana value and gains indestructible and two of the following at random:\n• Flying and vigilance\n• Deathtouch and lifelink\n• Double strike\n• Hexproof and ward {2}\n• \"Whenever this creature deals combat damage to a player, draw two cards.\"\n• \"At the beginning of your upkeep, create a Treasure token.\"\nIf you control no artifacts, search your library for an artifact card, put it onto the battlefield, then shuffle. It becomes a 4/4 Artifact Creature with two of the abilities above at random.\nWhen The Courtesan leaves, the chosen artifact remains a creature.",
+      "rules_text": "When The Courtesan enters, choose target artifact you control. It becomes an artifact creature with base power and toughness equal to its mana value, gains the creature type Construct in addition to its other types, and gains indestructible and two of the following at random:\n• Flying and vigilance\n• Deathtouch and lifelink\n• Double strike\n• Hexproof and ward {2}\n• \"Whenever this creature deals combat damage to a player, draw two cards.\"\n• \"At the beginning of your upkeep, create a Treasure token.\"\nIf you control no artifacts, search your library for an artifact card, put it onto the battlefield, then shuffle. It becomes a 4/4 Construct artifact creature with two of the abilities above at random.\nWhen The Courtesan leaves, the chosen artifact remains an artifact creature.",
       "flavor_text": "She spoke to the sword, and the sword answered.",
       "power": 2,
       "toughness": 3,
@@ -2901,7 +2901,7 @@
       "subtypes": [
         "Insect"
       ],
-      "rules_text": "When The Cricket enters, you may choose to draw up to three additional cards from the Deck of Many Things. For each card drawn this way, put a Cricket counter on The Cricket.\nAt the beginning of your upkeep, you may reveal the top X cards of your library, where X is the number of Cricket counters on The Cricket. Put any number of lands revealed this way onto the battlefield tapped, then put the rest on the bottom of your library in a random order.\nLandfall — Draw X cards for each Cricket counter on The Cricket. This ability triggers only twice each turn.\nYou may play an additional land on each of your turns for each Cricket counter on The Cricket.",
+      "rules_text": "When The Cricket enters, you may choose to draw up to three additional cards from the Deck of Many Things. For each card drawn this way, put a Cricket counter on The Cricket.\nAt the beginning of your upkeep, you may reveal the top X cards of your library, where X is the number of Cricket counters on The Cricket. Put any number of lands revealed this way onto the battlefield tapped, then put the rest on the bottom of your library in a random order.\nLandfall — Draw X cards, where X is the number of Cricket counters on The Cricket. This ability triggers only twice each turn.\nYou may play an additional land on each of your turns for each Cricket counter on The Cricket.",
       "flavor_text": "\"Curiosity often leaps faster than caution.\"",
       "power": "1",
       "toughness": "2",
@@ -2932,7 +2932,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Each player chooses a creature they control and an artifact or enchantment they control. An opponent chosen at random chooses one of those permanents for each player. Each player sacrifices the chosen permanent. For each permanent sacrificed this way, that permanent's controller's opponents each draw a card.",
+      "rules_text": "Each player chooses a creature they control and, if they control any, an artifact or enchantment they control. An opponent chosen at random chooses one of those permanents for each player. Each player sacrifices the chosen permanent. For each permanent sacrificed this way, that permanent's controller's opponents each draw a card. Each player who controls no artifacts or enchantments instead loses 3 life and discards a card.",
       "flavor_text": "\"The crows care not for gold or flesh — only that a price is paid.\"",
       "power": null,
       "toughness": null,
@@ -2965,7 +2965,7 @@
       "subtypes": [
         "Elemental"
       ],
-      "rules_text": "Vanishing 4 (This permanent enters with four time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice this and exile all of the marked player's nonland permanents. That player planeswalks to the Plane of Air.)\nFlash, flying, haste, ward {2}\nWhen The Cyclone enters, mark the player who summoned it, and an opponent chosen at random gains control of it.\nThe Cyclone attacks the marked player each combat if able and can't block. As long as The Cyclone is on the battlefield, other creatures and players can't attack or target the marked player.",
+      "rules_text": "Vanishing 4 (This permanent enters with four time counters on it. At the beginning of your upkeep, remove a time counter from it. When the last is removed, sacrifice it.)\nFlash, flying, haste, ward {2}\nWhen The Cyclone enters, mark the player who summoned it, and an opponent chosen at random gains control of it.\nWhen the last time counter is removed from The Cyclone, exile all of the marked player's nonland permanents. That player planeswalks to the Plane of Air.\nThe Cyclone attacks the marked player each combat if able and can't block. As long as The Cyclone is on the battlefield, other creatures and players can't attack or target the marked player.",
       "flavor_text": "\"Face me alone, mortal. Time grows short, and the winds of fate grow restless.\"",
       "power": "8",
       "toughness": "8",
@@ -3038,7 +3038,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "At the beginning of each opponent's upkeep, that player loses 1 life unless they pay {B}.\n{1}: Choose target creature an opponent controls. That creature's controller may pay {1}. If they don't, exile that creature and create a Soul Gem artifact token with:\n\"When this artifact enters, it gains a charge counter for each point of power the exiled creature had.\",\n\"Remove a charge counter: Add one mana of any color.\", and\n\"{B}, Pay X life, Sacrifice this artifact: Return the exiled creature to the battlefield under its owner's control, where X is that creature's mana value.\"\nIf The Demon's Lantern leaves, destroy all Soul Gems.",
+      "rules_text": "At the beginning of each opponent's upkeep, that player loses 1 life unless they pay {B}.\n{1}: Choose target creature an opponent controls. That creature's controller may pay {1}. If they don't, exile that creature and create a Soul Gem artifact token with:\n\"When this artifact enters, it gains a charge counter for each point of power the exiled creature had.\",\n\"Remove a charge counter: Add one mana of any color.\", and\n\"{B}, Pay X life, Sacrifice this artifact: Return the exiled creature to the battlefield under its owner's control, where X is the greater of 1 and that creature's mana value.\"\nIf The Demon's Lantern leaves, destroy all Soul Gems.",
       "flavor_text": "\"The gem's light glows brighter with every whisper of despair.\"",
       "power": null,
       "toughness": null,
@@ -3106,7 +3106,7 @@
       "subtypes": [
         "Demon"
       ],
-      "rules_text": "Flying, haste\nWhen The Demon enters, choose a player. That player becomes marked. (A marked player's maximum hand size is reduced by one for each doom counter on The Demon.)\nWhenever The Demon deals combat damage to the marked player, put a doom counter on it and scry 1.\nAt the beginning of marked player's upkeep, The Demon deals damage to that player equal to the number of doom counters on it.\nWhen The Demon has five or more doom counters on it, the marked player loses the game.",
+      "rules_text": "Flying, haste\nWhen The Demon enters, choose a player. That player becomes marked. (A marked player's maximum hand size is reduced by one for each doom counter on The Demon.)\nWhenever The Demon deals combat damage to the marked player, put a doom counter on it and scry 1.\nAt the beginning of marked player's upkeep, The Demon deals damage to that player equal to the number of doom counters on it.\nWhenever a doom counter is put on The Demon, if it has five or more doom counters on it, the marked player loses the game.",
       "flavor_text": "\"Your soul caught my eye. Soon, it shall catch my claws.\"",
       "power": "4",
       "toughness": "4",
@@ -3997,7 +3997,7 @@
         "Aura",
         "Curse"
       ],
-      "rules_text": "Enchant player\nWhen Curse of Leprosy enters and during your upkeep, put a disease counter on it.\nAt the beginning of your end step, lose 2 life for each disease counter on Curse of Leprosy.\nCreatures you control can't gain counters and get -1/-1 for each disease counter on Curse of Leprosy.\nPay X life, where X is twice the number of disease counters on Curse of Leprosy: Remove a disease counter. Activate only as a sorcery and only if Curse of Leprosy has two or more disease counters on it.",
+      "rules_text": "Enchant player\nWhen Curse of Leprosy enters and at the beginning of your upkeep, put a disease counter on it.\nAt the beginning of your end step, lose 2 life for each disease counter on Curse of Leprosy.\nCreatures you control can't gain counters and get -1/-1 for each disease counter on Curse of Leprosy.\nPay X life, where X is twice the number of disease counters on Curse of Leprosy: Remove a disease counter. Activate only as a sorcery and only if Curse of Leprosy has two or more disease counters on it.",
       "flavor_text": "\"The flesh remembers what the mind wishes to forget.\"",
       "power": null,
       "toughness": null,
@@ -4030,7 +4030,7 @@
         "Instant"
       ],
       "subtypes": [],
-      "rules_text": "Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.)\nPut X -1/-1 counters on target creature, where X is twice that creature's power. Then create X 1/1 green Snake tokens with deathtouch and wither.\nExile The Snakebite with three time counters on it and suspend 3. (At the beginning of your upkeep, remove a time counter. When the last is removed, cast this card without paying its mana cost.)\nWhen you cast The Snakebite from exile, double the number of poison counters each player has.",
+      "rules_text": "Split second (As long as this spell is on the stack, players can't cast spells or activate abilities that aren't mana abilities.)\nPut X -1/-1 counters on target creature, where X is twice that creature's power. Then create X 1/1 green Snake tokens with deathtouch and wither.\nIf The Snakebite would be put into a graveyard from the stack, instead exile it with three time counters on it. Suspend (At the beginning of your upkeep, remove a time counter. When the last is removed, cast this card without paying its mana cost.)\nWhen you cast The Snakebite from exile, double the number of poison counters each player has.",
       "flavor_text": "\"First comes fear. Then pain. Finally, the blessed numbness of acceptance.\"",
       "power": null,
       "toughness": null,
