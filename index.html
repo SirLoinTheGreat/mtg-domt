@@ -524,6 +524,8 @@ white-space:nowrap;
 text-shadow:0 0 24px rgba(212,175,60,.2);
 }
 .set-header .set-meta{
+display:inline-flex;align-items:center;
+gap:1.25rem;
 font-family:'Cinzel',serif;
 font-size:.72rem;color:var(--text-dim);
 letter-spacing:.18em;text-transform:uppercase;
@@ -962,8 +964,6 @@ margin-left:.5rem;vertical-align:middle;
 .download-btn-global:disabled{
   opacity:.4;cursor:not-allowed;box-shadow:none;
 }
-
-.set-header .download-btn{margin-left:1rem}
 
 /* Progress modal */
 .dl-modal-scrim{
@@ -1482,11 +1482,13 @@ function render() {
           <h2>${SET_NAMES[currentSet] || currentSet}</h2>
           ${DIVIDER_SVG('right')}
         </div>
-        <div class="set-meta">${meta}</div>
-        <button type="button" class="download-btn" data-download-scope="${currentSet}" title="Download every card in this set as a ZIP">
-          <span class="glyph" aria-hidden="true">&#x25BC;</span>
-          <span>Download Set</span>
-        </button>
+        <div class="set-meta">
+          <span class="set-meta-text">${meta}</span>
+          <button type="button" class="download-btn" data-download-scope="${currentSet}" title="Download every card in this set as a ZIP">
+            <span class="glyph" aria-hidden="true">&#x25BC;</span>
+            <span>Download Set</span>
+          </button>
+        </div>
       </div>`;
     }
 
