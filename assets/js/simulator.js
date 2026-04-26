@@ -11,6 +11,9 @@ const CARD_BACK_SRC = 'assets/cards/original/Card%20Back.png';
 const MIN_DRAW = 1;
 const MAX_DRAW = 13;
 
+const SET_INITIALS = { o: 'original', e: 'expansion', h: 'harrow', w: 'wonder' };
+const SET_TO_INITIAL = { original: 'o', expansion: 'e', harrow: 'h', wonder: 'w' };
+
 // --- Animation tuning ---
 const ANIM = {
   liftMs: 200,
@@ -42,6 +45,49 @@ const state = {
   isAnimating: false,      // Phase 4: gates controls during choreography
 };
 
+// --- URL state ---
+function readURLState() {
+  const params = new URLSearchParams(window.location.search);
+  const result = { sets: null, seed: null, n: null };
+
+  if (params.has('sets')) {
+    const raw = (params.get('sets') || '').toLowerCase();
+    const parsed = new Set();
+    for (const ch of raw) {
+      if (SET_INITIALS[ch]) parsed.add(SET_INITIALS[ch]);
+    }
+    if (parsed.size > 0) result.sets = parsed;
+  }
+
+  if (params.has('seed')) {
+    const raw = parseInt(params.get('seed'), 10);
+    if (Number.isFinite(raw) && raw >= 0) result.seed = raw >>> 0;  // coerce to uint32
+  }
+
+  if (params.has('n')) {
+    const raw = parseInt(params.get('n'), 10);
+    if (Number.isFinite(raw) && raw >= MIN_DRAW && raw <= MAX_DRAW) result.n = raw;
+  }
+
+  return result;
+}
+
+function writeURLState({ includeSeed = false } = {}) {
+  const params = new URLSearchParams();
+  // sets — only write if not all four (default is clean URL)
+  const sortedSets = ALL_SETS.filter(s => state.activeSets.has(s));
+  if (sortedSets.length < 4) {
+    params.set('sets', sortedSets.map(s => SET_TO_INITIAL[s]).join(''));
+  }
+  if (includeSeed && state.seed != null && state.lastDrawN != null) {
+    params.set('seed', String(state.seed >>> 0));
+    params.set('n', String(state.lastDrawN));
+  }
+  const qs = params.toString();
+  const newURL = window.location.pathname + (qs ? '?' + qs : '');
+  window.history.replaceState(null, '', newURL);
+}
+
 // --- Bootstrap ---
 async function init() {
   let cardsData, history;
@@ -57,7 +103,11 @@ async function init() {
   }
 
   state.allCards = cardsData.cards || cardsData || [];
-  state.seed = freshSeed();
+
+  // Read URL state for replay/config.
+  const urlState = readURLState();
+  if (urlState.sets) state.activeSets = urlState.sets;
+  state.seed = urlState.seed != null ? urlState.seed : freshSeed();
   state.rng = mulberry32(state.seed);
 
   // Init the lightbox module with the same data the gallery uses.
@@ -84,6 +134,16 @@ async function init() {
   rebuildDeck();
   renderAll();
   wireControls();
+
+  // Replay mode: if seed AND n were both in URL, auto-draw n cards.
+  if (urlState.seed != null && urlState.n != null) {
+    const replayN = Math.min(urlState.n, state.deck.length);
+    if (replayN > 0) {
+      // Slight delay so the user sees the deck before the draw fires.
+      await sleep(400);
+      await draw(replayN);
+    }
+  }
 }
 
 // --- Deck management ---
@@ -169,6 +229,13 @@ async function draw(n) {
 
   state.isAnimating = false;
   renderControls();
+
+  // Capture seed + n in URL so the user can share / replay this draw.
+  // Note: state.seed is the seed that produced the current deck order, and
+  // state.lastDrawN is the count we just drew — together they reproduce
+  // the LAST draw on a fresh load (subsequent draws within a session shift
+  // cards but don't change the seed, so only the most recent draw replays).
+  writeURLState({ includeSeed: true });
 }
 
 // --- Set toggles ---
@@ -198,6 +265,12 @@ function toggleSet(setKey) {
   state.rng = mulberry32(state.seed);
   rebuildDeck();
   renderAll();
+
+  // Clear any lingering spread visuals (sub-deck change wipes the spread).
+  const spreadArea = document.getElementById('spread-area');
+  if (spreadArea) spreadArea.innerHTML = '';
+
+  writeURLState();  // sets only — no seed (no draw to replay)
 }
 
 // --- Rendering ---
@@ -485,6 +558,8 @@ async function reshuffle() {
 
   const emptyPrompt = document.getElementById('empty-prompt');
   if (emptyPrompt) emptyPrompt.style.display = '';
+
+  writeURLState();  // sets only — no draw to replay after reshuffle
 }
 
 async function animateReturnToDeck() {
@@ -531,6 +606,8 @@ function resetSession() {
   rebuildDeck();  // already clears spread + discard
   renderAll();
   showToast('Session reset.', 1500);
+
+  writeURLState();  // sets only — fresh session, no draw to replay
 }
 
 function openDiscardModal() {
@@ -564,6 +641,47 @@ function openDiscardModal() {
 
 function closeDiscardModal() {
   const modal = document.getElementById('discard-modal');
+  if (!modal) return;
+  modal.setAttribute('data-open', 'false');
+  modal.setAttribute('aria-hidden', 'true');
+}
+
+// --- Share link ---
+function shareLink() {
+  const params = new URLSearchParams();
+  // Always include sets in shared URL (explicit is friendlier than implicit default).
+  const sortedSets = ALL_SETS.filter(s => state.activeSets.has(s));
+  params.set('sets', sortedSets.map(s => SET_TO_INITIAL[s]).join(''));
+  if (state.lastDrawN != null) {
+    params.set('seed', String(state.seed >>> 0));
+    params.set('n', String(state.lastDrawN));
+  }
+  const url = window.location.origin + window.location.pathname + '?' + params.toString();
+
+  // Try clipboard API; fall back to modal if it rejects (e.g. non-secure context).
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(
+      () => showToast('Share link copied to clipboard.', 1800),
+      () => openShareFallback(url)
+    );
+  } else {
+    openShareFallback(url);
+  }
+}
+
+function openShareFallback(url) {
+  const modal = document.getElementById('share-modal');
+  const input = document.getElementById('share-url');
+  if (!modal || !input) return;
+  input.value = url;
+  modal.setAttribute('data-open', 'true');
+  modal.setAttribute('aria-hidden', 'false');
+  // Auto-select for easy manual copy.
+  setTimeout(() => { input.focus(); input.select(); }, 50);
+}
+
+function closeShareModal() {
+  const modal = document.getElementById('share-modal');
   if (!modal) return;
   modal.setAttribute('data-open', 'false');
   modal.setAttribute('aria-hidden', 'true');
@@ -650,15 +768,42 @@ function wireControls() {
       }
     });
   }
-  // Escape closes the discard modal.
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      const modal = document.getElementById('discard-modal');
-      if (modal && modal.getAttribute('data-open') === 'true') closeDiscardModal();
-    }
-  });
 
-  // Phase 6 will wire share button + URL state.
+  // Phase 6: Share button + share-modal handlers.
+  const shareBtn = document.getElementById('share-btn');
+  if (shareBtn) shareBtn.addEventListener('click', shareLink);
+
+  const shareModal = document.getElementById('share-modal');
+  if (shareModal) {
+    shareModal.addEventListener('click', (e) => {
+      if (e.target === shareModal || (e.target.classList && e.target.classList.contains('sim-modal-close'))) {
+        closeShareModal();
+      }
+    });
+  }
+  const shareCopyBtn = document.getElementById('share-copy-btn');
+  if (shareCopyBtn) {
+    shareCopyBtn.addEventListener('click', () => {
+      const input = document.getElementById('share-url');
+      if (!input) return;
+      input.select();
+      try {
+        document.execCommand('copy');
+        showToast('Copied to clipboard.', 1500);
+      } catch (_) {
+        showToast('Press Ctrl/Cmd+C to copy.', 2400);
+      }
+    });
+  }
+
+  // Escape closes either modal.
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    const dm = document.getElementById('discard-modal');
+    if (dm && dm.getAttribute('data-open') === 'true') closeDiscardModal();
+    const sm = document.getElementById('share-modal');
+    if (sm && sm.getAttribute('data-open') === 'true') closeShareModal();
+  });
 }
 
 if (document.readyState === 'loading') {
