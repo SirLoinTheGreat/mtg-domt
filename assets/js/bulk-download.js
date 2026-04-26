@@ -6,6 +6,7 @@ import { downloadZip } from '../vendor/client-zip-2.x.js';
 // Library is ready iff the import resolved and exported the expected function.
 // Hoisted to top so it's set before any consumer (e.g. wireButtons) reads it.
 const _libraryReady = typeof downloadZip === 'function';
+if (_libraryReady) window.__bulkDownloadReady = true;
 
 const SET_LABELS = {
   all: 'All Cards',

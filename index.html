@@ -1872,6 +1872,19 @@ init();
     </details>
   </div>
 </div>
+<script>
+// Fallback: if the bulk-download module fails to load, disable buttons after a grace period.
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    if (!window.__bulkDownloadReady) {
+      document.querySelectorAll('[data-download-scope]').forEach(btn => {
+        btn.disabled = true;
+        btn.title = 'Download unavailable — refresh page';
+      });
+    }
+  }, 2500);
+});
+</script>
 <script type="module" src="./assets/js/bulk-download.js"></script>
 </body>
 </html>
