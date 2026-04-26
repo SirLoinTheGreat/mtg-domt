@@ -392,10 +392,6 @@ function buildSpreadSlots(n, spreadArea) {
   for (let i = 0; i < n; i++) {
     const slot = document.createElement('div');
     slot.className = 'spread-slot';
-    slot.style.width = '200px';
-    slot.style.height = '280px';
-    slot.style.flex = '0 0 auto';
-    slot.style.visibility = 'hidden';
     slots.push(slot);
     spreadArea.appendChild(slot);
   }

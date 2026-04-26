@@ -81,6 +81,26 @@ color:var(--gold);font-size:1rem;letter-spacing:.04em;
 margin-right:.25rem;
 text-shadow:0 0 14px rgba(212,175,60,.25);
 }
+.sim-entry-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  margin-top: .8rem;
+  font-family: 'Cinzel', serif;
+  font-size: .82rem;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: .15rem;
+  transition: color .25s ease, border-color .25s ease;
+}
+.sim-entry-link:hover {
+  color: var(--gold-bright);
+  border-bottom-color: var(--gold);
+}
 
 /* CONTROLS */
 .controls{
@@ -846,6 +866,7 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
   <span class="label">Download All Cards</span>
   <span class="sublabel" id="download-all-sublabel">(loading…)</span>
 </button>
+<div><a class="sim-entry-link" href="./simulator.html">⚄ Playtest Simulator →</a></div>
 </header>
 
 <nav class="controls">
