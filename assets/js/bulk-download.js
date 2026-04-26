@@ -62,6 +62,114 @@ async function fetchCardWithRetry(url, signal) {
   return null;
 }
 
+// --- Progress modal helpers ---
+
+let _previouslyFocused = null;
+let _escListener = null;
+
+function modalEl() {
+  return document.getElementById('dl-modal');
+}
+
+function openModal(title) {
+  const root = modalEl();
+  if (!root) return;
+  const inner = root.querySelector('.dl-modal');
+  inner.dataset.state = 'progress';
+  root.querySelector('#dl-modal-title').textContent = title;
+  const fill = root.querySelector('.dl-modal-bar-fill');
+  fill.style.setProperty('--dl-progress', '0%');
+  const bar = root.querySelector('.dl-modal-bar');
+  bar.setAttribute('aria-valuemax', '0');
+  bar.setAttribute('aria-valuenow', '0');
+  root.querySelector('.dl-modal-progress-text').textContent = '0 of 0';
+  root.querySelector('.current-card').textContent = 'Preparing…';
+  const details = root.querySelector('.dl-modal-details');
+  details.hidden = true;
+  details.querySelector('pre').textContent = '';
+  const cancelBtn = root.querySelector('#dl-modal-cancel');
+  cancelBtn.textContent = 'Cancel';
+  root.setAttribute('data-open', 'true');
+  root.setAttribute('aria-hidden', 'false');
+
+  // Focus management
+  _previouslyFocused = document.activeElement;
+  cancelBtn.focus();
+
+  // Escape-to-cancel + focus trap (single focusable element makes the trap trivial)
+  _escListener = (ev) => {
+    if (ev.key === 'Escape') {
+      ev.preventDefault();
+      cancelBtn.click();
+    } else if (ev.key === 'Tab') {
+      // Only one focusable element — keep it focused
+      ev.preventDefault();
+      cancelBtn.focus();
+    }
+  };
+  document.addEventListener('keydown', _escListener);
+}
+
+function updateModal({ index, total, currentName }) {
+  const root = modalEl();
+  if (!root) return;
+  const pct = total === 0 ? 0 : Math.round((index / total) * 100);
+  root.querySelector('.dl-modal-bar-fill').style.setProperty('--dl-progress', pct + '%');
+  const bar = root.querySelector('.dl-modal-bar');
+  bar.setAttribute('aria-valuemax', String(total));
+  bar.setAttribute('aria-valuenow', String(index));
+  root.querySelector('.dl-modal-progress-text').textContent = `${index} of ${total}`;
+  root.querySelector('.current-card').textContent = currentName;
+}
+
+function closeModal() {
+  const root = modalEl();
+  if (!root) return;
+  root.setAttribute('data-open', 'false');
+  root.setAttribute('aria-hidden', 'true');
+  if (_escListener) {
+    document.removeEventListener('keydown', _escListener);
+    _escListener = null;
+  }
+  if (_previouslyFocused && typeof _previouslyFocused.focus === 'function') {
+    _previouslyFocused.focus();
+  }
+  _previouslyFocused = null;
+}
+
+function showCompletion({ scope, missing }) {
+  const root = modalEl();
+  if (!root) return;
+  const inner = root.querySelector('.dl-modal');
+  inner.dataset.state = 'progress';
+  const title = missing.length === 0 ? 'Bundle ready — opening…' : 'Bundle ready';
+  root.querySelector('#dl-modal-title').textContent = title;
+  if (missing.length > 0) {
+    root.querySelector('.dl-modal-status').innerHTML =
+      `${missing.length} card${missing.length === 1 ? '' : 's'} couldn't be fetched.`;
+    const details = root.querySelector('.dl-modal-details');
+    details.hidden = false;
+    details.querySelector('pre').textContent = missing.join('\n');
+    root.querySelector('#dl-modal-cancel').textContent = 'Close';
+    return; // do not auto-dismiss; user closes manually
+  }
+  // Full success: auto-dismiss after 1s
+  setTimeout(closeModal, 1000);
+}
+
+function showError(err) {
+  const root = modalEl();
+  if (!root) return;
+  const inner = root.querySelector('.dl-modal');
+  inner.dataset.state = 'error';
+  root.querySelector('#dl-modal-title').textContent = 'Bundle failed — try again';
+  root.querySelector('.dl-modal-status').textContent = '';
+  const details = root.querySelector('.dl-modal-details');
+  details.hidden = false;
+  details.querySelector('pre').textContent = String(err && err.stack || err || 'Unknown error');
+  root.querySelector('#dl-modal-cancel').textContent = 'Close';
+}
+
 let _activeAbortController = null;
 
 // --- Public surface ---
@@ -80,12 +188,24 @@ export async function startBulkDownload(scope) {
 function wireButtons() {
   const buttons = document.querySelectorAll('[data-download-scope]');
   buttons.forEach(btn => {
+    if (btn.dataset.dlWired === '1') return;
+    btn.dataset.dlWired = '1';
     btn.addEventListener('click', () => {
       const scope = btn.dataset.downloadScope;
       startBulkDownload(scope);
     });
     if (!bulkDownloadAvailable()) btn.disabled = true;
   });
+
+  const cancel = document.getElementById('dl-modal-cancel');
+  if (cancel && !cancel.dataset.dlWired) {
+    cancel.dataset.dlWired = '1';
+    cancel.addEventListener('click', () => {
+      if (_activeAbortController) _activeAbortController.abort();
+      // closeModal handles aria-hidden, focus restore, and removes the keydown listener
+      closeModal();
+    });
+  }
 }
 
 if (document.readyState === 'loading') {
