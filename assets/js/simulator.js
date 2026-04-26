@@ -22,7 +22,7 @@ const ANIM = {
   beatMs: 500,
   cascadeStaggerMs: 100,    // for Draw 4+ flip cascade
   perCardSequentialMs: 1300, // total per-card budget for Draw 1-3
-  discardSlideMs: 400,
+  discardSlideMs: 550,
 };
 
 const SENTIMENT_LUM = {
@@ -150,6 +150,7 @@ async function init() {
   renderAll();
   wireControls();
   renderFateDisplay();
+  preloadDeckImages();
 
   // Replay mode: if seed AND n were both in URL, auto-draw n cards.
   if (urlState.seed != null && urlState.n != null) {
@@ -291,6 +292,7 @@ function toggleSet(setKey) {
   state.rng = mulberry32(state.seed);
   rebuildDeck();
   renderAll();
+  preloadDeckImages();  // eligible card set changed — restart preload
 
   // Clear any lingering spread visuals (sub-deck change wipes the spread).
   const spreadArea = document.getElementById('spread-area');
@@ -397,6 +399,10 @@ function renderControls() {
   if (reset) reset.disabled = state.isAnimating;
   const share = document.getElementById('share-btn');
   if (share) share.disabled = state.isAnimating;
+  const viewDiscard = document.getElementById('view-discard-btn');
+  const viewDiscardCount = document.getElementById('view-discard-count');
+  if (viewDiscard) viewDiscard.disabled = state.isAnimating || state.discard.length === 0;
+  if (viewDiscardCount) viewDiscardCount.textContent = String(state.discard.length);
 }
 
 function openCardLightbox(card) {
@@ -549,10 +555,14 @@ async function animateSpreadToDiscard(spreadArea, discardEl) {
 
   const targetPos = getRelativePos(discardEl, spreadArea);
   oldCards.forEach((c, i) => {
-    c.classList.remove('settled');
-    c.classList.add('discarding');
-    // Override transform inline so the discard motion takes precedence over CSS class transforms.
-    c.style.transform = `translate(${targetPos.x}px, ${targetPos.y}px) rotate(${(i % 2 === 0 ? -1 : 1) * 8}deg)`;
+    // Atomic swap: classList.replace avoids any intermediate frame where neither class is set
+    // (which would snap to the base .anim-card transform = deck position via --start-x/y).
+    c.classList.replace('settled', 'discarding');
+    // Force layout so the .discarding class's default transform (settled position) commits
+    // before we override it inline — guarantees the transition starts from the spread, not the deck.
+    void c.offsetWidth;
+    // Slide toward the discard pile, rotating slightly and shrinking to merge with the pile.
+    c.style.transform = `translate(${targetPos.x}px, ${targetPos.y}px) rotate(${(i % 2 === 0 ? -1 : 1) * 8}deg) scale(0.6)`;
     c.style.opacity = '0';
   });
   await sleep(ANIM.discardSlideMs);
@@ -738,6 +748,52 @@ function imgUrl(card) {
   return (card.image_file || '').split('/').map(encodeURIComponent).join('/') + '?' + CACHE_BUST;
 }
 
+// --- Image preloading ---
+// Browsers cache by full URL, so the preload URL must match the runtime URL
+// exactly (CACHE_BUST and all). We reuse imgUrl() above to guarantee that.
+let _preloadCancelled = false;
+
+function preloadDeckImages() {
+  // Cancel any in-flight preload (e.g., user toggled sub-decks mid-preload).
+  _preloadCancelled = true;
+  // Kick a new attempt on next microtask so callbacks from the cancelled run drop out first.
+  setTimeout(() => { _preloadCancelled = false; preloadInner(); }, 0);
+}
+
+function preloadInner() {
+  const indicator = document.getElementById('preload-indicator');
+  const counter = document.getElementById('preload-counter');
+  // Build the unique URL list for the active deck (dedupe just in case).
+  const urls = Array.from(new Set(state.deck.map(imgUrl)));
+  const total = urls.length;
+  if (total === 0) {
+    if (indicator) indicator.style.display = 'none';
+    return;
+  }
+  if (indicator) {
+    indicator.style.display = '';
+    indicator.style.opacity = '1';
+  }
+  if (counter) counter.textContent = `0 / ${total}`;
+
+  let done = 0;
+  const onSettle = () => {
+    if (_preloadCancelled) return;
+    done++;
+    if (counter) counter.textContent = `${done} / ${total}`;
+    if (done === total && indicator) {
+      indicator.style.opacity = '0';
+      setTimeout(() => { indicator.style.display = 'none'; }, 500);
+    }
+  };
+  urls.forEach(url => {
+    const img = new Image();
+    img.onload = onSettle;
+    img.onerror = onSettle;  // count errors too — don't hang on broken paths
+    img.src = url;
+  });
+}
+
 function showToast(message, durationMs = 2400) {
   const container = document.getElementById('toast-container');
   if (!container) return;
@@ -843,6 +899,9 @@ function wireControls() {
   if (reshuffleBtn) reshuffleBtn.addEventListener('click', reshuffle);
   const resetBtn = document.getElementById('reset-btn');
   if (resetBtn) resetBtn.addEventListener('click', resetSession);
+  // View Discard button — additional affordance alongside the right-rail discard zone click.
+  const viewDiscardBtn = document.getElementById('view-discard-btn');
+  if (viewDiscardBtn) viewDiscardBtn.addEventListener('click', openDiscardModal);
 
   // Discard zone click — open the history modal.
   const discardZone = document.querySelector('.discard-zone');

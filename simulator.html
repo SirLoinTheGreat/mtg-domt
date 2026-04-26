@@ -215,6 +215,60 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   color: var(--text);
   letter-spacing: .06em;
 }
+
+/* Preload progress indicator (sits at the bottom of the controls bar) */
+.preload-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .35rem .8rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: .82rem;
+  color: var(--text-dim);
+  letter-spacing: .04em;
+  transition: opacity .5s ease;
+}
+.preload-glyph {
+  color: var(--gold-dim);
+  font-size: 1rem;
+  animation: preload-spin 2s linear infinite;
+  display: inline-block;
+}
+@keyframes preload-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.preload-counter {
+  color: var(--gold-bright);
+  font-family: 'Cinzel', serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: .78rem;
+}
+
+/* View Discard button: count badge in the same family as session-controls */
+#view-discard-btn { position: relative; }
+.discard-btn-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: .35rem;
+  min-width: 1.5em;
+  height: 1.4em;
+  padding: 0 .35em;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'Cinzel', serif;
+  font-size: .7rem;
+  font-weight: 700;
+  border-radius: 999px;
+  letter-spacing: 0;
+}
+#view-discard-btn:disabled .discard-btn-count {
+  background: var(--gold-dim);
+  color: var(--text-dim);
+}
 .fate-display[data-disabled="true"] {
   opacity: .35;
 }
@@ -353,8 +407,8 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
 }
 
 .spread-area img.spread-card {
-  width: 200px;
-  height: 280px;
+  width: 320px;
+  height: 448px;
   border-radius: 8px;
   box-shadow: var(--card-shadow), 0 0 30px rgba(244, 210, 122, .15);
   cursor: pointer;
@@ -380,8 +434,8 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
 
 /* Invisible spread slot — placeholder in the flex layout that anim-cards target. */
 .spread-slot {
-  width: 200px;
-  height: 280px;
+  width: 320px;
+  height: 448px;
   flex: 0 0 auto;
   visibility: hidden;
 }
@@ -390,8 +444,8 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   position: absolute;
   top: 0;
   left: 0;
-  width: 200px;
-  height: 280px;
+  width: 320px;
+  height: 448px;
   perspective: 1200px;
   /* Initial position = deck (set via --start-x/y inline). All states keep
      the same translate+scale structure so transitions interpolate cleanly. */
@@ -415,7 +469,10 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   cursor: pointer;
 }
 .anim-card.discarding {
-  transition: transform .4s cubic-bezier(.55, .05, .35, 1), opacity .4s ease-out;
+  /* Default to settled position so removing .settled doesn't snap to deck.
+     The JS then overrides this inline transform to slide toward the discard pile. */
+  transform: translate(var(--target-x, 0), var(--target-y, 0)) scale(1);
+  transition: transform .55s cubic-bezier(.55, .05, .35, 1), opacity .5s ease-out;
   pointer-events: none;
   z-index: 5;
 }
@@ -713,16 +770,16 @@ width:100%;max-width:480px;
     height: 196px;
   }
   .spread-area img.spread-card {
-    width: 160px;
-    height: 224px;
+    width: 200px;
+    height: 280px;
   }
   .spread-slot {
-    width: 160px;
-    height: 224px;
+    width: 200px;
+    height: 280px;
   }
   .anim-card {
-    width: 160px;
-    height: 224px;
+    width: 200px;
+    height: 280px;
   }
   .sim-controls-inner {
     flex-direction: column;
@@ -807,9 +864,20 @@ width:100%;max-width:480px;
     </div>
 
     <div class="session-controls" role="group" aria-label="Session controls">
+      <button type="button" id="view-discard-btn" disabled>
+        <span aria-hidden="true">&#x21a9;</span>
+        <span>View Discard</span>
+        <span class="discard-btn-count" id="view-discard-count">0</span>
+      </button>
       <button type="button" id="reshuffle-btn" disabled>&#x21bb; Reshuffle</button>
       <button type="button" id="reset-btn">&#x2298; Reset Session</button>
       <button type="button" id="share-btn">&#x2398; Share Link</button>
+    </div>
+
+    <div class="preload-indicator" id="preload-indicator" aria-live="polite" aria-atomic="true" style="display:none">
+      <span class="preload-glyph" aria-hidden="true">&#x2699;</span>
+      <span class="preload-label">Preloading cards&hellip;</span>
+      <span class="preload-counter" id="preload-counter">0 / 0</span>
     </div>
   </div>
 </nav>
