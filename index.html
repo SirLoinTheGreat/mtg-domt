@@ -1435,6 +1435,7 @@ function render() {
 
   if (visible.length === 0) {
     gallery.innerHTML = '<div class="no-results">No cards match your search. The Deck reveals nothing.</div>';
+    window.dispatchEvent(new CustomEvent('gallery:ready'));
     return;
   }
 
@@ -1470,6 +1471,10 @@ function render() {
           ${DIVIDER_SVG('right')}
         </div>
         <div class="set-meta">${meta}</div>
+        <button type="button" class="download-btn" data-download-scope="${currentSet}" title="Download every card in this set as a ZIP">
+          <span class="glyph">&#x25BC;</span>
+          <span>Download Set</span>
+        </button>
       </div>`;
     } else if (card.set !== currentSet) {
       currentSet = card.set;
@@ -1534,6 +1539,7 @@ function render() {
   gallery.innerHTML = '';
   const frag = document.createRange().createContextualFragment(html);
   gallery.appendChild(frag);
+  window.dispatchEvent(new CustomEvent('gallery:ready'));
 }
 
 // Set filters
