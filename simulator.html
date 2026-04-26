@@ -304,6 +304,15 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   from { opacity: 0; transform: translateY(-10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.toast { transition: opacity .25s ease, transform .25s ease; }
+
+/* Set-toggle snap-back shake (when last active pill is clicked off) */
+@keyframes set-toggle-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+.set-toggle.shake { animation: set-toggle-shake .4s ease-in-out; }
 
 /* Generic simulator modal (used by discard-modal + share-modal) */
 .sim-modal-scrim {
@@ -607,10 +616,14 @@ Card art generated with MidJourney. All trademarks belong to their respective ow
 </div>
 </footer>
 
-<!-- Phase 3 will add module scripts here:
-     <script type="module" src="./assets/js/seeded-rng.js"></script>
-     <script type="module" src="./assets/js/simulator.js"></script>
--->
+<!-- Lightbox module — exposes window.__initLightbox so simulator.js can hand off card data. -->
+<script type="module">
+  import { init as initLightbox } from './assets/js/card-lightbox.js';
+  window.__initLightbox = initLightbox;
+</script>
+
+<!-- Simulator core (Phase 3): state machine + draw orchestration. Imports seeded-rng.js directly. -->
+<script type="module" src="./assets/js/simulator.js"></script>
 
 </body>
 </html>
