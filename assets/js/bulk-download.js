@@ -15,6 +15,29 @@ const SET_LABELS = {
   wonder: 'Wonder',
 };
 
+// Build the {url, zipPath, displayName} list for a given scope.
+// Note: card.image_file is a full relative path like "assets/cards/original/Card Back.png".
+// We URL-encode each segment to match how the rest of the gallery references images.
+function buildFileList(scope) {
+  const cards = window.__galleryCards || [];
+  const targetSets = scope === 'all'
+    ? ['original', 'expansion', 'harrow', 'wonder']
+    : [scope];
+
+  const entries = [];
+  for (const card of cards) {
+    if (!targetSets.includes(card.set)) continue;
+    if (!card.image_file) continue;
+    const url = card.image_file.split('/').map(encodeURIComponent).join('/');
+    const filename = card.image_file.split('/').pop();
+    const zipPath = scope === 'all'
+      ? `${card.set}/${filename}`
+      : filename;
+    entries.push({ url, zipPath, displayName: card.name });
+  }
+  return entries;
+}
+
 let _activeAbortController = null;
 
 // --- Public surface ---
