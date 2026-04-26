@@ -406,8 +406,9 @@ function createAnimCard(card, startX, startY, targetX, targetY) {
   wrap.style.setProperty('--start-y', startY + 'px');
   wrap.style.setProperty('--target-x', targetX + 'px');
   wrap.style.setProperty('--target-y', targetY + 'px');
-  // Initial transform must match the --start vars (otherwise no transition baseline).
-  wrap.style.transform = `translate(${startX}px, ${startY}px)`;
+  // No inline transform — the base .anim-card CSS rule reads --start-x/y to position the
+  // card at the deck. Setting an inline transform here would override ALL class-based
+  // transforms (inline beats class specificity), pinning the card at the deck forever.
 
   const inner = document.createElement('div');
   inner.className = 'anim-card-inner';
