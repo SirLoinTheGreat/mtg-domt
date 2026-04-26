@@ -973,6 +973,7 @@ margin-left:.5rem;vertical-align:middle;
   backdrop-filter:blur(4px);
 }
 .dl-modal-scrim[data-open="true"]{display:flex}
+body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
 .dl-modal{
   background:var(--ink-warm);
   border:1px solid var(--gold-dim);
@@ -1029,8 +1030,8 @@ margin-left:.5rem;vertical-align:middle;
   font-family:monospace;font-size:.75rem;
   white-space:pre-wrap;word-break:break-all;
 }
-.dl-modal[data-state="error"] h3{color:#d97742}
-.dl-modal[data-state="error"] .dl-modal-bar-fill{background:#d97742}
+.dl-modal[data-state="error"] h3{color:var(--ember)}
+.dl-modal[data-state="error"] .dl-modal-bar-fill{background:var(--ember)}
 
 /* Respect reduced motion preferences */
 @media (prefers-reduced-motion: reduce){
