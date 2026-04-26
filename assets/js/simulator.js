@@ -1,6 +1,7 @@
 // Playtest Simulator — core state machine + draw orchestration.
 // Phase 4: cards animate (lift, slide, flip, resolution beat).
-// Phase 5 will wire reshuffle / reset / discard modal. Phase 6 adds URL state.
+// Phase 5: reshuffle / reset session / discard history modal wired up.
+// Phase 6 adds URL state.
 
 import { mulberry32, freshSeed, shuffle } from './seeded-rng.js';
 
@@ -451,6 +452,133 @@ async function animateSpreadToDiscard(spreadArea, discardEl) {
   oldCards.forEach(c => c.remove());
 }
 
+// --- Phase 5: Reshuffle / Reset / Discard history ---
+
+async function reshuffle() {
+  if (state.isAnimating) return;
+  if (state.discard.length === 0 && state.spread.length === 0) return;
+
+  state.isAnimating = true;
+  renderControls();
+
+  // Visually animate spread + discard images flying / fading back to the deck.
+  await animateReturnToDeck();
+
+  // Combine spread + discard back into the deck and reshuffle the entire pile.
+  const returning = [...state.spread, ...state.discard];
+  state.spread = [];
+  state.discard = [];
+  state.deck = state.deck.concat(returning);
+  state.seed = freshSeed();
+  state.rng = mulberry32(state.seed);
+  state.deck = shuffle(state.deck, state.rng);
+  state.lastDrawN = null;
+
+  // Clear visuals and re-render piles.
+  const spreadArea = document.getElementById('spread-area');
+  if (spreadArea) spreadArea.innerHTML = '';
+  renderDeck();
+  renderDiscard();
+
+  state.isAnimating = false;
+  renderControls();
+
+  const emptyPrompt = document.getElementById('empty-prompt');
+  if (emptyPrompt) emptyPrompt.style.display = '';
+}
+
+async function animateReturnToDeck() {
+  const spreadArea = document.getElementById('spread-area');
+  const deckEl = document.getElementById('deck-stack');
+  const discardEl = document.getElementById('discard-stack');
+  if (!spreadArea || !deckEl) return;
+
+  // Settled spread cards fly back to the deck position.
+  const spreadCards = Array.from(spreadArea.querySelectorAll('.anim-card.settled'));
+  const deckPos = getRelativePos(deckEl, spreadArea);
+  spreadCards.forEach((c, i) => {
+    c.classList.remove('settled');
+    c.classList.add('discarding');  // reuse the discarding transition envelope
+    c.style.setProperty('--target-x', deckPos.x + 'px');
+    c.style.setProperty('--target-y', deckPos.y + 'px');
+    c.style.transform = `translate(${deckPos.x}px, ${deckPos.y}px) rotate(0deg) scale(0.92)`;
+    c.style.opacity = '0';
+    c.style.transitionDelay = (i * 60) + 'ms';
+  });
+
+  // Discard images fade + shrink in place (simpler + reads as the pile collapsing back into the deck).
+  const discardImgs = discardEl ? Array.from(discardEl.querySelectorAll('.discard-card')) : [];
+  discardImgs.forEach(img => {
+    img.style.transition = 'opacity .4s ease-out, transform .4s ease-out';
+    img.style.opacity = '0';
+    const prior = img.style.transform || '';
+    img.style.transform = prior + ' scale(.85)';
+  });
+
+  await sleep(ANIM.discardSlideMs + (spreadCards.length * 60));
+
+  spreadCards.forEach(c => c.remove());
+}
+
+function resetSession() {
+  if (state.isAnimating) return;
+  // Instant wipe — no animation per spec.
+  const spreadArea = document.getElementById('spread-area');
+  if (spreadArea) spreadArea.innerHTML = '';
+  state.seed = freshSeed();
+  state.rng = mulberry32(state.seed);
+  state.lastDrawN = null;
+  rebuildDeck();  // already clears spread + discard
+  renderAll();
+  showToast('Session reset.', 1500);
+}
+
+function openDiscardModal() {
+  if (state.discard.length === 0) return;  // nothing to show
+  const modal = document.getElementById('discard-modal');
+  const list = document.getElementById('discard-list');
+  if (!modal || !list) return;
+  list.innerHTML = '';
+  // Spec: oldest first (chronological draw order).
+  state.discard.forEach((card, idx) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'discard-list-item';
+
+    const thumb = document.createElement('img');
+    thumb.src = thumbUrl(card);
+    thumb.alt = card.name;
+    thumb.title = `#${idx + 1}: ${card.name}`;
+    thumb.addEventListener('click', () => openCardLightbox(card));
+
+    const label = document.createElement('div');
+    label.className = 'discard-list-label';
+    label.textContent = `${idx + 1}. ${card.name}`;
+
+    wrap.appendChild(thumb);
+    wrap.appendChild(label);
+    list.appendChild(wrap);
+  });
+  modal.setAttribute('data-open', 'true');
+  modal.setAttribute('aria-hidden', 'false');
+}
+
+function closeDiscardModal() {
+  const modal = document.getElementById('discard-modal');
+  if (!modal) return;
+  modal.setAttribute('data-open', 'false');
+  modal.setAttribute('aria-hidden', 'true');
+}
+
+function thumbUrl(card) {
+  // Use the JPG thumbnail (~30KB) instead of the full PNG (~7MB).
+  // image_file format: assets/cards/<set>/<file>.png  →  assets/cards/<set>/thumbs/<file>.jpg
+  const path = card.image_file || '';
+  const parts = path.split('/');
+  const fileName = parts.pop().replace(/\.png$/, '.jpg');
+  const thumbPath = [...parts, 'thumbs', fileName].map(encodeURIComponent).join('/');
+  return thumbPath + '?' + CACHE_BUST;
+}
+
 // --- Helpers ---
 function imgUrl(card) {
   return (card.image_file || '').split('/').map(encodeURIComponent).join('/') + '?' + CACHE_BUST;
@@ -489,7 +617,47 @@ function wireControls() {
       if (e.key === 'Enter') drawNBtn.click();
     });
   }
-  // Phase 5 will wire reshuffle, reset, discard-modal-open.
+
+  // Phase 5: session controls.
+  const reshuffleBtn = document.getElementById('reshuffle-btn');
+  if (reshuffleBtn) reshuffleBtn.addEventListener('click', reshuffle);
+  const resetBtn = document.getElementById('reset-btn');
+  if (resetBtn) resetBtn.addEventListener('click', resetSession);
+
+  // Discard zone click — open the history modal.
+  const discardZone = document.querySelector('.discard-zone');
+  if (discardZone) {
+    discardZone.addEventListener('click', (e) => {
+      // Don't open the modal if the click was on a visible top-card image (that opens the lightbox).
+      if (e.target.classList && e.target.classList.contains('discard-card')) return;
+      openDiscardModal();
+    });
+    // Keyboard accessibility — Enter/Space on the zone (it has tabindex=0, role=button).
+    discardZone.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openDiscardModal();
+      }
+    });
+  }
+
+  // Discard modal close handlers (scrim click + × button).
+  const discardModal = document.getElementById('discard-modal');
+  if (discardModal) {
+    discardModal.addEventListener('click', (e) => {
+      if (e.target === discardModal || (e.target.classList && e.target.classList.contains('sim-modal-close'))) {
+        closeDiscardModal();
+      }
+    });
+  }
+  // Escape closes the discard modal.
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const modal = document.getElementById('discard-modal');
+      if (modal && modal.getAttribute('data-open') === 'true') closeDiscardModal();
+    }
+  });
+
   // Phase 6 will wire share button + URL state.
 }
 
