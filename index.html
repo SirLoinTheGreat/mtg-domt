@@ -81,25 +81,41 @@ color:var(--gold);font-size:1rem;letter-spacing:.04em;
 margin-right:.25rem;
 text-shadow:0 0 14px rgba(212,175,60,.25);
 }
-.sim-entry-link {
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
-  margin-top: .8rem;
-  font-family: 'Cinzel', serif;
-  font-size: .82rem;
-  font-weight: 500;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  padding-bottom: .15rem;
-  transition: color .25s ease, border-color .25s ease;
+.header-actions{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:stretch;
+  gap:1rem;
+  margin-top:1rem;
 }
-.sim-entry-link:hover {
-  color: var(--gold-bright);
-  border-bottom-color: var(--gold);
+.header-actions > .download-btn-global,
+.header-actions > .sim-entry-link{
+  margin-top:0;  /* gap on the wrapper handles spacing */
+}
+.sim-entry-link{
+  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:.85rem 1.6rem;
+  background:linear-gradient(180deg,rgba(212,175,60,.08),rgba(212,175,60,.02));
+  border:1px solid var(--gold);
+  color:var(--gold-bright);
+  font-family:'Cinzel',serif;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  cursor:pointer;text-decoration:none;
+  transition:all .25s ease;
+  border-radius:3px;
+  box-shadow:var(--card-halo);
+}
+.sim-entry-link:hover{
+  background:linear-gradient(180deg,rgba(212,175,60,.15),rgba(212,175,60,.04));
+  box-shadow:0 0 20px var(--rune-glow),var(--card-halo);
+}
+.sim-entry-link .label{font-size:.95rem}
+.sim-entry-link .sublabel{
+  font-family:'Cormorant Garamond',serif;font-size:.78rem;
+  letter-spacing:.04em;text-transform:none;
+  color:var(--text-dim);font-style:italic;font-weight:400;
+  margin-top:.2rem;
 }
 
 /* CONTROLS */
@@ -895,11 +911,16 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
 <h1>The Deck of Many Things</h1>
 <div class="subtitle">Magic: The Gathering Crossover</div>
 <div class="card-count">Loading cards...</div>
-<button type="button" class="download-btn-global" data-download-scope="all" id="download-all-btn" disabled title="Download all card art as one ZIP">
-  <span class="label">Download All Cards</span>
-  <span class="sublabel" id="download-all-sublabel">(loading…)</span>
-</button>
-<div><a class="sim-entry-link" href="./simulator.html">⚄ Playtest Simulator →</a></div>
+<div class="header-actions">
+  <a class="sim-entry-link" href="./simulator.html" title="Open the playtest simulator">
+    <span class="label">⚄ Playtest Simulator</span>
+    <span class="sublabel">draw from the deck</span>
+  </a>
+  <button type="button" class="download-btn-global" data-download-scope="all" id="download-all-btn" disabled title="Download all card art as one ZIP">
+    <span class="label">Download All Cards</span>
+    <span class="sublabel" id="download-all-sublabel">(loading…)</span>
+  </button>
+</div>
 </header>
 
 <nav class="controls">

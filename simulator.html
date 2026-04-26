@@ -294,7 +294,9 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   width: 200px;
   height: 280px;
   perspective: 1200px;
-  /* Initial transform set inline by JS to deck position. */
+  /* Initial position = deck (set via --start-x/y inline). All states keep
+     the same translate+scale structure so transitions interpolate cleanly. */
+  transform: translate(var(--start-x, 0), var(--start-y, 0)) scale(1);
   transition: transform .3s cubic-bezier(.4, 0, .2, 1);
   pointer-events: none;
   will-change: transform;
@@ -305,11 +307,11 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   transition: transform .2s ease-out;
 }
 .anim-card.sliding {
-  transform: translate(var(--target-x, 0), var(--target-y, 0));
+  transform: translate(var(--target-x, 0), var(--target-y, 0)) scale(1);
   transition: transform .3s cubic-bezier(.4, 0, .2, 1);
 }
 .anim-card.settled {
-  transform: translate(var(--target-x, 0), var(--target-y, 0));
+  transform: translate(var(--target-x, 0), var(--target-y, 0)) scale(1);
   pointer-events: auto;
   cursor: pointer;
 }
@@ -359,7 +361,7 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   transition: transform .2s ease;
 }
 .anim-card.settled:hover {
-  transform: translate(var(--target-x, 0), calc(var(--target-y, 0px) - 6px));
+  transform: translate(var(--target-x, 0), calc(var(--target-y, 0px) - 6px)) scale(1);
 }
 .anim-card.settled .anim-face-front {
   transition: filter .25s ease;
