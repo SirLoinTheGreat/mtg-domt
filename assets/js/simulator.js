@@ -61,6 +61,7 @@ const state = {
   fatePoints: 1,           // initial; persists across reshuffles, resets to 1 on Start New Game
   lockedOut: false,        // set by lockout dispatch; cleared by Start New Game
   pendingPrompt: null,     // resolver fn for the in-flight optional-extra prompt
+  chainCancelled: false,   // set by Start New Game to abort a mid-chain queue loop
 };
 
 // --- URL state ---
@@ -395,7 +396,12 @@ async function draw(n) {
 
   // Process queue sequentially.
   let chainAnchor = null;  // most recently settled anim card; passed to dispatchEffect as anchor
+  state.chainCancelled = false;  // resetSession sets this to true to abort a mid-chain run
   while (drawQueue.length > 0) {
+    if (state.chainCancelled) {
+      drawQueue.length = 0;
+      break;  // silent cancel — resetSession already toasted "New game started."
+    }
     if (state.lockedOut) {
       drawQueue.length = 0;
       showToast('Eternal Damnation — remaining draws halted.', 2400);
@@ -898,6 +904,11 @@ function resetSession() {
     state.pendingPrompt(0);
     state.pendingPrompt = null;
   }
+
+  // Cancel any in-flight queue loop. When a prompt was open mid-chain, the await-resumption
+  // microtask will pick this up at the top of the next iteration and exit silently — preventing
+  // ghost cards from the old queue from animating into the fresh-game spread.
+  state.chainCancelled = true;
 
   // Instant wipe — no animation per spec.
   const spreadArea = document.getElementById('spread-area');
