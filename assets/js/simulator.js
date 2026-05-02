@@ -192,6 +192,11 @@ function rebuildDeck() {
 // Build the inline optional-draw prompt anchored to a settled card. Returns a Promise that
 // resolves to the chosen extras count (0..maxExtras). The Promise also resolves to 0 if
 // torn down externally (e.g., by Start New Game mid-chain).
+//
+// Precondition: the caller is responsible for having set `state.isAnimating = true` before
+// invoking this. The prompt does NOT lock controls itself — it relies on the caller's
+// existing animation gate. In normal use the queue loop in `draw()` is the only caller and
+// `isAnimating` is already true throughout.
 function showExtraPrompt(anchorEl, label, maxExtras) {
   return new Promise(resolve => {
     const prompt = document.createElement('div');
@@ -235,8 +240,11 @@ function showExtraPrompt(anchorEl, label, maxExtras) {
     const promptRect = prompt.getBoundingClientRect();
     const top = (anchorRect.bottom - containerRect.top) + 12;  // 12px below card
     const left = (anchorRect.left - containerRect.left) + (anchorRect.width / 2) - (promptRect.width / 2);
+    // Clamp to spread-area bounds so the prompt doesn't overflow on narrow viewports or
+    // when the anchor sits near either edge.
+    const maxLeft = Math.max(0, containerRect.width - promptRect.width);
     prompt.style.top = top + 'px';
-    prompt.style.left = Math.max(0, left) + 'px';
+    prompt.style.left = Math.max(0, Math.min(left, maxLeft)) + 'px';
 
     // One resolution path. cleanup() removes the prompt and the keydown listener.
     const cleanup = (chosen) => {
