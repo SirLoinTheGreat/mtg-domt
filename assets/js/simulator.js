@@ -624,8 +624,12 @@ async function animateCardThroughResolution(card, deckEl, spreadArea, insertAfte
   // Now sync the DOM: move the anim card's DOM node next to the slot so sibling-relative
   // inserts work. The slot stays in the DOM as the layout anchor (flex space the absolute-
   // positioned anim card visually fills — without it the chain would collapse).
+  // Both branches matter: if slot is at the end (nextSibling=null), we still need to MOVE
+  // animCard from its earlier position (top-of-function appendChild) to AFTER the slot.
   if (slot.nextSibling) {
     spreadArea.insertBefore(animCard, slot.nextSibling);
+  } else {
+    spreadArea.appendChild(animCard);  // moves animCard from before slot to after slot
   }
 
   // Settle: clear transient classes, mark interactable.
