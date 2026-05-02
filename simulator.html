@@ -618,6 +618,63 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
 .bloom-particle[data-c="G"] { background: radial-gradient(circle, #80d090 0%, rgba(128,208,144,.6) 60%, transparent 100%); box-shadow: 0 0 12px rgba(128,208,144,.7); }
 .bloom-particle[data-c="C"] { background: radial-gradient(circle, #c0c0c0 0%, rgba(192,192,192,.6) 60%, transparent 100%); box-shadow: 0 0 10px rgba(192,192,192,.5); }
 
+/* Resolution beat — 1500ms ring + label during the per-card resolve phase */
+.resolve-ring {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.anim-card.resolving .resolve-ring { opacity: 1; }
+.resolve-ring circle {
+  fill: none;
+  stroke: var(--gold-bright);
+  stroke-width: 2;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px var(--rune-glow)) drop-shadow(0 0 12px rgba(244, 210, 122, 0.5));
+  transform: rotate(-90deg);
+  transform-origin: center;
+  /* circumference of r=46 ~= 289.03 — animate stroke-dashoffset from 0 to 289 over 1500ms */
+  stroke-dasharray: 289.03;
+  stroke-dashoffset: 0;
+}
+.anim-card.resolving .resolve-ring circle {
+  animation: resolve-ring-drain 1500ms ease-out forwards;
+}
+@keyframes resolve-ring-drain {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: 289.03; }
+}
+.resolve-label {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ember);
+  text-shadow: 0 0 8px rgba(217, 119, 66, 0.6);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  animation: resolve-label-pulse 1.5s ease-in-out infinite;
+}
+.anim-card.resolving .resolve-label { opacity: 1; }
+@keyframes resolve-label-pulse {
+  0%, 100% { text-shadow: 0 0 6px rgba(217, 119, 66, 0.5); }
+  50%      { text-shadow: 0 0 14px rgba(217, 119, 66, 0.85); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-card.resolving .resolve-ring circle { animation-duration: 0.01ms; }
+  .resolve-label { animation: none; }
+}
+
 /* Toast container (top-center, transient messages) */
 .toast-container {
   position: fixed;

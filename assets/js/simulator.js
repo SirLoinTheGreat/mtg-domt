@@ -521,8 +521,26 @@ function createAnimCard(card, startX, startY, targetX, targetY) {
   const bloom = document.createElement('div');
   bloom.className = 'anim-bloom';
 
+  // Resolution-beat layer: SVG ring + italic label. Both fade in via CSS when the
+  // .resolving class is added to wrap (Task 7 wires this in the per-card sequence).
+  const ring = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  ring.setAttribute('class', 'resolve-ring');
+  ring.setAttribute('viewBox', '0 0 100 100');
+  ring.setAttribute('aria-hidden', 'true');
+  const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  circle.setAttribute('cx', '50');
+  circle.setAttribute('cy', '50');
+  circle.setAttribute('r', '46');
+  ring.appendChild(circle);
+
+  const label = document.createElement('div');
+  label.className = 'resolve-label';
+  label.textContent = 'Resolving card effects…';
+
   wrap.appendChild(inner);
   wrap.appendChild(bloom);
+  wrap.appendChild(ring);
+  wrap.appendChild(label);
 
   // Click-to-lightbox once settled
   wrap.addEventListener('click', () => {
