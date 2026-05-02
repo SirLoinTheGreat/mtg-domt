@@ -303,8 +303,23 @@ async function dispatchEffect(card, anchorEl, drawQueue) {
     return;
   }
 
-  // Optional handling comes in Task 10. Until then, optional effects are no-ops.
   if (eff.type === 'extra' && eff.optional) {
+    const maxExtras = Math.max(0, Number(eff.count_max) || 0);
+    if (maxExtras === 0) return;
+    // Cap the prompt at the deck's remaining size — no point offering 3 extras when only 1 card remains.
+    const cap = Math.min(maxExtras, state.deck.length);
+    if (cap === 0) {
+      showToast('The Deck is empty — no extra draws available.', 2000);
+      return;
+    }
+    const labelText = eff.label || `Draw up to ${cap} more from the Deck of Many Things?`;
+    const chosen = await showExtraPrompt(anchorEl, labelText, cap);
+    if (chosen <= 0) return;
+    const entries = [];
+    for (let i = 0; i < chosen; i++) {
+      entries.push({ card: null, insertAfter: anchorEl });
+    }
+    drawQueue.unshift(...entries);
     return;
   }
 
