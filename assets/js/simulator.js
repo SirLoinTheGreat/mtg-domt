@@ -294,10 +294,12 @@ async function draw(n) {
     let { card, insertAfter } = drawQueue.shift();
     // For mandatory-extra entries pushed by dispatchEffect, the card field is null at queue
     // time (the deck top-card is determined LAZILY, not when the trigger settled). Pull it now.
+    // If the deck is empty, skip this extra entry and continue — any remaining original-draw
+    // cards in the queue have their card field pre-set and can still animate.
     if (card == null) {
       if (state.deck.length === 0) {
         showToast('The Deck is empty — extra draws halted.', 2400);
-        break;
+        continue;
       }
       card = state.deck.shift();
     }
