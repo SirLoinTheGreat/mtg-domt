@@ -663,16 +663,18 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.25s ease;
+}
+.anim-card.resolving .resolve-label {
+  opacity: 1;
   animation: resolve-label-pulse 1.5s ease-in-out infinite;
 }
-.anim-card.resolving .resolve-label { opacity: 1; }
 @keyframes resolve-label-pulse {
   0%, 100% { text-shadow: 0 0 6px rgba(217, 119, 66, 0.5); }
   50%      { text-shadow: 0 0 14px rgba(217, 119, 66, 0.85); }
 }
 @media (prefers-reduced-motion: reduce) {
   .anim-card.resolving .resolve-ring circle { animation-duration: 0.01ms; }
-  .resolve-label { animation: none; }
+  .anim-card.resolving .resolve-label { animation: none; }
 }
 
 /* Toast container (top-center, transient messages) */
