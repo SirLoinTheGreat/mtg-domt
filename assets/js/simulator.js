@@ -670,15 +670,33 @@ function createAnimCard(card, startX, startY, targetX, targetY) {
 
   // Resolution-beat layer: SVG ring + italic label. Both fade in via CSS when the
   // .resolving class is added to wrap (Task 7 wires this in the per-card sequence).
+  // Three concentric SVG circles: drain ring (sentiment-tinted, drains clockwise),
+  // sigil ring (counter-rotating dashes, decorative), burst ring (final flash).
   const ring = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   ring.setAttribute('class', 'resolve-ring');
   ring.setAttribute('viewBox', '0 0 100 100');
   ring.setAttribute('aria-hidden', 'true');
-  const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-  circle.setAttribute('cx', '50');
-  circle.setAttribute('cy', '50');
-  circle.setAttribute('r', '46');
-  ring.appendChild(circle);
+
+  const drainCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  drainCircle.setAttribute('class', 'ring-drain');
+  drainCircle.setAttribute('cx', '50');
+  drainCircle.setAttribute('cy', '50');
+  drainCircle.setAttribute('r', '46');
+  ring.appendChild(drainCircle);
+
+  const sigilCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  sigilCircle.setAttribute('class', 'ring-sigil');
+  sigilCircle.setAttribute('cx', '50');
+  sigilCircle.setAttribute('cy', '50');
+  sigilCircle.setAttribute('r', '42');
+  ring.appendChild(sigilCircle);
+
+  const burstCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+  burstCircle.setAttribute('class', 'ring-burst');
+  burstCircle.setAttribute('cx', '50');
+  burstCircle.setAttribute('cy', '50');
+  burstCircle.setAttribute('r', '46');
+  ring.appendChild(burstCircle);
 
   const label = document.createElement('div');
   label.className = 'resolve-label';

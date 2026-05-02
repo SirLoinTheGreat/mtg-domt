@@ -618,7 +618,11 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
 .bloom-particle[data-c="G"] { background: radial-gradient(circle, #80d090 0%, rgba(128,208,144,.6) 60%, transparent 100%); box-shadow: 0 0 12px rgba(128,208,144,.7); }
 .bloom-particle[data-c="C"] { background: radial-gradient(circle, #c0c0c0 0%, rgba(192,192,192,.6) 60%, transparent 100%); box-shadow: 0 0 10px rgba(192,192,192,.5); }
 
-/* Resolution beat — 1500ms ring + label during the per-card resolve phase */
+/* Resolution beat — 1500ms ring + label during the per-card resolve phase.
+   Three concentric SVG circles compose the wow:
+   - .ring-drain: sentiment-tinted outer ring, drains clockwise from 12 o'clock
+   - .ring-sigil: thin gold dashes counter-rotating slowly, decorative arcana
+   - .ring-burst: brief outward expanding flash punctuating the spell's resolution */
 .resolve-ring {
   position: absolute;
   top: -8px;
@@ -630,24 +634,70 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   transition: opacity 0.2s ease;
 }
 .anim-card.resolving .resolve-ring { opacity: 1; }
-.resolve-ring circle {
+
+/* Outer drain ring — sentiment-tinted, thick stroke with layered glow */
+.resolve-ring .ring-drain {
   fill: none;
-  stroke: var(--gold-bright);
-  stroke-width: 2;
+  stroke: var(--lum-color, var(--gold-bright));
+  stroke-width: 2.5;
   stroke-linecap: round;
-  filter: drop-shadow(0 0 6px var(--rune-glow)) drop-shadow(0 0 12px rgba(244, 210, 122, 0.5));
+  filter:
+    drop-shadow(0 0 4px var(--lum-color, var(--rune-glow)))
+    drop-shadow(0 0 10px var(--lum-color, var(--rune-glow)))
+    drop-shadow(0 0 20px var(--lum-color, rgba(244, 210, 122, 0.4)));
   transform: rotate(-90deg);
   transform-origin: center;
-  /* circumference of r=46 ~= 289.03 — animate stroke-dashoffset from 0 to 289 over 1500ms */
+  /* circumference of r=46 ≈ 289.03 — animate stroke-dashoffset from 0 to 289 over 1500ms */
   stroke-dasharray: 289.03;
   stroke-dashoffset: 0;
 }
-.anim-card.resolving .resolve-ring circle {
-  animation: resolve-ring-drain 1500ms ease-out forwards;
+.anim-card.resolving .resolve-ring .ring-drain {
+  animation: resolve-ring-drain 1500ms cubic-bezier(.4, 0, .2, 1) forwards;
 }
 @keyframes resolve-ring-drain {
   from { stroke-dashoffset: 0; }
   to   { stroke-dashoffset: 289.03; }
+}
+
+/* Inner sigil ring — short gold dashes counter-rotating; an arcane filigree */
+.resolve-ring .ring-sigil {
+  fill: none;
+  stroke: var(--gold-bright);
+  stroke-width: 0.8;
+  stroke-dasharray: 3 5;
+  stroke-linecap: round;
+  opacity: 0;
+  filter: drop-shadow(0 0 3px var(--rune-glow));
+  transform-origin: center;
+  transition: opacity 0.3s ease;
+}
+.anim-card.resolving .resolve-ring .ring-sigil {
+  opacity: 0.7;
+  animation: ring-sigil-spin 4s linear infinite;
+}
+@keyframes ring-sigil-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+/* Burst ring — outward expanding flash on drain completion (last ~12% of beat) */
+.resolve-ring .ring-burst {
+  fill: none;
+  stroke: var(--lum-color, var(--gold-bright));
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0;
+  filter: drop-shadow(0 0 8px var(--lum-color, var(--rune-glow)));
+  transform: scale(1);
+  transform-origin: center;
+}
+.anim-card.resolving .resolve-ring .ring-burst {
+  animation: ring-burst 1500ms ease-out forwards;
+}
+@keyframes ring-burst {
+  0%, 86% { opacity: 0; transform: scale(1); stroke-width: 2; }
+  92%     { opacity: 1; transform: scale(1.04); stroke-width: 2.5; }
+  100%    { opacity: 0; transform: scale(1.45); stroke-width: 0.5; }
 }
 .resolve-label {
   position: absolute;
@@ -673,7 +723,9 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   50%      { text-shadow: 0 0 14px rgba(217, 119, 66, 0.85); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .anim-card.resolving .resolve-ring circle { animation-duration: 0.01ms; }
+  .anim-card.resolving .resolve-ring .ring-drain,
+  .anim-card.resolving .resolve-ring .ring-sigil,
+  .anim-card.resolving .resolve-ring .ring-burst { animation-duration: 0.01ms; }
   .anim-card.resolving .resolve-label { animation: none; }
 }
 
