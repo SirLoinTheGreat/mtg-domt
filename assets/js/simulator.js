@@ -384,6 +384,9 @@ async function draw(n) {
 
   // Wait for the discard slide-out before clearing leftover spread slots from a previous draw.
   await discardPromise;
+  // Update discard pile UI now that the previous spread has finished sliding into it. Without
+  // this, the pile would stay stale until the new chain's renderDiscard() at end of draw().
+  renderDiscard();
   // Clear any leftover spread-slots (the previous draw's anchors).
   spreadArea.querySelectorAll('.spread-slot').forEach(s => s.remove());
 
