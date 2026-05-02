@@ -912,6 +912,9 @@ function resetSession() {
   // microtask will pick this up at the top of the next iteration and exit silently — preventing
   // ghost cards from the old queue from animating into the fresh-game spread.
   state.chainCancelled = true;
+  // The cancelled queue loop also won't reach its own state.isAnimating=false at the end. Reset
+  // it here so renderAll() below renders the controls in the correct enabled state.
+  state.isAnimating = false;
 
   // Instant wipe — no animation per spec.
   const spreadArea = document.getElementById('spread-area');
