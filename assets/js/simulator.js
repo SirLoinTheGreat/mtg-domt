@@ -29,14 +29,15 @@ const SET_TO_INITIAL = { original: 'o', expansion: 'e', harrow: 'h', wonder: 'w'
 // --- Animation tuning ---
 const ANIM = {
   liftMs: 200,
-  slideToCenterMs: 400,    // deck → center stage
+  slideToSlotMs: 400,      // deck → destination slot
   flipMs: 300,
-  resolveMs: 1500,         // ring + label beat
-  slotIntoChainMs: 400,    // center stage → chain slot
+  resolveMs: 1500,         // ring + label beat at slot
   discardSlideMs: 550,
 };
-// Total per-card: ~200 + 400 + 300 + 1500 + 400 = ~2800ms (call it ~2.6s in spec language; the
-// 200ms lift overlaps with the slide-to-center kick, so wall time is ~2.6s).
+// Total per-card: ~200 + 400 + 300 + 1500 = ~2400ms (call it ~2.4s; the 200ms lift overlaps
+// with the slide kick, so wall time is ~2.3s). Cards resolve at their destination slot —
+// there's no separate center-stage phase, so the chain cards aren't obscured by the long
+// resolve beat.
 
 const SENTIMENT_LUM = {
   positive: 'rgba(125, 186, 138, .85)',  // warm gold-green
@@ -622,20 +623,6 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-// Compute the geometric center of .spread-area, returned as a point (x, y) relative to the
-// spread-area itself — used as the anchor point for the resolution stage.
-function getCenterPos(spreadArea) {
-  const r = spreadArea.getBoundingClientRect();
-  // Centered card: center of card minus half card width/height.
-  // Cards are 280×392 on desktop, 200×280 on narrow viewports — read from a sample if available.
-  const sampleCard = spreadArea.querySelector('.anim-card') || spreadArea.querySelector('.spread-slot');
-  const cardW = sampleCard ? sampleCard.getBoundingClientRect().width : 280;
-  const cardH = sampleCard ? sampleCard.getBoundingClientRect().height : 392;
-  return {
-    x: (r.width / 2) - (cardW / 2),
-    y: (r.height / 2) - (cardH / 2),
-  };
-}
 
 function createAnimCard(card, startX, startY, targetX, targetY) {
   const wrap = document.createElement('div');
@@ -738,19 +725,30 @@ function spawnBloom(card, bloomEl) {
 }
 
 // Animate one card through the full per-card sequence:
-// deck → center stage → flip → resolve beat → slot into chain.
-// Returns the settled .anim-card element so callers can use it as the next chain anchor.
+// deck → slot (its eventual chain position) → flip → resolve beat → settle.
+// The card resolves AT its destination slot (no separate center stage), so the long
+// resolve beat doesn't overlap already-settled chain cards.
 //
-// `insertAfterEl` — if non-null, the new card's settled element is inserted immediately after
-// this DOM node (used for mid-chain extras). If null, the card appends to the end of the
-// chain.
+// `insertAfterEl` — if non-null, the new slot is inserted immediately after this DOM node
+// (used for mid-chain extras). If null, the slot appends to the end of the chain.
 async function animateCardThroughResolution(card, deckEl, spreadArea, insertAfterEl) {
-  // Compute deck and center positions relative to spread-area.
-  const deckPos = getRelativePos(deckEl, spreadArea);
-  const centerPos = getCenterPos(spreadArea);
+  // Create the slot first — it determines the card's eventual position.
+  const slot = document.createElement('div');
+  slot.className = 'spread-slot';
+  if (insertAfterEl && insertAfterEl.parentNode === spreadArea) {
+    spreadArea.insertBefore(slot, insertAfterEl.nextSibling);
+  } else {
+    spreadArea.appendChild(slot);
+  }
+  // Force layout so getBoundingClientRect on the slot returns the final position.
+  void slot.offsetWidth;
 
-  // Build the anim card at the deck position; target = center for the first leg.
-  const animCard = createAnimCard(card, deckPos.x, deckPos.y, centerPos.x, centerPos.y);
+  // Compute deck and slot positions relative to spread-area.
+  const deckPos = getRelativePos(deckEl, spreadArea);
+  const slotPos = getRelativePos(slot, spreadArea);
+
+  // Build the anim card at the deck position; target = slot position.
+  const animCard = createAnimCard(card, deckPos.x, deckPos.y, slotPos.x, slotPos.y);
   animCard.style.setProperty('--lum-color', sentimentColor(card));
   spreadArea.appendChild(animCard);
 
@@ -762,58 +760,35 @@ async function animateCardThroughResolution(card, deckEl, spreadArea, insertAfte
   animCard.classList.add('lifting');
   await sleep(ANIM.liftMs);
 
-  // Slide to center stage
+  // Slide directly to slot
   animCard.classList.remove('lifting');
   animCard.classList.add('sliding');
-  // Override slide duration via inline style for this longer slide.
-  animCard.style.transition = `transform ${ANIM.slideToCenterMs}ms cubic-bezier(.4, 0, .2, 1)`;
-  await sleep(ANIM.slideToCenterMs);
+  animCard.style.transition = `transform ${ANIM.slideToSlotMs}ms cubic-bezier(.4, 0, .2, 1)`;
+  await sleep(ANIM.slideToSlotMs);
 
   // Flip face-up
   animCard.classList.add('flipped');
   await sleep(ANIM.flipMs);
 
-  // Resolve beat: ring drains, label pulses, sentiment lume + bloom layered.
+  // Resolve beat at the slot position: ring drains, label pulses, sentiment lume + bloom layered.
   animCard.classList.add('resolving', 'beating');
   spawnBloom(card, animCard.querySelector('.anim-bloom'));
   await sleep(ANIM.resolveMs);
   animCard.classList.remove('resolving', 'beating');
 
-  // Reposition the card's "slot" position. The card's settled position is whatever its slot
-  // would be in the chain. We compute that by appending (or inserting) an invisible slot element
-  // and reading its bounding rect.
-  const slot = document.createElement('div');
-  slot.className = 'spread-slot';
-  if (insertAfterEl && insertAfterEl.parentNode === spreadArea) {
-    spreadArea.insertBefore(slot, insertAfterEl.nextSibling);
-  } else {
-    spreadArea.appendChild(slot);
-  }
-  // Force layout
-  void slot.offsetWidth;
-  const slotPos = getRelativePos(slot, spreadArea);
-
-  // Slot into chain
-  animCard.classList.remove('sliding');
-  animCard.style.transition = `transform ${ANIM.slotIntoChainMs}ms cubic-bezier(.4, 0, .2, 1)`;
-  animCard.style.setProperty('--target-x', slotPos.x + 'px');
-  animCard.style.setProperty('--target-y', slotPos.y + 'px');
-  void animCard.offsetWidth;
-  animCard.style.transform = `translate(${slotPos.x}px, ${slotPos.y}px) scale(1)`;
-  await sleep(ANIM.slotIntoChainMs);
-
-  // Now sync the DOM: move the anim card's DOM node next to the slot so sibling-relative
-  // inserts work. The slot stays in the DOM as the layout anchor (flex space the absolute-
-  // positioned anim card visually fills — without it the chain would collapse).
+  // Sync DOM: move animCard to be next to slot for sibling-relative inserts. The slot stays
+  // in the DOM as the layout anchor (flex space the absolute-positioned anim card visually
+  // fills — without it the chain would collapse).
   // Both branches matter: if slot is at the end (nextSibling=null), we still need to MOVE
   // animCard from its earlier position (top-of-function appendChild) to AFTER the slot.
   if (slot.nextSibling) {
     spreadArea.insertBefore(animCard, slot.nextSibling);
   } else {
-    spreadArea.appendChild(animCard);  // moves animCard from before slot to after slot
+    spreadArea.appendChild(animCard);
   }
 
   // Settle: clear transient classes, mark interactable.
+  animCard.classList.remove('sliding');
   animCard.classList.add('settled');
   // Clear the inline transition so future hover/discard transitions use class-driven timing.
   animCard.style.transition = '';
