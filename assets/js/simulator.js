@@ -29,13 +29,14 @@ const SET_TO_INITIAL = { original: 'o', expansion: 'e', harrow: 'h', wonder: 'w'
 // --- Animation tuning ---
 const ANIM = {
   liftMs: 200,
-  slideMs: 300,
+  slideToCenterMs: 400,    // deck → center stage
   flipMs: 300,
-  beatMs: 500,
-  cascadeStaggerMs: 100,    // for Draw 4+ flip cascade
-  perCardSequentialMs: 1300, // total per-card budget for Draw 1-3
+  resolveMs: 1500,         // ring + label beat
+  slotIntoChainMs: 400,    // center stage → chain slot
   discardSlideMs: 550,
 };
+// Total per-card: ~200 + 400 + 300 + 1500 + 400 = ~2800ms (call it ~2.6s in spec language; the
+// 200ms lift overlaps with the slide-to-center kick, so wall time is ~2.6s).
 
 const SENTIMENT_LUM = {
   positive: 'rgba(125, 186, 138, .85)',  // warm gold-green
@@ -188,16 +189,6 @@ function rebuildDeck() {
   state.discard = [];
 }
 
-// Interim (Task 5) — replaced by the dispatch engine in Task 8.
-// Scans the just-drawn cards for a lockout tag and applies session lockout if any are found.
-function scanForLockout(drawnCards) {
-  const lockoutCard = drawnCards.find(c => c.sim_effect && c.sim_effect.type === 'lockout');
-  if (lockoutCard) {
-    state.lockedOut = true;
-    showToast(`Eternal Damnation — ${lockoutCard.name} seals the Deck.`, 3000);
-  }
-}
-
 // --- Drawing ---
 async function draw(n) {
   if (state.isAnimating) return;
@@ -218,7 +209,7 @@ async function draw(n) {
     return;
   }
 
-  // Fate Point consumption (if rule is active)
+  // Fate Point cost (the original draw — extras don't cost FP)
   if (state.useFatePoints) {
     if (state.fatePoints < 1) {
       showToast('No Fate Points. Roll a d6 — on a 6, gain one.');
@@ -232,67 +223,57 @@ async function draw(n) {
 
   const spreadArea = document.getElementById('spread-area');
   const deckEl = document.getElementById('deck-stack');
-  const discardEl = document.getElementById('discard-stack');
 
-  // Move previous spread to discard model (instantly in state) then animate the visuals.
+  // Move previous spread to discard model + animate visuals (overlap with new arrivals).
   for (const card of state.spread) state.discard.push(card);
   state.spread = [];
-
-  // Kick off the discard slide-out, but DON'T await it — overlap with the new lift.
+  const discardEl = document.getElementById('discard-stack');
   const discardPromise = animateSpreadToDiscard(spreadArea, discardEl);
 
-  // Update the empty-prompt visibility immediately for the new spread (will become hidden once cards arrive)
+  // Hide empty-prompt for the duration of the draw.
   const emptyPrompt = document.getElementById('empty-prompt');
   if (emptyPrompt) emptyPrompt.style.display = 'none';
 
-  // Draw N from top of deck.
-  const drawnCards = [];
-  for (let i = 0; i < n; i++) drawnCards.push(state.deck.shift());
-  state.spread = drawnCards.slice();
-  state.lastDrawN = n;
+  // Wait for the discard slide-out before clearing leftover spread slots from a previous draw.
+  await discardPromise;
+  // Clear any leftover spread-slots (the previous draw's anchors).
+  spreadArea.querySelectorAll('.spread-slot').forEach(s => s.remove());
 
-  // Build invisible spread slots for layout positioning.
-  const slots = buildSpreadSlots(n, spreadArea);
+  // Build the per-card queue from the top of the deck.
+  // Queue entry shape: { card, insertAfter: HTMLElement|null }
+  const drawQueue = [];
+  for (let i = 0; i < n; i++) {
+    drawQueue.push({ card: state.deck.shift(), insertAfter: null });
+  }
 
-  // Wait briefly for slot layout to settle before measuring.
-  // (Ensures getBoundingClientRect on the slots returns final positions.)
-  await sleep(0);
-
-  // Animate cards arriving — adaptive per spec.
-  if (n >= 4) {
-    // Cascading: lift + slide all together, then flip in cascade.
-    await Promise.all(drawnCards.map((card, i) =>
-      animateCardArrival(card, slots[i], deckEl, spreadArea, {
-        delay: 0,
-        flipDelay: i * ANIM.cascadeStaggerMs,
-      })
-    ));
-  } else {
-    // Sequential: one full sequence per card before starting the next.
-    for (let i = 0; i < drawnCards.length; i++) {
-      await animateCardArrival(drawnCards[i], slots[i], deckEl, spreadArea);
+  // Process queue sequentially.
+  let chainAnchor = null;  // most recently settled anim card; null until first card lands
+  while (drawQueue.length > 0) {
+    if (state.lockedOut) {
+      drawQueue.length = 0;
+      showToast('Eternal Damnation — remaining draws halted.', 2400);
+      break;
+    }
+    const { card, insertAfter } = drawQueue.shift();
+    if (!card) break;
+    chainAnchor = await animateCardThroughResolution(card, deckEl, spreadArea, insertAfter);
+    state.spread.push(card);
+    // Effect dispatch — Task 8 expands this; for now, retain Task 5's lockout scan inline.
+    if (card.sim_effect && card.sim_effect.type === 'lockout') {
+      state.lockedOut = true;
+      showToast(`Eternal Damnation — ${card.name} seals the Deck.`, 3000);
     }
   }
 
-  // Make sure the discard slide-out finished (usually well before the arrivals).
-  await discardPromise;
+  state.lastDrawN = n;
 
-  // Update deck stack visual (now thinner) and discard stack (now fatter).
+  // Update visuals
   renderDeck();
   renderDiscard();
   renderFateDisplay();
 
-  // Interim lockout scan (replaced in Task 8 with loop-integrated dispatch)
-  scanForLockout(drawnCards);
-
   state.isAnimating = false;
   renderControls();
-
-  // Capture seed + n in URL so the user can share / replay this draw.
-  // Note: state.seed is the seed that produced the current deck order, and
-  // state.lastDrawN is the count we just drew — together they reproduce
-  // the LAST draw on a fresh load (subsequent draws within a session shift
-  // cards but don't change the seed, so only the most recent draw replays).
   writeURLState({ includeSeed: true });
 }
 
@@ -478,16 +459,19 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function buildSpreadSlots(n, spreadArea) {
-  spreadArea.innerHTML = '';
-  const slots = [];
-  for (let i = 0; i < n; i++) {
-    const slot = document.createElement('div');
-    slot.className = 'spread-slot';
-    slots.push(slot);
-    spreadArea.appendChild(slot);
-  }
-  return slots;
+// Compute the geometric center of .spread-area, returned as a point (x, y) relative to the
+// spread-area itself — used as the anchor point for the resolution stage.
+function getCenterPos(spreadArea) {
+  const r = spreadArea.getBoundingClientRect();
+  // Centered card: center of card minus half card width/height.
+  // Cards are 280×392 on desktop, 200×280 on narrow viewports — read from a sample if available.
+  const sampleCard = spreadArea.querySelector('.anim-card') || spreadArea.querySelector('.spread-slot');
+  const cardW = sampleCard ? sampleCard.getBoundingClientRect().width : 280;
+  const cardH = sampleCard ? sampleCard.getBoundingClientRect().height : 392;
+  return {
+    x: (r.width / 2) - (cardW / 2),
+    y: (r.height / 2) - (cardH / 2),
+  };
 }
 
 function createAnimCard(card, startX, startY, targetX, targetY) {
@@ -572,45 +556,82 @@ function spawnBloom(card, bloomEl) {
   }
 }
 
-// Animate one card from deck position to its spread slot.
-async function animateCardArrival(card, slotEl, deckEl, spreadArea, opts = {}) {
-  const { delay = 0, flipDelay = 0 } = opts;
-  if (delay > 0) await sleep(delay);
-
-  // Compute positions relative to spread-area
+// Animate one card through the full per-card sequence:
+// deck → center stage → flip → resolve beat → slot into chain.
+// Returns the settled .anim-card element so callers can use it as the next chain anchor.
+//
+// `insertAfterEl` — if non-null, the new card's settled element is inserted immediately after
+// this DOM node (used for mid-chain extras). If null, the card appends to the end of the
+// chain.
+async function animateCardThroughResolution(card, deckEl, spreadArea, insertAfterEl) {
+  // Compute deck and center positions relative to spread-area.
   const deckPos = getRelativePos(deckEl, spreadArea);
-  const slotPos = getRelativePos(slotEl, spreadArea);
+  const centerPos = getCenterPos(spreadArea);
 
-  const animCard = createAnimCard(card, deckPos.x, deckPos.y, slotPos.x, slotPos.y);
+  // Build the anim card at the deck position; target = center for the first leg.
+  const animCard = createAnimCard(card, deckPos.x, deckPos.y, centerPos.x, centerPos.y);
   animCard.style.setProperty('--lum-color', sentimentColor(card));
   spreadArea.appendChild(animCard);
 
-  // Force layout, then start lift on the next frame so the initial transform is committed.
+  // Force layout, then start the lift on the next frame.
   void animCard.offsetWidth;
   await new Promise(r => requestAnimationFrame(r));
+
+  // Lift
   animCard.classList.add('lifting');
   await sleep(ANIM.liftMs);
 
-  // Slide to target
+  // Slide to center stage
   animCard.classList.remove('lifting');
   animCard.classList.add('sliding');
-  await sleep(ANIM.slideMs);
+  // Override slide duration via inline style for this longer slide.
+  animCard.style.transition = `transform ${ANIM.slideToCenterMs}ms cubic-bezier(.4, 0, .2, 1)`;
+  await sleep(ANIM.slideToCenterMs);
 
-  // Optional cascade-only delay before flip
-  if (flipDelay > 0) await sleep(flipDelay);
-
-  // Flip
+  // Flip face-up
   animCard.classList.add('flipped');
   await sleep(ANIM.flipMs);
 
-  // Resolution beat: luminescence + bloom in parallel
-  animCard.classList.add('beating');
+  // Resolve beat: ring drains, label pulses, sentiment lume + bloom layered.
+  animCard.classList.add('resolving', 'beating');
   spawnBloom(card, animCard.querySelector('.anim-bloom'));
-  await sleep(ANIM.beatMs);
+  await sleep(ANIM.resolveMs);
+  animCard.classList.remove('resolving', 'beating');
+
+  // Reposition the card's "slot" position. The card's settled position is whatever its slot
+  // would be in the chain. We compute that by appending (or inserting) an invisible slot element
+  // and reading its bounding rect.
+  const slot = document.createElement('div');
+  slot.className = 'spread-slot';
+  if (insertAfterEl && insertAfterEl.parentNode === spreadArea) {
+    spreadArea.insertBefore(slot, insertAfterEl.nextSibling);
+  } else {
+    spreadArea.appendChild(slot);
+  }
+  // Force layout
+  void slot.offsetWidth;
+  const slotPos = getRelativePos(slot, spreadArea);
+
+  // Slot into chain
+  animCard.classList.remove('sliding');
+  animCard.style.transition = `transform ${ANIM.slotIntoChainMs}ms cubic-bezier(.4, 0, .2, 1)`;
+  animCard.style.setProperty('--target-x', slotPos.x + 'px');
+  animCard.style.setProperty('--target-y', slotPos.y + 'px');
+  void animCard.offsetWidth;
+  animCard.style.transform = `translate(${slotPos.x}px, ${slotPos.y}px) scale(1)`;
+  await sleep(ANIM.slotIntoChainMs);
+
+  // Now sync the DOM: move the anim card's DOM node next to the slot so sibling-relative
+  // inserts work. The slot stays in the DOM as the layout anchor (flex space the absolute-
+  // positioned anim card visually fills — without it the chain would collapse).
+  if (slot.nextSibling) {
+    spreadArea.insertBefore(animCard, slot.nextSibling);
+  }
 
   // Settle: clear transient classes, mark interactable.
-  animCard.classList.remove('lifting', 'sliding', 'beating');
   animCard.classList.add('settled');
+  // Clear the inline transition so future hover/discard transitions use class-driven timing.
+  animCard.style.transition = '';
   return animCard;
 }
 
