@@ -566,9 +566,10 @@ function renderControls() {
     reshuffle.disabled = blocked || (state.discard.length === 0 && state.spread.length === 0);
   }
 
-  // Start New Game — only blocked while animating; ALWAYS available during lockout.
+  // Start New Game — only blocked while animating UNLESS a prompt is awaiting (user's escape
+  // hatch from a chain). ALWAYS available during lockout.
   const reset = document.getElementById('start-new-game-btn');
-  if (reset) reset.disabled = state.isAnimating;
+  if (reset) reset.disabled = state.isAnimating && !state.pendingPrompt;
 
   // Share — only blocked while animating.
   const share = document.getElementById('share-btn');
@@ -885,7 +886,19 @@ async function animateReturnToDeck() {
 }
 
 function resetSession() {
-  if (state.isAnimating) return;
+  // Allow Start New Game even while an optional prompt is awaiting (it's the user's escape).
+  // We do NOT allow it to interrupt a mid-card animation — animations are short and complete
+  // soon enough that bypassing them would just create visual glitches. The pendingPrompt path
+  // keeps Start New Game reachable while a prompt is open.
+  if (state.isAnimating && !state.pendingPrompt) return;
+
+  // If a prompt is awaiting, force-resolve it as Decline (0 extras). Its teardown handler is
+  // stored on state.pendingPrompt; calling it cleans up the DOM and resolves the awaiting Promise.
+  if (state.pendingPrompt) {
+    state.pendingPrompt(0);
+    state.pendingPrompt = null;
+  }
+
   // Instant wipe — no animation per spec.
   const spreadArea = document.getElementById('spread-area');
   if (spreadArea) spreadArea.innerHTML = '';
@@ -894,6 +907,8 @@ function resetSession() {
   state.lastDrawN = null;
   state.fatePoints = 1;  // fresh session
   state.lockedOut = false;       // Start New Game is the only path that clears lockout
+  state.spread = [];
+  state.discard = [];
   rebuildDeck();  // already clears spread + discard
   renderAll();
   renderFateDisplay();
