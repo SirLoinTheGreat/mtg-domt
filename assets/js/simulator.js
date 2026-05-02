@@ -188,6 +188,16 @@ function rebuildDeck() {
   state.discard = [];
 }
 
+// Interim (Task 5) — replaced by the dispatch engine in Task 8.
+// Scans the just-drawn cards for a lockout tag and applies session lockout if any are found.
+function scanForLockout(drawnCards) {
+  const lockoutCard = drawnCards.find(c => c.sim_effect && c.sim_effect.type === 'lockout');
+  if (lockoutCard) {
+    state.lockedOut = true;
+    showToast(`Eternal Damnation — ${lockoutCard.name} seals the Deck.`, 3000);
+  }
+}
+
 // --- Drawing ---
 async function draw(n) {
   if (state.isAnimating) return;
@@ -271,6 +281,9 @@ async function draw(n) {
   renderDeck();
   renderDiscard();
   renderFateDisplay();
+
+  // Interim lockout scan (replaced in Task 8 with loop-integrated dispatch)
+  scanForLockout(drawnCards);
 
   state.isAnimating = false;
   renderControls();
