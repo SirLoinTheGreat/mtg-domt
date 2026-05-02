@@ -192,7 +192,7 @@ function rebuildDeck() {
 async function draw(n) {
   if (state.isAnimating) return;
   if (state.lockedOut) {
-    showToast('The Deck is sealed. Start a New Game to play again.', 2400);
+    showToast('The Deck is sealed. Start New Game to play again.', 2400);
     return;
   }
   if (!Number.isFinite(n) || n < MIN_DRAW || n > MAX_DRAW) {
@@ -845,6 +845,7 @@ function showToast(message, durationMs = 2400) {
 // --- Fate Points ---
 function rollD6() {
   if (state.isAnimating) return;
+  if (state.lockedOut) return;
   if (!state.useFatePoints) return;  // shouldn't happen — button hidden
   // Canonical: can only roll when at 0
   if (!state.accumulateFP && state.fatePoints >= 1) {
