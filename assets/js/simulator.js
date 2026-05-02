@@ -189,6 +189,43 @@ function rebuildDeck() {
   state.discard = [];
 }
 
+// Resolves a card's sim_effect after it settles in the chain. Mutates `drawQueue` in place,
+// pushing any new entries to the FRONT (so extras resolve before remaining original-draw cards).
+//
+// Returns a Promise that resolves once any user-interactive prompts are answered. For
+// non-optional dispatches, resolves immediately.
+async function dispatchEffect(card, anchorEl, drawQueue) {
+  if (!card.sim_effect) return;
+  const eff = card.sim_effect;
+
+  if (eff.type === 'lockout') {
+    state.lockedOut = true;
+    showToast(`Eternal Damnation — ${card.name} seals the Deck.`, 3000);
+    return;
+  }
+
+  if (eff.type === 'extra' && !eff.optional) {
+    const count = Math.max(0, Number(eff.count) || 0);
+    if (count === 0) return;
+    // Front-of-queue insertion preserves the chain order: extras resolve before any not-yet-
+    // drawn original-Draw-N cards. Each extra is anchored to settle right after this card.
+    const entries = [];
+    for (let i = 0; i < count; i++) {
+      entries.push({ card: null, insertAfter: anchorEl });  // card filled at draw time
+    }
+    drawQueue.unshift(...entries);
+    return;
+  }
+
+  // Optional handling comes in Task 10. Until then, optional effects are no-ops.
+  if (eff.type === 'extra' && eff.optional) {
+    return;
+  }
+
+  // Unknown effect type — log and ignore.
+  console.warn('[simulator] unknown sim_effect type:', eff);
+}
+
 // --- Drawing ---
 async function draw(n) {
   if (state.isAnimating) return;
@@ -247,22 +284,26 @@ async function draw(n) {
   }
 
   // Process queue sequentially.
-  let chainAnchor = null;  // most recently settled anim card; null until first card lands
+  let chainAnchor = null;  // most recently settled anim card; passed to dispatchEffect as anchor
   while (drawQueue.length > 0) {
     if (state.lockedOut) {
       drawQueue.length = 0;
       showToast('Eternal Damnation — remaining draws halted.', 2400);
       break;
     }
-    const { card, insertAfter } = drawQueue.shift();
-    if (!card) break;
+    let { card, insertAfter } = drawQueue.shift();
+    // For mandatory-extra entries pushed by dispatchEffect, the card field is null at queue
+    // time (the deck top-card is determined LAZILY, not when the trigger settled). Pull it now.
+    if (card == null) {
+      if (state.deck.length === 0) {
+        showToast('The Deck is empty — extra draws halted.', 2400);
+        break;
+      }
+      card = state.deck.shift();
+    }
     chainAnchor = await animateCardThroughResolution(card, deckEl, spreadArea, insertAfter);
     state.spread.push(card);
-    // Effect dispatch — Task 8 expands this; for now, retain Task 5's lockout scan inline.
-    if (card.sim_effect && card.sim_effect.type === 'lockout') {
-      state.lockedOut = true;
-      showToast(`Eternal Damnation — ${card.name} seals the Deck.`, 3000);
-    }
+    await dispatchEffect(card, chainAnchor, drawQueue);
   }
 
   state.lastDrawN = n;
