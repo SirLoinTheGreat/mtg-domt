@@ -312,7 +312,16 @@ async function dispatchEffect(card, anchorEl, drawQueue) {
       showToast('The Deck is empty — no extra draws available.', 2000);
       return;
     }
-    const labelText = eff.label || `Draw up to ${cap} more from the Deck of Many Things?`;
+    // Toast when the deck cap forces fewer buttons than the card normally offers — gives the user
+    // a reason for the reduced range alongside the prompt.
+    if (cap < maxExtras) {
+      showToast(`Only ${cap} card${cap === 1 ? '' : 's'} remain — extra draws capped.`, 2400);
+    }
+    // Label precedence: when the cap shrinks the offer below count_max, the card's explicit
+    // label (e.g. "draw up to 3") would lie about the available range. Use the dynamic
+    // cap-aware fallback in that case so the label matches the buttons.
+    const fallbackLabel = `Draw up to ${cap} more from the Deck of Many Things?`;
+    const labelText = (cap < maxExtras) ? fallbackLabel : (eff.label || fallbackLabel);
     const chosen = await showExtraPrompt(anchorEl, labelText, cap);
     if (chosen <= 0) return;
     const entries = [];
