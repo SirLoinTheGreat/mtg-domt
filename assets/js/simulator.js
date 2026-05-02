@@ -189,6 +189,84 @@ function rebuildDeck() {
   state.discard = [];
 }
 
+// Build the inline optional-draw prompt anchored to a settled card. Returns a Promise that
+// resolves to the chosen extras count (0..maxExtras). The Promise also resolves to 0 if
+// torn down externally (e.g., by Start New Game mid-chain).
+function showExtraPrompt(anchorEl, label, maxExtras) {
+  return new Promise(resolve => {
+    const prompt = document.createElement('div');
+    prompt.className = 'extra-prompt';
+    prompt.setAttribute('role', 'dialog');
+    prompt.setAttribute('aria-label', label);
+
+    const labelEl = document.createElement('div');
+    labelEl.className = 'extra-prompt-label';
+    labelEl.textContent = label;
+    prompt.appendChild(labelEl);
+
+    const btns = document.createElement('div');
+    btns.className = 'extra-prompt-buttons';
+
+    // Decline button (extras=0)
+    const declineBtn = document.createElement('button');
+    declineBtn.type = 'button';
+    declineBtn.dataset.extras = '0';
+    declineBtn.textContent = 'Decline';
+    btns.appendChild(declineBtn);
+
+    // Draw 1..maxExtras buttons
+    for (let i = 1; i <= maxExtras; i++) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.dataset.extras = String(i);
+      b.textContent = `Draw ${i}`;
+      btns.appendChild(b);
+    }
+    prompt.appendChild(btns);
+
+    // Position the prompt beneath the anchor card.
+    const spreadArea = document.getElementById('spread-area');
+    spreadArea.appendChild(prompt);
+    // Force layout so we can measure the prompt's natural size.
+    void prompt.offsetWidth;
+
+    const anchorRect = anchorEl.getBoundingClientRect();
+    const containerRect = spreadArea.getBoundingClientRect();
+    const promptRect = prompt.getBoundingClientRect();
+    const top = (anchorRect.bottom - containerRect.top) + 12;  // 12px below card
+    const left = (anchorRect.left - containerRect.left) + (anchorRect.width / 2) - (promptRect.width / 2);
+    prompt.style.top = top + 'px';
+    prompt.style.left = Math.max(0, left) + 'px';
+
+    // One resolution path. cleanup() removes the prompt and the keydown listener.
+    const cleanup = (chosen) => {
+      document.removeEventListener('keydown', onKey);
+      state.pendingPrompt = null;
+      prompt.remove();
+      resolve(chosen);
+    };
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        cleanup(0);
+      }
+    };
+    document.addEventListener('keydown', onKey);
+
+    // Click handlers
+    btns.addEventListener('click', (e) => {
+      const t = e.target.closest('button');
+      if (!t) return;
+      const n = parseInt(t.dataset.extras, 10);
+      if (Number.isFinite(n)) cleanup(n);
+    });
+
+    // Externally-torn-down support: store the cleanup fn on state.pendingPrompt so Task 11's
+    // resetSession can force-resolve any in-flight prompt as Decline (0 extras).
+    state.pendingPrompt = (forcedAnswer = 0) => cleanup(forcedAnswer);
+  });
+}
+
 // Resolves a card's sim_effect after it settles in the chain. Mutates `drawQueue` in place,
 // pushing any new entries to the FRONT (so extras resolve before remaining original-draw cards).
 //

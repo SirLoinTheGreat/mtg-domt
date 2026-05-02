@@ -677,6 +677,64 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   .anim-card.resolving .resolve-label { animation: none; }
 }
 
+/* Inline optional-draw prompt — anchored to a settled trigger card */
+.extra-prompt {
+  position: absolute;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: rgba(26, 18, 10, 0.95);
+  border: 1px solid var(--gold);
+  outline: 2px solid var(--gold-dim);
+  outline-offset: -4px;
+  border-radius: 3px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.7), 0 0 28px rgba(244, 210, 122, 0.18);
+  font-family: 'Cormorant Garamond', serif;
+  pointer-events: auto;
+  animation: extra-prompt-in 0.25s ease-out;
+  /* Anchored via JS — top + left set inline to align beneath the trigger card. */
+}
+@keyframes extra-prompt-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.extra-prompt-label {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold-bright);
+  text-align: center;
+  white-space: nowrap;
+}
+.extra-prompt-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+.extra-prompt-buttons button {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.85rem;
+  background: transparent;
+  border: 1px solid var(--gold-dim);
+  color: var(--text);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+.extra-prompt-buttons button:hover {
+  border-color: var(--gold-bright);
+  color: var(--gold-bright);
+  box-shadow: 0 0 8px var(--rune-glow);
+}
+.extra-prompt-buttons button[data-extras="0"] {
+  border-style: dashed;
+  color: var(--text-dim);
+}
+
 /* Toast container (top-center, transient messages) */
 .toast-container {
   position: fixed;
