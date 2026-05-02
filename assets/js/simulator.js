@@ -58,6 +58,8 @@ const state = {
   useFatePoints: true,     // default ON — drawing costs 1 FP
   accumulateFP: false,     // default OFF — canonical max-1 cap
   fatePoints: 1,           // initial; persists across reshuffles, resets to 1 on Start New Game
+  lockedOut: false,        // set by lockout dispatch; cleared by Start New Game
+  pendingPrompt: null,     // resolver fn for the in-flight optional-extra prompt
 };
 
 // --- URL state ---
@@ -189,6 +191,10 @@ function rebuildDeck() {
 // --- Drawing ---
 async function draw(n) {
   if (state.isAnimating) return;
+  if (state.lockedOut) {
+    showToast('The Deck is sealed. Start a New Game to play again.', 2400);
+    return;
+  }
   if (!Number.isFinite(n) || n < MIN_DRAW || n > MAX_DRAW) {
     showToast(`Draw count must be between ${MIN_DRAW} and ${MAX_DRAW}.`);
     return;
@@ -280,6 +286,7 @@ async function draw(n) {
 // --- Set toggles ---
 function toggleSet(setKey) {
   if (state.isAnimating) return;
+  if (state.lockedOut) return;
   const newActive = new Set(state.activeSets);
   if (newActive.has(setKey)) {
     if (newActive.size === 1) {
@@ -378,13 +385,16 @@ function renderDiscard() {
 }
 
 function renderControls() {
-  // Update set-toggle active states + disabled-during-anim.
+  const blocked = state.isAnimating || state.lockedOut;
+
+  // Set toggle pills — locked when animating OR locked out.
   document.querySelectorAll('.set-toggle').forEach(pill => {
     if (state.activeSets.has(pill.dataset.set)) pill.classList.add('active');
     else pill.classList.remove('active');
-    pill.disabled = state.isAnimating;
+    pill.disabled = blocked;
   });
-  // Rule-toggle visual state
+
+  // Rule toggles — animating only (rule changes are still allowed during lockout)
   const fpToggle = document.getElementById('toggle-fp');
   if (fpToggle) {
     fpToggle.classList.toggle('active', state.useFatePoints);
@@ -395,22 +405,29 @@ function renderControls() {
     accToggle.classList.toggle('active', state.accumulateFP);
     accToggle.disabled = state.isAnimating;
   }
-  document.querySelectorAll('.draw-preset').forEach(b => {
-    b.disabled = state.isAnimating;
-  });
+
+  // Draw buttons — blocked when animating OR locked out.
+  document.querySelectorAll('.draw-preset').forEach(b => { b.disabled = blocked; });
   const drawNBtn = document.getElementById('draw-n-btn');
-  if (drawNBtn) drawNBtn.disabled = state.isAnimating;
+  if (drawNBtn) drawNBtn.disabled = blocked;
   const drawNInput = document.getElementById('draw-n');
-  if (drawNInput) drawNInput.disabled = state.isAnimating;
-  // Reshuffle is enabled when there's something to fold back in.
+  if (drawNInput) drawNInput.disabled = blocked;
+
+  // Reshuffle — blocked when animating OR locked out.
   const reshuffle = document.getElementById('reshuffle-btn');
   if (reshuffle) {
-    reshuffle.disabled = state.isAnimating || (state.discard.length === 0 && state.spread.length === 0);
+    reshuffle.disabled = blocked || (state.discard.length === 0 && state.spread.length === 0);
   }
+
+  // Start New Game — only blocked while animating; ALWAYS available during lockout.
   const reset = document.getElementById('start-new-game-btn');
   if (reset) reset.disabled = state.isAnimating;
+
+  // Share — only blocked while animating.
   const share = document.getElementById('share-btn');
   if (share) share.disabled = state.isAnimating;
+
+  // View Discard — independent of lockout (history viewable when sealed).
   const viewDiscard = document.getElementById('view-discard-btn');
   const viewDiscardCount = document.getElementById('view-discard-count');
   if (viewDiscard) viewDiscard.disabled = state.isAnimating || state.discard.length === 0;
@@ -660,10 +677,11 @@ function resetSession() {
   state.rng = mulberry32(state.seed);
   state.lastDrawN = null;
   state.fatePoints = 1;  // fresh session
+  state.lockedOut = false;       // Start New Game is the only path that clears lockout
   rebuildDeck();  // already clears spread + discard
   renderAll();
   renderFateDisplay();
-  showToast('Session reset.', 1500);
+  showToast('New game started.', 1500);
 
   writeURLState();  // sets only — fresh session, no draw to replay
 }
@@ -859,10 +877,9 @@ function renderFateDisplay() {
   count.textContent = String(state.fatePoints);
   if (state.useFatePoints) {
     display.removeAttribute('data-disabled');
-    // Roll button enabled iff we CAN roll
-    // - Always rollable in accumulation mode
-    // - In canonical mode, rollable only when FP=0
-    if (state.accumulateFP) {
+    if (state.lockedOut) {
+      rollBtn.disabled = true;  // pointless to roll when you can't draw
+    } else if (state.accumulateFP) {
       rollBtn.disabled = false;
     } else {
       rollBtn.disabled = (state.fatePoints >= 1);
