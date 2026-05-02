@@ -57,7 +57,7 @@ const state = {
   isAnimating: false,      // Phase 4: gates controls during choreography
   useFatePoints: true,     // default ON — drawing costs 1 FP
   accumulateFP: false,     // default OFF — canonical max-1 cap
-  fatePoints: 1,           // initial; persists across reshuffles, resets to 1 on Reset Session
+  fatePoints: 1,           // initial; persists across reshuffles, resets to 1 on Start New Game
 };
 
 // --- URL state ---
@@ -407,7 +407,7 @@ function renderControls() {
   if (reshuffle) {
     reshuffle.disabled = state.isAnimating || (state.discard.length === 0 && state.spread.length === 0);
   }
-  const reset = document.getElementById('reset-btn');
+  const reset = document.getElementById('start-new-game-btn');
   if (reset) reset.disabled = state.isAnimating;
   const share = document.getElementById('share-btn');
   if (share) share.disabled = state.isAnimating;
@@ -913,7 +913,7 @@ function wireControls() {
   // Phase 5: session controls.
   const reshuffleBtn = document.getElementById('reshuffle-btn');
   if (reshuffleBtn) reshuffleBtn.addEventListener('click', reshuffle);
-  const resetBtn = document.getElementById('reset-btn');
+  const resetBtn = document.getElementById('start-new-game-btn');
   if (resetBtn) resetBtn.addEventListener('click', resetSession);
   // View Discard button — additional affordance alongside the right-rail discard zone click.
   const viewDiscardBtn = document.getElementById('view-discard-btn');
