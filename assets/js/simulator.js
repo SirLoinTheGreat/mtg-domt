@@ -432,6 +432,13 @@ function renderControls() {
   const viewDiscardCount = document.getElementById('view-discard-count');
   if (viewDiscard) viewDiscard.disabled = state.isAnimating || state.discard.length === 0;
   if (viewDiscardCount) viewDiscardCount.textContent = String(state.discard.length);
+
+  // Lockout banner visibility
+  const banner = document.getElementById('lockout-banner');
+  if (banner) {
+    if (state.lockedOut) banner.removeAttribute('hidden');
+    else banner.setAttribute('hidden', '');
+  }
 }
 
 function openCardLightbox(card) {
@@ -933,6 +940,8 @@ function wireControls() {
   if (reshuffleBtn) reshuffleBtn.addEventListener('click', reshuffle);
   const resetBtn = document.getElementById('start-new-game-btn');
   if (resetBtn) resetBtn.addEventListener('click', resetSession);
+  const lockoutCtaBtn = document.getElementById('lockout-cta-btn');
+  if (lockoutCtaBtn) lockoutCtaBtn.addEventListener('click', resetSession);
   // View Discard button — additional affordance alongside the right-rail discard zone click.
   const viewDiscardBtn = document.getElementById('view-discard-btn');
   if (viewDiscardBtn) viewDiscardBtn.addEventListener('click', openDiscardModal);

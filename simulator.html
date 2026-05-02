@@ -325,6 +325,61 @@ color:var(--text-dim);letter-spacing:.22em;text-transform:uppercase;
   75% { transform: rotate(-6deg); }
 }
 
+/* Lockout banner — visible when state.lockedOut is true */
+.lockout-banner {
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 1rem auto 0;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: linear-gradient(180deg, rgba(120, 30, 30, 0.55), rgba(50, 12, 12, 0.85));
+  border: 1px solid rgba(217, 119, 66, 0.5);
+  border-radius: 3px;
+  box-shadow: 0 0 24px rgba(217, 119, 66, 0.25), inset 0 0 16px rgba(0, 0, 0, 0.5);
+  font-family: 'Cinzel', serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  color: var(--gold-bright);
+  animation: lockout-pulse 3s ease-in-out infinite;
+}
+.lockout-banner[hidden] { display: none; }
+.lockout-icon {
+  font-size: 1.3rem;
+  color: var(--ember);
+  text-shadow: 0 0 12px rgba(217, 119, 66, 0.7);
+}
+.lockout-text {
+  flex: 0 1 auto;
+}
+.lockout-cta {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.95rem;
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold-bright);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+.lockout-cta:hover {
+  background: rgba(212, 175, 60, 0.12);
+  box-shadow: 0 0 10px var(--rune-glow);
+}
+@keyframes lockout-pulse {
+  0%, 100% { box-shadow: 0 0 24px rgba(217, 119, 66, 0.25), inset 0 0 16px rgba(0, 0, 0, 0.5); }
+  50%      { box-shadow: 0 0 32px rgba(217, 119, 66, 0.4),  inset 0 0 16px rgba(0, 0, 0, 0.5); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lockout-banner { animation: none; }
+}
+
 /* Stage: the play area */
 .stage {
   position: relative;
@@ -886,6 +941,12 @@ width:100%;max-width:480px;
     </div>
   </div>
 </nav>
+
+<div class="lockout-banner" id="lockout-banner" hidden role="alert" aria-live="polite">
+  <span class="lockout-icon" aria-hidden="true">&#x26D3;</span>
+  <span class="lockout-text">Eternal Damnation &mdash; the Deck is sealed for this game.</span>
+  <button type="button" class="lockout-cta" id="lockout-cta-btn">Start New Game</button>
+</div>
 
 <main class="stage" id="stage">
   <section class="deck-zone" aria-label="The Deck">
