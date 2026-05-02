@@ -231,20 +231,22 @@ function showExtraPrompt(anchorEl, label, maxExtras) {
     }
     prompt.appendChild(btns);
 
-    // Position the prompt beneath the anchor card.
-    const spreadArea = document.getElementById('spread-area');
-    spreadArea.appendChild(prompt);
+    // Append to body and position with fixed (viewport-relative) coordinates. The previous
+    // approach (append to #spread-area, position: absolute) had subtle click-blocking issues
+    // — flex-wrap container + transformed descendants + multiple stacking contexts somewhere
+    // up the tree prevented click events from reaching the buttons. Body-level fixed
+    // positioning sidesteps it entirely.
+    document.body.appendChild(prompt);
     // Force layout so we can measure the prompt's natural size.
     void prompt.offsetWidth;
 
     const anchorRect = anchorEl.getBoundingClientRect();
-    const containerRect = spreadArea.getBoundingClientRect();
     const promptRect = prompt.getBoundingClientRect();
-    const top = (anchorRect.bottom - containerRect.top) + 12;  // 12px below card
-    const left = (anchorRect.left - containerRect.left) + (anchorRect.width / 2) - (promptRect.width / 2);
-    // Clamp to spread-area bounds so the prompt doesn't overflow on narrow viewports or
-    // when the anchor sits near either edge.
-    const maxLeft = Math.max(0, containerRect.width - promptRect.width);
+    const viewportW = window.innerWidth;
+    const top = anchorRect.bottom + 12;  // 12px below the card, in viewport coords
+    const left = anchorRect.left + (anchorRect.width / 2) - (promptRect.width / 2);
+    // Clamp horizontally so the prompt stays on-screen.
+    const maxLeft = Math.max(0, viewportW - promptRect.width);
     prompt.style.top = top + 'px';
     prompt.style.left = Math.max(0, Math.min(left, maxLeft)) + 'px';
 
