@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rules Card Preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  background:#1a1510;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  padding:2rem;
+  font-family:'EB Garamond',serif;
+}
+
+.page-title{
+  font-family:'Cinzel',serif;
+  color:#c9a84c;
+  font-size:1.4rem;
+  letter-spacing:.1em;
+  margin-bottom:1.5rem;
+  text-align:center;
+  opacity:.6;
+}
+
+.card-container{
+  display:flex;
+  gap:2.5rem;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:flex-start;
+}
+
+.card-label-tag{
+  text-align:center;
+  font-family:'Cinzel',serif;
+  color:#8a7e60;
+  font-size:.75rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  margin-bottom:.5rem;
+}
+
+/* === MTG CARD FRAME === */
+.mtg-card{
+  width:488px;
+  height:680px;
+  border-radius:18px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:
+    0 4px 20px rgba(0,0,0,.6),
+    0 0 0 1px rgba(201,168,76,.3),
+    inset 0 0 80px rgba(201,168,76,.05);
+}
+
+/* Gold border frame */
+.card-border{
+  position:absolute;inset:0;
+  border-radius:18px;
+  background:
+    linear-gradient(165deg,
+      #e8c94a 0%, #c9a84c 15%, #8a6d2b 30%,
+      #c9a84c 45%, #e8c94a 55%, #c9a84c 70%,
+      #8a6d2b 85%, #c9a84c 100%);
+  z-index:0;
+}
+
+/* Inner card area */
+.card-inner{
+  position:absolute;
+  top:10px;left:10px;right:10px;bottom:10px;
+  border-radius:12px;
+  background:
+    linear-gradient(180deg, #f5ecd0 0%, #efe3c0 40%, #e8d9ae 100%);
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+/* Title bar */
+.card-title-bar{
+  margin:8px 10px 0;
+  padding:6px 12px;
+  background:linear-gradient(135deg, #e8c94a 0%, #c9a84c 50%, #8a6d2b 100%);
+  border-radius:6px 6px 0 0;
+  border:1px solid #8a6d2b;
+  border-bottom:none;
+}
+.card-title{
+  font-family:'Cinzel',serif;
+  font-weight:800;
+  font-size:1.15rem;
+  color:#1a1208;
+  text-shadow:0 1px 0 rgba(255,255,255,.3);
+  letter-spacing:.02em;
+}
+
+/* Type bar */
+.card-type-bar{
+  margin:0 10px;
+  padding:4px 12px;
+  background:linear-gradient(135deg, #d4b84a 0%, #b89830 100%);
+  border:1px solid #8a6d2b;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.card-type{
+  font-family:'Cinzel',serif;
+  font-weight:600;
+  font-size:.8rem;
+  color:#2a2010;
+  letter-spacing:.03em;
+}
+.card-set-icon{
+  width:18px;height:18px;
+  opacity:.7;
+}
+
+/* Rules text box */
+.card-text-box{
+  margin:4px 10px;
+  padding:10px 12px;
+  background:
+    linear-gradient(180deg, #f8f2e0 0%, #f2e8cf 100%);
+  border:1px solid #c4a050;
+  border-radius:0 0 6px 6px;
+  flex:1;
+  overflow-y:auto;
+  position:relative;
+}
+
+/* Watermark */
+.card-text-box::before{
+  content:'';
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:70%;height:70%;
+  opacity:.04;
+  background:radial-gradient(circle, #8a6d2b 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.rules-text{
+  font-family:'EB Garamond',serif;
+  font-size:.72rem;
+  line-height:1.35;
+  color:#1a1208;
+  position:relative;
+  z-index:1;
+}
+
+.rules-text .section-title{
+  font-family:'Cinzel',serif;
+  font-weight:700;
+  font-size:.72rem;
+  color:#2a1a08;
+  margin-top:6px;
+  margin-bottom:1px;
+  letter-spacing:.02em;
+}
+.rules-text .section-title:first-child{margin-top:0}
+
+.rules-text .flavor-intro{
+  font-style:italic;
+  margin-bottom:4px;
+  color:#3a2a10;
+}
+
+.rules-text p{
+  margin:2px 0;
+}
+
+.rules-text ul{
+  margin:1px 0 2px 0;
+  padding-left:14px;
+}
+.rules-text ul li{
+  margin:1px 0;
+}
+
+.rules-text .bold{font-weight:700}
+.rules-text .italic{font-style:italic}
+
+.rules-text .divider{
+  border:none;
+  border-top:1px solid rgba(138,109,43,.25);
+  margin:7px 0;
+}
+
+.rules-text .keyword{
+  font-weight:600;
+}
+
+/* Flavor text */
+.rules-text .flavor{
+  font-style:italic;
+  color:#5a4a2a;
+  margin-top:5px;
+  text-align:center;
+  font-size:.72rem;
+}
+
+/* Footer bar */
+.card-footer{
+  margin:4px 10px 8px;
+  padding:3px 10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.55rem;
+  color:#6a5a3a;
+  font-family:'EB Garamond',serif;
+}
+.card-footer .card-footer-type{
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-family:'Cinzel',serif;
+  font-size:.5rem;
+}
+
+/* Scrollbar styling for text box */
+.card-text-box::-webkit-scrollbar{width:4px}
+.card-text-box::-webkit-scrollbar-track{background:transparent}
+.card-text-box::-webkit-scrollbar-thumb{background:rgba(138,109,43,.3);border-radius:2px}
+
+/* comparison layout */
+.comparison-note{
+  max-width:1100px;
+  margin-top:2rem;
+  padding:1.5rem;
+  background:rgba(201,168,76,.05);
+  border:1px solid rgba(201,168,76,.15);
+  border-radius:4px;
+  color:#d4c5a0;
+  font-size:.85rem;
+  line-height:1.6;
+}
+.comparison-note h3{
+  font-family:'Cinzel',serif;
+  color:#c9a84c;
+  font-size:1rem;
+  margin-bottom:.8rem;
+  letter-spacing:.05em;
+}
+.comparison-note .change{
+  margin:6px 0;
+  padding-left:12px;
+  border-left:2px solid rgba(201,168,76,.3);
+}
+.comparison-note .change-label{
+  font-weight:700;
+  color:#e8c94a;
+}
+.comparison-note .old{color:#aa6666;text-decoration:line-through;opacity:.7}
+.comparison-note .new{color:#66aa77}
+</style>
+<script src="/shared/suite-nav.js" defer></script>
+</head>
+<body>
+<suite-nav active="domt"></suite-nav>
+
+<div class="page-title">Rules Card — Before &amp; After</div>
+
+<div class="card-container">
+
+<!-- ORIGINAL -->
+<div>
+<div class="card-label-tag">Original</div>
+<div class="mtg-card">
+<div class="card-border"></div>
+<div class="card-inner">
+  <div class="card-title-bar">
+    <div class="card-title">Deck of Many Things Rules</div>
+  </div>
+  <div class="card-type-bar">
+    <span class="card-type">Commander Variant</span>
+  </div>
+  <div class="card-text-box">
+    <div class="rules-text">
+      <p class="flavor-intro"><span class="bold">What is the Deck of Many Things?</span> A legendary artifact of incredible power, chaos, and fate. Drawing from this deck will forever change your destiny — for better or worse.<br><span class="bold">DRAW AT YOUR OWN RISK!</span></p>
+
+      <div class="section-title">Setup —</div>
+      <ul>
+        <li>Shuffle the <span class="bold">Deck of Many Things</span> and place it in the command zone.</li>
+        <li>Each player starts with 1 <span class="bold">Fate Point</span> and can only have 1 <span class="bold">Fate Point</span> maximum.</li>
+        <li><span class="italic">Optional Rule:</span> Each player may draw one non-declared card from the Deck of Many Things at the start of the game without spending a Fate Point.</li>
+      </ul>
+
+      <div class="section-title">When You Can Draw From The Deck —</div>
+      <p>Only a seasoned adventurer may draw from the deck. During each player's fifth and subsequent turns, once during your precombat main phase, you may spend a Fate Point and draw a card from the Deck of Many Things.</p>
+      <ul>
+        <li><span class="italic">Optional Rule:</span> When drawing from the deck, you may instead declare how many cards you wish to draw (1 to 4 cards) instead of one. Effects happen in the order drawn.</li>
+      </ul>
+
+      <div class="section-title" style="font-style:italic">Optional Gameplay:</div>
+      <p><span class="bold">Gaining Fate Points</span> — When you have no Fate Points, you may choose to roll <span class="bold">1d6</span> during your main phase.</p>
+      <p>On a 6: Gain 1 Fate Point</p>
+      <p>If you would gain a Fate Point but already have one, you may instead draw a card from the Deck of Many Things.</p>
+
+      <div class="section-title">Card Resolution —</div>
+      <p>When a card is drawn from the Deck of Many Things, it is cast immediately without paying its mana cost. Drawing from the deck cannot be countered, doesn't use the stack, and can only be responded to by a card Named The Fates.</p>
+      <ul>
+        <li>When a card drawn from the Deck of Many Things would go anywhere other than the battlefield, unless explicitly stated on the card as part of its mechanics, shuffle it into the Deck of Many Things, except for cards named The Jester or The Fool.</li>
+        <li>If multiple cards are draw, resolve each card completely in sequence before moving on to the next card.</li>
+        <li>Emblems created by the Deck of Many Things cannot be removed except by effects that specifically say they can remove emblems.</li>
+        <li>The Legend rule does not apply to permanents drawn from the Deck of Many Things.</li>
+      </ul>
+
+      <p class="flavor">"Sometimes the cards you're dealt become the fate you're given."</p>
+    </div>
+  </div>
+  <div class="card-footer">
+    <span class="card-footer-type">Rules &bull; DOMT-OG</span>
+    <span>SLTG &bull; EN &bull; &#9830; MidJourney</span>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- REVISED -->
+<div>
+<div class="card-label-tag">Revised</div>
+<div class="mtg-card">
+<div class="card-border"></div>
+<div class="card-inner">
+  <div class="card-title-bar">
+    <div class="card-title">Deck of Many Things Rules</div>
+  </div>
+  <div class="card-type-bar">
+    <span class="card-type">Commander Variant</span>
+  </div>
+  <div class="card-text-box">
+    <div class="rules-text">
+      <p class="flavor-intro">A legendary artifact of incredible power, chaos, and fate. What you reveal may change your destiny — for better or worse.</p>
+
+      <div class="section-title">Setup</div>
+      <ul>
+        <li>Shuffle the <span class="bold">Deck of Many Things</span> and place it in the command zone.</li>
+        <li>Each player starts with one <span class="keyword">fate point</span>. A player can't have more than one fate point.</li>
+      </ul>
+
+      <div class="section-title">Drawing from the Deck</div>
+      <p>Beginning on each player's fifth turn, once during your precombat main phase, you may spend a fate point. If you do, reveal the top card of the Deck of Many Things and cast it without paying its mana cost. <span class="italic">(This is a special action. It doesn't use the stack and can't be responded to except by a card named The Fates.)</span></p>
+
+      <div class="section-title">Card Resolution</div>
+      <ul>
+        <li>Spells cast from the Deck of Many Things can't be countered.</li>
+        <li>Whenever a card that was cast from the Deck would be put into a graveyard, hand, library, or exile from the battlefield, shuffle it into the Deck instead. <span class="italic">(Exception: Cards named The Jester or The Fool are exiled instead.)</span></li>
+        <li>If you cast multiple cards from the Deck, resolve each completely before revealing the next.</li>
+        <li>The legend rule doesn't apply to permanents cast from the Deck of Many Things.</li>
+        <li>Emblems created by the Deck of Many Things can be removed only by cards that specifically say they can.</li>
+      </ul>
+
+      <div class="section-title">Fate Glimpsed Once</div>
+      <p>A player can't cast the same card from the Deck of Many Things more than once per game. If you would reveal a card you've already cast from the Deck this game, shuffle it back and reveal another.</p>
+
+      <div class="section-title">The Deck Vanishes</div>
+      <p>Once every player has cast at least one card from the Deck of Many Things, exile the Deck. No further cards can be drawn from it this game.</p>
+
+      <hr class="divider">
+
+      <div class="section-title" style="font-style:italic">Optional Rules</div>
+      <p><span class="keyword">Free First Draw</span> — During setup, each player may reveal the top card of the Deck and cast it without spending a fate point.</p>
+      <p><span class="keyword">Multi-Draw</span> — When you spend a fate point, you may declare a number from 1 to 4. Reveal and cast that many cards instead of one. You can't stop early, even if a card's effect would remove you from the game.</p>
+      <p><span class="keyword">Gambling for Fate</span> — During your main phase, if you have no fate points, you may roll a d6. On a 6, you gain a fate point. If you would gain a fate point but already have one, you may reveal the top card of the Deck and cast it instead.</p>
+
+      <p class="flavor">"Sometimes the cards you're dealt become the fate you're given."</p>
+    </div>
+  </div>
+  <div class="card-footer">
+    <span class="card-footer-type">Rules &bull; DOMT-OG</span>
+    <span>SLTG &bull; EN &bull; &#9830; MidJourney</span>
+  </div>
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Changes summary -->
+<div class="comparison-note">
+  <h3>What Changed</h3>
+
+  <div class="change">
+    <span class="change-label">1. "Draw" → "Reveal and cast"</span><br>
+    <span class="old">"draw a card from the Deck of Many Things"</span><br>
+    <span class="new">"reveal the top card of the Deck of Many Things and cast it"</span><br>
+    Avoids conflict with MTG's specific meaning of "draw" (put into hand from library).
+  </div>
+
+  <div class="change">
+    <span class="change-label">2. Special action (Fate Point spend)</span><br>
+    <span class="old">"you may spend a Fate Point and draw a card"</span><br>
+    <span class="new">"(This is a special action. It doesn't use the stack and can't be responded to except by a card named The Fates.)"</span><br>
+    Properly defines timing using MTG's special action framework (like Morph).
+  </div>
+
+  <div class="change">
+    <span class="change-label">3. "Cast immediately" → proper template</span><br>
+    <span class="old">"it is cast immediately without paying its mana cost"</span><br>
+    <span class="new">"cast it without paying its mana cost"</span><br>
+    "Immediately" isn't MTG terminology. The special action framing handles the timing.
+  </div>
+
+  <div class="change">
+    <span class="change-label">4. Replacement effect — proper zones</span><br>
+    <span class="old">"would go anywhere other than the battlefield"</span><br>
+    <span class="new">"would be put into a graveyard, hand, library, or exile from the battlefield"</span><br>
+    Names specific zones per MTG convention.
+  </div>
+
+  <div class="change">
+    <span class="change-label">5. Optional rules separated</span><br>
+    All three optional rules moved below a visible divider with keyword names: <em>Free First Draw</em>, <em>Multi-Draw</em>, <em>Gambling for Fate</em>. No longer interleaved with core rules.
+  </div>
+
+  <div class="change">
+    <span class="change-label">6. Typo fixed</span><br>
+    <span class="old">"If multiple cards are draw"</span><br>
+    <span class="new">"If you cast multiple cards from the Deck, resolve each completely"</span>
+  </div>
+
+  <div class="change">
+    <span class="change-label">8. Multi-Draw is now a binding commitment</span><br>
+    <span class="old">"you may instead declare how many cards you wish to draw (1 to 4 cards)"</span><br>
+    <span class="new">"You can't stop early, even if a card's effect would remove you from the game."</span><br>
+    Matches D&amp;D's original Deck, where declaring draws is a binding contract with fate. This is what makes the Deck terrifying.
+  </div>
+
+  <div class="change">
+    <span class="change-label">7. Tighter text overall</span><br>
+    Removed "DRAW AT YOUR OWN RISK!", "Only a seasoned adventurer may draw from the deck", and other flavor from the rules body. Kept the flavor quote at the bottom. This freed up space for clearer templating.
+  </div>
+
+  <div class="change">
+    <span class="change-label">9. New: Fate Glimpsed Once</span><br>
+    <span class="new">"A player can't cast the same card from the Deck of Many Things more than once per game. If you would reveal a card you've already cast from the Deck this game, shuffle it back and reveal another."</span><br>
+    Imports the D&amp;D rule "no card can be received more than once by the same drawer." Each player gets a unique journey through the Deck.
+  </div>
+
+  <div class="change">
+    <span class="change-label">10. New: The Deck Vanishes</span><br>
+    <span class="new">"Once every player has cast at least one card from the Deck of Many Things, exile the Deck. No further cards can be drawn from it this game."</span><br>
+    Imports the D&amp;D rule "when the last player at the table has drawn, the deck will disappear." Creates table-wide tension: the holdout's draw closes the Deck for everyone, so aggressive drawers race to pull more cards before the table forces it shut. (One-hour real-time clock from D&amp;D dropped — no wall-clock mechanics in MTG.)
+  </div>
+</div>
+
+</body>
+</html>

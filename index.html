@@ -3,19 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Deck of Many Things — MTG Crossover Gallery</title>
+<title>The Deck of Many Things · MTG Crossover Gallery</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./assets/css/card-lightbox.css">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:where(button,[role="button"],[tabindex],a,summary):focus-visible{
+outline:2px solid var(--gold);
+outline-offset:2px;
+border-radius:2px;
+}
 :root{
 --gold:#d4af3c;--gold-bright:#f4d27a;--gold-dim:#6b5320;
 --ink:#0a0805;--ink-warm:#1a120a;
 --text:#d4c5a0;--text-dim:#8a7e60;
 --ember:#d97742;
 --rune-glow:rgba(244,210,122,.6);
---card-shadow:0 8px 32px rgba(0,0,0,.7),0 2px 8px rgba(0,0,0,.5);
+--shadow-ink:10,8,5;
+--w-narrow:480px;--w-text:760px;--w-faq:880px;--w-content:1100px;--w-controls:1400px;--w-wide:1600px;
 --card-halo:0 0 30px rgba(244,210,122,.35),0 0 60px rgba(212,175,60,.18);
+/* Per-deck accent colors (RGB tuples for rgba composition) */
+--accent-original-rgb:212,175,60;     /* gold — primal */
+--accent-expansion-rgb:194,145,63;    /* brass — elaborate */
+--accent-harrow-rgb:154,124,138;      /* smoky purple — grim */
+--accent-wonder-rgb:112,144,168;      /* dusty cyan — otherworldly */
 }
 html{scroll-behavior:smooth}
 body{
@@ -51,71 +62,96 @@ animation:gold-drift 110s linear infinite;
 @media (prefers-reduced-motion: reduce){
   body::after{animation:none}
 }
+/* Sentiment-tinted ambient air — subtle hue shift based on visible cluster */
+.ambient-tint{
+position:fixed;inset:0;z-index:0;pointer-events:none;
+opacity:0;
+background-color:transparent;
+transition:opacity 1.2s ease,background-color 1.2s ease;
+}
+.ambient-tint[data-sent="positive"]{
+background-color:rgba(125,186,138,.05);
+opacity:1;
+}
+.ambient-tint[data-sent="neutral"]{
+background-color:rgba(212,175,60,.03);
+opacity:1;
+}
+.ambient-tint[data-sent="negative"]{
+background-color:rgba(200,96,96,.05);
+opacity:1;
+}
 
-/* HEADER */
-.header{
+/* INVOCATION — page hero plate */
+.invocation{
 position:relative;z-index:1;text-align:center;
-padding:3rem 1.5rem 2rem;
+padding:5rem 1.5rem 3rem;
 border-bottom:1px solid rgba(201,168,76,.15);
 }
-.header h1{
+.invocation-title{
 font-family:'Cinzel Decorative',serif;font-weight:900;
-font-size:clamp(1.8rem,5vw,3.2rem);
-color:var(--gold);letter-spacing:.08em;
-text-shadow:0 0 40px rgba(201,168,76,.2);
-margin-bottom:.3rem;
+font-size:clamp(2.6rem,9vw,6rem);
+color:var(--gold);letter-spacing:.06em;line-height:1.05;
+text-shadow:0 0 60px rgba(201,168,76,.25);
+margin-bottom:.5rem;
 }
-.header .subtitle{
+.invocation-subtitle{
 font-family:'Cinzel',serif;font-weight:400;
-font-size:clamp(.85rem,2vw,1.1rem);
-color:var(--text-dim);letter-spacing:.2em;text-transform:uppercase;
+font-size:clamp(.78rem,1.8vw,1rem);
+color:var(--text-dim);letter-spacing:.32em;text-transform:uppercase;
 }
-.header .card-count{
-margin-top:.8rem;font-size:.9rem;color:var(--text-dim);
-font-style:italic;
+.invocation-warning{
+margin:2.4rem auto 0;
+font-family:'Cormorant Garamond',serif;font-style:italic;
+font-size:clamp(1rem,2.2vw,1.25rem);
+color:var(--text-dim);
+letter-spacing:.01em;
+max-width:42ch;
+line-height:1.5;
 }
-.header .card-count .count-num{
-font-family:'Cinzel',serif;font-weight:700;
-font-style:normal;
-color:var(--gold);font-size:1rem;letter-spacing:.04em;
-margin-right:.25rem;
+.invocation-warning .count-num{
+font-family:'Cinzel',serif;font-weight:700;font-style:normal;
+color:var(--gold);font-size:1.05em;letter-spacing:.04em;
 text-shadow:0 0 14px rgba(212,175,60,.25);
 }
-.header-actions{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:stretch;
-  gap:1rem;
-  margin-top:1rem;
+.invocation-actions{
+margin-top:1.6rem;
+display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:center;
+gap:.4rem 1rem;
+font-family:'Cinzel',serif;font-size:.74rem;
+letter-spacing:.18em;text-transform:uppercase;
+color:var(--gold-dim);
 }
-.header-actions > .download-btn-global,
-.header-actions > .sim-entry-link{
-  margin-top:0;  /* gap on the wrapper handles spacing */
+.invocation-action{
+background:none;border:none;padding:0;margin:0;
+font:inherit;color:inherit;
+cursor:pointer;text-decoration:none;
+display:inline-flex;align-items:baseline;
+transition:color .2s ease;
 }
-.sim-entry-link{
-  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:.85rem 1.6rem;
-  background:linear-gradient(180deg,rgba(212,175,60,.08),rgba(212,175,60,.02));
-  border:1px solid var(--gold);
-  color:var(--gold-bright);
-  font-family:'Cinzel',serif;font-weight:600;
-  letter-spacing:.12em;text-transform:uppercase;
-  cursor:pointer;text-decoration:none;
-  transition:all .25s ease;
-  border-radius:3px;
-  box-shadow:var(--card-halo);
+.invocation-action:hover:not(:disabled){
+color:var(--gold-bright);
 }
-.sim-entry-link:hover{
-  background:linear-gradient(180deg,rgba(212,175,60,.15),rgba(212,175,60,.04));
-  box-shadow:0 0 20px var(--rune-glow),var(--card-halo);
+.invocation-action:disabled{
+opacity:.5;cursor:not-allowed;
 }
-.sim-entry-link .label{font-size:.95rem}
-.sim-entry-link .sublabel{
-  font-family:'Cormorant Garamond',serif;font-size:.78rem;
-  letter-spacing:.04em;text-transform:none;
-  color:var(--text-dim);font-style:italic;font-weight:400;
-  margin-top:.2rem;
+.invocation-action + .invocation-action::before{
+content:'·';
+margin-right:1rem;
+color:rgba(212,175,60,.3);
+}
+.invocation-action #download-all-sublabel{
+font-family:'Cormorant Garamond',serif;font-size:.95em;
+font-style:italic;
+letter-spacing:.04em;text-transform:none;
+color:var(--text-dim);
+margin-left:.4em;
+}
+@media(max-width:480px){
+.invocation{padding:3rem 1rem 2rem}
+.invocation-warning{margin-top:1.6rem}
+.invocation-actions{gap:.3rem .8rem;font-size:.7rem;margin-top:1.2rem}
+.invocation-action + .invocation-action::before{margin-right:.8rem}
 }
 
 /* CONTROLS */
@@ -127,7 +163,7 @@ border-bottom:1px solid rgba(201,168,76,.1);
 padding:1rem 1.5rem;
 }
 .controls-inner{
-max-width:1400px;margin:0 auto;
+max-width:var(--w-controls);margin:0 auto;
 display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;
 }
 .search-wrap{
@@ -143,8 +179,9 @@ outline:none;transition:border-color .2s;
 .search-wrap input::placeholder{color:var(--text-dim);font-style:italic}
 .search-wrap input:focus{border-color:var(--gold-dim)}
 .search-wrap::before{
-content:'⟐';position:absolute;left:.8rem;top:50%;transform:translateY(-50%);
-color:var(--gold-dim);font-size:1.1rem;
+content:'';position:absolute;left:.8rem;top:50%;transform:translateY(-50%);
+width:16px;height:16px;
+background:url("data:image/svg+xml;utf8,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%236b5320' stroke-width='1.5' stroke-linecap='round'%3E%3Cpath d='M8 1L15 8L8 15L1 8Z'/%3E%3Ccircle cx='8' cy='8' r='1.5' fill='%236b5320'/%3E%3C/svg%3E") center/contain no-repeat;
 }
 .filter-group{display:flex;flex-wrap:wrap;gap:.4rem}
 .filter-btn{
@@ -152,7 +189,7 @@ font-family:'Cinzel',serif;font-size:.72rem;font-weight:600;
 letter-spacing:.1em;text-transform:uppercase;
 padding:.45rem .9rem;cursor:pointer;
 background:transparent;border:1px solid rgba(201,168,76,.15);
-color:var(--text-dim);border-radius:1px;transition:all .2s;
+color:var(--text-dim);border-radius:1px;transition:border-color .2s,color .2s,background .2s;
 }
 .filter-btn:hover{border-color:var(--gold-dim);color:var(--text)}
 .filter-btn.active{
@@ -169,12 +206,57 @@ font-size:.7rem;font-family:'Cinzel',serif;
 .color-btn[data-color="R"]{background:rgba(220,80,60,.12);border-color:rgba(220,80,60,.3)}
 .color-btn[data-color="G"]{background:rgba(60,180,80,.12);border-color:rgba(60,180,80,.3)}
 .color-btn[data-color="C"]{background:rgba(180,180,180,.12);border-color:rgba(180,180,180,.3)}
-.color-btn.active[data-color="W"]{background:rgba(255,250,230,.3);color:#fff}
+.color-btn.active[data-color="W"]{background:rgba(255,250,230,.3);color:var(--text)}
 .color-btn.active[data-color="U"]{background:rgba(80,140,220,.3);color:#88bbff}
 .color-btn.active[data-color="B"]{background:rgba(140,100,180,.3);color:#c8a0ee}
 .color-btn.active[data-color="R"]{background:rgba(220,80,60,.3);color:#ff8870}
 .color-btn.active[data-color="G"]{background:rgba(60,180,80,.3);color:#70dd80}
 .color-btn.active[data-color="C"]{background:rgba(180,180,180,.3);color:#ddd}
+.clear-btn{
+color:var(--ember);
+border-color:rgba(217,119,66,.3);
+background:rgba(217,119,66,.04);
+}
+.clear-btn:hover{
+border-color:var(--ember);
+background:rgba(217,119,66,.1);
+}
+.filters-toggle{
+display:none;
+align-items:center;gap:.35em;
+}
+.filters-toggle::after{
+content:'▾';font-size:.7em;
+transition:transform .2s ease;
+}
+.controls.filters-open .filters-toggle::after{
+transform:rotate(180deg);
+}
+.filters-sheet{display:contents}
+@media(max-width:480px){
+.filters-toggle{display:inline-flex}
+.controls{position:relative}
+.filters-sheet{
+display:flex;flex-direction:column;align-items:stretch;gap:.5rem;
+position:absolute;
+top:100%;left:0;right:0;
+background:rgba(13,11,8,.97);
+border-bottom:1px solid rgba(212,175,60,.18);
+padding:1rem;
+z-index:50;
+transform:translateY(-10px);
+opacity:0;
+pointer-events:none;
+transition:transform .25s ease,opacity .25s ease;
+}
+.filters-sheet > .divider{display:none}
+.filters-sheet > .filter-group{justify-content:center}
+.controls.filters-open .filters-sheet{
+transform:translateY(0);
+opacity:1;
+pointer-events:auto;
+}
+}
 .divider{
 width:18px;height:28px;
 display:flex;align-items:center;justify-content:center;
@@ -200,7 +282,7 @@ color:var(--gold);background:linear-gradient(180deg,rgba(212,175,60,.16),rgba(21
 border:1px solid rgba(212,175,60,.4);
 border-radius:2px;padding:.5rem 1.1rem .55rem;cursor:pointer;
 display:inline-flex;align-items:center;gap:.45rem;
-transition:all .25s ease;
+transition:color .25s ease,background .25s ease,border-color .25s ease,box-shadow .25s ease;
 position:relative;overflow:hidden;
 margin-left:auto; /* push to right edge of controls bar */
 }
@@ -209,6 +291,12 @@ color:var(--gold-bright);
 background:linear-gradient(180deg,rgba(244,210,122,.22),rgba(244,210,122,.08));
 border-color:rgba(244,210,122,.65);
 box-shadow:0 0 18px rgba(244,210,122,.22);
+}
+.draw-btn:disabled{
+opacity:.4;
+cursor:not-allowed;
+pointer-events:none;
+box-shadow:none;
 }
 .draw-btn .draw-glyph{
 font-size:.95rem;line-height:1;color:var(--gold);
@@ -237,51 +325,83 @@ animation:draw-spin .55s ease;
 }
 
 /* DECK STATS PANEL */
-.stats-panel{
+.deck-stats-wrap{
 position:relative;z-index:1;
-max-width:1600px;margin:1.4rem auto 0;
+max-width:var(--w-content);margin:1rem auto 0;
 padding:0 1.5rem;
 }
-.stats-inner{
-display:grid;
-grid-template-columns:auto 1.4fr 1.4fr 1.4fr 2.2fr;
-gap:0;
-background:linear-gradient(180deg,rgba(26,18,10,.65),rgba(26,18,10,.85));
+.deck-stats{
 border:1px solid rgba(212,175,60,.18);
-border-radius:3px;
-padding:1.1rem 1.4rem;
-box-shadow:0 4px 20px rgba(0,0,0,.4),inset 0 0 60px rgba(212,175,60,.04);
+border-radius:2px;
+background:rgba(26,18,10,.3);
+transition:border-color .2s ease,box-shadow .2s ease;
 }
-.stat-cell{
-padding:0 1.6rem;
-border-left:1px solid rgba(212,175,60,.14);
-display:flex;flex-direction:column;justify-content:center;
-gap:.5rem;
+.deck-stats:hover{border-color:rgba(212,175,60,.32)}
+.deck-stats[open]{
+border-color:rgba(212,175,60,.4);
+box-shadow:0 0 14px rgba(212,175,60,.06);
+}
+.deck-stats-summary{
+cursor:pointer;
+display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+padding:.7rem 2.4rem .7rem 1.1rem;
+list-style:none;
+position:relative;
+transition:color .2s ease;
+}
+.deck-stats-summary::-webkit-details-marker{display:none}
+.deck-stats-summary::after{
+content:'+';
+position:absolute;right:1rem;top:50%;
+transform:translateY(-50%);
+font-size:1.2rem;color:var(--gold-dim);
+font-family:'Cinzel',serif;font-weight:300;
+transition:color .2s ease;
+}
+.deck-stats[open] .deck-stats-summary::after{content:'−';color:var(--gold)}
+.deck-stats-summary:hover{color:var(--gold-bright)}
+.ds-toggle{
+font-family:'Cinzel',serif;font-weight:600;
+font-size:.72rem;
+color:var(--gold-dim);letter-spacing:.18em;text-transform:uppercase;
+transition:color .2s ease;
+}
+.deck-stats[open] .ds-toggle,
+.deck-stats-summary:hover .ds-toggle{color:var(--gold)}
+.ds-count{
+font-family:'Cormorant Garamond',serif;font-style:italic;
+font-size:.92rem;color:var(--text-dim);letter-spacing:.02em;
+}
+#stat-count-value,#stat-count-total{
+font-family:'Cinzel',serif;font-weight:600;font-style:normal;
+color:var(--gold);letter-spacing:.04em;
+}
+.deck-stats-body{
+display:grid;
+grid-template-columns:1fr 1fr 1fr 1.6fr;
+gap:0;
+padding:.4rem 0 1rem;
+border-top:1px solid rgba(212,175,60,.08);
+}
+.ds-cell{
+padding:.9rem 1.1rem;
+border-left:1px solid rgba(212,175,60,.08);
+display:flex;flex-direction:column;
+gap:.45rem;
 min-width:0;
 }
-.stat-cell:first-child{border-left:none;padding-left:.4rem}
-.stat-cell:last-child{padding-right:.4rem}
-.stat-label{
+.ds-cell:first-child{border-left:none}
+.ds-cell-label{
 font-family:'Cinzel',serif;font-weight:600;
 font-size:.62rem;color:var(--gold-dim);
 letter-spacing:.22em;text-transform:uppercase;
-}
-.stat-value{
-font-family:'Cinzel Decorative',serif;font-weight:900;
-font-size:1.7rem;color:var(--gold);line-height:1;
-letter-spacing:.04em;
-text-shadow:0 0 18px rgba(212,175,60,.18);
-}
-.stat-meta{
-font-family:'Cormorant Garamond',serif;font-style:italic;
-font-size:.78rem;color:var(--text-dim);
 }
 /* Colors bar — horizontal proportional segments */
 .color-bars{
 display:flex;width:100%;height:18px;border-radius:2px;
 overflow:hidden;
 border:1px solid rgba(212,175,60,.12);
-background:rgba(0,0,0,.35);
+background:rgba(var(--shadow-ink),.35);
 }
 .color-bars-meta{
 display:flex;gap:.5rem;font-family:'Cinzel',serif;
@@ -323,7 +443,7 @@ color:var(--text-dim);letter-spacing:.04em;
 display:flex;width:100%;height:18px;border-radius:2px;
 overflow:hidden;
 border:1px solid rgba(212,175,60,.12);
-background:rgba(0,0,0,.35);
+background:rgba(var(--shadow-ink),.35);
 }
 .sent-seg{height:100%;transition:filter .2s}
 .sent-seg.positive{background:linear-gradient(180deg,#7dba8a,#4f8a5e)}
@@ -351,33 +471,35 @@ border:1px solid rgba(212,175,60,.18);
 white-space:nowrap;
 }
 .mech-chip span{color:var(--gold-dim);margin-left:5px;font-size:.58rem}
-/* Stats panel collapses on narrow viewports */
+/* Deck stats responsive */
 @media(max-width:1100px){
-  .stats-inner{grid-template-columns:auto 1fr 1fr;gap:.6rem 0}
-  .stat-cell{padding:.6rem 1rem}
-  .stat-mechanics{grid-column:1/-1;border-left:none;border-top:1px solid rgba(212,175,60,.14)}
-  .stat-sentiment{border-left:none}
-  .stat-curve{grid-column:2/3}
+  .deck-stats-body{grid-template-columns:1fr 1fr;gap:.4rem 0}
+  .ds-cell{border-left:none;border-top:1px solid rgba(212,175,60,.08);padding:.7rem 1rem}
+  .ds-cell:nth-child(1),.ds-cell:nth-child(2){border-top:none}
+  .ds-cell:nth-child(2){border-left:1px solid rgba(212,175,60,.08)}
+  .ds-cell:nth-child(4){grid-column:1/-1}
 }
 @media(max-width:680px){
-  .stats-panel{padding:0 1rem}
-  .stats-inner{grid-template-columns:1fr 1fr;padding:.8rem}
-  .stat-cell{padding:.5rem .7rem;border-left:none;border-top:1px solid rgba(212,175,60,.1)}
-  .stat-cell:first-child,.stat-cell:nth-child(2){border-top:none}
-  .stat-mechanics{grid-column:1/-1}
-  .stat-value{font-size:1.4rem}
+  .deck-stats-wrap{padding:0 1rem}
+  .deck-stats-body{grid-template-columns:1fr;padding:.2rem 0 .8rem}
+  .ds-cell{border-left:none;padding:.7rem 1rem;border-top:1px solid rgba(212,175,60,.08)}
+  .ds-cell:first-child{border-top:none}
+  .deck-stats-summary{padding:.7rem 2.2rem .7rem 1rem}
 }
 
 /* GRID */
 .gallery{
 position:relative;z-index:1;
-max-width:1600px;margin:0 auto;
+max-width:var(--w-wide);margin:0 auto;
 padding:1.5rem 1.5rem 4rem;
 display:grid;
 grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
 gap:1.8rem 1.6rem;
 }
 .card-tile{
+background:none;border:none;padding:0;margin:0;
+font:inherit;color:inherit;text-align:left;
+display:block;width:100%;
 position:relative;cursor:pointer;
 content-visibility:auto;
 contain-intrinsic-size:240px 430px;
@@ -398,14 +520,14 @@ border:1px solid rgba(212,175,60,.22);
 border-radius:6px;
 padding:8px 8px 0;
 overflow:hidden;
-box-shadow:0 6px 14px rgba(0,0,0,.55);
+box-shadow:0 6px 14px rgba(var(--shadow-ink),.55);
 transition:border-color .35s ease,background .35s ease,box-shadow .35s ease;
 }
 @media (hover: hover) and (pointer: fine){
 .card-tile:hover .card-frame{
 border-color:rgba(244,210,122,.55);
 background:linear-gradient(180deg,#241712 0%,#1c1108 60%,#150c06 100%);
-box-shadow:0 14px 30px rgba(0,0,0,.7),inset 0 0 22px rgba(244,210,122,.06);
+box-shadow:0 14px 30px rgba(var(--shadow-ink),.7),inset 0 0 22px rgba(244,210,122,.06);
 }
 }
 /* Art container — wraps the actual card PNG */
@@ -459,13 +581,14 @@ transition:border-color .35s ease;
 /* Faint gold glint along the rule on hover */
 .card-plinth::before{
 content:'';position:absolute;left:50%;top:-1px;
-width:0;height:1px;
+width:80%;height:1px;
 background:linear-gradient(90deg,transparent,var(--gold-bright),transparent);
-transform:translateX(-50%);
-transition:width .5s ease;
+transform:translateX(-50%) scaleX(0);
+transform-origin:center;
+transition:transform .5s ease;
 }
 @media (hover: hover) and (pointer: fine){
-.card-tile:hover .card-plinth::before{width:80%}
+.card-tile:hover .card-plinth::before{transform:translateX(-50%) scaleX(1)}
 }
 /* Name + sentiment glyph row */
 .plinth-name-row{
@@ -478,7 +601,7 @@ font-size:.82rem;color:var(--gold);
 letter-spacing:.02em;line-height:1.15;
 white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 flex:1 1 auto;min-width:0;
-text-shadow:0 1px 0 #000;
+text-shadow:0 1px 0 var(--ink);
 }
 @media (hover: hover) and (pointer: fine){
 .card-tile:hover .plinth-name{color:var(--gold-bright)}
@@ -504,8 +627,8 @@ display:inline-flex;align-items:center;justify-content:center;
 width:14px;height:14px;border-radius:50%;
 font-family:'Cinzel',serif;font-size:.56rem;font-weight:700;
 color:#1a1208;
-border:1px solid rgba(0,0,0,.35);
-box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 1px 2px rgba(0,0,0,.4);
+border:1px solid rgba(var(--shadow-ink),.35);
+box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 1px 2px rgba(var(--shadow-ink),.4);
 flex:0 0 auto;
 }
 .pip-W{background:linear-gradient(180deg,#fff8d8,#e6dbb0)}
@@ -528,7 +651,7 @@ font-size:.7rem;color:var(--text-dim);opacity:.5;
 position:absolute;width:24px;height:24px;
 opacity:.22;transition:opacity .45s ease,transform .45s ease,color .35s ease;
 pointer-events:none;color:var(--gold);
-filter:drop-shadow(0 0 4px rgba(0,0,0,.8));
+filter:drop-shadow(0 0 4px rgba(var(--shadow-ink),.8));
 z-index:2;
 }
 .card-tile .rune-tl{top:-7px;left:-7px}
@@ -541,6 +664,34 @@ z-index:2;
 .card-tile:hover .rune-tr{transform:scaleX(-1) translate(-2px,-2px)}
 .card-tile:hover .rune-bl{transform:scaleY(-1) translate(-2px,-2px)}
 .card-tile:hover .rune-br{transform:scale(-1,-1) translate(-2px,-2px)}
+}
+/* Rune ignition — fires once when each tile first scrolls into view */
+@keyframes rune-arrival{
+0%{opacity:.22;color:var(--gold)}
+30%{opacity:1;color:var(--gold-bright)}
+100%{opacity:.22;color:var(--gold)}
+}
+.card-tile.arrived .rune{
+animation:rune-arrival 1.4s cubic-bezier(.2,.7,.2,1) both;
+}
+/* Click-to-draw ceremony — sigil-pulse before the lightbox opens */
+.card-tile::after{
+content:'';
+position:absolute;inset:-3px;
+border-radius:8px;
+opacity:0;
+pointer-events:none;
+}
+.card-tile.drawing{
+filter:brightness(.85);
+}
+.card-tile.drawing::after{
+animation:tile-draw-pulse .4s cubic-bezier(.2,.7,.2,1) forwards;
+}
+@keyframes tile-draw-pulse{
+0%{opacity:0;box-shadow:0 0 0 2px rgba(244,210,122,.65),0 0 24px 6px rgba(244,210,122,.35);transform:scale(1)}
+30%{opacity:1;transform:scale(1)}
+100%{opacity:0;box-shadow:0 0 0 12px rgba(244,210,122,.1),0 0 60px 24px rgba(244,210,122,0);transform:scale(1.05)}
 }
 /* Outer halo — uses the card-tile pseudo to wrap the whole frame */
 .card-tile::before{
@@ -559,10 +710,10 @@ box-shadow:var(--card-halo);
 /* Set section headers — ornamental divider, like a tome chapter break */
 .set-header{
 grid-column:1/-1;
-padding:2.4rem 0 1.2rem;
+padding:4rem 0 1.4rem;
 text-align:center;
 }
-.set-header:first-child{padding-top:.4rem}
+.set-header:first-child{padding-top:1rem}
 .set-divider{
 display:flex;align-items:center;justify-content:center;
 gap:1.4rem;margin-bottom:.6rem;
@@ -600,6 +751,70 @@ flex:0 1 160px;opacity:.4;
 font-size:clamp(.9rem,1.6vw,1.05rem);
 opacity:.85;letter-spacing:.18em;
 }
+/* Per-deck accent colors — each chapter plate inherits its deck's accent */
+.set-header[data-deck="original"]{--accent-rgb:var(--accent-original-rgb)}
+.set-header[data-deck="expansion"]{--accent-rgb:var(--accent-expansion-rgb)}
+.set-header[data-deck="harrow"]{--accent-rgb:var(--accent-harrow-rgb)}
+.set-header[data-deck="wonder"]{--accent-rgb:var(--accent-wonder-rgb)}
+.set-header[data-deck] h2{
+color:rgb(var(--accent-rgb));
+text-shadow:0 0 24px rgba(var(--accent-rgb),.25);
+}
+.set-header[data-deck] .chapter-tagline{
+color:rgba(var(--accent-rgb),.75);
+}
+.set-header[data-deck] .set-divider svg{
+color:rgb(var(--accent-rgb));
+}
+/* Chapter tagline — atmospheric subtitle beneath each deck's divider */
+.set-header .chapter-tagline{
+font-family:'Cormorant Garamond',serif;font-style:italic;
+font-size:clamp(.95rem,1.6vw,1.05rem);
+color:var(--text-dim);
+letter-spacing:.02em;
+max-width:48ch;
+margin:.6rem auto .4rem;
+line-height:1.5;
+}
+.set-header .chapter-tagline + .set-meta{
+margin-top:.8rem;
+}
+/* Sentiment cluster markers — divide each deck's cards into Boons / Neither / Banes */
+.cluster-mark{
+grid-column:1/-1;
+display:flex;align-items:center;justify-content:center;
+gap:1rem;
+font-family:'Cinzel',serif;font-size:.72rem;font-weight:600;
+letter-spacing:.22em;text-transform:uppercase;
+padding:1.6rem 0 .4rem;
+}
+.cluster-mark::before,
+.cluster-mark::after{
+content:'';
+flex:0 1 100px;
+height:1px;
+}
+.cluster-mark[data-sent="positive"]{color:#7dba8a}
+.cluster-mark[data-sent="positive"]::before{
+background:linear-gradient(90deg,transparent,rgba(125,186,138,.5));
+}
+.cluster-mark[data-sent="positive"]::after{
+background:linear-gradient(90deg,rgba(125,186,138,.5),transparent);
+}
+.cluster-mark[data-sent="neutral"]{color:var(--gold-dim)}
+.cluster-mark[data-sent="neutral"]::before{
+background:linear-gradient(90deg,transparent,rgba(212,175,60,.4));
+}
+.cluster-mark[data-sent="neutral"]::after{
+background:linear-gradient(90deg,rgba(212,175,60,.4),transparent);
+}
+.cluster-mark[data-sent="negative"]{color:#c86060}
+.cluster-mark[data-sent="negative"]::before{
+background:linear-gradient(90deg,transparent,rgba(200,96,96,.5));
+}
+.cluster-mark[data-sent="negative"]::after{
+background:linear-gradient(90deg,rgba(200,96,96,.5),transparent);
+}
 /* NO RESULTS */
 .no-results{
 grid-column:1/-1;text-align:center;
@@ -617,7 +832,7 @@ background:linear-gradient(180deg,transparent,rgba(26,18,10,.5));
 text-align:center;
 }
 .footer-panel{
-max-width:760px;margin:0 auto;
+max-width:var(--w-text);margin:0 auto;
 display:flex;flex-direction:column;align-items:center;gap:1.4rem;
 }
 .footer-title{
@@ -637,7 +852,7 @@ letter-spacing:.1em;
 padding:.5rem .9rem;
 border:1px solid rgba(212,175,60,.25);border-radius:2px;
 background:rgba(212,175,60,.04);
-transition:all .25s ease;
+transition:color .25s ease,border-color .25s ease,background .25s ease,box-shadow .25s ease;
 }
 .footer-link:hover{
 color:var(--gold-bright);
@@ -657,24 +872,24 @@ font-family:'Cormorant Garamond',serif;font-style:italic;
 color:var(--gold-dim);font-size:.95rem;
 padding-top:1rem;
 border-top:1px solid rgba(212,175,60,.1);
-width:100%;max-width:480px;
+width:100%;max-width:var(--w-narrow);
 }
 
 /* FAQ — Rules edge-case rulings */
 .faq{
 position:relative;z-index:1;
-max-width:880px;margin:3rem auto 0;padding:2.5rem 1.5rem .5rem;
+max-width:var(--w-faq);margin:3rem auto 0;padding:2.5rem 1.5rem .5rem;
 }
 .faq-title{
 font-family:'Cinzel Decorative',serif;font-weight:700;
 font-size:1.1rem;color:var(--gold);
 letter-spacing:.22em;text-transform:uppercase;
-text-align:center;margin:0 0 1rem;
+text-align:left;margin:0 0 1rem;
 }
 .faq-intro{
 font-family:'Cormorant Garamond',serif;font-style:italic;
 color:var(--text-dim);font-size:.95rem;line-height:1.6;
-text-align:center;max-width:620px;margin:0 auto 2rem;
+text-align:left;margin:0 0 2rem;
 }
 .faq-category{
 font-family:'Cinzel',serif;font-weight:600;
@@ -784,7 +999,7 @@ margin-left:.5rem;vertical-align:middle;
   color:var(--text);
   font-family:'Cinzel',serif;font-size:.78rem;font-weight:500;
   letter-spacing:.08em;text-transform:uppercase;
-  cursor:pointer;transition:all .2s ease;
+  cursor:pointer;transition:border-color .2s ease,color .2s ease,box-shadow .2s ease;
   border-radius:2px;
 }
 .download-btn:hover{
@@ -796,38 +1011,10 @@ margin-left:.5rem;vertical-align:middle;
 }
 .download-btn .glyph{font-size:.85rem;line-height:1}
 
-.download-btn-global{
-  display:inline-flex;flex-direction:column;align-items:center;
-  margin-top:1rem;
-  padding:.85rem 1.6rem;
-  background:linear-gradient(180deg,rgba(212,175,60,.08),rgba(212,175,60,.02));
-  border:1px solid var(--gold);
-  color:var(--gold-bright);
-  font-family:'Cinzel',serif;font-weight:600;
-  letter-spacing:.12em;text-transform:uppercase;
-  cursor:pointer;transition:all .25s ease;
-  border-radius:3px;
-  box-shadow:var(--card-halo);
-}
-.download-btn-global:hover{
-  background:linear-gradient(180deg,rgba(212,175,60,.15),rgba(212,175,60,.04));
-  box-shadow:0 0 20px var(--rune-glow),var(--card-halo);
-}
-.download-btn-global .label{font-size:.95rem}
-.download-btn-global .sublabel{
-  font-family:'Cormorant Garamond',serif;font-size:.78rem;
-  letter-spacing:.04em;text-transform:none;
-  color:var(--text-dim);font-style:italic;font-weight:400;
-  margin-top:.2rem;
-}
-.download-btn-global:disabled{
-  opacity:.4;cursor:not-allowed;box-shadow:none;
-}
-
 /* Progress modal */
 .dl-modal-scrim{
   position:fixed;inset:0;z-index:1000;
-  background:rgba(0,0,0,.75);
+  background:rgba(var(--shadow-ink),.75);
   display:none;align-items:center;justify-content:center;
   backdrop-filter:blur(4px);
 }
@@ -836,13 +1023,11 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
 .dl-modal{
   background:var(--ink-warm);
   border:1px solid var(--gold-dim);
-  outline:3px solid var(--gold);
-  outline-offset:-6px;
   padding:2rem 2.5rem;
-  max-width:480px;width:90vw;
+  max-width:var(--w-narrow);width:90vw;
   font-family:'Cormorant Garamond',serif;
   color:var(--text);
-  box-shadow:0 20px 80px rgba(0,0,0,.8),0 0 60px rgba(212,175,60,.15);
+  box-shadow:0 20px 80px rgba(var(--shadow-ink),.8),0 0 60px rgba(212,175,60,.15),inset 0 0 60px rgba(212,175,60,.04);
 }
 .dl-modal h3{
   font-family:'Cinzel Decorative',serif;
@@ -854,7 +1039,7 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
 }
 .dl-modal-bar{
   width:100%;height:6px;
-  background:rgba(0,0,0,.4);
+  background:rgba(var(--shadow-ink),.4);
   border:1px solid var(--gold-dim);
   border-radius:1px;
   overflow:hidden;
@@ -867,7 +1052,7 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
   transition:width .15s ease-out;
 }
 .dl-modal-status{
-  font-size:1rem;text-align:center;
+  font-size:1rem;text-align:left;
   margin-bottom:1.4rem;
   min-height:1.4em;
 }
@@ -880,12 +1065,12 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
   margin-top:1rem;
   font-size:.85rem;
   color:var(--text-dim);
-  text-align:center;
+  text-align:left;
 }
 .dl-modal-details summary{cursor:pointer;color:var(--ember)}
 .dl-modal-details pre{
   text-align:left;margin-top:.6rem;padding:.6rem;
-  background:rgba(0,0,0,.4);border:1px solid var(--gold-dim);
+  background:rgba(var(--shadow-ink),.4);border:1px solid var(--gold-dim);
   font-family:monospace;font-size:.75rem;
   white-space:pre-wrap;word-break:break-all;
 }
@@ -904,30 +1089,32 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
   .card-tile:hover .rune{transform:none}
 }
 </style>
+<script src="/shared/suite-nav.js" defer></script>
 </head>
 <body>
+<suite-nav active="domt"></suite-nav>
 
-<header class="header">
-<h1>The Deck of Many Things</h1>
-<div class="subtitle">Magic: The Gathering Crossover</div>
-<div class="card-count">Loading cards...</div>
-<div class="header-actions">
-  <a class="sim-entry-link" href="./simulator.html" title="Open the playtest simulator">
-    <span class="label">⚄ Playtest Simulator</span>
-    <span class="sublabel">draw from the deck</span>
-  </a>
-  <button type="button" class="download-btn-global" data-download-scope="all" id="download-all-btn" disabled title="Download all card art as one ZIP">
-    <span class="label">Download All Cards</span>
-    <span class="sublabel" id="download-all-sublabel">(loading…)</span>
-  </button>
+<header class="invocation">
+<h1 class="invocation-title">The Deck of Many Things</h1>
+<div class="invocation-subtitle">Magic: The Gathering Crossover</div>
+<p class="invocation-warning">
+<span class="count-num">…</span> fates, four sources. All consequences are final.
+</p>
+<div class="invocation-actions">
+<a class="invocation-action" href="./simulator.html" title="Open the playtest simulator">Step into the chamber</a>
+<button type="button" class="invocation-action" data-download-scope="all" id="download-all-btn" disabled title="Download all card art as one ZIP">
+Download all <span id="download-all-sublabel">(loading…)</span>
+</button>
 </div>
 </header>
 
 <nav class="controls">
 <div class="controls-inner">
 <div class="search-wrap">
-<input type="text" id="search" placeholder="Search by name, type, or keywords..." autocomplete="off">
+<input type="text" id="search" placeholder="Seek a fate by name, type, or keyword..." autocomplete="off" aria-label="Search cards">
 </div>
+<button class="filter-btn filters-toggle" id="filters-toggle" type="button" aria-expanded="false" aria-controls="filters-sheet">Filters</button>
+<div class="filters-sheet" id="filters-sheet">
 <div class="divider"><span></span></div>
 <div class="filter-group" id="set-filters">
 <button class="filter-btn active" data-set="all">All</button>
@@ -938,12 +1125,14 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
 </div>
 <div class="divider"><span></span></div>
 <div class="filter-group" id="color-filters">
-<button class="filter-btn color-btn" data-color="W" title="White">W</button>
-<button class="filter-btn color-btn" data-color="U" title="Blue">U</button>
-<button class="filter-btn color-btn" data-color="B" title="Black">B</button>
-<button class="filter-btn color-btn" data-color="R" title="Red">R</button>
-<button class="filter-btn color-btn" data-color="G" title="Green">G</button>
-<button class="filter-btn color-btn" data-color="C" title="Colorless">C</button>
+<button class="filter-btn color-btn" data-color="W" title="White" aria-label="Filter by White">W</button>
+<button class="filter-btn color-btn" data-color="U" title="Blue" aria-label="Filter by Blue">U</button>
+<button class="filter-btn color-btn" data-color="B" title="Black" aria-label="Filter by Black">B</button>
+<button class="filter-btn color-btn" data-color="R" title="Red" aria-label="Filter by Red">R</button>
+<button class="filter-btn color-btn" data-color="G" title="Green" aria-label="Filter by Green">G</button>
+<button class="filter-btn color-btn" data-color="C" title="Colorless" aria-label="Filter by Colorless">C</button>
+</div>
+<button class="filter-btn clear-btn" id="clear-filters" type="button" hidden>Forget</button>
 </div>
 <button class="draw-btn" id="draw-btn" type="button" title="Draw a random card from the visible deck">
 <span class="draw-glyph">✦</span>Draw a Card
@@ -951,33 +1140,36 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
 </div>
 </nav>
 
-<section class="stats-panel" id="stats-panel" aria-label="Deck statistics">
-<div class="stats-inner">
-  <div class="stat-cell stat-count">
-    <div class="stat-label">Drawn</div>
-    <div class="stat-value" id="stat-count-value">—</div>
-    <div class="stat-meta" id="stat-count-meta">of — cards</div>
+<section class="deck-stats-wrap" aria-label="Deck statistics">
+<details class="deck-stats" id="deck-stats-details">
+  <summary class="deck-stats-summary">
+    <span class="ds-toggle">The deck's measure</span>
+    <span class="ds-count" aria-live="polite" aria-atomic="true">
+      <span id="stat-count-value">…</span> of <span id="stat-count-total">…</span> cards
+    </span>
+  </summary>
+  <div class="deck-stats-body">
+    <div class="ds-cell">
+      <div class="ds-cell-label">Colors</div>
+      <div class="color-bars" id="stat-colors-bar"></div>
+      <div class="color-bars-meta" id="stat-colors-meta"></div>
+    </div>
+    <div class="ds-cell">
+      <div class="ds-cell-label">Mana Curve</div>
+      <div class="curve-bars" id="stat-curve"></div>
+      <div class="curve-labels"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7+</span></div>
+    </div>
+    <div class="ds-cell">
+      <div class="ds-cell-label">Tone</div>
+      <div class="sentiment-split" id="stat-sentiment"></div>
+      <div class="sent-meta" id="stat-sent-meta"></div>
+    </div>
+    <div class="ds-cell">
+      <div class="ds-cell-label">Mechanics</div>
+      <div class="mechanic-tags" id="stat-mechanics"></div>
+    </div>
   </div>
-  <div class="stat-cell stat-colors">
-    <div class="stat-label">Colors</div>
-    <div class="color-bars" id="stat-colors-bar"></div>
-    <div class="color-bars-meta" id="stat-colors-meta"></div>
-  </div>
-  <div class="stat-cell stat-curve">
-    <div class="stat-label">Mana Curve</div>
-    <div class="curve-bars" id="stat-curve"></div>
-    <div class="curve-labels"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7+</span></div>
-  </div>
-  <div class="stat-cell stat-sentiment">
-    <div class="stat-label">Tone</div>
-    <div class="sentiment-split" id="stat-sentiment"></div>
-    <div class="sent-meta" id="stat-sent-meta"></div>
-  </div>
-  <div class="stat-cell stat-mechanics">
-    <div class="stat-label">Mechanics</div>
-    <div class="mechanic-tags" id="stat-mechanics"></div>
-  </div>
-</div>
+</details>
 </section>
 
 <main class="gallery" id="gallery">
@@ -985,141 +1177,141 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
 </main>
 
 <section class="faq" id="faq">
-<h2 class="faq-title">Rules FAQ &amp; Edge Cases</h2>
-<p class="faq-intro">Official rulings for ambiguous interactions, custom mechanics, and unusual game states. When in doubt at the table, The Fates can undo any draw &mdash; this is the set's built-in safety valve.</p>
+<h2 class="faq-title">Notes from the deckkeeper</h2>
+<p class="faq-intro">Rulings for the strange corners of the Deck. Bouncing, randomness, custom mechanics, the moments when the table is uncertain. When all else fails, The Fates can undo any draw; the Deck's safety valve is built in.</p>
 
-<h3 class="faq-category">General Deck Rules</h3>
+<h3 class="faq-category">On drawing from the Deck</h3>
 
 <details>
 <summary>Can I respond to a Deck draw with instant-speed effects from my hand?</summary>
-<div class="faq-answer"><p>No. Cards drawn from the Deck of Many Things are cast immediately without paying mana costs, cannot be countered, and don't use the stack. The only card that can respond to a Deck draw is The Fates.</p></div>
+<div class="faq-answer"><p>No. A fate drawn from the Deck is cast immediately, without paying mana costs, and does not use the stack. It cannot be countered. Only The Fates can answer a draw.</p></div>
 </details>
 
 <details>
-<summary>If a card drawn from the Deck creates a permanent, and that permanent is later bounced to hand, where does it go?</summary>
-<div class="faq-answer"><p>It goes to your hand first (as the bounce effect specifies), then the Deck's replacement rule applies &mdash; it should be shuffled back into the Deck of Many Things instead of staying in your hand. If you cast it from your hand, it uses the stack normally and can be countered.</p></div>
+<summary>If a fate drawn from the Deck creates a permanent and that permanent is later bounced to hand, where does it go?</summary>
+<div class="faq-answer"><p>First to your hand, as the bounce effect specifies. Then the Deck reclaims its own; it is shuffled back, not kept. A fate cast from your hand travels the stack like any other spell, and can be countered there.</p></div>
 </details>
 
 <details>
-<summary>If The Jester draws me 2 more Deck cards, and one of those is The Fool (which also draws a Deck card), do all of these resolve in sequence?</summary>
-<div class="faq-answer"><p>Yes. Resolve each card drawn completely in sequence before moving on to the next draw. The Jester's draw triggers &rarr; resolve Card A completely &rarr; resolve Card B completely &rarr; if Card B is The Fool, its forced draw triggers &rarr; resolve Card C completely &rarr; then continue your normal turn.</p></div>
+<summary>If The Jester draws me two more fates, and one of those is The Fool (which also draws), do they resolve in sequence?</summary>
+<div class="faq-answer"><p>Yes. Each fate resolves completely before the next is drawn. The Jester's draw triggers, Card A resolves, then Card B; if Card B is The Fool, its forced draw triggers and Card C resolves. Only then does the table return to its normal turn.</p></div>
 </details>
 
 <details>
 <summary>Does the Legend rule apply to permanents drawn from the Deck?</summary>
-<div class="faq-answer"><p>No. The Rules card explicitly states: <em>"The Legend rule does not apply to permanents drawn from the Deck of Many Things."</em></p></div>
+<div class="faq-answer"><p>No. The Rules card is plain on this: <em>"The Legend rule does not apply to permanents drawn from the Deck of Many Things."</em> The Deck overrides the rule.</p></div>
 </details>
 
 <details>
-<summary>Can I draw from the Deck if I already have a Fate Point but don't want to spend it?</summary>
-<div class="faq-answer"><p>Drawing from the Deck requires spending a Fate Point. You cannot draw without spending one.</p></div>
+<summary>Can I draw from the Deck if I already have a Fate Point but don't wish to spend it?</summary>
+<div class="faq-answer"><p>No. A draw from the Deck demands the cost of a Fate Point. If you do not pay, you do not draw.</p></div>
 </details>
 
 <details>
-<summary>If I gain a Fate Point but already have one, what happens?</summary>
-<div class="faq-answer"><p>If you would gain a Fate Point but already have one, you may instead draw a card from the Deck of Many Things immediately.</p></div>
+<summary>If I gain a Fate Point but already hold one, what happens?</summary>
+<div class="faq-answer"><p>You may instead draw immediately from the Deck. The Fate Point cannot be hoarded; the Deck offers the draw in its place.</p></div>
 </details>
 
-<h3 class="faq-category">The Fates</h3>
+<h3 class="faq-category">On The Fates</h3>
 
 <details>
-<summary>Can The Fates' "Rewind" ability undo itself?</summary>
-<div class="faq-answer"><p>No. Shuffling The Fates into the Deck is part of the cost of activating any of its abilities. By the time Rewind resolves, The Fates is already in the Deck. You cannot choose to undo the draw of The Fates with its own Rewind.</p></div>
-</details>
-
-<details>
-<summary>If The Fates uses "Deny" to exile a permanent that created tokens, do the tokens also leave?</summary>
-<div class="faq-answer"><p>No. Tokens created by a permanent exist independently once created. Exiling the source permanent with Deny does not affect tokens already on the battlefield.</p></div>
+<summary>Can The Fates' Rewind ability undo itself?</summary>
+<div class="faq-answer"><p>No. Shuffling The Fates into the Deck is part of the cost of activation. By the time Rewind resolves, The Fates is already gone, returned to the deckkeeper's keeping. The draw of The Fates cannot be undone by its own ability.</p></div>
 </details>
 
 <details>
-<summary>Can "Cleanse" remove any emblem, or only those created by the Deck?</summary>
-<div class="faq-answer"><p>The card text reads <em>"Exile target emblem or curse card named Curse of Weakness."</em> This targets any emblem (including those created by the Deck) or the specific curse.</p></div>
+<summary>If The Fates uses Deny to exile a permanent that created tokens, do the tokens leave with it?</summary>
+<div class="faq-answer"><p>No. Tokens stand on their own once made. Exiling the permanent that birthed them does not unmake them; only the source departs.</p></div>
 </details>
 
 <details>
-<summary>Does "Weave" (look at top 3 of the Deck, reorder, then draw) count as a Fate Point spend?</summary>
-<div class="faq-answer"><p>No. The Fates' Weave ability lets you look at the top three cards and reorder them, then optionally draw a card from the Deck. This draw is part of the ability's effect, not a Fate Point expenditure. It does not require or consume a Fate Point.</p></div>
+<summary>Can Cleanse remove any emblem, or only those born of the Deck?</summary>
+<div class="faq-answer"><p>The card text speaks plainly: <em>"Exile target emblem or curse card named Curse of Weakness."</em> It targets any emblem, whether the Deck made it or not, or the specific curse.</p></div>
 </details>
 
 <details>
-<summary>Can I use The Fates' Rewind on a card another player drew?</summary>
-<div class="faq-answer"><p>Yes. The Fates' abilities do not specify "a card you drew." You can use Rewind to undo any card drawn from the Deck by any player.</p></div>
+<summary>Does Weave (look at the top three, reorder, then draw) count as spending a Fate Point?</summary>
+<div class="faq-answer"><p>No. Weave's draw is part of the ability's own effect, not the Fate Point cost. The Deck does not claim a Fate Point for it.</p></div>
 </details>
 
-<h3 class="faq-category">Avatar of Death (The Skull)</h3>
+<details>
+<summary>Can I use The Fates' Rewind on a fate another player drew?</summary>
+<div class="faq-answer"><p>Yes. The Fates' abilities do not specify "a card you drew." Any fate drawn from the Deck, by any hand at the table, can be unmade by Rewind.</p></div>
+</details>
+
+<h3 class="faq-category">On Avatar of Death</h3>
 
 <details>
 <summary>If the marked player gains Hexproof or Shroud, can Avatar of Death still attack them?</summary>
-<div class="faq-answer"><p>Yes. Attacking does not target. <em>"Must attack the marked player"</em> is a combat requirement, not a targeted ability. Hexproof and Shroud do not prevent being attacked.</p></div>
+<div class="faq-answer"><p>Yes. Attacking does not target. <em>"Must attack the marked player"</em> is a combat requirement, not a targeted ability. Hexproof and Shroud do not stop the assault, only the spell.</p></div>
 </details>
 
 <details>
 <summary>If a player creates a token copy of Avatar of Death, which one is "real" for shuffle-into-Deck purposes?</summary>
-<div class="faq-answer"><p>Only the original Avatar of Death (the non-token copy) is shuffled into the Deck when it dies or the marked player loses. Token copies cease to exist when they leave the battlefield, as per normal MTG token rules.</p></div>
+<div class="faq-answer"><p>Only the original Avatar of Death (the non-token copy) returns to the Deck when it dies or the marked player loses. Tokens cease to be when they leave the battlefield, as the rules of Magic dictate; the Deck does not reclaim what was never truly there.</p></div>
 </details>
 
 <details>
-<summary>"A random opponent gains control" &mdash; how is randomness determined?</summary>
-<div class="faq-answer"><p>The controller of Avatar of Death should be determined by the most appropriate random method available &mdash; rolling a die, flipping coins, or any method the table agrees on. Each opponent (excluding the marked player) should have an equal chance.</p></div>
+<summary>"A random opponent gains control": by what means?</summary>
+<div class="faq-answer"><p>A die, a coin, the spread of cards; whatever the table agrees upon. Each opponent excluding the marked player has an equal share of the chance. The Deck does not specify the method, only that fortune chooses.</p></div>
 </details>
 
 <details>
-<summary>What happens when Avatar of Death deals combat damage to a player who isn't the marked player?</summary>
-<div class="faq-answer"><p>Avatar of Death must attack the marked player if able. If it somehow deals combat damage to a different player (e.g., through redirection effects), that player loses the game &mdash; the <em>"deals combat damage to a player, that player loses the game"</em> ability applies to any player, not just the marked player.</p></div>
+<summary>What happens when Avatar of Death deals combat damage to a player who is not the marked one?</summary>
+<div class="faq-answer"><p>Avatar of Death must attack the marked player if able. If through redirection or some stranger path it deals combat damage to another, that player still loses. The ability reads <em>"deals combat damage to a player,"</em> not <em>"to the marked player."</em> Any player struck is a player lost.</p></div>
 </details>
 
-<h3 class="faq-category">Soul Prison</h3>
+<h3 class="faq-category">On Soul Prison</h3>
 
 <details>
 <summary>Can you sacrifice Soul Prison itself to its own "sacrifice creatures totaling 15+ power" clause?</summary>
-<div class="faq-answer"><p>No. Soul Prison is an artifact, not a creature. You can only sacrifice creatures you control to meet the 15+ combined power requirement. Soul Guardians (6/8 creatures) created by Soul Prison do count, but two Soul Guardians only total 12 power &mdash; you need additional creatures.</p></div>
+<div class="faq-answer"><p>No. Soul Prison is an artifact, not a creature. The sacrifice clause demands creatures you control, and Soul Prison is none. The Soul Guardians it births (6/8 creatures) do count, but two of them total only twelve power; the table will need more.</p></div>
 </details>
 
-<h3 class="faq-category">The Unicorn &mdash; Divine Undoing</h3>
+<h3 class="faq-category">The Unicorn · Divine Undoing</h3>
 
 <details>
-<summary>What does "Undo one choice you made during the game" mean in MTG rules?</summary>
+<summary>What does "Undo one choice you made during the game" mean in Magic's rules?</summary>
 <div class="faq-answer">
-<p>This is the most ambiguous ability in the set. Until an official ruling is established, use this guideline: a "choice" is any decision point where you had alternatives &mdash; casting a spell, attacking with a creature, activating an ability, choosing a target, or making a game choice (like which card to discard). "Reverse visible effects" means undo the direct consequences: if you chose to attack and a creature died in combat, that creature returns to the battlefield. The table should agree on what reversal is fair and practical. If consensus can't be reached, the active player decides.</p>
-<p><strong>Practical suggestion:</strong> Treat this as <em>"Return one permanent that left the battlefield this game to the battlefield under its owner's control, or return one card that was exiled or discarded to its owner's hand."</em> This captures the spirit of undoing a choice while being rules-parseable.</p>
+<p>This is the most ambiguous fate in the set. Until a clearer ruling is laid down, use this guideline. A "choice" is any decision point where you had alternatives: casting a spell, attacking with a creature, activating an ability, choosing a target, choosing which card to discard. To "reverse visible effects" is to undo the direct consequences. If you chose to attack and a creature died in combat, that creature returns to the battlefield. The table agrees on what reversal is fair and practical; if the table cannot agree, the active player decides.</p>
+<p><strong>Practical translation,</strong> if the table prefers something parseable: <em>"Return one permanent that left the battlefield this game to the battlefield under its owner's control, or return one card that was exiled or discarded to its owner's hand."</em> This captures the spirit of undoing a choice without leaving the table to argue.</p>
 </div>
 </details>
 
-<h3 class="faq-category">The Comet &amp; Suspend</h3>
+<h3 class="faq-category">On The Comet's Suspend</h3>
 
 <details>
-<summary>The Deck rules say cards are cast immediately, but The Comet has Suspend. Which takes priority?</summary>
-<div class="faq-answer"><p>The Comet's Suspend overrides the normal Deck casting rule. When you draw The Comet from the Deck of Many Things, exile it with two time counters instead of casting it immediately. At the beginning of your upkeep, remove a time counter. When the last is removed, cast it without paying its mana cost. This delayed casting is the intended design &mdash; it represents the D&amp;D Comet's conditional nature.</p></div>
+<summary>The Deck rules say fates are cast immediately, but The Comet has Suspend. Which takes precedence?</summary>
+<div class="faq-answer"><p>Suspend overrides the Deck's usual casting rule. When you draw The Comet, exile it with two time counters instead of casting it immediately. Each upkeep, remove a counter. When the last one falls, the spell casts itself; you pay nothing. The delay is intentional. The Comet's nature in the source is conditional, and the Deck honors that.</p></div>
 </details>
 
-<h3 class="faq-category">Eternal Damnation</h3>
+<h3 class="faq-category">On Eternal Damnation</h3>
 
 <details>
-<summary>Can Eternal Damnation be removed by any means other than The Fates?</summary>
-<div class="faq-answer"><p>No. Eternal Damnation is a permanent game state change. Only The Fates' Rewind ability can undo it &mdash; by rewinding the entire draw that caused it (The Void or The Donjon). No other card in the set removes Eternal Damnation.</p></div>
-</details>
-
-<details>
-<summary>If I have Eternal Damnation and The Jester tells me to draw from the Deck, what happens?</summary>
-<div class="faq-answer"><p>The instruction to draw is simply ignored. You cannot draw from the Deck by any means while you have Eternal Damnation.</p></div>
-</details>
-
-<h3 class="faq-category">Miscellaneous</h3>
-
-<details>
-<summary>Do mana costs on Deck cards matter?</summary>
-<div class="faq-answer"><p>Not for casting &mdash; all cards are cast for free from the Deck. Mana costs serve two purposes: (1) they establish color identity for game effects that reference it, and (2) if a card is somehow bounced to your hand and you want to cast it normally, the mana cost applies.</p></div>
+<summary>Can Eternal Damnation be lifted by any hand other than The Fates'?</summary>
+<div class="faq-answer"><p>No. Eternal Damnation is a permanent change to the game's state. Only The Fates' Rewind can undo it, and only by rewinding the entire draw that caused it (The Void or The Donjon). No other fate in the set lifts the damnation.</p></div>
 </details>
 
 <details>
-<summary>Can I choose not to cast a card drawn from the Deck?</summary>
-<div class="faq-answer"><p>No. Cards drawn from the Deck are cast immediately and mandatorily. You cannot choose to "hold" a drawn card.</p></div>
+<summary>If I bear Eternal Damnation and The Jester instructs me to draw from the Deck, what happens?</summary>
+<div class="faq-answer"><p>The instruction is simply ignored. While you bear Eternal Damnation, no instruction, no force, no forced draw can return you to the Deck.</p></div>
+</details>
+
+<h3 class="faq-category">Other rulings</h3>
+
+<details>
+<summary>Do mana costs on the Deck's fates matter?</summary>
+<div class="faq-answer"><p>Not for casting from the Deck. Every fate drawn is cast for free. Mana costs serve two purposes only: they establish color identity for game effects that reference it, and they apply if a fate has been bounced to your hand and you wish to cast it as a normal spell.</p></div>
 </details>
 
 <details>
-<summary>What if I draw a card that requires targets and there are no valid targets?</summary>
-<div class="faq-answer"><p>If a spell requires targets and no valid targets exist, the spell is countered by game rules (fails to resolve). It then follows the Deck's replacement rule &mdash; shuffle it back into the Deck instead of going to the graveyard.</p></div>
+<summary>Can I choose not to cast a fate drawn from the Deck?</summary>
+<div class="faq-answer"><p>No. A fate drawn is a fate cast. The casting is immediate and not optional; the Deck does not let you hold what it has given.</p></div>
+</details>
+
+<details>
+<summary>What if I draw a fate that requires targets, and no valid targets exist?</summary>
+<div class="faq-answer"><p>The spell is countered by the rules and fails to resolve. It then follows the Deck's replacement rule: shuffled back, not sent to the graveyard.</p></div>
 </details>
 </section>
 
@@ -1140,7 +1332,7 @@ Rules FAQ
 </a>
 </div>
 <div class="footer-meta">
-A fan-made crossover by <strong>SirLoinTheGreat</strong> &mdash; not affiliated with Wizards of the Coast or Hasbro.<br>
+A fan-made crossover by <strong>SirLoinTheGreat</strong>. Not affiliated with Wizards of the Coast or Hasbro.<br>
 Card art generated with MidJourney. All trademarks belong to their respective owners.
 </div>
 <div class="footer-quote">
@@ -1161,6 +1353,12 @@ const SET_SOURCES = {
   expansion: 'The Book of Many Things (2023)',
   harrow: 'Pathfinder Harrow Deck',
   wonder: 'Deck of Wonder (2023)'
+};
+const SET_TAGLINES = {
+  original: 'Where the deck began.',
+  expansion: 'The deck deepens its reach.',
+  harrow: 'Parallel divinations.',
+  wonder: 'Fates beyond fate.'
 };
 
 let allCards = [];
@@ -1240,7 +1438,7 @@ function renderStats(visible, total) {
   const n = visible.length;
   // Count
   document.getElementById('stat-count-value').textContent = n;
-  document.getElementById('stat-count-meta').textContent = 'of ' + total + ' cards';
+  document.getElementById('stat-count-total').textContent = total;
 
   // Colors bar
   const colorOrder = ['W','U','B','R','G','C'];
@@ -1290,9 +1488,9 @@ function renderStats(visible, total) {
 
 // Render a mana cost string ({2}{W}{W}) as small colored circle pips
 function renderManaPips(manaCost) {
-  if (!manaCost) return '<span class="plinth-mana-empty">—</span>';
+  if (!manaCost) return '<span class="plinth-mana-empty">·</span>';
   const tokens = manaCost.match(/\{[^}]+\}/g) || [];
-  if (tokens.length === 0) return '<span class="plinth-mana-empty">—</span>';
+  if (tokens.length === 0) return '<span class="plinth-mana-empty">·</span>';
   return tokens.map(t => {
     const inner = t.slice(1, -1);
     if (/^\d+$/.test(inner)) return '<span class="pip pip-N">' + inner + '</span>';
@@ -1318,15 +1516,15 @@ async function init() {
     CARD_DATA = await cardResp.json();
   } catch (e) {
     console.error('Failed to load cards.json:', e);
-    document.querySelector('.card-count').textContent = 'Error loading cards';
+    document.querySelector('.invocation-warning').textContent = 'The deck could not be drawn.';
     return;
   }
   allCards = CARD_DATA.cards;
   window.__galleryCards = allCards;
   window.__galleryMeta = CARD_DATA.meta;
   const total = CARD_DATA.meta.total_cards;
-  document.querySelector('.card-count').innerHTML =
-    '<span class="count-num">' + total + '</span> cards drawn from four decks';
+  const warnCount = document.querySelector('.invocation-warning .count-num');
+  if (warnCount) warnCount.textContent = total;
   const allBtn = document.getElementById('download-all-btn');
   const allSub = document.getElementById('download-all-sublabel');
   if (allBtn && allSub) {
@@ -1393,8 +1591,16 @@ function matchesFilters(card) {
 }
 
 function render() {
+  updateClearVisibility();
   const gallery = document.getElementById('gallery');
   const visible = allCards.filter(matchesFilters);
+
+  // Disable Draw a Card if no cards visible
+  const drawBtn = document.getElementById('draw-btn');
+  drawBtn.disabled = visible.length === 0;
+  drawBtn.title = visible.length === 0
+    ? 'No cards match your filters'
+    : 'Draw a random card from the visible deck';
 
   // Live-update the stats panel for the current filter set
   renderStats(visible, allCards.length);
@@ -1408,15 +1614,22 @@ function render() {
   let html = '';
   let currentSet = '';
   let inRefSection = null;  // null = not yet decided; true/false once first card of set rendered
+  let currentSentiment = null;
 
   // Group by set; reference cards (rules / GM / FAQ / glossary) come first within their set
   const setOrder = ['original', 'expansion', 'harrow', 'wonder'];
+  const sentOrder = { positive: 0, neutral: 1, negative: 2 };
   const sorted = [...visible].sort((a, b) => {
     const si = setOrder.indexOf(a.set) - setOrder.indexOf(b.set);
     if (si !== 0) return si;
     const ar = a.is_reference ? 0 : 1;
     const br = b.is_reference ? 0 : 1;
     if (ar !== br) return ar - br;
+    if (!a.is_reference && !b.is_reference) {
+      const sa = sentOrder[a.sentiment] ?? 1;
+      const sb = sentOrder[b.sentiment] ?? 1;
+      if (sa !== sb) return sa - sb;
+    }
     return (a.collector_number || '').localeCompare(b.collector_number || '');
   });
 
@@ -1424,23 +1637,27 @@ function render() {
     if (card.set !== currentSet) {
       currentSet = card.set;
       inRefSection = null;
+      currentSentiment = null;
       const setCards = sorted.filter(c => c.set === currentSet);
       const setRefCount = setCards.filter(c => c.is_reference).length;
       const setMainCount = setCards.length - setRefCount;
-      const meta = setRefCount > 0
-        ? `<em>${SET_SOURCES[currentSet] || ''}</em> &mdash; ${setMainCount} cards + ${setRefCount} reference`
-        : `<em>${SET_SOURCES[currentSet] || ''}</em> &mdash; ${setCards.length} cards`;
-      html += `<div class="set-header">
+      const countText = setRefCount > 0
+        ? `${setMainCount} fates · ${setRefCount} annotations`
+        : `${setCards.length} fates`;
+      const tagline = SET_TAGLINES[currentSet] || '';
+      html += `<div class="set-header" data-deck="${currentSet}">
         <div class="set-divider">
           ${DIVIDER_SVG('left')}
           <h2>${SET_NAMES[currentSet] || currentSet}</h2>
           ${DIVIDER_SVG('right')}
         </div>
+        ${tagline ? `<p class="chapter-tagline">${tagline}</p>` : ''}
         <div class="set-meta">
-          <span class="set-meta-text">${meta}</span>
+          <em>${SET_SOURCES[currentSet] || ''}</em>
+          <span>${countText}</span>
           <button type="button" class="download-btn" data-download-scope="${currentSet}" title="Download every card in this set as a ZIP">
             <span class="glyph" aria-hidden="true">&#x25BC;</span>
-            <span>Download Set</span>
+            <span>Download set</span>
           </button>
         </div>
       </div>`;
@@ -1450,22 +1667,34 @@ function render() {
     const isRef = !!card.is_reference;
     if (isRef && inRefSection !== true) {
       inRefSection = true;
+      currentSentiment = null;
       html += `<div class="set-header set-subheader">
         <div class="set-divider">
           ${DIVIDER_SVG('left')}
-          <h2>Rules &amp; Reference</h2>
+          <h2>Annotations</h2>
           ${DIVIDER_SVG('right')}
         </div>
       </div>`;
     } else if (!isRef && inRefSection === true) {
       inRefSection = false;
+      currentSentiment = null;
       html += `<div class="set-header set-subheader">
         <div class="set-divider">
           ${DIVIDER_SVG('left')}
-          <h2>Cards</h2>
+          <h2>Fates</h2>
           ${DIVIDER_SVG('right')}
         </div>
       </div>`;
+    }
+
+    // Sentiment cluster marker — divides Boons / Neither / Banes within each deck
+    if (!isRef) {
+      const cardSent = card.sentiment || 'neutral';
+      if (cardSent !== currentSentiment) {
+        currentSentiment = cardSent;
+        const sentLabels = { positive: '✦ Boons', neutral: '◆ Neither', negative: '⚔ Banes' };
+        html += `<div class="cluster-mark" data-sent="${cardSent}">${sentLabels[cardSent] || sentLabels.neutral}</div>`;
+      }
     }
 
     const imgPath = card.image_file || '';
@@ -1480,7 +1709,8 @@ function render() {
     const sent = card.sentiment || 'neutral';
     const escName = card.name.replace(/"/g, '&quot;').replace(/&/g, '&amp;');
     const displayName = card.name.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-    html += `<div class="card-tile" onclick="openLightbox(this)"
+    html += `<button type="button" class="card-tile" onclick="openLightbox(this)"
+      aria-label="${escName}"
       data-img="${encodedPath}?${CACHE_BUST}"
       data-rawname="${escName}"
       data-sent="${sent}">
@@ -1497,7 +1727,7 @@ function render() {
         </div>
       </div>
       ${RUNE_SVG_TL}${RUNE_SVG_TR}${RUNE_SVG_BL}${RUNE_SVG_BR}
-    </div>`;
+    </button>`;
   }
 
   // Batch-insert to avoid freezing the main thread
@@ -1528,6 +1758,49 @@ document.getElementById('color-filters').addEventListener('click', e => {
   render();
 });
 
+// Clear filters
+function updateClearVisibility() {
+  const btn = document.getElementById('clear-filters');
+  if (!btn) return;
+  const hasFilter = activeSet !== 'all' || activeColors.size > 0 || searchQuery;
+  btn.hidden = !hasFilter;
+}
+document.getElementById('clear-filters').addEventListener('click', () => {
+  activeSet = 'all';
+  activeColors.clear();
+  searchQuery = '';
+  document.getElementById('search').value = '';
+  document.querySelectorAll('#set-filters .filter-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.set === 'all'));
+  document.querySelectorAll('#color-filters .filter-btn').forEach(b => b.classList.remove('active'));
+  render();
+});
+
+// Mobile filters sheet
+const filtersToggle = document.getElementById('filters-toggle');
+filtersToggle.addEventListener('click', e => {
+  e.stopPropagation();
+  const nav = document.querySelector('.controls');
+  const isOpen = nav.classList.toggle('filters-open');
+  filtersToggle.setAttribute('aria-expanded', String(isOpen));
+});
+document.addEventListener('click', e => {
+  const nav = document.querySelector('.controls');
+  if (!nav.classList.contains('filters-open')) return;
+  if (!nav.contains(e.target)) {
+    nav.classList.remove('filters-open');
+    filtersToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+document.addEventListener('keydown', e => {
+  const nav = document.querySelector('.controls');
+  if (e.key === 'Escape' && nav.classList.contains('filters-open')) {
+    nav.classList.remove('filters-open');
+    filtersToggle.setAttribute('aria-expanded', 'false');
+    filtersToggle.focus();
+  }
+});
+
 // Search
 let searchTimeout;
 document.getElementById('search').addEventListener('input', e => {
@@ -1551,6 +1824,35 @@ document.getElementById('draw-btn').addEventListener('click', () => {
   }, 380);
 });
 
+// Sentiment-tinted ambient air + rune ignition on viewport-arrival
+const ambientTint = document.createElement('div');
+ambientTint.className = 'ambient-tint';
+ambientTint.setAttribute('aria-hidden', 'true');
+document.body.appendChild(ambientTint);
+
+const arrivalObserver = new IntersectionObserver((entries) => {
+  for (const entry of entries) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('arrived');
+      arrivalObserver.unobserve(entry.target);
+    }
+  }
+}, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+const clusterTintObserver = new IntersectionObserver((entries) => {
+  for (const entry of entries) {
+    if (entry.isIntersecting) {
+      const sent = entry.target.dataset.sent;
+      if (sent) ambientTint.setAttribute('data-sent', sent);
+    }
+  }
+}, { rootMargin: '-30% 0px -50% 0px', threshold: 0 });
+
+window.addEventListener('gallery:ready', () => {
+  document.querySelectorAll('.card-tile').forEach(t => arrivalObserver.observe(t));
+  document.querySelectorAll('.cluster-mark').forEach(c => clusterTintObserver.observe(c));
+});
+
 init();
 </script>
 <!-- Bulk Download Progress Modal -->
@@ -1560,7 +1862,7 @@ init();
     <div class="dl-modal-bar" role="progressbar" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0"><div class="dl-modal-bar-fill"></div></div>
     <div class="dl-modal-status" aria-live="polite" aria-atomic="true">
       <span class="dl-modal-progress-text">0 of 0</span>
-      <span class="dl-modal-divider"> &mdash; </span>
+      <span class="dl-modal-divider"> · </span>
       <span class="current-card">Preparing…</span>
     </div>
     <div class="dl-modal-actions">
@@ -1579,7 +1881,7 @@ window.addEventListener('load', () => {
     if (!window.__bulkDownloadReady) {
       document.querySelectorAll('[data-download-scope]').forEach(btn => {
         btn.disabled = true;
-        btn.title = 'Download unavailable — refresh page';
+        btn.title = 'Download unavailable. Refresh page.';
       });
     }
   }, 2500);
