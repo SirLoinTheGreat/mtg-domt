@@ -32,7 +32,13 @@ border-radius:2px;
 html{scroll-behavior:smooth}
 body{
 font-family:'Cormorant Garamond',Georgia,serif;
-background:var(--ink);color:var(--text);
+/* Warm lamplight bloom at the top — gentle, matched to home's strength.
+   (domt's --gold #d4af3c is brighter than home's, so a lower % matches.) */
+background:
+  radial-gradient(125% 80% at 50% -10%, color-mix(in oklab, var(--gold) 4%, transparent), transparent 55%),
+  linear-gradient(180deg, var(--ink-warm), var(--ink));
+background-attachment:fixed;
+color:var(--text);
 min-height:100vh;overflow-x:hidden;
 }
 body::before{
