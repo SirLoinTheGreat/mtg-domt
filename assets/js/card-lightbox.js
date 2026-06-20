@@ -8,6 +8,8 @@ let cardHistory = {};
 let CACHE_BUST = 'v=' + Date.now();
 let lightbox = null;
 const lbNavStack = [];
+const ORIGINAL_TITLE = document.title;
+let isClosing = false;
 
 // Anchor data + asset URLs to this script's location (not the page's URL).
 // Required because pages may be served at /simulator/ via nginx URL rewrites,
@@ -18,7 +20,7 @@ function projectUrl(path) {
 }
 
 const EXTENDED_RULES_MAP = {
-  'Game Master': { url: 'data/game_master_rules.html', title: 'Game Master Mode — Full Rules' },
+  'Game Master': { url: 'data/game_master_rules.html', title: 'Game Master Mode: Full Rules' },
 };
 
 const LIGHTBOX_HTML = `
@@ -28,6 +30,7 @@ const LIGHTBOX_HTML = `
     <div class="lightbox-card-col">
       <button class="lb-back" id="lb-back"></button>
       <div class="sigil-wrap">
+        <div class="card-bloom" aria-hidden="true"></div>
         <img id="lb-img" src="" alt="">
         <div class="sigil-pulse" aria-hidden="true"></div>
       </div>
@@ -36,6 +39,7 @@ const LIGHTBOX_HTML = `
         <button class="lb-action" id="lb-share" type="button">✦ Share Card</button>
         <a class="lb-action" id="lb-fullsize-btn" href="#" target="_blank" rel="noopener">⤢ Full Size</a>
       </div>
+      <div class="lb-keyboard-hint" aria-hidden="true">← → browse · Esc close</div>
     </div>
     <div class="lightbox-detail-col">
       <div class="lb-section">
@@ -89,6 +93,7 @@ function ensureMarkup() {
 }
 
 function showCard(card) {
+  document.title = card.name + ' · The Deck of Many Things';
   const imgPath = (card.image_file || '').split('/').map(p => encodeURIComponent(p)).join('/');
   document.getElementById('lb-img').src = projectUrl(imgPath) + '?' + CACHE_BUST;
 
@@ -166,11 +171,17 @@ function showCard(card) {
   if (extConfig) {
     extSection.style.display = '';
     extTitle.textContent = extConfig.title;
-    extDiv.innerHTML = '<div class="ext-loading">Loading rules…</div>';
-    fetch(projectUrl(extConfig.url) + '?' + CACHE_BUST)
-      .then(r => r.ok ? r.text() : Promise.reject(r.status))
-      .then(html => { extDiv.innerHTML = html; })
-      .catch(err => { extDiv.innerHTML = '<div class="ext-error">Could not load extended rules.</div>'; });
+    const loadExtended = () => {
+      extDiv.innerHTML = '<div class="ext-loading">Loading rules…</div>';
+      fetch(projectUrl(extConfig.url) + '?' + CACHE_BUST)
+        .then(r => r.ok ? r.text() : Promise.reject(r.status))
+        .then(html => { extDiv.innerHTML = html; })
+        .catch(err => {
+          extDiv.innerHTML = '<div class="ext-error">Couldn\'t load extended rules. <button type="button" class="ext-retry">Try again</button></div>';
+          extDiv.querySelector('.ext-retry').addEventListener('click', loadExtended);
+        });
+    };
+    loadExtended();
   } else {
     extSection.style.display = 'none';
     extDiv.innerHTML = '';
@@ -189,10 +200,10 @@ function showCard(card) {
       const parts = (rc.image_file || '').split('/');
       const fileName = parts.pop().replace(/\.png$/, '.jpg');
       const thumbPath = [...parts, 'thumbs', fileName].map(p => encodeURIComponent(p)).join('/');
-      return '<div class="related-card-thumb" onclick="navigateToCard(\'' + rc.name.replace(/'/g, "\\'") + '\')">' +
-        '<img src="' + projectUrl(thumbPath) + '?' + CACHE_BUST + '" alt="' + rc.name + '" loading="lazy">' +
+      return '<button type="button" class="related-card-thumb" onclick="navigateToCard(\'' + rc.name.replace(/'/g, "\\'") + '\')" aria-label="' + rc.name + '">' +
+        '<img src="' + projectUrl(thumbPath) + '?' + CACHE_BUST + '" alt="" loading="lazy">' +
         '<div class="related-card-name">' + rc.name + '</div>' +
-      '</div>';
+      '</button>';
     }).join('');
   } else {
     relSection.style.display = 'none';
@@ -242,7 +253,7 @@ function showCard(card) {
           } else if (c.field === 'type_line') {
             details.push('<div class="changelog-detail"><strong>Type:</strong> ' + esc(c.old) + ' → ' + esc(c.new) + '</div>');
           } else if (c.field === 'power' || c.field === 'toughness') {
-            details.push('<div class="changelog-detail"><strong>' + c.field + ':</strong> ' + (c.old || '—') + ' → ' + (c.new || '—') + '</div>');
+            details.push('<div class="changelog-detail"><strong>' + c.field + ':</strong> ' + (c.old || '(none)') + ' → ' + (c.new || '(none)') + '</div>');
           } else if (c.field === 'name') {
             details.push('<div class="changelog-detail"><strong>Renamed:</strong> ' + esc(c.old) + ' → ' + esc(c.new) + '</div>');
           } else {
@@ -263,13 +274,27 @@ function showCard(card) {
   }
 
   // Scroll detail panel to top
-  document.querySelector('.lightbox-detail-col').scrollTop = 0;
+  const detailCol = document.querySelector('.lightbox-detail-col');
+  detailCol.scrollTop = 0;
+
+  // Stagger index for the open "settle in" — only the sections actually shown.
+  // Set before the .open class triggers the entrance (openLightbox calls
+  // showCard first). On in-modal navigation the entrance has already run, so
+  // re-indexing here is a harmless no-op.
+  let secIdx = 0;
+  detailCol.querySelectorAll('.lb-section').forEach(sec => {
+    if (sec.style.display !== 'none') sec.style.setProperty('--i', secIdx++);
+  });
 }
 
 function openLightbox(card) {
   if (!card) return;
+  isClosing = false;
   lbNavStack.length = 0;
   showCard(card);
+  // Restart the entrance cleanly even if a previous close was mid-flight.
+  lightbox.classList.remove('closing', 'open');
+  void lightbox.offsetWidth;
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -290,8 +315,31 @@ function navigateToCard(name) {
 }
 
 function closeLightbox() {
+  if (isClosing || !lightbox.classList.contains('open')) return;
+  isClosing = true;
+  const content = lightbox.querySelector('.lightbox-content');
+  lightbox.classList.add('closing');
+
+  let finished = false;
+  const finish = () => {
+    if (finished) return;
+    finished = true;
+    content.removeEventListener('animationend', onEnd);
+    instantClose();
+  };
+  const onEnd = e => { if (e.target === content) finish(); };
+  content.addEventListener('animationend', onEnd);
+  // Fallback: reduced-motion (~instant) or an interrupted animation may not
+  // deliver animationend; close anyway shortly after the exit duration.
+  setTimeout(finish, 360);
+}
+
+function instantClose() {
   lightbox.classList.remove('open');
+  lightbox.classList.remove('closing');
+  isClosing = false;
   document.body.style.overflow = '';
+  document.title = ORIGINAL_TITLE;
   // Clear the card hash, but keep other hashes (none currently)
   if ((location.hash || '').match(/^#card\//)) {
     history.replaceState(null, '', location.pathname + location.search);
@@ -302,12 +350,7 @@ function handleHashRoute() {
   const m = (location.hash || '').match(/^#card\/(.+)$/);
   if (!m) return;
   const card = findCardBySlug(decodeURIComponent(m[1]));
-  if (card) {
-    lbNavStack.length = 0;
-    showCard(card);
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
+  if (card) openLightbox(card);
 }
 
 let _wired = false;
@@ -322,10 +365,24 @@ function wireHandlers() {
     }
   });
 
-  // Escape key
+  // Escape + arrow-nav
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') {
       closeLightbox();
+      return;
+    }
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+      const delta = e.key === 'ArrowRight' ? 1 : -1;
+      const currentName = document.getElementById('lb-name').textContent.split(' / ')[0];
+      const tiles = Array.from(document.querySelectorAll('.card-tile'));
+      const idx = tiles.findIndex(t => t.dataset.rawname === currentName);
+      if (idx === -1) return;
+      const next = tiles[idx + delta];
+      if (!next) return;
+      const card = allCards.find(c => c.name === next.dataset.rawname);
+      if (card) { lbNavStack.length = 0; showCard(card); }
+      e.preventDefault();
     }
   });
 
@@ -374,12 +431,13 @@ export function init({ cards, history, cacheBust } = {}) {
   // - navigateToCard(name): related-card-thumb onclick (rendered by showCard)
   window.openLightbox = function(tileOrCard) {
     if (!tileOrCard) return;
-    // Tile element from gallery: read data-rawname
+    // Tile element from the gallery grid (onclick="openLightbox(this)")
     if (tileOrCard.nodeType === 1 && tileOrCard.dataset && tileOrCard.dataset.rawname) {
-      openLightboxByName(tileOrCard.dataset.rawname);
+      const card = allCards.find(c => c.name === tileOrCard.dataset.rawname);
+      if (card) openLightbox(card);
       return;
     }
-    // Otherwise assume it's a card object
+    // Otherwise assume it's a card object (e.g. the simulator's Draw a Card)
     openLightbox(tileOrCard);
   };
   window.navigateToCard = navigateToCard;
