@@ -2422,7 +2422,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "When True Resurrection enters, exile it.\nWhile it's exiled, if you would lose the game, instead your life total becomes your starting life total, remove all poison counters, curses, and -1/-1 counters from you and permanents you control, and return all creature cards from your graveyard to your hand. You skip your next draw step, then shuffle it into the Deck.\nYou may cast it from exile without paying its mana cost any time you could cast an instant. If you do, return target creature card from any graveyard to the battlefield under its owner's control with indestructible until end of turn. Restore all Auras and Equipment attached to it when it died, then shuffle it into the Deck.",
+      "rules_text": "When True Resurrection enters, exile it.\nWhile it's exiled, if you would lose the game, instead your life total becomes your starting life total, remove all poison counters, curses, and -1/-1 counters from you and permanents you control, and return all creature cards from your graveyard to your hand. Shuffle it into the Deck. You skip your next draw step.\nYou may cast it from exile without paying its mana cost any time you could cast an instant. If you do, return target creature card from any graveyard to the battlefield under its owner's control with indestructible until end of turn. Return all Aura and Equipment cards attached to it when it died from graveyards to the battlefield attached to it, then shuffle it into the Deck.",
       "flavor_text": "The grave opened. The light poured in. She blinked.",
       "power": null,
       "toughness": null,
@@ -3186,7 +3186,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "When this permanent enters, create three Ember tokens.\n{T}, Sacrifice an Equipment you control: Search your library for an Equipment with equal or lesser mana value and put it onto the battlefield attached to a creature you control with \"Equipped creature gets +4/+4.\" Its equip ability can't be activated, and it stays attached to that creature as long as that creature remains on the battlefield. Then create an Ember token and shuffle.\nWhenever an Equipment enters under your control, create a 3/1 red and white Artificer token.\nWhenever you sacrifice an artifact, this permanent deals 2 damage to any target, plus 2 more if it was a token.",
+      "rules_text": "When this permanent enters, create three Ember tokens.\n{T}, Sacrifice an Equipment you control: Search your library for an Equipment with equal or lesser mana value and put it onto the battlefield attached to a creature you control. It gains \"Equipped creature gets +4/+4.\" Its equip ability can't be activated, and it stays attached to that creature as long as that creature remains on the battlefield. Then create an Ember token and shuffle.\nWhenever an Equipment enters under your control, create a 3/1 red and white Artificer token.\nWhenever you sacrifice an artifact, this permanent deals 2 damage to any target, plus 2 more if it was a token.",
       "flavor_text": "She fed the forge a dagger. It returned a destiny.",
       "power": null,
       "toughness": null,
