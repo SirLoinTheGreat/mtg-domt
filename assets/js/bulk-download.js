@@ -143,7 +143,7 @@ function showCompletion({ scope, missing }) {
   if (!root) return;
   const inner = root.querySelector('.dl-modal');
   inner.dataset.state = 'progress';
-  const title = missing.length === 0 ? 'Bundle ready — opening…' : 'Bundle ready';
+  const title = missing.length === 0 ? 'Bundle ready. Opening…' : 'Bundle ready';
   root.querySelector('#dl-modal-title').textContent = title;
   if (missing.length > 0) {
     root.querySelector('.dl-modal-status').innerHTML =
@@ -163,7 +163,7 @@ function showError(err) {
   if (!root) return;
   const inner = root.querySelector('.dl-modal');
   inner.dataset.state = 'error';
-  root.querySelector('#dl-modal-title').textContent = 'Bundle failed — try again';
+  root.querySelector('#dl-modal-title').textContent = 'Bundle failed. Try again.';
   root.querySelector('.dl-modal-status').textContent = '';
   const details = root.querySelector('.dl-modal-details');
   details.hidden = false;
