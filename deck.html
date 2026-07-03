@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>The Deck — The Deck of Many Things</title>
+<link rel="icon" type="image/svg+xml" href="/shared/brand/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+--gold:#d4af3c;--gold-bright:#f4d27a;--gold-dim:#6b5320;
+--ink:#0a0805;--ink-warm:#1a120a;
+--text:#d4c5a0;--text-dim:#8a7e60;
+--ember:#d97742;
+--card-shadow:0 8px 32px rgba(0,0,0,.7),0 2px 8px rgba(0,0,0,.5);
+--card-halo:0 0 30px rgba(244,210,122,.35),0 0 60px rgba(212,175,60,.18);
+--card-ratio:1.4;
+}
+html,body{height:100%}
+body{
+font-family:'Cormorant Garamond',Georgia,serif;
+background:var(--ink);color:var(--text);
+overflow:hidden;
+touch-action:manipulation;
+-webkit-tap-highlight-color:transparent;
+user-select:none;-webkit-user-select:none;
+}
+body::before{
+content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+background:
+  radial-gradient(ellipse at 50% 30%,rgba(201,168,76,.06) 0%,transparent 55%),
+  radial-gradient(ellipse at 20% 100%,rgba(217,119,66,.04) 0%,transparent 50%),
+  url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+}
+
+.app{
+position:relative;z-index:1;
+height:100%;height:100dvh;
+display:flex;flex-direction:column;
+padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+/* ---------- header ---------- */
+.deck-head{
+flex:none;display:flex;align-items:baseline;justify-content:space-between;gap:.8rem;
+padding:.55rem .9rem .35rem;
+}
+.deck-head h1{
+font-family:'Cinzel Decorative',serif;font-weight:700;
+font-size:clamp(.7rem,3.2vw,.92rem);letter-spacing:.1em;color:var(--gold);
+white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.deck-head h1 a{color:inherit;text-decoration:none}
+.head-meta{
+font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.12em;
+color:var(--text-dim);white-space:nowrap;display:flex;align-items:center;gap:.5rem;
+}
+.head-meta b{color:var(--gold);font-weight:600}
+.wake-dot{width:6px;height:6px;border-radius:50%;background:#3a3325;flex:none}
+.wake-dot.on{background:var(--gold);box-shadow:0 0 6px rgba(244,210,122,.8)}
+
+/* ---------- stage ---------- */
+.stage{
+flex:1;min-height:0;
+display:flex;flex-direction:column;align-items:center;justify-content:center;
+gap:clamp(.6rem,2.5vh,1.4rem);
+padding:.4rem .9rem;
+overflow-y:auto;-webkit-overflow-scrolling:touch;
+}
+.piles{
+display:flex;align-items:flex-start;justify-content:center;gap:clamp(1.2rem,8vw,3.5rem);
+}
+.pile-label{
+margin-top:.45rem;text-align:center;
+font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;
+letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);
+}
+.pile-label b{color:var(--gold);font-weight:700}
+
+/* the deck — layered backs, tap to draw */
+.deck-zone{text-align:center}
+.deck-stack{
+position:relative;
+width:clamp(120px,34vw,190px);
+aspect-ratio:1/var(--card-ratio);
+cursor:pointer;border:none;background:none;padding:0;
+-webkit-tap-highlight-color:transparent;
+}
+.deck-stack .layer{
+position:absolute;inset:0;border-radius:6px;
+background-size:cover;background-position:center;
+box-shadow:var(--card-shadow);
+border:1px solid rgba(212,175,60,.25);
+}
+.deck-stack .layer:nth-child(1){transform:translate(4px,5px) rotate(1.6deg)}
+.deck-stack .layer:nth-child(2){transform:translate(-3px,2px) rotate(-1.1deg)}
+.deck-stack .layer:nth-child(3){transform:translate(1px,-1px) rotate(.4deg)}
+.deck-stack .layer.top{transition:transform .15s ease,box-shadow .3s ease}
+.deck-stack:active .layer.top{transform:translate(1px,1px) rotate(.4deg) scale(.985)}
+.deck-stack.glow .layer.top{box-shadow:var(--card-shadow),var(--card-halo)}
+.deck-stack.empty .layer{
+background:rgba(26,18,10,.5)!important;background-image:none!important;
+border:1px dashed rgba(212,175,60,.3);
+}
+.deck-stack.empty .layer:not(.top){display:none}
+.deck-empty-hint{
+position:absolute;inset:0;display:none;align-items:center;justify-content:center;
+padding:1rem;text-align:center;
+font-family:'Cormorant Garamond',serif;font-style:italic;
+font-size:.85rem;color:var(--text-dim);line-height:1.5;
+}
+.deck-stack.empty .deck-empty-hint{display:flex}
+@keyframes deck-shake{
+0%,100%{transform:translateX(0) rotate(0)}
+20%{transform:translateX(-5px) rotate(-1.5deg)}
+40%{transform:translateX(5px) rotate(1.2deg)}
+60%{transform:translateX(-4px) rotate(-.8deg)}
+80%{transform:translateX(3px) rotate(.5deg)}
+}
+.deck-stack.shaking{animation:deck-shake .45s ease}
+
+/* discard pile */
+.discard-zone{text-align:center}
+.discard-pile{
+position:relative;
+width:clamp(84px,24vw,140px);
+aspect-ratio:1/var(--card-ratio);
+cursor:pointer;border:none;background:none;padding:0;
+}
+.discard-pile .dp-card{
+position:absolute;inset:0;border-radius:5px;
+background-size:cover;background-position:center;
+background-color:rgba(26,18,10,.45);
+border:1px dashed rgba(212,175,60,.28);
+box-shadow:0 4px 18px rgba(0,0,0,.55);
+transition:box-shadow .3s ease;
+}
+.discard-pile.has-cards .dp-card{border-style:solid}
+.discard-pile:active .dp-card{box-shadow:0 2px 8px rgba(0,0,0,.5)}
+.dp-count{
+position:absolute;right:-7px;top:-7px;z-index:2;
+min-width:22px;height:22px;padding:0 5px;border-radius:11px;
+display:flex;align-items:center;justify-content:center;
+background:var(--ink-warm);border:1px solid var(--gold-dim);
+font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;color:var(--gold);
+}
+
+/* drawn cards — face-up on the table, tap to discard */
+.drawn-row{
+flex:none;width:100%;
+display:flex;align-items:center;justify-content:center;gap:.7rem;
+flex-wrap:wrap;
+min-height:clamp(90px,18vh,160px);
+}
+.drawn-card{
+width:clamp(110px,30vw,170px);
+aspect-ratio:1/var(--card-ratio);
+border-radius:6px;border:none;padding:0;cursor:pointer;
+background-size:cover;background-position:center;background-color:var(--ink-warm);
+box-shadow:var(--card-shadow),0 0 20px rgba(244,210,122,.12);
+transition:transform .15s ease;
+}
+.drawn-card:active{transform:scale(.97)}
+.drawn-card:only-child{width:clamp(150px,44vw,230px)}
+.drawn-hint{
+font-family:'Cormorant Garamond',serif;font-style:italic;
+font-size:.8rem;color:var(--text-dim);opacity:.75;
+}
+
+/* flying card (draw + discard animations) */
+.fly{
+position:fixed;z-index:60;pointer-events:none;
+transform-style:preserve-3d;perspective:900px;
+}
+.fly .fly-inner{
+position:absolute;inset:0;transform-style:preserve-3d;
+}
+.fly .face,.fly .back{
+position:absolute;inset:0;border-radius:6px;
+background-size:cover;background-position:center;
+backface-visibility:hidden;-webkit-backface-visibility:hidden;
+box-shadow:var(--card-shadow);
+border:1px solid rgba(212,175,60,.25);
+}
+.fly .face{transform:rotateY(180deg)}
+
+/* ---------- bottom controls ---------- */
+.controls{
+flex:none;
+display:flex;align-items:center;justify-content:center;gap:.45rem;
+padding:.55rem .7rem calc(.65rem + env(safe-area-inset-bottom));
+border-top:1px solid rgba(212,175,60,.14);
+background:rgba(10,8,5,.75);backdrop-filter:blur(6px);
+flex-wrap:wrap;
+}
+.ctl{
+font-family:'Cinzel',serif;font-weight:600;
+font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
+color:var(--text);background:rgba(26,18,10,.6);
+border:1px solid rgba(212,175,60,.3);border-radius:3px;
+padding:.55rem .7rem;cursor:pointer;
+transition:border-color .2s,color .2s,background .2s;
+}
+.ctl:active{background:rgba(212,175,60,.15)}
+.ctl.primary{color:var(--gold-bright);border-color:rgba(212,175,60,.55)}
+.ctl:disabled{opacity:.35;pointer-events:none}
+.draw-group{display:flex;gap:.3rem;align-items:center}
+.draw-group .ctl.n{padding:.55rem .62rem;min-width:2.3rem}
+
+/* ---------- sheets (discard browser / menu) ---------- */
+.sheet-backdrop{
+position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.55);
+opacity:0;pointer-events:none;transition:opacity .25s ease;
+}
+.sheet-backdrop.open{opacity:1;pointer-events:auto}
+.sheet{
+position:fixed;left:0;right:0;bottom:0;z-index:90;
+max-height:78dvh;display:flex;flex-direction:column;
+background:linear-gradient(180deg,#1d1509,#120d06);
+border-top:1px solid rgba(212,175,60,.4);
+border-radius:14px 14px 0 0;
+transform:translateY(102%);transition:transform .3s cubic-bezier(.22,.9,.3,1);
+padding-bottom:env(safe-area-inset-bottom);
+}
+.sheet.open{transform:translateY(0)}
+.sheet-head{
+flex:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+padding:.85rem 1rem .6rem;
+}
+.sheet-title{
+font-family:'Cinzel',serif;font-weight:700;font-size:.78rem;
+letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
+}
+.sheet-close{
+background:none;border:none;color:var(--text-dim);cursor:pointer;
+font-size:1.3rem;line-height:1;padding:.2rem .5rem;font-family:serif;
+}
+.sheet-body{flex:1;overflow-y:auto;padding:.2rem 1rem 1rem;-webkit-overflow-scrolling:touch}
+
+/* discard browser grid */
+.discard-grid{
+display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:.7rem;
+}
+.dg-item{text-align:center}
+.dg-item img{
+width:100%;border-radius:5px;border:1px solid rgba(212,175,60,.25);
+box-shadow:0 3px 12px rgba(0,0,0,.5);display:block;
+}
+.dg-name{
+margin-top:.25rem;font-family:'Cinzel',serif;font-size:.56rem;font-weight:600;
+letter-spacing:.05em;color:var(--text-dim);line-height:1.25;
+}
+.dg-item:first-child .dg-name{color:var(--gold)}
+.discard-empty{
+padding:2rem 0;text-align:center;font-style:italic;color:var(--text-dim);
+}
+
+/* menu sheet */
+.menu-group{padding:.7rem 0;border-bottom:1px solid rgba(212,175,60,.1)}
+.menu-group:last-child{border-bottom:none}
+.menu-label{
+font-family:'Cinzel',serif;font-size:.6rem;font-weight:600;
+letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);
+margin-bottom:.55rem;
+}
+.set-chips{display:flex;gap:.4rem;flex-wrap:wrap}
+.set-chip{
+font-family:'Cinzel',serif;font-size:.66rem;font-weight:600;letter-spacing:.08em;
+color:var(--text-dim);background:rgba(26,18,10,.6);
+border:1px solid rgba(212,175,60,.25);border-radius:3px;
+padding:.5rem .8rem;cursor:pointer;transition:all .2s;
+}
+.set-chip.on{color:var(--gold-bright);border-color:rgba(212,175,60,.6);background:rgba(212,175,60,.1)}
+.menu-row{display:flex;gap:.45rem;flex-wrap:wrap}
+.menu-note{font-size:.78rem;font-style:italic;color:var(--text-dim);margin-top:.5rem;line-height:1.45}
+.menu-links{display:flex;gap:1.2rem}
+.menu-links a{
+font-family:'Cinzel',serif;font-size:.66rem;font-weight:600;letter-spacing:.1em;
+color:var(--text-dim);text-decoration:none;text-transform:uppercase;
+}
+.menu-links a:hover{color:var(--gold)}
+
+/* zoom overlay (long-press a drawn card) */
+.zoom-overlay{
+position:fixed;inset:0;z-index:100;
+display:none;align-items:center;justify-content:center;
+background:rgba(0,0,0,.82);padding:1rem;
+}
+.zoom-overlay.open{display:flex}
+.zoom-overlay img{
+max-width:100%;max-height:100%;border-radius:10px;
+box-shadow:var(--card-shadow),var(--card-halo);
+}
+
+/* toast */
+.toast{
+position:fixed;left:50%;bottom:calc(5.4rem + env(safe-area-inset-bottom));z-index:70;
+transform:translateX(-50%) translateY(8px);
+background:rgba(26,18,10,.95);border:1px solid rgba(212,175,60,.4);border-radius:4px;
+padding:.5rem .9rem;
+font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.85rem;color:var(--text);
+opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;
+white-space:nowrap;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* landscape phones: piles + drawn side by side */
+@media (orientation:landscape) and (max-height:520px){
+.stage{flex-direction:row;justify-content:space-evenly}
+.drawn-row{width:auto;flex:1;min-height:0}
+.deck-stack{width:clamp(100px,22vh,150px);width:clamp(100px,26vmin,160px)}
+}
+</style>
+<script src="/shared/suite-nav.js" defer></script>
+</head>
+<body>
+<div class="app">
+<suite-nav active="domt"></suite-nav>
+
+<header class="deck-head">
+  <h1><a href="./index.html" title="Back to the gallery">The Deck of Many Things</a></h1>
+  <div class="head-meta">
+    <span><b id="count-deck">…</b> in deck</span>
+    <span>·</span>
+    <span><b id="count-discard">0</b> discarded</span>
+    <span class="wake-dot" id="wake-dot" title="Screen wake lock"></span>
+  </div>
+</header>
+
+<main class="stage">
+  <div class="piles">
+    <div class="deck-zone">
+      <button class="deck-stack glow" id="deck-stack" aria-label="Draw a card">
+        <span class="layer"></span>
+        <span class="layer"></span>
+        <span class="layer top"></span>
+        <span class="deck-empty-hint">The Deck is spent.<br>Shuffle the discard to renew it.</span>
+      </button>
+      <div class="pile-label">The <b>Deck</b> · tap to draw</div>
+    </div>
+    <div class="discard-zone">
+      <button class="discard-pile" id="discard-pile" aria-label="Browse the discard pile">
+        <span class="dp-card" id="dp-card"></span>
+        <span class="dp-count" id="dp-count">0</span>
+      </button>
+      <div class="pile-label"><b>Discard</b> · tap to browse</div>
+    </div>
+  </div>
+  <div class="drawn-row" id="drawn-row">
+    <div class="drawn-hint" id="drawn-hint">Drawn cards land here — tap one to discard it. Hold to read.</div>
+  </div>
+</main>
+
+<nav class="controls">
+  <div class="draw-group">
+    <button class="ctl primary n" data-draw="1" title="Draw 1">1</button>
+    <button class="ctl n" data-draw="2" title="Draw 2">2</button>
+    <button class="ctl n" data-draw="3" title="Draw 3">3</button>
+    <button class="ctl n" data-draw="4" title="Draw 4">4</button>
+  </div>
+  <button class="ctl" id="btn-shuffle" title="Shuffle the remaining deck">Shuffle</button>
+  <button class="ctl" id="btn-shuffle-all" title="Shuffle everything — discard included — back into the deck">Shuffle All</button>
+  <button class="ctl" id="btn-undo" title="Undo the last draw or discard">↩</button>
+  <button class="ctl" id="btn-menu" title="Decks & options">⋯</button>
+</nav>
+</div>
+
+<div class="sheet-backdrop" id="sheet-backdrop"></div>
+
+<div class="sheet" id="discard-sheet" role="dialog" aria-label="Discard pile">
+  <div class="sheet-head">
+    <div class="sheet-title">Discard — <span id="ds-count">0 cards</span></div>
+    <button class="sheet-close" data-close aria-label="Close">✕</button>
+  </div>
+  <div class="sheet-body">
+    <div class="discard-grid" id="discard-grid"></div>
+    <div class="discard-empty" id="discard-empty">Nothing has been cast aside yet.</div>
+  </div>
+</div>
+
+<div class="sheet" id="menu-sheet" role="dialog" aria-label="Deck options">
+  <div class="sheet-head">
+    <div class="sheet-title">The Deck's Making</div>
+    <button class="sheet-close" data-close aria-label="Close">✕</button>
+  </div>
+  <div class="sheet-body">
+    <div class="menu-group">
+      <div class="menu-label">Sub-decks</div>
+      <div class="set-chips" id="set-chips">
+        <button class="set-chip" data-set="original">Original</button>
+        <button class="set-chip" data-set="expansion">Expansion</button>
+        <button class="set-chip" data-set="harrow">Harrow</button>
+        <button class="set-chip" data-set="wonder">Wonder</button>
+      </div>
+      <div class="menu-note">Changing sub-decks takes effect when you forge a new deck.</div>
+    </div>
+    <div class="menu-group">
+      <div class="menu-label">Actions</div>
+      <div class="menu-row">
+        <button class="ctl primary" id="btn-new-deck">Forge new deck</button>
+      </div>
+      <div class="menu-note">Builds a fresh, fully shuffled deck from the chosen sub-decks. The discard and any drawn cards are swept back in.</div>
+    </div>
+    <div class="menu-group">
+      <div class="menu-label">Elsewhere</div>
+      <div class="menu-links">
+        <a href="./index.html">Gallery</a>
+        <a href="./simulator.html">Simulator</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="zoom-overlay" id="zoom-overlay"><img id="zoom-img" alt="Card"></div>
+<div class="toast" id="toast"></div>
+
+<script type="module" src="./assets/js/deck.js"></script>
+</body>
+</html>
