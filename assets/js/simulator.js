@@ -183,7 +183,7 @@ async function init() {
 // --- Deck management ---
 function rebuildDeck() {
   const eligible = state.allCards.filter(c =>
-    state.activeSets.has(c.set) && !c.is_reference
+    state.activeSets.has(c.set) && !c.is_reference && !c.is_token
   );
   state.totalForActive = eligible.length;
   state.deck = shuffle(eligible, state.rng);
