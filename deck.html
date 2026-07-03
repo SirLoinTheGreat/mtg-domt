@@ -355,10 +355,9 @@ white-space:nowrap;
 .ctl{font-size:.74rem}
 .pile-label{font-size:.66rem}
 }
-/* desktop: cap the table so wide screens don't stretch it */
-@media (min-width:1100px){
-.app{max-width:1100px;margin:0 auto}
-}
+/* desktop: cap the TABLE (stage + header content) so wide screens don't stretch
+   it — the nav and the controls bar stay full-bleed edge to edge */
+.deck-head,.stage{width:100%;max-width:1100px;margin-left:auto;margin-right:auto}
 /* landscape phones: piles left, drawn cards right */
 @media (orientation:landscape) and (max-height:520px){
 .stage{flex-direction:row;justify-content:space-evenly;align-items:center}
