@@ -7,6 +7,7 @@ import { shuffle } from './seeded-rng.js';
 const PROJECT_BASE = new URL('../../', import.meta.url).href;
 const projectUrl = p => new URL(p, PROJECT_BASE).href;
 const CARD_BACK = projectUrl('assets/cards/original/thumbs/Card%20Back.jpg');
+const CARD_BACK_FULL = projectUrl('assets/cards/original/Card%20Back.png');
 const ALL_SETS = ['original', 'expansion', 'harrow', 'wonder'];
 const STORE_KEY = 'domt-deck-v1';
 const SET_INITIALS = { o: 'original', e: 'expansion', h: 'harrow', w: 'wonder' };
@@ -37,6 +38,18 @@ function thumbUrl(name) {
   const parts = (card.image_file || '').split('/');
   const file = parts.pop().replace(/\.png$/, '.jpg');
   return projectUrl([...parts, 'thumbs', file].map(encodeURIComponent).join('/'));
+}
+function fullUrl(name) {
+  const card = state.byName[name];
+  if (!card) return '';
+  return projectUrl((card.image_file || '').split('/').map(encodeURIComponent).join('/'));
+}
+// Progressive immersion: paint the fast thumb, then swap in the print-resolution
+// PNG once it's cached. The element keeps working if the big file never arrives.
+function upgradeBg(el, url) {
+  const img = new Image();
+  img.onload = () => { if (el.isConnected) el.style.backgroundImage = `url("${url}")`; };
+  img.src = url;
 }
 
 // ---------- persistence ----------
@@ -89,9 +102,14 @@ function renderCounts() {
   els.discardPile.classList.toggle('has-cards', state.discard.length > 0);
   els.dpCard.style.backgroundImage = state.discard.length
     ? `url("${thumbUrl(state.discard[0])}")` : 'none';
-  // deck backs
+  // deck backs — thumb immediately, print-resolution once cached
   els.deckStack.querySelectorAll('.layer').forEach(l => {
-    l.style.backgroundImage = state.deck.length ? `url("${CARD_BACK}")` : 'none';
+    if (state.deck.length) {
+      l.style.backgroundImage = `url("${CARD_BACK}")`;
+      upgradeBg(l, CARD_BACK_FULL);
+    } else {
+      l.style.backgroundImage = 'none';
+    }
   });
   // preload the next few faces so draws reveal instantly
   state.deck.slice(0, 4).forEach(n => { const i = new Image(); i.src = thumbUrl(n); });
@@ -103,13 +121,17 @@ function makeDrawnCard(name) {
   b.dataset.name = name;
   b.setAttribute('aria-label', name + ' — tap to discard, hold to read');
   b.style.backgroundImage = `url("${thumbUrl(name)}")`;
+  upgradeBg(b, fullUrl(name));
   // tap = discard; long-press = zoom to read
   let pressTimer = null, longPressed = false;
   b.addEventListener('pointerdown', () => {
     longPressed = false;
     pressTimer = setTimeout(() => {
       longPressed = true;
-      els.zoomImg.src = thumbUrl(name);
+      els.zoomImg.src = thumbUrl(name);           // instant
+      const hi = new Image();                      // then print resolution
+      hi.onload = () => { if (els.zoomOverlay.classList.contains('open')) els.zoomImg.src = hi.src; };
+      hi.src = fullUrl(name);
       els.zoomOverlay.classList.add('open');
     }, 420);
   });
@@ -146,8 +168,12 @@ function renderChips() {
 function renderAll() { renderCounts(); renderDrawn(); renderChips(); }
 
 // ---------- animations ----------
+const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)');
+
 // Fly a card between two rects, optionally flipping from back to face.
+// Under prefers-reduced-motion the card simply appears in place.
 function flyCard({ from, to, name, flip }, done) {
+  if (REDUCED_MOTION.matches) { done && done(); return; }
   const fly = document.createElement('div');
   fly.className = 'fly';
   fly.style.cssText = `left:${from.left}px;top:${from.top}px;width:${from.width}px;height:${from.height}px`;
@@ -361,6 +387,20 @@ async function init() {
     toast('A new Deck is forged — ' + state.deck.length + ' cards.');
   });
   els.zoomOverlay.addEventListener('click', () => els.zoomOverlay.classList.remove('open'));
+
+  // fullscreen immersion — Android/desktop via the button; iOS via Add to Home
+  // Screen (the manifest + apple metas make that launch truly fullscreen)
+  const fsBtn = $('btn-fullscreen');
+  if (document.documentElement.requestFullscreen) {
+    fsBtn.addEventListener('click', () => {
+      if (document.fullscreenElement) document.exitFullscreen();
+      else document.documentElement.requestFullscreen({ navigationUI: 'hide' }).catch(() => {});
+    });
+    document.addEventListener('fullscreenchange', () =>
+      fsBtn.classList.toggle('active', !!document.fullscreenElement));
+  } else {
+    fsBtn.style.display = 'none';   // iOS Safari: no element fullscreen API
+  }
 
   acquireWakeLock();
 }

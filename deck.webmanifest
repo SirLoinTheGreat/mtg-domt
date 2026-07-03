@@ -1,0 +1,14 @@
+{
+  "name": "The Deck of Many Things",
+  "short_name": "The Deck",
+  "description": "The Deck of Many Things as a digital table deck — draw, discard, shuffle.",
+  "start_url": "./deck.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "orientation": "any",
+  "background_color": "#0a0805",
+  "theme_color": "#0a0805",
+  "icons": [
+    { "src": "/shared/brand/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>The Deck — The Deck of Many Things</title>
 <link rel="icon" type="image/svg+xml" href="/shared/brand/favicon.svg">
+<link rel="manifest" href="./deck.webmanifest">
+<meta name="theme-color" content="#0a0805">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="The Deck">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -59,6 +64,17 @@ color:var(--text-dim);white-space:nowrap;display:flex;align-items:center;gap:.5r
 .head-meta b{color:var(--gold);font-weight:600}
 .wake-dot{width:6px;height:6px;border-radius:50%;background:#3a3325;flex:none}
 .wake-dot.on{background:var(--gold);box-shadow:0 0 6px rgba(244,210,122,.8)}
+.fs-btn{
+background:none;border:none;color:var(--text-dim);cursor:pointer;
+font-size:1rem;line-height:1;padding:.15rem .3rem;
+}
+.fs-btn:active,.fs-btn.active{color:var(--gold)}
+/* immersion: hide site chrome when fullscreen or installed to the home screen */
+:fullscreen suite-nav{display:none}
+@media (display-mode:fullscreen),(display-mode:standalone){
+suite-nav{display:none}
+.fs-btn{display:none}
+}
 
 /* ---------- stage ---------- */
 .stage{
@@ -305,11 +321,65 @@ white-space:nowrap;
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
-/* landscape phones: piles + drawn side by side */
+/* ---------- adaptation: input methods ---------- */
+/* hover-capable fine pointers (desktop / laptop) */
+@media (hover:hover) and (pointer:fine){
+.deck-stack:not(.empty):hover .layer.top{transform:translate(1px,-4px) rotate(.4deg);box-shadow:var(--card-shadow),var(--card-halo)}
+.drawn-card:hover{transform:translateY(-3px)}
+.discard-pile.has-cards:hover .dp-card{box-shadow:0 6px 24px rgba(0,0,0,.65),0 0 14px rgba(244,210,122,.18)}
+.ctl:hover{border-color:rgba(212,175,60,.6);color:var(--gold-bright)}
+.set-chip:hover{border-color:rgba(212,175,60,.5)}
+.sheet-close:hover{color:var(--gold)}
+}
+/* coarse pointers: honest 44px touch targets */
+@media (pointer:coarse){
+.ctl{padding:.72rem .8rem;font-size:.7rem}
+.draw-group .ctl.n{min-width:2.75rem;padding:.72rem .66rem}
+.sheet-close{padding:.5rem .8rem}
+}
+
+/* ---------- adaptation: screen sizes ---------- */
+/* tiny phones (320-360px): controls must not overflow */
+@media (max-width:359px){
+.controls{gap:.28rem;padding-left:.4rem;padding-right:.4rem}
+.ctl{padding:.62rem .5rem;font-size:.62rem;letter-spacing:.06em}
+.draw-group .ctl.n{min-width:2.3rem}
+}
+/* tablets and up: the deck earns its size at the table's center */
+@media (min-width:768px){
+.deck-stack{width:clamp(190px,24vw,260px)}
+.discard-pile{width:clamp(130px,16vw,180px)}
+.drawn-card{width:clamp(170px,20vw,220px)}
+.drawn-card:only-child{width:clamp(210px,26vw,290px)}
+.controls{gap:.6rem}
+.ctl{font-size:.74rem}
+.pile-label{font-size:.66rem}
+}
+/* desktop: cap the table so wide screens don't stretch it */
+@media (min-width:1100px){
+.app{max-width:1100px;margin:0 auto}
+}
+/* landscape phones: piles left, drawn cards right */
 @media (orientation:landscape) and (max-height:520px){
-.stage{flex-direction:row;justify-content:space-evenly}
-.drawn-row{width:auto;flex:1;min-height:0}
-.deck-stack{width:clamp(100px,22vh,150px);width:clamp(100px,26vmin,160px)}
+.stage{flex-direction:row;justify-content:space-evenly;align-items:center}
+.piles{flex:none;gap:1.2rem}
+.drawn-row{width:auto;flex:1;min-height:0;align-content:center}
+.deck-stack{width:clamp(96px,30vmin,150px)}
+.discard-pile{width:clamp(70px,20vmin,110px)}
+.drawn-card{width:clamp(90px,26vmin,140px)}
+.drawn-card:only-child{width:clamp(110px,34vmin,170px)}
+.deck-head{padding:.35rem .9rem .2rem}
+.controls{padding:.4rem .7rem calc(.45rem + env(safe-area-inset-bottom))}
+}
+
+/* ---------- adaptation: reduced motion ---------- */
+/* state changes, not choreography — the JS skips fly/flip animations too */
+@media (prefers-reduced-motion:reduce){
+.deck-stack.shaking{animation:none}
+.deck-stack .layer.top,.drawn-card,.dp-card{transition:none}
+.sheet{transition:none}
+.sheet-backdrop{transition:opacity .01s linear}
+.toast{transition:opacity .15s linear}
 }
 </style>
 <script src="/shared/suite-nav.js" defer></script>
@@ -325,6 +395,7 @@ white-space:nowrap;
     <span>·</span>
     <span><b id="count-discard">0</b> discarded</span>
     <span class="wake-dot" id="wake-dot" title="Screen wake lock"></span>
+    <button class="fs-btn" id="btn-fullscreen" title="Fullscreen" aria-label="Toggle fullscreen">⛶</button>
   </div>
 </header>
 
@@ -401,6 +472,10 @@ white-space:nowrap;
         <button class="ctl primary" id="btn-new-deck">Forge new deck</button>
       </div>
       <div class="menu-note">Builds a fresh, fully shuffled deck from the chosen sub-decks. The discard and any drawn cards are swept back in.</div>
+    </div>
+    <div class="menu-group">
+      <div class="menu-label">Immersion</div>
+      <div class="menu-note">For true fullscreen: tap ⛶ in the header (Android / desktop), or on iPhone use Share → <b>Add to Home Screen</b> and launch The Deck from there — no browser chrome, cards at full resolution.</div>
     </div>
     <div class="menu-group">
       <div class="menu-label">Elsewhere</div>
