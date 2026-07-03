@@ -38,6 +38,17 @@ const ANIM = {
 // with the slide kick, so wall time is ~2.3s). Cards resolve at their destination slot —
 // there's no separate center-stage phase, so the chain cards aren't obscured by the long
 // resolve beat.
+//
+// Reduced motion: the page CSS already snaps transitions/animations to .01ms, but these JS
+// sleeps would still make a 4-card draw take ~10s of nothing. Collapse the timeline too —
+// a 200ms resolve beat remains so each card registers before the next lands.
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  ANIM.liftMs = 0;
+  ANIM.slideToSlotMs = 0;
+  ANIM.flipMs = 0;
+  ANIM.resolveMs = 200;
+  ANIM.discardSlideMs = 0;
+}
 
 const SENTIMENT_LUM = {
   positive: 'rgba(125, 186, 138, .85)',  // warm gold-green
@@ -245,9 +256,11 @@ function showExtraPrompt(anchorEl, label, maxExtras) {
     const viewportW = window.innerWidth;
     const top = anchorRect.bottom + 12;  // 12px below the card, in viewport coords
     const left = anchorRect.left + (anchorRect.width / 2) - (promptRect.width / 2);
-    // Clamp horizontally so the prompt stays on-screen.
+    // Clamp both axes so the prompt stays on-screen (a card near the viewport bottom
+    // would otherwise push its buttons below the fold — undismissable on mobile).
     const maxLeft = Math.max(0, viewportW - promptRect.width);
-    prompt.style.top = top + 'px';
+    const maxTop = Math.max(8, window.innerHeight - promptRect.height - 8);
+    prompt.style.top = Math.min(top, maxTop) + 'px';
     prompt.style.left = Math.max(0, Math.min(left, maxLeft)) + 'px';
 
     // One resolution path. cleanup() removes the prompt and the keydown listener.
@@ -696,9 +709,15 @@ function createAnimCard(card, startX, startY, targetX, targetY) {
   wrap.appendChild(ring);
   wrap.appendChild(label);
 
-  // Click-to-lightbox once settled
+  // Click-to-lightbox once settled — with a keyboard path (settle adds tabindex/role)
   wrap.addEventListener('click', () => {
     if (wrap.classList.contains('settled')) openCardLightbox(card);
+  });
+  wrap.addEventListener('keydown', (e) => {
+    if ((e.key === 'Enter' || e.key === ' ') && wrap.classList.contains('settled')) {
+      e.preventDefault();
+      openCardLightbox(card);
+    }
   });
 
   return wrap;
@@ -789,9 +808,12 @@ async function animateCardThroughResolution(card, deckEl, spreadArea, insertAfte
     spreadArea.appendChild(animCard);
   }
 
-  // Settle: clear transient classes, mark interactable.
+  // Settle: clear transient classes, mark interactable (mouse + keyboard).
   animCard.classList.remove('sliding');
   animCard.classList.add('settled');
+  animCard.setAttribute('tabindex', '0');
+  animCard.setAttribute('role', 'button');
+  animCard.setAttribute('aria-label', card.name + ' — view card details');
   // Clear the inline transition so future hover/discard transitions use class-driven timing.
   animCard.style.transition = '';
   return animCard;
@@ -1009,17 +1031,20 @@ function closeShareModal() {
 function thumbUrl(card) {
   // Use the 400px JPG thumbnail (~30-65KB) instead of the full 2010×2814 PNG (~7MB).
   // image_file format: assets/cards/<set>/<file>.png  →  assets/cards/<set>/thumbs/<file>.jpg
+  // NO cache-bust on images: a Date.now() query string forced a full re-download of the
+  // entire deck's thumbs (~7-9MB) every session. Nginx serves no-cache headers, so the
+  // browser revalidates (cheap 304s) and picks up re-rendered cards without our help.
   const path = card.image_file || '';
   const parts = path.split('/');
   const fileName = parts.pop().replace(/\.png$/, '.jpg');
   const thumbPath = [...parts, 'thumbs', fileName].map(encodeURIComponent).join('/');
-  return projectUrl(thumbPath) + '?' + CACHE_BUST;
+  return projectUrl(thumbPath);
 }
 
 // --- Helpers ---
 function imgUrl(card) {
   const path = (card.image_file || '').split('/').map(encodeURIComponent).join('/');
-  return projectUrl(path) + '?' + CACHE_BUST;
+  return projectUrl(path);
 }
 
 // --- Image preloading ---
