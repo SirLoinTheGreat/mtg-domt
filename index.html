@@ -746,6 +746,57 @@ box-shadow:var(--card-halo);
 }
 .card-tile.hidden{display:none}
 
+/* Recently changed cards — a ledger of alterations */
+.recent-changes-wrap{
+position:relative;z-index:1;
+max-width:var(--w-content);margin:.6rem auto 0;
+padding:0 1.5rem;
+}
+.rc-body{padding:.4rem 1.1rem 1rem;border-top:1px solid rgba(212,175,60,.14)}
+.rc-group{margin-top:.8rem}
+.rc-group-head{
+font-family:'Cormorant Garamond',serif;font-style:italic;
+font-size:.92rem;color:var(--text-dim);
+display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;
+}
+.rc-group-date{
+font-family:'Cinzel',serif;font-style:normal;font-weight:600;
+font-size:.68rem;letter-spacing:.14em;color:var(--gold-dim);
+}
+.rc-rows{margin:.45rem 0 0;max-height:15rem;overflow-y:auto;padding-right:.4rem}
+.rc-row{
+display:flex;align-items:center;gap:.7rem;
+padding:.32rem .2rem;
+border-bottom:1px solid rgba(212,175,60,.07);
+}
+.rc-row:last-child{border-bottom:none}
+.rc-thumb{
+width:34px;height:47px;object-fit:cover;border-radius:2px;
+border:1px solid rgba(212,175,60,.25);flex:none;
+}
+.rc-name{
+font-family:'Cinzel',serif;font-size:.72rem;font-weight:600;
+letter-spacing:.06em;color:var(--gold);
+background:none;border:none;cursor:pointer;padding:0;
+text-align:left;flex:none;min-width:11rem;
+}
+.rc-name:hover{color:var(--gold-bright);text-decoration:underline}
+.rc-what{
+font-size:.7rem;color:var(--text-dim);line-height:1.35;
+display:flex;gap:.45rem;flex-wrap:wrap;
+}
+.rc-chip{
+border:1px solid rgba(212,175,60,.2);border-radius:2px;
+padding:0 .35rem;white-space:nowrap;
+}
+.rc-add{color:#7dba8a}
+.rc-del{color:#c86060}
+@media (max-width:640px){
+.recent-changes-wrap{padding:0 1rem}
+.rc-name{min-width:8rem}
+.rc-row{align-items:flex-start}
+}
+
 /* Set section headers — ornamental divider, like a tome chapter break */
 .set-header{
 grid-column:1/-1;
@@ -1214,6 +1265,16 @@ Download all <span id="download-all-sublabel">(loading…)</span>
 </details>
 </section>
 
+<section class="recent-changes-wrap" aria-label="Recently changed cards">
+<details class="deck-stats recent-changes" id="recent-changes-details">
+  <summary class="deck-stats-summary">
+    <span class="ds-toggle">Recent alterations</span>
+    <span class="ds-count" id="rc-count"></span>
+  </summary>
+  <div class="rc-body" id="rc-body"></div>
+</details>
+</section>
+
 <main class="gallery" id="gallery">
 <div class="loading">Drawing from the Deck</div>
 </main>
@@ -1586,7 +1647,77 @@ async function init() {
   } catch (e) {
     console.warn('Card history not available:', e);
   }
+
+  // "Recent alterations" — a ledger of the latest change events across the deck.
+  // Groups per-card history entries by (date, commit message); the newest four
+  // groups are shown as rows of thumb + name + what-changed chips. Clicking a
+  // name opens the card's lightbox, where the full line diff already lives.
+  function renderRecentChanges() {
+    const body = document.getElementById('rc-body');
+    const countEl = document.getElementById('rc-count');
+    const wrap = document.querySelector('.recent-changes-wrap');
+    if (!body || !wrap) return;
+    const byCard = {};
+    allCards.forEach(c => { byCard[c.name] = c; });
+
+    const groups = new Map();
+    Object.entries(cardHistory).forEach(([name, entries]) => {
+      if (!byCard[name]) return;
+      (entries || []).forEach(e => {
+        const key = e.date + '|' + (e.message || '');
+        if (!groups.has(key)) groups.set(key, { date: e.date, message: e.message || '', cards: [] });
+        groups.get(key).cards.push({ name, entry: e });
+      });
+    });
+    const recent = [...groups.values()]
+      .sort((a, b) => b.date.localeCompare(a.date) || b.cards.length - a.cards.length)
+      .slice(0, 4);
+    if (!recent.length) { wrap.style.display = 'none'; return; }
+
+    const touched = new Set();
+    recent.forEach(g => g.cards.forEach(c => touched.add(c.name)));
+    countEl.textContent = touched.size + ' cards touched · latest ' + recent[0].date;
+
+    const esc = s => String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    const FIELD_LABELS = { rules_text: 'rules', flavor_text: 'flavor', mana_cost: 'cost', type_line: 'type', name: 'renamed' };
+    body.innerHTML = recent.map(g => {
+      // Strip the conventional-commit prefix ("fix(cards): ") for display
+      const msg = esc(g.message.replace(/^\w+\([^)]*\):\s*/, '').replace(/^\w+:\s*/, ''));
+      const rows = g.cards.sort((a, b) => a.name.localeCompare(b.name)).map(({ name, entry }) => {
+        const parts = (byCard[name].image_file || '').split('/');
+        const fileName = parts.pop().replace(/\.png$/, '.jpg');
+        const thumbPath = [...parts, 'thumbs', fileName].map(p => encodeURIComponent(p)).join('/');
+        const chips = [];
+        if (entry.type === 'added') chips.push('<span class="rc-chip rc-add">added to the set</span>');
+        (entry.changes || []).forEach(c => {
+          if (c.field === 'rules_text') {
+            const o = (c.old || '').split('\n'), n = (c.new || '').split('\n');
+            let add = 0, del = 0;
+            for (let i = 0; i < Math.max(o.length, n.length); i++) {
+              if (o[i] !== n[i]) {
+                if (o[i] !== undefined) del++;
+                if (n[i] !== undefined) add++;
+              }
+            }
+            chips.push('<span class="rc-chip">rules <span class="rc-add">+' + add + '</span>/<span class="rc-del">−' + del + '</span></span>');
+          } else {
+            chips.push('<span class="rc-chip">' + esc(FIELD_LABELS[c.field] || c.field.replace(/_/g, ' ')) + '</span>');
+          }
+        });
+        return '<div class="rc-row">' +
+          '<img class="rc-thumb" src="' + thumbPath + '?' + CACHE_BUST + '" alt="" loading="lazy">' +
+          '<button type="button" class="rc-name" onclick="navigateToCard(\'' + name.replace(/'/g, "\\'") + '\')">' + esc(name) + '</button>' +
+          '<div class="rc-what">' + chips.join('') + '</div>' +
+        '</div>';
+      }).join('');
+      return '<div class="rc-group">' +
+        '<div class="rc-group-head"><span class="rc-group-date">' + g.date + '</span><span>' + msg + ' · ' + g.cards.length + ' card' + (g.cards.length === 1 ? '' : 's') + '</span></div>' +
+        '<div class="rc-rows">' + rows + '</div>' +
+      '</div>';
+    }).join('');
+  }
   render();
+  renderRecentChanges();
 
   // Hand cards + history off to the lightbox module (which also handles hash routing).
   // The module is loaded as type="module" and may finish loading after init()'s awaits
