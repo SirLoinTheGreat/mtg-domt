@@ -100,6 +100,8 @@ function renderCounts() {
   els.deckStack.classList.toggle('empty', state.deck.length === 0);
   els.deckStack.classList.toggle('glow', state.deck.length > 0);
   els.discardPile.classList.toggle('has-cards', state.discard.length > 0);
+  // phones collapse the pile to a corner chip that only exists once it holds cards
+  els.discardPile.parentElement.classList.toggle('has-cards', state.discard.length > 0);
   els.dpCard.style.backgroundImage = state.discard.length
     ? `url("${thumbUrl(state.discard[0])}")` : 'none';
   // deck backs — thumb immediately, print-resolution once cached
@@ -257,13 +259,15 @@ function discardCard(cardEl) {
   const from = cardEl.getBoundingClientRect();
   cardEl.remove();
   els.drawnHint.style.display = state.drawn.length ? 'none' : '';
+  // count the card into the pile first so the corner chip (hidden while the
+  // discard is empty on phones) exists and gives the animation a real target
+  state.discard.unshift(name);
+  renderCounts();
   flyCard({
     from,
     to: els.discardPile.getBoundingClientRect(),
     name, flip: false,
   }, () => {
-    state.discard.unshift(name);
-    renderCounts();
     save();
     state.busy = false;
   });
@@ -388,8 +392,8 @@ async function init() {
   });
   els.zoomOverlay.addEventListener('click', () => els.zoomOverlay.classList.remove('open'));
 
-  // fullscreen immersion — Android/desktop via the button; iOS via Add to Home
-  // Screen (the manifest + apple metas make that launch truly fullscreen)
+  // fullscreen immersion — Android/desktop; iOS via Add to Home Screen
+  // (the manifest + apple metas make that launch truly fullscreen)
   const fsBtn = $('btn-fullscreen');
   if (document.documentElement.requestFullscreen) {
     fsBtn.addEventListener('click', () => {
@@ -398,6 +402,17 @@ async function init() {
     });
     document.addEventListener('fullscreenchange', () =>
       fsBtn.classList.toggle('active', !!document.fullscreenElement));
+    // fullscreen by default: browsers demand a user gesture, so the first tap
+    // supplies it. One shot — if the player backs out, we don't fight them.
+    if (!matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches) {
+      const autoFS = e => {
+        if (e.target.closest('.fs-btn')) return;   // the toggle owns its own tap
+        document.removeEventListener('click', autoFS, true);
+        if (!document.fullscreenElement)
+          document.documentElement.requestFullscreen({ navigationUI: 'hide' }).catch(() => {});
+      };
+      document.addEventListener('click', autoFS, true);
+    }
   } else {
     fsBtn.style.display = 'none';   // iOS Safari: no element fullscreen API
   }

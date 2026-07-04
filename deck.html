@@ -57,6 +57,7 @@ font-size:clamp(.7rem,3.2vw,.92rem);letter-spacing:.1em;color:var(--gold);
 white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 .deck-head h1 a{color:inherit;text-decoration:none}
+.deck-head .t-short{display:none}
 .head-meta{
 font-family:'Cinzel',serif;font-size:.66rem;letter-spacing:.12em;
 color:var(--text-dim);white-space:nowrap;display:flex;align-items:center;gap:.5rem;
@@ -69,12 +70,15 @@ background:none;border:none;color:var(--text-dim);cursor:pointer;
 font-size:1rem;line-height:1;padding:.15rem .3rem;
 }
 .fs-btn:active,.fs-btn.active{color:var(--gold)}
-/* immersion: hide site chrome when fullscreen or installed to the home screen */
-:fullscreen suite-nav{display:none}
-@media (display-mode:fullscreen),(display-mode:standalone){
-suite-nav{display:none}
-.fs-btn{display:none}
+/* honest 44px touch targets for the header buttons without inflating the bar:
+   the hit area extends into the empty space above/below via negative margin */
+@media (pointer:coarse){
+.fs-btn{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:0;margin:-.55rem 0}
 }
+/* immersion by default: the site nav is wrapped in a [hidden] container in the
+   markup (its shadow :host declares display:block !important, so a page-level
+   display:none loses the cascade — an ancestor's display:none always wins).
+   The menu sheet links back out (Gallery / Simulator / rollfor.gg). */
 
 /* ---------- stage ---------- */
 .stage{
@@ -208,10 +212,10 @@ display:flex;align-items:center;justify-content:center;gap:.45rem;
 padding:.55rem .7rem calc(.65rem + env(safe-area-inset-bottom));
 border-top:1px solid rgba(212,175,60,.14);
 background:rgba(10,8,5,.75);backdrop-filter:blur(6px);
-flex-wrap:wrap;
+flex-wrap:nowrap;
 }
 .ctl{
-font-family:'Cinzel',serif;font-weight:600;
+font-family:'Cinzel',serif;font-weight:600;white-space:nowrap;
 font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
 color:var(--text);background:rgba(26,18,10,.6);
 border:1px solid rgba(212,175,60,.3);border-radius:3px;
@@ -339,11 +343,42 @@ white-space:nowrap;
 }
 
 /* ---------- adaptation: screen sizes ---------- */
-/* tiny phones (320-360px): controls must not overflow */
+/* phones (≤520px): the whole control bar rides one line, the title goes short */
+@media (max-width:520px){
+.deck-head .t-long{display:none}
+.deck-head .t-short{display:inline}
+.disc-meta{display:none} /* the discard pile's own badge carries the count */
+.controls{gap:.3rem;padding-left:.5rem;padding-right:.5rem}
+.ctl{padding:.72rem .55rem;font-size:.64rem;letter-spacing:.06em}
+.draw-group{gap:.22rem}
+.draw-group .ctl.n{min-width:2.4rem;padding:.72rem .3rem}
+}
+/* portrait phones: the Deck IS the screen. One hero card fills the space between
+   the bars; drawn cards flip over in place on top of it; the discard pile hides
+   until it holds cards, then appears as a corner chip */
+@media (max-width:520px) and (orientation:portrait){
+:root{--hero-w:min(88vw,calc((100dvh - 170px)/var(--card-ratio)))}
+.stage{position:relative;gap:0}
+.piles{width:100%;flex:1;min-height:0;align-items:center}
+.deck-stack{width:var(--hero-w)}
+.pile-label{margin-top:.55rem}
+.discard-zone{display:none;position:absolute;right:.7rem;bottom:.6rem;z-index:5}
+.discard-zone.has-cards{display:block}
+.discard-zone .pile-label{display:none}
+.discard-pile{width:54px}
+.drawn-row{position:absolute;inset:0;min-height:0;display:grid;place-items:center;pointer-events:none}
+.drawn-hint{display:none}
+.drawn-row .drawn-card,.drawn-row .drawn-card:only-of-type{
+grid-area:1/1;pointer-events:auto;width:var(--hero-w);
+}
+.drawn-row .drawn-card:nth-of-type(odd){transform:rotate(-1.4deg)}
+.drawn-row .drawn-card:nth-of-type(even){transform:rotate(1.8deg) translate(7px,5px)}
+}
+/* tiny phones (320-360px): squeeze further, still one line */
 @media (max-width:359px){
-.controls{gap:.28rem;padding-left:.4rem;padding-right:.4rem}
-.ctl{padding:.62rem .5rem;font-size:.62rem;letter-spacing:.06em}
-.draw-group .ctl.n{min-width:2.3rem}
+.controls{gap:.24rem;padding-left:.35rem;padding-right:.35rem}
+.ctl{padding:.66rem .42rem;font-size:.6rem;letter-spacing:.04em}
+.draw-group .ctl.n{min-width:2.1rem;padding:.66rem .2rem}
 }
 /* tablets and up: the deck earns its size at the table's center */
 @media (min-width:768px){
@@ -385,16 +420,18 @@ white-space:nowrap;
 </head>
 <body>
 <div class="app">
-<suite-nav active="domt"></suite-nav>
+<!-- kept connected (hidden) so the suite's analytics still load -->
+<div hidden><suite-nav active="domt"></suite-nav></div>
 
 <header class="deck-head">
-  <h1><a href="./index.html" title="Back to the gallery">The Deck of Many Things</a></h1>
+  <h1><a href="./index.html" title="Back to the gallery"><span class="t-long">The Deck of Many Things</span><span class="t-short">The Deck</span></a></h1>
   <div class="head-meta">
     <span><b id="count-deck">…</b> in deck</span>
-    <span>·</span>
-    <span><b id="count-discard">0</b> discarded</span>
+    <span class="disc-meta">·</span>
+    <span class="disc-meta"><b id="count-discard">0</b> discarded</span>
     <span class="wake-dot" id="wake-dot" title="Screen wake lock"></span>
     <button class="fs-btn" id="btn-fullscreen" title="Fullscreen" aria-label="Toggle fullscreen">⛶</button>
+    <button class="fs-btn" id="btn-menu" title="Decks &amp; options" aria-label="Deck options">⋯</button>
   </div>
 </header>
 
@@ -430,9 +467,8 @@ white-space:nowrap;
     <button class="ctl n" data-draw="4" title="Draw 4">4</button>
   </div>
   <button class="ctl" id="btn-shuffle" title="Shuffle the remaining deck">Shuffle</button>
-  <button class="ctl" id="btn-shuffle-all" title="Shuffle everything — discard included — back into the deck">Shuffle All</button>
+  <button class="ctl" id="btn-shuffle-all" title="Shuffle everything — discard and drawn cards included — back into the deck">Renew</button>
   <button class="ctl" id="btn-undo" title="Undo the last draw or discard">↩</button>
-  <button class="ctl" id="btn-menu" title="Decks & options">⋯</button>
 </nav>
 </div>
 
@@ -474,13 +510,14 @@ white-space:nowrap;
     </div>
     <div class="menu-group">
       <div class="menu-label">Immersion</div>
-      <div class="menu-note">For true fullscreen: tap ⛶ in the header (Android / desktop), or on iPhone use Share → <b>Add to Home Screen</b> and launch The Deck from there — no browser chrome, cards at full resolution.</div>
+      <div class="menu-note">The Deck claims the full screen at your first touch (Android / desktop) — ⛶ in the header toggles it. On iPhone use Share → <b>Add to Home Screen</b> and launch The Deck from there — no browser chrome, cards at full resolution.</div>
     </div>
     <div class="menu-group">
       <div class="menu-label">Elsewhere</div>
       <div class="menu-links">
         <a href="./index.html">Gallery</a>
         <a href="./simulator.html">Simulator</a>
+        <a href="/">rollfor.gg</a>
       </div>
     </div>
   </div>
