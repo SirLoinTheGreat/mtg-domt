@@ -118,7 +118,12 @@ border:1px solid rgba(212,175,60,.25);
 .deck-stack .layer:nth-child(3){transform:translate(1px,-1px) rotate(.4deg)}
 .deck-stack .layer.top{transition:transform .15s ease,box-shadow .3s ease}
 .deck-stack:active .layer.top{transform:translate(1px,1px) rotate(.4deg) scale(.985)}
-.deck-stack.glow .layer.top{box-shadow:var(--card-shadow),var(--card-halo)}
+.deck-stack::after{
+content:'';position:absolute;inset:-3px;border-radius:8px;pointer-events:none;
+box-shadow:var(--card-halo);opacity:0;transition:opacity .5s ease;
+}
+.deck-stack.glow::after{opacity:1;animation:halo-breathe 4s ease-in-out infinite}
+@keyframes halo-breathe{0%,100%{opacity:.4}50%{opacity:1}}
 .deck-stack.empty .layer{
 background:rgba(26,18,10,.5)!important;background-image:none!important;
 border:1px dashed rgba(212,175,60,.3);
@@ -165,6 +170,8 @@ display:flex;align-items:center;justify-content:center;
 background:var(--ink-warm);border:1px solid var(--gold-dim);
 font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;color:var(--gold);
 }
+.dp-count.pulse{animation:dp-pulse .3s ease-out}
+@keyframes dp-pulse{40%{transform:scale(1.3)}}
 
 /* drawn cards — face-up on the table, tap to discard */
 .drawn-row{
@@ -182,11 +189,15 @@ box-shadow:var(--card-shadow),0 0 20px rgba(244,210,122,.12);
 transition:transform .15s ease;
 }
 .drawn-card:active{transform:scale(.97)}
+:where(button,a):focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .drawn-card:only-child{width:clamp(150px,44vw,230px)}
 .drawn-hint{
 font-family:'Cormorant Garamond',serif;font-style:italic;
 font-size:.8rem;color:var(--text-dim);opacity:.75;
 }
+.drawn-dots{display:none} /* pager dots — portrait phones only */
+.pager-arrow{display:none} /* pager arrows — portrait phones only */
+.draw-label{display:none}  /* draw-order chip — portrait phones only */
 
 /* flying card (draw + discard animations) */
 .fly{
@@ -195,6 +206,7 @@ transform-style:preserve-3d;perspective:900px;
 }
 .fly .fly-inner{
 position:absolute;inset:0;transform-style:preserve-3d;
+will-change:transform; /* pre-promote: composited flip, no mid-animation raster flicker */
 }
 .fly .face,.fly .back{
 position:absolute;inset:0;border-radius:6px;
@@ -203,7 +215,17 @@ backface-visibility:hidden;-webkit-backface-visibility:hidden;
 box-shadow:var(--card-shadow);
 border:1px solid rgba(212,175,60,.25);
 }
-.fly .face{transform:rotateY(180deg)}
+.fly .face{
+transform:rotateY(180deg);
+box-shadow:var(--card-shadow),0 0 30px rgba(244,210,122,.45),0 0 70px rgba(212,175,60,.22);
+}
+/* the card-back art carries more baked-in black margin than the rendered faces
+   (measured: back 8.3%/7.4% vs face 6.9%/4-5.7%) — zoom the back to match, so
+   the deck doesn't look smaller than the cards drawn from it */
+.deck-stack .layer,.fly .back{background-size:103.3% 105.8%;background-position:center}
+.deck-stack.empty .layer{background-size:cover}
+/* spark canvas rides above the flying card, below toast and sheets */
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:65;pointer-events:none}
 
 /* ---------- bottom controls ---------- */
 .controls{
@@ -307,7 +329,10 @@ position:fixed;inset:0;z-index:100;
 display:none;align-items:center;justify-content:center;
 background:rgba(0,0,0,.82);padding:1rem;
 }
-.zoom-overlay.open{display:flex}
+.zoom-overlay.open{display:flex;animation:zoom-fade .18s ease-out}
+.zoom-overlay.open img{animation:zoom-scale .22s cubic-bezier(.22,1,.36,1)}
+@keyframes zoom-fade{from{opacity:0}}
+@keyframes zoom-scale{from{transform:scale(.94);opacity:0}}
 .zoom-overlay img{
 max-width:100%;max-height:100%;border-radius:10px;
 box-shadow:var(--card-shadow),var(--card-halo);
@@ -354,8 +379,9 @@ white-space:nowrap;
 .draw-group .ctl.n{min-width:2.4rem;padding:.72rem .3rem}
 }
 /* portrait phones: the Deck IS the screen. One hero card fills the space between
-   the bars; drawn cards flip over in place on top of it; the discard pile hides
-   until it holds cards, then appears as a corner chip */
+   the bars; drawn cards land as pages of a swipeable, snap-scrolling pager on
+   top of it — swipe back any time to reread an earlier draw. The discard pile
+   hides until it holds cards, then appears as a corner chip */
 @media (max-width:520px) and (orientation:portrait){
 :root{--hero-w:min(88vw,calc((100dvh - 170px)/var(--card-ratio)))}
 .stage{position:relative;gap:0}
@@ -366,19 +392,76 @@ white-space:nowrap;
 .discard-zone.has-cards{display:block}
 .discard-zone .pile-label{display:none}
 .discard-pile{width:54px}
-.drawn-row{position:absolute;inset:0;min-height:0;display:grid;place-items:center;pointer-events:none}
+.drawn-row{
+position:absolute;inset:0;min-height:0;
+/* flex-start, not center: a centered flex container spills overflow to BOTH
+   sides and the left half becomes unscrollable — the spacers do the centering */
+display:flex;flex-wrap:nowrap;align-items:center;justify-content:flex-start;gap:0;
+overflow-x:auto;overflow-y:hidden;
+scroll-snap-type:x mandatory;overscroll-behavior-x:contain;
+pointer-events:none;scrollbar-width:none;
+}
+.drawn-row.has-cards{pointer-events:auto}
+.drawn-row::-webkit-scrollbar{display:none}
+/* flex spacers center the first and last page */
+.drawn-row::before,.drawn-row::after{content:'';flex:none;width:calc(50% - var(--hero-w)/2 - .3rem)}
 .drawn-hint{display:none}
 .drawn-row .drawn-card,.drawn-row .drawn-card:only-of-type{
-grid-area:1/1;pointer-events:auto;width:var(--hero-w);
+flex:none;width:var(--hero-w);margin:0 .3rem;
+scroll-snap-align:center;pointer-events:auto;
 }
-.drawn-row .drawn-card:nth-of-type(odd){transform:rotate(-1.4deg)}
-.drawn-row .drawn-card:nth-of-type(even){transform:rotate(1.8deg) translate(7px,5px)}
+.draw-label.show{
+position:absolute;top:.55rem;left:50%;transform:translateX(-50%);z-index:6;
+display:flex;align-items:center;gap:.55rem;
+font-family:'Cinzel',serif;font-weight:700;font-size:.72rem;
+letter-spacing:.22em;text-transform:uppercase;color:var(--gold-bright);
+background:linear-gradient(180deg,rgba(29,21,9,.92),rgba(18,13,6,.92));
+border:1px solid rgba(212,175,60,.45);border-radius:3px;
+padding:.45rem .95rem;white-space:nowrap;pointer-events:none;
+box-shadow:0 4px 16px rgba(0,0,0,.6),0 0 18px rgba(244,210,122,.12);
+}
+.draw-label.show::before,.draw-label.show::after{content:'\2726';font-size:.7em;color:var(--gold);opacity:.85}
+.pager-arrow{
+position:absolute;top:50%;transform:translateY(-50%);z-index:6;
+display:flex;align-items:center;justify-content:center;
+width:44px;height:72px;border:none;background:none;cursor:pointer;
+color:var(--gold);font-size:2.4rem;line-height:1;padding:0;
+text-shadow:0 0 12px rgba(244,210,122,.65),0 2px 6px rgba(0,0,0,.8);
+opacity:0;pointer-events:none;transition:opacity .25s;
+}
+.pager-arrow.prev{left:0}
+.pager-arrow.next{right:0}
+.pager-arrow.show{opacity:.85;pointer-events:auto}
+.pager-arrow:active{color:var(--gold-bright)}
+.drawn-dots{
+position:absolute;left:50%;bottom:.5rem;transform:translateX(-50%);z-index:6;
+display:flex;gap:.42rem;pointer-events:none;
+}
+.drawn-dots i{
+width:6px;height:6px;border-radius:50%;
+background:rgba(212,175,60,.3);transition:background .25s,box-shadow .25s;
+}
+.drawn-dots i.on{background:var(--gold-bright);box-shadow:0 0 6px rgba(244,210,122,.8)}
 }
 /* tiny phones (320-360px): squeeze further, still one line */
 @media (max-width:359px){
 .controls{gap:.24rem;padding-left:.35rem;padding-right:.35rem}
 .ctl{padding:.66rem .42rem;font-size:.6rem;letter-spacing:.04em}
 .draw-group .ctl.n{min-width:2.1rem;padding:.66rem .2rem}
+}
+/* everywhere except the portrait pager (which has the Draw chip), drawn cards
+   carry their draw number as a corner badge — same vocabulary as the discard
+   count, zero extra layout space, survives any viewport height */
+@media (min-width:521px){
+.drawn-card{position:relative}
+.drawn-card[data-no]::after{
+content:attr(data-no);
+position:absolute;left:-7px;top:-7px;z-index:2;
+min-width:22px;height:22px;padding:0 5px;border-radius:11px;
+display:flex;align-items:center;justify-content:center;
+background:var(--ink-warm);border:1px solid var(--gold-dim);
+font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;color:var(--gold);
+}
 }
 /* tablets and up: the deck earns its size at the table's center */
 @media (min-width:768px){
@@ -410,6 +493,8 @@ grid-area:1/1;pointer-events:auto;width:var(--hero-w);
 /* state changes, not choreography — the JS skips fly/flip animations too */
 @media (prefers-reduced-motion:reduce){
 .deck-stack.shaking{animation:none}
+.deck-stack.glow::after{animation:none}
+.zoom-overlay.open,.zoom-overlay.open img,.dp-count.pulse{animation:none}
 .deck-stack .layer.top,.drawn-card,.dp-card{transition:none}
 .sheet{transition:none}
 .sheet-backdrop{transition:opacity .01s linear}
@@ -442,7 +527,7 @@ grid-area:1/1;pointer-events:auto;width:var(--hero-w);
         <span class="layer"></span>
         <span class="layer"></span>
         <span class="layer top"></span>
-        <span class="deck-empty-hint">The Deck is spent.<br>Shuffle the discard to renew it.</span>
+        <span class="deck-empty-hint">The Deck is spent.<br>Restart to shuffle everything back in.</span>
       </button>
       <div class="pile-label">The <b>Deck</b> · tap to draw</div>
     </div>
@@ -457,17 +542,21 @@ grid-area:1/1;pointer-events:auto;width:var(--hero-w);
   <div class="drawn-row" id="drawn-row">
     <div class="drawn-hint" id="drawn-hint">Drawn cards land here — tap one to discard it. Hold to read.</div>
   </div>
+  <div class="draw-label" id="draw-label" aria-live="polite"></div>
+  <div class="drawn-dots" id="drawn-dots" aria-hidden="true"></div>
+  <button class="pager-arrow prev" id="pager-prev" aria-label="Previous drawn card">&#8249;</button>
+  <button class="pager-arrow next" id="pager-next" aria-label="Next drawn card">&#8250;</button>
 </main>
 
 <nav class="controls">
   <div class="draw-group">
-    <button class="ctl primary n" data-draw="1" title="Draw 1">1</button>
-    <button class="ctl n" data-draw="2" title="Draw 2">2</button>
-    <button class="ctl n" data-draw="3" title="Draw 3">3</button>
-    <button class="ctl n" data-draw="4" title="Draw 4">4</button>
+    <button class="ctl primary n" data-draw="1" title="Draw 1" aria-label="Draw 1 card">1</button>
+    <button class="ctl n" data-draw="2" title="Draw 2" aria-label="Draw 2 cards">2</button>
+    <button class="ctl n" data-draw="3" title="Draw 3" aria-label="Draw 3 cards">3</button>
+    <button class="ctl n" data-draw="4" title="Draw 4" aria-label="Draw 4 cards">4</button>
   </div>
   <button class="ctl" id="btn-shuffle" title="Shuffle the remaining deck">Shuffle</button>
-  <button class="ctl" id="btn-shuffle-all" title="Shuffle everything — discard and drawn cards included — back into the deck">Renew</button>
+  <button class="ctl" id="btn-shuffle-all" title="Shuffle everything — discard and drawn cards included — back into the deck">Restart</button>
   <button class="ctl" id="btn-undo" title="Undo the last draw or discard">↩</button>
 </nav>
 </div>
@@ -523,9 +612,10 @@ grid-area:1/1;pointer-events:auto;width:var(--hero-w);
   </div>
 </div>
 
+<canvas id="fx" aria-hidden="true"></canvas>
 <div class="zoom-overlay" id="zoom-overlay"><img id="zoom-img" alt="Card"></div>
 <div class="toast" id="toast"></div>
 
-<script type="module" src="./assets/js/deck.js"></script>
+<script type="module" src="./assets/js/deck.js?v=20260707"></script>
 </body>
 </html>

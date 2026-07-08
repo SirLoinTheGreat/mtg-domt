@@ -3,6 +3,7 @@
 // discard it. Shuffle the remainder, or sweep the discard back in and shuffle all.
 // No fate points, no dice — the table handles those. This is just the stack.
 import { shuffle } from './seeded-rng.js';
+import * as fx from './deck-fx.js';
 
 const PROJECT_BASE = new URL('../../', import.meta.url).href;
 const projectUrl = p => new URL(p, PROJECT_BASE).href;
@@ -17,6 +18,7 @@ const state = {
   activeSets: new Set(ALL_SETS),
   deck: [],                 // names, index 0 = top
   drawn: [],                // names face-up on the table
+  drawSeq: [],              // parallel to drawn: each card's draw number this spread
   discard: [],              // names, index 0 = most recent
   history: [],              // {type:'draw'|'discard', name} — for undo
   busy: false,              // animation gate
@@ -24,11 +26,12 @@ const state = {
 
 const $ = id => document.getElementById(id);
 const els = {};
-['deck-stack', 'discard-pile', 'dp-card', 'dp-count', 'drawn-row', 'drawn-hint',
+['deck-stack', 'discard-pile', 'dp-card', 'dp-count', 'drawn-row', 'drawn-hint', 'drawn-dots',
  'count-deck', 'count-discard', 'wake-dot', 'sheet-backdrop', 'discard-sheet',
  'menu-sheet', 'discard-grid', 'discard-empty', 'ds-count', 'set-chips',
  'btn-shuffle', 'btn-shuffle-all', 'btn-undo', 'btn-menu', 'btn-new-deck',
- 'zoom-overlay', 'zoom-img', 'toast'].forEach(id => {
+ 'pager-prev', 'pager-next',
+ 'zoom-overlay', 'zoom-img', 'toast', 'draw-label'].forEach(id => {
   els[id.replace(/-(\w)/g, (_, c) => c.toUpperCase())] = $(id);
 });
 
@@ -45,11 +48,15 @@ function fullUrl(name) {
   return projectUrl((card.image_file || '').split('/').map(encodeURIComponent).join('/'));
 }
 // Progressive immersion: paint the fast thumb, then swap in the print-resolution
-// PNG once it's cached. The element keeps working if the big file never arrives.
+// PNG once it's cached. decode() rasterizes off the main thread BEFORE the swap
+// so the repaint is one clean frame — swapping on bare onload flickers, because
+// the browser still has to decode a 2010×2814 PNG at paint time.
 function upgradeBg(el, url) {
   const img = new Image();
-  img.onload = () => { if (el.isConnected) el.style.backgroundImage = `url("${url}")`; };
   img.src = url;
+  const apply = () => { if (el.isConnected) el.style.backgroundImage = `url("${url}")`; };
+  if (img.decode) img.decode().then(apply, () => {});   // rejected decode: keep the thumb
+  else img.onload = apply;
 }
 
 // ---------- persistence ----------
@@ -58,6 +65,7 @@ function save() {
     localStorage.setItem(STORE_KEY, JSON.stringify({
       sets: [...state.activeSets],
       deck: state.deck, drawn: state.drawn, discard: state.discard,
+      seq: state.drawSeq,
     }));
   } catch (e) { /* private mode etc. — the deck still works, it just forgets */ }
 }
@@ -72,6 +80,8 @@ function restore() {
     state.deck = s.deck.filter(known);
     state.drawn = (s.drawn || []).filter(known);
     state.discard = (s.discard || []).filter(known);
+    state.drawSeq = Array.isArray(s.seq) && s.seq.length === state.drawn.length
+      ? s.seq : state.drawn.map((_, i) => i + 1);
     // Stale saves (from before a card was renamed/added) may not cover the full
     // eligible pool — that's fine; "Forge new deck" rebuilds from scratch.
     return state.deck.length + state.drawn.length + state.discard.length > 0;
@@ -79,6 +89,11 @@ function restore() {
 }
 
 // ---------- deck building ----------
+// draw numbers run 1,2,3… while cards sit on the table and reset once it clears
+function nextDrawNo() {
+  return state.drawSeq.length ? Math.max(...state.drawSeq) + 1 : 1;
+}
+
 function eligible() {
   return Object.values(state.byName).filter(c =>
     state.activeSets.has(c.set) && !c.is_reference && !c.is_token);
@@ -86,6 +101,7 @@ function eligible() {
 function forgeNewDeck() {
   state.deck = shuffle(eligible().map(c => c.name), Math.random);
   state.drawn = [];
+  state.drawSeq = [];
   state.discard = [];
   state.history = [];
   save();
@@ -99,6 +115,8 @@ function renderCounts() {
   els.dpCount.textContent = state.discard.length;
   els.deckStack.classList.toggle('empty', state.deck.length === 0);
   els.deckStack.classList.toggle('glow', state.deck.length > 0);
+  els.deckStack.setAttribute('aria-label',
+    state.deck.length ? 'Draw a card' : 'The Deck is spent — tap Restart to shuffle everything back in');
   els.discardPile.classList.toggle('has-cards', state.discard.length > 0);
   // phones collapse the pile to a corner chip that only exists once it holds cards
   els.discardPile.parentElement.classList.toggle('has-cards', state.discard.length > 0);
@@ -117,17 +135,23 @@ function renderCounts() {
   state.deck.slice(0, 4).forEach(n => { const i = new Image(); i.src = thumbUrl(n); });
 }
 
-function makeDrawnCard(name) {
+// upgrade=false defers the hi-res swap (drawOne runs it after the card lands,
+// so heavy decodes never repaint mid-flight or mid-scroll). no = the card's
+// draw number, shown as a caption on tablet/desktop.
+function makeDrawnCard(name, upgrade = true, no) {
   const b = document.createElement('button');
   b.className = 'drawn-card';
   b.dataset.name = name;
-  b.setAttribute('aria-label', name + ' — tap to discard, hold to read');
+  if (no) b.dataset.no = no;
+  b.setAttribute('aria-label', (no ? 'Draw ' + no + ': ' : '') + name + ' — tap to discard, hold to read');
   b.style.backgroundImage = `url("${thumbUrl(name)}")`;
-  upgradeBg(b, fullUrl(name));
-  // tap = discard; long-press = zoom to read
-  let pressTimer = null, longPressed = false;
-  b.addEventListener('pointerdown', () => {
-    longPressed = false;
+  if (upgrade) upgradeBg(b, fullUrl(name));
+  // tap = discard; long-press = zoom to read; a real swipe (pager scroll) is
+  // neither — track movement so paging through drawn cards never discards one
+  let pressTimer = null, longPressed = false, pressing = false, moved = false, sx = 0, sy = 0;
+  b.addEventListener('pointerdown', e => {
+    pressing = true; moved = false; longPressed = false;
+    sx = e.clientX; sy = e.clientY;
     pressTimer = setTimeout(() => {
       longPressed = true;
       els.zoomImg.src = thumbUrl(name);           // instant
@@ -137,20 +161,70 @@ function makeDrawnCard(name) {
       els.zoomOverlay.classList.add('open');
     }, 420);
   });
-  const cancel = () => clearTimeout(pressTimer);
+  b.addEventListener('pointermove', e => {
+    if (!pressing || moved) return;
+    if (Math.hypot(e.clientX - sx, e.clientY - sy) > 10) {
+      moved = true;
+      clearTimeout(pressTimer);
+    }
+  });
+  const cancel = () => { pressing = false; clearTimeout(pressTimer); };
   b.addEventListener('pointerleave', cancel);
   b.addEventListener('pointercancel', cancel);
   b.addEventListener('pointerup', () => {
+    const wasMoved = moved;
     cancel();
-    if (!longPressed) discardCard(b);
+    if (!longPressed && !wasMoved) discardCard(b);
   });
+  // keyboard: Enter/Space fire a click with detail 0 (no pointerup precedes it)
+  b.addEventListener('click', e => { if (e.detail === 0) discardCard(b); });
   return b;
 }
 
 function renderDrawn() {
   els.drawnRow.querySelectorAll('.drawn-card').forEach(n => n.remove());
-  state.drawn.forEach(name => els.drawnRow.appendChild(makeDrawnCard(name)));
+  state.drawn.forEach((name, i) => els.drawnRow.appendChild(makeDrawnCard(name, true, state.drawSeq[i])));
+  els.drawnRow.classList.toggle('has-cards', state.drawn.length > 0);
   els.drawnHint.style.display = state.drawn.length ? 'none' : '';
+  renderDots();
+  // reading order: rest on the first drawn card, the oldest unresolved one
+  const first = els.drawnRow.querySelector('.drawn-card');
+  if (first) first.scrollIntoView({ block: 'nearest', inline: 'center' });
+}
+
+// pager position (portrait phones) — dots per drawn card plus edge arrows
+function currentIndex() {
+  const cards = els.drawnRow.querySelectorAll('.drawn-card');
+  if (!cards.length) return -1;
+  const mid = els.drawnRow.getBoundingClientRect().left + els.drawnRow.clientWidth / 2;
+  let best = 0, bd = Infinity;
+  cards.forEach((c, i) => {
+    const d = Math.abs(c.getBoundingClientRect().left + c.offsetWidth / 2 - mid);
+    if (d < bd) { bd = d; best = i; }
+  });
+  return best;
+}
+function renderDots() {
+  els.drawnDots.innerHTML = state.drawn.length > 1 ? '<i></i>'.repeat(state.drawn.length) : '';
+  updateDots();
+}
+function updateDots() {
+  const n = state.drawn.length;
+  const cur = currentIndex();
+  [...els.drawnDots.children].forEach((d, i) => d.classList.toggle('on', i === cur));
+  els.pagerPrev.classList.toggle('show', n > 1 && cur > 0);
+  els.pagerNext.classList.toggle('show', n > 1 && cur < n - 1);
+  els.drawLabel.textContent = cur >= 0 ? 'Draw ' + (state.drawSeq[cur] || cur + 1) : '';
+  els.drawLabel.classList.toggle('show', cur >= 0);
+}
+function pageBy(dir) {
+  const cards = els.drawnRow.querySelectorAll('.drawn-card');
+  if (!cards.length) return;
+  const target = cards[Math.max(0, Math.min(cards.length - 1, currentIndex() + dir))];
+  target.scrollIntoView({
+    behavior: REDUCED_MOTION.matches ? 'auto' : 'smooth',
+    block: 'nearest', inline: 'center',
+  });
 }
 
 function renderDiscardSheet() {
@@ -173,7 +247,9 @@ function renderAll() { renderCounts(); renderDrawn(); renderChips(); }
 const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)');
 
 // Fly a card between two rects, optionally flipping from back to face.
-// Under prefers-reduced-motion the card simply appears in place.
+// A draw is the whole show: the card lifts off the deck in an arc, sheds gold
+// sparks in flight, and erupts the moment the face turns over. Under
+// prefers-reduced-motion the card simply appears in place (no particles).
 function flyCard({ from, to, name, flip }, done) {
   if (REDUCED_MOTION.matches) { done && done(); return; }
   const fly = document.createElement('div');
@@ -189,16 +265,32 @@ function flyCard({ from, to, name, flip }, done) {
   document.body.appendChild(fly);
 
   const dx = to.left - from.left, dy = to.top - from.top, s = to.width / from.width;
+  const lift = flip ? Math.min(90, 40 + Math.hypot(dx, dy) * .12) : 20;
+  const dur = flip ? 620 : 420;
   const move = fly.animate(
     [{ transform: 'translate(0,0) scale(1)' },
+     { transform: `translate(${dx * .5}px,${dy * .5 - lift}px) scale(${(1 + s) / 2 * 1.05})`, offset: .55 },
      { transform: `translate(${dx}px,${dy}px) scale(${s})` }],
-    { duration: 460, easing: 'cubic-bezier(.3,.8,.3,1)', fill: 'forwards' });
+    { duration: dur, easing: 'cubic-bezier(.3,.7,.25,1)', fill: 'forwards' });
+
+  let stopTrail = null;
   if (flip) {
     inner.animate(
       [{ transform: 'rotateY(0deg)' }, { transform: 'rotateY(180deg)' }],
-      { duration: 460, easing: 'ease-in-out', fill: 'forwards' });
+      { duration: dur * .75, delay: dur * .2, easing: 'cubic-bezier(.45,.05,.3,1)', fill: 'forwards' });
+    fx.burst(from.left + from.width / 2, from.top + from.height / 2, from.width);
+    stopTrail = fx.follow(fly);
+    setTimeout(() => {                             // the face turns over about now
+      const r = fly.getBoundingClientRect();
+      fx.reveal(r.left + r.width / 2, r.top + r.height / 2, r.width);
+      if (navigator.vibrate) navigator.vibrate(12);
+    }, dur * .55);
   }
-  move.onfinish = () => { fly.remove(); done && done(); };
+  move.onfinish = () => {
+    if (stopTrail) stopTrail();
+    fly.remove();
+    done && done();
+  };
 }
 
 function toast(msg) {
@@ -209,29 +301,41 @@ function toast(msg) {
 }
 
 // ---------- actions ----------
-function drawOne(done) {
+// follow=true centers the pager on the incoming card. In a multi-draw only the
+// FIRST card gets it: it stays put over the deck (cards resolve in draw order)
+// while the rest visibly tuck away to the side, one arrow-tap or swipe away.
+function drawOne(done, follow = true) {
   if (!state.deck.length) {
     els.deckStack.classList.add('shaking');
     setTimeout(() => els.deckStack.classList.remove('shaking'), 500);
-    toast('The Deck is spent — shuffle the discard back in.');
+    toast('The Deck is spent — tap Restart to shuffle everything back in.');
     done && done(false);
     return;
   }
   const name = state.deck.shift();
   state.drawn.push(name);
+  state.drawSeq.push(nextDrawNo());
   state.history.push({ type: 'draw', name });
 
   // placeholder slot so the row lays out its final geometry first
-  const slot = makeDrawnCard(name);
+  const slot = makeDrawnCard(name, false, state.drawSeq[state.drawSeq.length - 1]);
   slot.style.visibility = 'hidden';
   els.drawnRow.appendChild(slot);
+  els.drawnRow.classList.add('has-cards');
   els.drawnHint.style.display = 'none';
+  renderDots();
+  if (follow) slot.scrollIntoView({ block: 'nearest', inline: 'center' });
 
   flyCard({
     from: els.deckStack.getBoundingClientRect(),
     to: slot.getBoundingClientRect(),
     name, flip: true,
-  }, () => { slot.style.visibility = ''; done && done(true); });
+  }, () => {
+    slot.style.visibility = '';
+    upgradeBg(slot, fullUrl(name));   // hi-res only after landing — no mid-flight repaints
+    updateDots();
+    done && done(true);
+  });
   renderCounts();
   save();
 }
@@ -242,9 +346,9 @@ function draw(n) {
   let i = 0;
   const step = ok => {
     if (ok === false || ++i >= n) { state.busy = false; return; }
-    setTimeout(() => drawOne(step), 140);   // settle delay between sequential draws
+    setTimeout(() => drawOne(step, false), 90);   // later cards land to the side
   };
-  drawOne(step);
+  drawOne(step, true);
 }
 
 function discardCard(cardEl) {
@@ -254,11 +358,14 @@ function discardCard(cardEl) {
   if (idx === -1) return;
   state.busy = true;
   state.drawn.splice(idx, 1);
-  state.history.push({ type: 'discard', name });
+  const [no] = state.drawSeq.splice(idx, 1);
+  state.history.push({ type: 'discard', name, idx, no });   // idx+no: undo restores draw order
 
   const from = cardEl.getBoundingClientRect();
   cardEl.remove();
+  els.drawnRow.classList.toggle('has-cards', state.drawn.length > 0);
   els.drawnHint.style.display = state.drawn.length ? 'none' : '';
+  renderDots();
   // count the card into the pile first so the corner chip (hidden while the
   // discard is empty on phones) exists and gives the animation a real target
   state.discard.unshift(name);
@@ -268,6 +375,8 @@ function discardCard(cardEl) {
     to: els.discardPile.getBoundingClientRect(),
     name, flip: false,
   }, () => {
+    els.dpCount.classList.add('pulse');   // the pile visibly receives the card
+    els.dpCount.addEventListener('animationend', () => els.dpCount.classList.remove('pulse'), { once: true });
     save();
     state.busy = false;
   });
@@ -280,6 +389,7 @@ function doShuffle(includeDiscard) {
     state.deck = state.deck.concat(state.discard, state.drawn);
     state.discard = [];
     state.drawn = [];
+    state.drawSeq = [];
     state.history = [];
   }
   state.deck = shuffle(state.deck, Math.random);
@@ -298,6 +408,7 @@ function undo() {
     const i = state.drawn.lastIndexOf(last.name);
     if (i !== -1) {
       state.drawn.splice(i, 1);
+      state.drawSeq.splice(i, 1);
       state.deck.unshift(last.name);
       toast(last.name + ' returns to the top of the Deck.');
     }
@@ -305,7 +416,9 @@ function undo() {
     const i = state.discard.indexOf(last.name);
     if (i !== -1) {
       state.discard.splice(i, 1);
-      state.drawn.push(last.name);
+      const at = Math.min(last.idx ?? state.drawn.length, state.drawn.length);
+      state.drawn.splice(at, 0, last.name);
+      state.drawSeq.splice(at, 0, last.no ?? nextDrawNo());
       toast(last.name + ' returns from the discard.');
     }
   }
@@ -391,6 +504,18 @@ async function init() {
     toast('A new Deck is forged — ' + state.deck.length + ' cards.');
   });
   els.zoomOverlay.addEventListener('click', () => els.zoomOverlay.classList.remove('open'));
+
+  // pager arrows step one card per tap
+  els.pagerPrev.addEventListener('click', () => pageBy(-1));
+  els.pagerNext.addEventListener('click', () => pageBy(1));
+
+  // keep the pager dots and arrows tracking the swiped-to card
+  let dotTick = false;
+  els.drawnRow.addEventListener('scroll', () => {
+    if (dotTick) return;
+    dotTick = true;
+    requestAnimationFrame(() => { dotTick = false; updateDots(); });
+  }, { passive: true });
 
   // fullscreen immersion — Android/desktop; iOS via Add to Home Screen
   // (the manifest + apple metas make that launch truly fullscreen)
