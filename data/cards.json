@@ -735,7 +735,7 @@
         "Spirit",
         "Avatar"
       ],
-      "rules_text": "Flying, indestructible, menace, deathtouch, wither\nProtection from colored spells\nWhen this creature enters, it marks the player who summoned it — for a copy, the player who created it. Each player's life total becomes 10, and a random player other than the marked player gains control of it.\nThis creature attacks the player it marked each combat if able and can't block.\nWhen the player it marked loses the game, shuffle it into the Deck.\nWhenever this creature or the player it marked is targeted or dealt damage by any player other than the one it marked, that player creates a token copy of this creature.\nCreatures dealt lethal damage by this creature are exiled. When it deals combat damage to a player, that player loses the game.",
+      "rules_text": "Flying, indestructible, menace, deathtouch, wither\nProtection from colored spells\nWhen this creature enters, it marks the player who summoned it. Each player's life total becomes 10 if it's greater than 10, and a random player other than the marked player gains control of it.\nThis creature attacks the player it marked each combat if able and can't block.\nWhen the player it marked loses the game, shuffle it into the Deck.\nWhenever this creature or the player it marked is targeted or dealt damage by any player other than the one it marked, that player creates a token copy of this creature. (They summoned that copy.)\nCreatures dealt lethal damage by this creature are exiled. When it deals combat damage to a player, that player loses the game.",
       "flavor_text": "\"You mistake my patience for mercy.\" — Death",
       "power": "10",
       "toughness": "10",
