@@ -1752,7 +1752,7 @@
       "subtypes": [
         "Attribute"
       ],
-      "rules_text": "At the beginning of your upkeep, scry X, then draw a card. The first spell you cast each turn costs {X} less, where X is The Mage's level.\nLevel 2 — {2}: Intelligence\nSpells you cast can't be countered. Creatures you control have prowess. Instant and sorcery spells you cast have rebound.\nThe first instant or sorcery you cast each turn has \"When you cast this spell, copy it. You may choose new targets for the copy.\"\nLevel 3 — {3}: Intelligence\nSpells you cast have cascade and delve.\nYou may cast instant and sorcery spells from your graveyard or from exile.\nLevel 4 — {4}: Intelligence\nSpells you cast have storm.\nWhenever you cast an instant or sorcery, copy it. You may choose new targets for the copy.\nYou may cast spells as though they had flash.",
+      "rules_text": "At the beginning of your upkeep, scry X, then draw a card. The first spell you cast each turn costs {X} less, where X is The Mage's level.\nLevel 2 — {2}: Intelligence\nSpells you cast can't be countered. Creatures you control have prowess. Instant and sorcery spells you cast have rebound.\nThe first instant or sorcery you cast each turn has \"When you cast this spell, copy it. You may choose new targets for the copy.\"\nLevel 3 — {3}: Intelligence\nThe first spell you cast each turn has cascade.\nYou may cast instant and sorcery spells from your graveyard or from exile.\nLevel 4 — {4}: Intelligence\nThe first instant or sorcery you cast each turn has storm.\nWhenever you cast an instant or sorcery, copy it. You may choose new targets for the copy.\nYou may cast spells as though they had flash.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -2706,7 +2706,7 @@
         "Aura",
         "Curse"
       ],
-      "rules_text": "Enchant player\nVanishing 5\nWhenever a creature enchanted player controls blocks or becomes blocked by a creature an opponent controls, the creature enchanted player controls gets -2/-2 until end of combat.\nIf damage would be dealt to enchanted player or creatures they control by a source an opponent controls, that source deals double that damage instead.",
+      "rules_text": "Enchant player\nVanishing 7\nCreatures enchanted player controls can't gain hexproof, indestructible, or protection.\nWhenever a creature enchanted player controls blocks or becomes blocked by a creature an opponent controls, the creature enchanted player controls gets -2/-2 until end of combat.\nIf damage would be dealt to enchanted player or creatures they control by a source an opponent controls, that source deals double that damage instead.",
       "flavor_text": "\"In the end, it wasn't the pain that broke him. It was knowing there would always be more.\"",
       "power": null,
       "toughness": null,
@@ -2937,7 +2937,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Each player chooses a creature they control and, if able, an artifact or enchantment they control. A random opponent chooses one of those permanents for each player, and that player sacrifices it. For each permanent sacrificed this way, its controller's opponents each draw a card. Each player who controls no artifact or enchantment instead loses 3 life and discards a card.",
+      "rules_text": "Choose a creature you control and a nonland, noncreature permanent you control. An opponent chosen at random chooses one of them. Sacrifice it. The Crows deals damage to you equal to the sacrificed permanent's mana value.\nThen each other player may sacrifice a permanent of their choice. Each player who doesn't loses 3 life.",
       "flavor_text": "\"The crows care not for gold or flesh — only that a price is paid.\"",
       "power": null,
       "toughness": null,
@@ -3043,7 +3043,7 @@
         "Artifact"
       ],
       "subtypes": [],
-      "rules_text": "At the beginning of each opponent's upkeep, that player loses 1 life unless they pay {1}.\n{1}: Choose target creature an opponent controls. Its controller may pay {1}. If they don't, exile it and create a Soul Gem artifact token linked to that creature.\nIf this permanent leaves, destroy all Soul Gems.",
+      "rules_text": "At the beginning of each opponent's upkeep, that player loses 1 life unless they pay {1}.\n{T}: Choose target creature an opponent controls. Its controller may pay {2}. If they don't, exile it and create a Soul Gem artifact token linked to that creature.\nIf this permanent leaves, destroy all Soul Gems.",
       "flavor_text": "\"The gem's light glows brighter with every whisper of despair.\"",
       "power": null,
       "toughness": null,
@@ -3218,7 +3218,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When this permanent enters, each player sacrifices all creatures they control, then loses 1 life for each creature sacrificed this way.\nWhenever a player loses life, put that many tribute counters on this permanent. When it has forty or more, sacrifice it.\nAt the beginning of each player's upkeep, that player sacrifices a nonland permanent, then creates a 3/1 red Horror token with \"When this leaves, it deals 3 damage to you.\" If they can't sacrifice, they lose 3 life and discard a card instead.\nCreatures have \"At the beginning of your end step, exile this creature unless you pay life equal to its power.\"",
+      "rules_text": "Vanishing 3\nWhen this permanent enters, each player sacrifices all creatures they control, then loses 1 life for each creature sacrificed this way.\nAt the beginning of each player's upkeep, that player sacrifices a nonland permanent, then creates a 3/1 red Horror token with \"When this leaves, it deals 3 damage to you.\" If they can't sacrifice, they lose 3 life and discard a card instead.\nCreatures have \"At the beginning of your end step, exile this creature unless you pay life equal to its power.\"",
       "flavor_text": "\"All things end. The Eclipse demands tribute.\"",
       "power": null,
       "toughness": null,
@@ -3279,7 +3279,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Search any player's library, hand, or graveyard. You may put a permanent card found this way onto the battlefield under your control or cast a nonpermanent card found this way without paying its mana cost. If you searched a library, its owner shuffles.",
+      "rules_text": "Search any player's library, hand, or graveyard. You may put a permanent card found this way onto the battlefield under your control or cast a nonpermanent card found this way without paying its mana cost. You lose life equal to that card's mana value. If you searched a library, its owner shuffles.",
       "flavor_text": "Ask anything. The answer will haunt you.",
       "power": null,
       "toughness": null,
@@ -3349,7 +3349,7 @@
         "Human",
         "Advisor"
       ],
-      "rules_text": "Flash\nWhen this creature enters, look at target opponent's hand; you may exile a card from it. Until your next turn ends, that player can't cast spells sharing a card type with the exiled card.\n{T}, {2}, Sacrifice this creature: Exile up to three cards from target opponent's hand. This turn, you may cast one of them without paying its mana cost. At the beginning of the next end step, return the others to their owner's hand.",
+      "rules_text": "Flash\nWhen this creature enters, look at target opponent's hand; you may exile a card from it. Until your next turn ends, that player can't cast spells sharing a card type with the exiled card.\n{2}, {T}: Look at target opponent's hand. You may exile a card from it until your next turn.",
       "flavor_text": "\"Your secrets are but bargaining chips in our little game of truth.\"",
       "power": "2",
       "toughness": "3",
@@ -4518,7 +4518,7 @@
       "subtypes": [
         "Air"
       ],
-      "rules_text": "At the beginning of your upkeep, you lose 5 life unless you control a creature with flying.\nYou can't play lands.\nEach non-flying creature you control becomes a 1/1 and can't block.\nWhenever you cast a spell, roll a d20:\n1-5: Counter that spell.\n6-10: Counter that spell unless you pay {2}.\n11-15: Copy that spell. You may choose new targets for the copy.\n16-20: Copy that spell twice. You may choose new targets for the copies.",
+      "rules_text": "At the beginning of your upkeep, you lose 5 life unless you control a creature with flying.\nYou can't play lands.\nEach non-flying creature you control becomes a 1/1 and can't block.\nWhenever you cast a spell, roll a d20:\n1-3: Counter that spell.\n4-8: Counter that spell unless you pay {2}.\n9-15: Copy that spell. You may choose new targets for the copy.\n16-20: Copy that spell twice. You may choose new targets for the copies.",
       "flavor_text": null,
       "power": null,
       "toughness": null,
@@ -4993,7 +4993,7 @@
       "subtypes": [
         "Equipment"
       ],
-      "rules_text": "Living weapon\nEquipped creature gets +4/+4, has haste, indestructible, and double strike.\nWhenever equipped creature deals combat damage to a player, you may exile target nonland permanent that player controls. If you do, that player creates a Treasure token.\nEquip {3}",
+      "rules_text": "Living weapon\nEquipped creature gets +3/+3 and has haste and double strike.\nWhenever equipped creature deals combat damage to a player, you may exile target nonland permanent that player controls. If you do, that player creates a Treasure token.\nEquip {3}",
       "flavor_text": "\"It chose me. I wish it hadn't.\" -- The Knife's last wielder",
       "power": null,
       "toughness": null,
