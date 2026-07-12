@@ -2,7 +2,7 @@
   "meta": {
     "version": "1.0.0",
     "last_updated": "2026-07-02",
-    "total_cards": 152
+    "total_cards": 179
   },
   "cards": [
     {
@@ -142,7 +142,7 @@
         "Reference Card"
       ],
       "subtypes": [],
-      "rules_text": "Custom mechanics and statuses used across the Deck of Many Things.\nFate Points —\nA resource each player begins with (maximum 1). Spend 1 to draw from the Deck. If you have none, roll a d6 in your main phase — on a 6, gain 1.\nEternal Damnation —\nPermanent lockout from drawing further cards from the Deck. Existing emblems and permanents remain.\nIncapacitated —\nEmblem status (Soul Prison): can't gain life, attack with creatures, or activate non-mana abilities. May cast only one spell per turn.\nEngulfed —\nStatus from the Gelatinous Cube: you are removed from active play until the Cube leaves the battlefield.\nMarked —\nPlayer-tracking status (Avatar of Death, The Demon, Vengeful Archfiend). A specified creature must attack the marked player each combat if able.\nDimensionally Displaced —\nStatus from the Donjon and Temporal Stasis Sphere: you can't affect or be affected by the main game. Spells you cast and permanents you play are exiled. Skip the draw step of every other turn of yours. Your maximum hand size is reduced by 2. Ends when the Sphere leaves.\nDeprivation Counters —\nThe Mute Hag inflicts these; each type restricts a sense:\n• Sight: Can't scry, surveil, or search libraries. Spells and abilities you control can't target opponents' permanents.\n• Hearing: Can't cast spells or activate abilities during other players' turns.\n• Speech: Creatures you control can't attack or block.\nDespair Counters —\nThe Soul Prison accumulates these each upkeep. Spells cost {1} more for each Despair Counter.\nVanishing —\nA permanent enters with N time counters; remove one each upkeep. When the last is removed, the permanent's effect resolves and it is sacrificed.\nLiving Aura —\nWhen this Aura enters, if you control no creatures, create a 0/0 Spirit token, then attach this to it.\nLiving Growth —\nWhen this Aura enters, if you control no lands, create a basic land token of any type, then attach this Aura to it.\nWager —\nStarting with you in turn order, offer each player the chance to wager. The first time a player declines, they discard a card, lose 5 life, and mill three cards. Each player may wager up to three times total; after their third wager, they must decline without triggering the penalty. Continue offering wagers in turn order until every player has declined consecutively since the last wager was placed, then the wager ends. To wager, choose a mode not yet chosen by you this wager and flip a coin: on a win, apply that mode's first listed effect; on a loss, its second.\nPetrified —\nYou can't cast spells or activate abilities except those of the source. Your creatures have indestructible, enter tapped, don't untap, and can't attack. All damage dealt to you or your permanents is reduced to 1. You can't receive poison counters.\nRestrained —\nYou can't cast more than one spell or activate more than one ability each turn. Artifacts and enchantments you control lose all abilities. Your creatures can't attack unless you pay {2} for each attacker.\nCurse counters —\nPermanents with curse counters have \"At the beginning of your upkeep, this permanent deals 3 damage to you\" and \"Activated abilities of this permanent cost {3} more to activate.\"\nKey counters —\nPermanents with key counters have \"{T}: Add one mana of any color.\"\nBlessing counters —\nPermanents with blessing counters have hexproof, vigilance, and \"At the beginning of your upkeep, create a 1/1 white and green Spirit token with 'Whenever this attacks, put a blessing counter on another target permanent you control.'\"\nTreachery token —\nAn enchantment — Aura Curse token with \"Enchant player,\" \"At the beginning of enchanted player's upkeep, that player loses 1 life,\" and Vanishing 3.\nForge token —\nAn artifact token with \"{T}, Sacrifice this artifact: Create a token that's a copy of target nontoken artifact you control, except it's also a 2/2 red and white Construct artifact creature with haste.\"\nEmber token —\nAn artifact token with \"{T}, Sacrifice this artifact: Add {R}{R}.\"\nArtificer token —\nA 3/1 red and white Artificer artifact creature token with haste and \"When this creature dies, attach target Equipment you control to target creature you control.\"\nSoul Gem token —\nAn artifact token with \"When this artifact enters, it gains a charge counter for each point of power the linked creature had,\" \"Remove a charge counter: Add one mana of any color,\" and \"{1}, Pay X life, Sacrifice this artifact: Return the linked creature to the battlefield under its owner's control, where X is the greater of 1 and that creature's mana value.\"\nTavern token —\nAn artifact token with \"At the beginning of each player's upkeep, that player may pay {1} and 1 life. If they do, they draw a card and create a 1/1 white and black Human Patron token.\"\nGold token —\nAn artifact token with \"Sacrifice this artifact: Add one mana of any color.\"",
+      "rules_text": "Custom mechanics and statuses used across the Deck of Many Things.\nFate Points —\nA resource each player begins with (maximum 1). Spend 1 to draw from the Deck. If you have none, roll a d6 in your main phase — on a 6, gain 1.\nEternal Damnation —\nPermanent lockout from drawing further cards from the Deck. Existing emblems and permanents remain.\nIncapacitated —\nEmblem status (Soul Prison): can't gain life, attack with creatures, or activate non-mana abilities. May cast only one spell per turn.\nEngulfed —\nStatus from the Gelatinous Cube: you are removed from active play until the Cube leaves the battlefield.\nMarked —\nPlayer-tracking status (Avatar of Death, The Demon, Vengeful Archfiend). A specified creature must attack the marked player each combat if able.\nDimensionally Displaced —\nStatus from the Donjon and Temporal Stasis Sphere: you can't affect or be affected by the main game. Spells you cast and permanents you play are exiled. Skip the draw step of every other turn of yours. Your maximum hand size is reduced by 2. Ends when the Sphere leaves.\nDeprivation Counters —\nThe Mute Hag inflicts these; each type restricts a sense:\n• Sight: Can't scry, surveil, or search libraries. Spells and abilities you control can't target opponents' permanents.\n• Hearing: Can't cast spells or activate abilities during other players' turns.\n• Speech: Creatures you control can't attack or block.\nDespair Counters —\nThe Soul Prison accumulates these each upkeep. Spells cost {1} more for each Despair Counter.\nVanishing —\nA permanent enters with N time counters; remove one each upkeep. When the last is removed, the permanent's effect resolves and it is sacrificed.\nLiving Aura —\nWhen this Aura enters, if you control no creatures, create a 0/0 Spirit token, then attach this to it.\nLiving Growth —\nWhen this Aura enters, if you control no lands, create a basic land token of any type, then attach this Aura to it.\nPlagued —\nA status (The Pestilence). At the beginning of each plagued player's upkeep, they lose 2 life and put a -1/-1 counter on a creature they control. Combat contact between a plagued player's creatures and another player or their creatures spreads it. All plague ends when The Pestilence leaves the battlefield.\nWager —\nStarting with you in turn order, offer each player the chance to wager. The first time a player declines, they discard a card, lose 5 life, and mill three cards. Each player may wager up to three times total; after their third wager, they must decline without triggering the penalty. Continue offering wagers in turn order until every player has declined consecutively since the last wager was placed, then the wager ends. To wager, choose a mode not yet chosen by you this wager and flip a coin: on a win, apply that mode's first listed effect; on a loss, its second.\nPetrified —\nYou can't cast spells or activate abilities except those of the source. Your creatures have indestructible, enter tapped, don't untap, and can't attack. All damage dealt to you or your permanents is reduced to 1. You can't receive poison counters.\nRestrained —\nYou can't cast more than one spell or activate more than one ability each turn. Artifacts and enchantments you control lose all abilities. Your creatures can't attack unless you pay {2} for each attacker.\nCurse counters —\nPermanents with curse counters have \"At the beginning of your upkeep, this permanent deals 3 damage to you\" and \"Activated abilities of this permanent cost {3} more to activate.\"\nKey counters —\nPermanents with key counters have \"{T}: Add one mana of any color.\"\nBlessing counters —\nPermanents with blessing counters have hexproof, vigilance, and \"At the beginning of your upkeep, create a 1/1 white and green Spirit token with 'Whenever this attacks, put a blessing counter on another target permanent you control.'\"\nTreachery token —\nAn enchantment — Aura Curse token with \"Enchant player,\" \"At the beginning of enchanted player's upkeep, that player loses 1 life,\" and Vanishing 3.\nForge token —\nAn artifact token with \"{T}, Sacrifice this artifact: Create a token that's a copy of target nontoken artifact you control, except it's also a 2/2 red and white Construct artifact creature with haste.\"\nEmber token —\nAn artifact token with \"{T}, Sacrifice this artifact: Add {R}{R}.\"\nArtificer token —\nA 3/1 red and white Artificer artifact creature token with haste and \"When this creature dies, attach target Equipment you control to target creature you control.\"\nSoul Gem token —\nAn artifact token with \"When this artifact enters, it gains a charge counter for each point of power the linked creature had,\" \"Remove a charge counter: Add one mana of any color,\" and \"{1}, Pay X life, Sacrifice this artifact: Return the linked creature to the battlefield under its owner's control, where X is the greater of 1 and that creature's mana value.\"\nTavern token —\nAn artifact token with \"At the beginning of each player's upkeep, that player may pay {1} and 1 life. If they do, they draw a card and create a 1/1 white and black Human Patron token.\"\nGold token —\nAn artifact token with \"Sacrifice this artifact: Add one mana of any color.\"",
       "flavor_text": "\"What we name, we can survive.\"",
       "power": null,
       "toughness": null,
@@ -246,7 +246,9 @@
       "artist": "MidJourney",
       "dnd_source": "Original Deck of Many Things",
       "image_file": "assets/cards/original/The Donjon.png",
-      "sim_effect": { "type": "lockout" },
+      "sim_effect": {
+        "type": "lockout"
+      },
       "is_token": false,
       "sentiment": "negative",
       "related_cards": [
@@ -319,7 +321,12 @@
       "artist": "MidJourney",
       "dnd_source": "Original Deck of Many Things",
       "image_file": "assets/cards/original/The Fates.png",
-      "sim_effect": { "type": "extra", "count_max": 1, "optional": true, "label": "The Fates weave — draw 1 more from the Deck?" },
+      "sim_effect": {
+        "type": "extra",
+        "count_max": 1,
+        "optional": true,
+        "label": "The Fates weave — draw 1 more from the Deck?"
+      },
       "is_token": false,
       "sentiment": "positive",
       "related_cards": [
@@ -393,7 +400,10 @@
       "artist": "MidJourney",
       "dnd_source": "Original Deck of Many Things",
       "image_file": "assets/cards/original/The Fool.png",
-      "sim_effect": { "type": "extra", "count": 1 },
+      "sim_effect": {
+        "type": "extra",
+        "count": 1
+      },
       "is_token": false,
       "sentiment": "negative",
       "related_cards": [
@@ -457,7 +467,12 @@
       "artist": "MidJourney",
       "dnd_source": "Original Deck of Many Things",
       "image_file": "assets/cards/original/The Jester.png",
-      "sim_effect": { "type": "extra", "count_max": 2, "optional": true, "label": "The Jester offers — draw up to 2 more from the Deck?" },
+      "sim_effect": {
+        "type": "extra",
+        "count_max": 2,
+        "optional": true,
+        "label": "The Jester offers — draw up to 2 more from the Deck?"
+      },
       "is_token": false,
       "sentiment": "positive",
       "related_cards": [
@@ -603,7 +618,12 @@
       "artist": "MidJourney",
       "dnd_source": "Original Deck of Many Things",
       "image_file": "assets/cards/original/The Puzzle.png",
-      "sim_effect": { "type": "extra", "count_max": 1, "optional": true, "label": "Tempt Fate — draw 1 more from the Deck?" },
+      "sim_effect": {
+        "type": "extra",
+        "count_max": 1,
+        "optional": true,
+        "label": "Tempt Fate — draw 1 more from the Deck?"
+      },
       "is_token": false,
       "sentiment": "negative",
       "related_cards": [],
@@ -676,7 +696,12 @@
       "artist": "MidJourney",
       "dnd_source": "Original Deck of Many Things",
       "image_file": "assets/cards/original/The Ruin.png",
-      "sim_effect": { "type": "extra", "count_max": 1, "optional": true, "label": "The Ruin — draw 1 more from the Deck?" },
+      "sim_effect": {
+        "type": "extra",
+        "count_max": 1,
+        "optional": true,
+        "label": "The Ruin — draw 1 more from the Deck?"
+      },
       "is_token": false,
       "sentiment": "negative",
       "related_cards": [],
@@ -753,7 +778,9 @@
       "artist": "MidJourney",
       "dnd_source": "Original Deck of Many Things",
       "image_file": "assets/cards/original/The Skull (Avatar of Death).png",
-      "sim_effect": { "type": "lockout" },
+      "sim_effect": {
+        "type": "lockout"
+      },
       "is_token": false,
       "sentiment": "negative",
       "related_cards": [],
@@ -2114,7 +2141,9 @@
       "artist": "MidJourney",
       "dnd_source": "Deck of Many More Things",
       "image_file": "assets/cards/expansion/The Prisoner (Curse of Restraint).png",
-      "sim_effect": { "type": "lockout" },
+      "sim_effect": {
+        "type": "lockout"
+      },
       "is_token": false,
       "sentiment": "negative",
       "related_cards": [],
@@ -2918,7 +2947,12 @@
       "artist": "MidJourney",
       "dnd_source": "Harrow Deck of Many Things",
       "image_file": "assets/cards/harrow/The Cricket.png",
-      "sim_effect": { "type": "extra", "count_max": 3, "optional": true, "label": "The Cricket sings — draw up to 3 more from the Deck?" },
+      "sim_effect": {
+        "type": "extra",
+        "count_max": 3,
+        "optional": true,
+        "label": "The Cricket sings — draw up to 3 more from the Deck?"
+      },
       "is_token": false,
       "sentiment": "positive",
       "related_cards": [],
@@ -5068,7 +5102,12 @@
       "artist": "MidJourney",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Mischief.png",
-      "sim_effect": { "type": "extra", "count_max": 2, "optional": true, "label": "The Mischief — draw up to 2 more from the Deck?" },
+      "sim_effect": {
+        "type": "extra",
+        "count_max": 2,
+        "optional": true,
+        "label": "The Mischief — draw up to 2 more from the Deck?"
+      },
       "is_token": false,
       "sentiment": "neutral",
       "related_cards": [],
@@ -5277,6 +5316,860 @@
       "sentiment": "negative",
       "related_cards": [],
       "rarity": "rare"
+    },
+    {
+      "name": "The Aperture",
+      "dnd_card_name": "The Aperture",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0001",
+      "mana_cost": "{2}{U}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "rules_text": "Vanishing 5\nWhen this enchantment enters, exile the top three cards of each player's library face up.\nYou may play cards exiled with The Aperture, and mana of any type can be spent to cast them.\nWhen The Aperture leaves, put each remaining card exiled with it on the bottom of its owner's library.",
+      "flavor_text": "Anywhere. The only price is choosing.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Aperture.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Bastion",
+      "dnd_card_name": "The Bastion",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0002",
+      "mana_cost": "{2}{W}{W}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "rules_text": "Vanishing 3\nPrevent all damage that would be dealt to you and permanents you control.",
+      "flavor_text": "For a day and a night, nothing touched her. Not blade, not flame, not fear.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "W"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Bastion.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Covenant",
+      "dnd_card_name": "The Covenant",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0003",
+      "mana_cost": "{1}{W}{B}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "rules_text": "Trial — Whenever a source you control deals damage to an opponent, put that many tribute counters on this enchantment.\nAt the beginning of your third upkeep after this enchantment entered, sacrifice it. If it had eight or more tribute counters, search your library for a card and put it onto the battlefield. Otherwise, you forfeit your soul — create a Soul Prison token.",
+      "flavor_text": "The gods do not bargain. They collect.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "W",
+        "B"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Covenant.png",
+      "is_token": false,
+      "sentiment": "neutral",
+      "related_cards": [],
+      "rarity": "mythic"
+    },
+    {
+      "name": "The Destrier",
+      "dnd_card_name": "The Destrier",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0004",
+      "mana_cost": "{2}{G}{W}",
+      "type_line": "Legendary Creature — Mount",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Mount"
+      ],
+      "rules_text": "As this creature enters, choose its aspect —\n• Bear — It gets +2/+2 and has trample.\n• Elk — It has vigilance and lifelink.\n• Stallion — It has haste, and whenever it attacks, another target creature you control gains haste until end of turn.\n• Rhino — It gets +3/+3.\n• Wolf — It has menace and deathtouch.\nLoyal — Opponents can't gain control of this creature.",
+      "flavor_text": "Choose your companion for the road ahead.",
+      "power": 4,
+      "toughness": 4,
+      "color_identity": [
+        "G",
+        "W"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Destrier.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Djinn",
+      "dnd_card_name": "The Djinn",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0005",
+      "mana_cost": "{2}{U}{R}",
+      "type_line": "Legendary Creature — Djinn",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Djinn"
+      ],
+      "rules_text": "Flying\nAudience — When this creature enters, gain control of up to one target creature until the end of your next turn. Untap it and it gains haste until end of turn.\n{2}, {T}: Return target creature to its owner's hand.",
+      "flavor_text": "\"Five minutes,\" the djinn smiled. \"Spend them well.\"",
+      "power": 5,
+      "toughness": 4,
+      "color_identity": [
+        "U",
+        "R"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Djinn.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Doppelganger",
+      "dnd_card_name": "The Doppelganger",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0006",
+      "mana_cost": "{2}{U}{B}",
+      "type_line": "Legendary Creature — Shapeshifter",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Shapeshifter"
+      ],
+      "rules_text": "As this creature enters, it becomes a copy of the creature you control with the greatest power, except its name is The Doppelganger. If you control no other creatures, it enters as a 4/4 instead.\nWhen this creature enters, mark you, then a random opponent gains control of it.\nIt attacks the marked player or a planeswalker they control each combat if able.",
+      "flavor_text": "It wore his face. It knew his tricks. It shared none of his mercy.",
+      "power": 4,
+      "toughness": 4,
+      "color_identity": [
+        "U",
+        "B"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Doppelganger.png",
+      "is_token": false,
+      "sentiment": "negative",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Wyrm",
+      "dnd_card_name": "The Wyrm",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0007",
+      "mana_cost": "{3}{R}{R}",
+      "type_line": "Legendary Creature — Dragon",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Dragon"
+      ],
+      "rules_text": "Flying, haste\nWhen this creature enters, mark you, then a random opponent gains control of it.\nThis creature attacks the marked player each combat if able and can't block.\nDragonfire — Whenever it attacks, it deals 2 damage to the player it's attacking.\nHoard — When this creature dies, the controller of the source that killed it creates three Treasure tokens.",
+      "flavor_text": "Its shadow crossed the sun; the town prayed.",
+      "power": 6,
+      "toughness": 5,
+      "color_identity": [
+        "R"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Wyrm.png",
+      "is_token": false,
+      "sentiment": "negative",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Harpy",
+      "dnd_card_name": "The Harpy",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0008",
+      "mana_cost": "{1}{U}{B}",
+      "type_line": "Legendary Creature — Harpy",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Harpy"
+      ],
+      "rules_text": "Flying, haste\nWhen this creature enters, a random opponent gains control of it, and it kidnaps: exile a creature you control chosen at random until this creature leaves the battlefield.",
+      "flavor_text": "The shore was distant, the wind cruel, and the song crueler still.",
+      "power": 3,
+      "toughness": 4,
+      "color_identity": [
+        "U",
+        "B"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Harpy.png",
+      "is_token": false,
+      "sentiment": "negative",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Hound",
+      "dnd_card_name": "The Hound",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0009",
+      "mana_cost": "{1}{G}",
+      "type_line": "Legendary Creature — Beast",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Beast"
+      ],
+      "rules_text": "As this creature enters, choose its companion form —\n• Boar — It gets +1/+1 and has \"When this creature dies, it deals 3 damage to any target.\"\n• Crow — It has flying and \"At the beginning of your upkeep, scry 1.\"\n• Hound — It has vigilance and gets +2/+2 as long as it's blocking.\n• Monkey — It has \"Whenever this creature deals combat damage to a player, create a Treasure token.\"\n• Serpent — It has deathtouch and menace.\nLoyal — Opponents can't gain control of this creature.",
+      "flavor_text": "Loyalty is not tamed. It is earned.",
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "G"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Hound.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Legion",
+      "dnd_card_name": "The Legion",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0010",
+      "mana_cost": "{3}{W}{W}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "rules_text": "When this enchantment enters, create twenty 1/1 white Soldier creature tokens.\nSoldier tokens you control get +0/+1 and have vigilance.",
+      "flavor_text": "Twenty spears, one will.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "W"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Legion.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Masque",
+      "dnd_card_name": "The Masque",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0011",
+      "mana_cost": "{2}{U}",
+      "type_line": "Sorcery",
+      "supertypes": [],
+      "types": [
+        "Sorcery"
+      ],
+      "subtypes": [],
+      "rules_text": "Exile all creatures you control, then reveal cards from the top of your library until you reveal that many creature cards. Put those cards onto the battlefield, then shuffle.",
+      "flavor_text": "When the masque was lifted, someone else was wearing his life.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Masque.png",
+      "is_token": false,
+      "sentiment": "neutral",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Mercian Wolves",
+      "dnd_card_name": "The Mercian Wolves",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0012",
+      "mana_cost": "{2}{B}{G}",
+      "type_line": "Sorcery",
+      "supertypes": [],
+      "types": [
+        "Sorcery"
+      ],
+      "subtypes": [],
+      "rules_text": "An opponent chosen at random creates eight 2/2 black and green Wolf creature tokens with \"This creature attacks the player who drew The Mercian Wolves each combat if able.\"\nThose Wolves have menace as long as four or more Wolves are attacking.",
+      "flavor_text": "First you hear one howl. Then you count the rest.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "B",
+        "G"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Mercian Wolves.png",
+      "is_token": false,
+      "sentiment": "negative",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Minotaur",
+      "dnd_card_name": "The Minotaur",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0013",
+      "mana_cost": "{2}{B}{R}",
+      "type_line": "Legendary Creature — Minotaur",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Minotaur"
+      ],
+      "rules_text": "Menace\nWhen this creature enters, mark you, then a random opponent gains control of it, and the labyrinth swallows your party: exile all other creatures you control until this creature leaves the battlefield.\nThis creature can block any number of creatures and can't attack players other than the marked player.",
+      "flavor_text": "The centre is not a place. It is a meeting.",
+      "power": 5,
+      "toughness": 5,
+      "color_identity": [
+        "B",
+        "R"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Minotaur.png",
+      "is_token": false,
+      "sentiment": "negative",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Orchard",
+      "dnd_card_name": "The Orchard",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0014",
+      "mana_cost": "{1}{G}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "rules_text": "At the beginning of your upkeep and whenever a land you control enters, put a growth counter on this enchantment.\nIn Bloom — At the beginning of your upkeep, if this enchantment has seven or more growth counters, create two Food tokens and put a +1/+1 counter on up to one target creature.",
+      "flavor_text": "Seven days from seed to shade — and forever after, no one in the valley hungered.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "G"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Orchard.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Pestilence",
+      "dnd_card_name": "The Pestilence",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0015",
+      "mana_cost": "{2}{B}{B}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "rules_text": "When this enchantment enters, you become plagued.\nAt the beginning of each plagued player's upkeep, they lose 2 life and put a -1/-1 counter on a creature they control.\nWhenever a creature a plagued player controls deals combat damage to another player's creature or to another player, that player becomes plagued.\nWhen this enchantment leaves the battlefield, all players stop being plagued.",
+      "flavor_text": "The first cough was a curiosity. The hundredth was a funeral bell.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "B"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Pestilence.png",
+      "is_token": false,
+      "sentiment": "negative",
+      "related_cards": [],
+      "rarity": "mythic"
+    },
+    {
+      "name": "The Phantom",
+      "dnd_card_name": "The Phantom",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0016",
+      "mana_cost": "{2}{B}",
+      "type_line": "Legendary Creature — Spirit",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Spirit"
+      ],
+      "rules_text": "This creature can't be blocked, and it can't leave the battlefield except by a card named The Fates.\nWhen this creature enters, mark you, then a random opponent gains control of it.\nIt attacks the marked player each combat if able and can't block.\nDread — Creatures the marked player controls get -1/-0.\nWhen the marked player loses or leaves the game, exile this creature.",
+      "flavor_text": "It did not hate him. It simply never stopped.",
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "B"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Phantom.png",
+      "is_token": false,
+      "sentiment": "negative",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Returned",
+      "dnd_card_name": "The Returned",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0017",
+      "mana_cost": "{2}{W}{B}",
+      "type_line": "Sorcery",
+      "supertypes": [],
+      "types": [
+        "Sorcery"
+      ],
+      "subtypes": [],
+      "rules_text": "Return target creature card from your graveyard to the battlefield with two +1/+1 counters on it, then roll a d6 — it comes back changed. It gains the matching keyword counter: 1 — deathtouch, 2 — lifelink, 3 — menace, 4 — first strike, 5 — vigilance, 6 — flying.",
+      "flavor_text": "She came back. Most of her.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "W",
+        "B"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Returned.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Satyr",
+      "dnd_card_name": "The Satyr",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0018",
+      "mana_cost": "{1}{R}{G}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "rules_text": "Vanishing 2\nWhen this enchantment enters, each player creates two Food tokens and draws a card.\nThe Feast — Creatures can't attack, and players can't cast instant or sorcery spells.",
+      "flavor_text": "No one remembered arriving. No one wished to leave.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "R",
+        "G"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Satyr.png",
+      "is_token": false,
+      "sentiment": "neutral",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Scorpion",
+      "dnd_card_name": "The Scorpion",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0019",
+      "mana_cost": "{2}{B}{B}",
+      "type_line": "Sorcery",
+      "supertypes": [],
+      "types": [
+        "Sorcery"
+      ],
+      "subtypes": [],
+      "rules_text": "Exile target creature or planeswalker. It can be targeted despite hexproof, shroud, protection, and ward, and the exile can't be prevented or replaced.",
+      "flavor_text": "No matter who. No matter where.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "B"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Scorpion.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "mythic"
+    },
+    {
+      "name": "The Asp",
+      "dnd_card_name": "The Asp",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0020",
+      "mana_cost": "{1}{B}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "rules_text": "When this enchantment enters, put a venom counter on a nontoken creature you control chosen at random. If you control no nontoken creatures, you lose 5 life instead.\nVenom counters can't be removed, except by a card named The Fates.\nAt the beginning of your second upkeep after this enchantment entered, destroy each creature with a venom counter on it, then exile this enchantment.",
+      "flavor_text": "By the time you feel the bite, the matter is settled.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "B"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Asp.png",
+      "is_token": false,
+      "sentiment": "negative",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Shroud",
+      "dnd_card_name": "The Shroud",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0021",
+      "mana_cost": "{2}{U}{B}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "rules_text": "When this enchantment enters, exile your hand and graveyard face down.\nWhen this enchantment leaves the battlefield, return each card exiled with it to the zone it came from.",
+      "flavor_text": "He knew how to fight. He could not say why he wept while doing it.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "U",
+        "B"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Shroud.png",
+      "is_token": false,
+      "sentiment": "negative",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Siren",
+      "dnd_card_name": "The Siren",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0022",
+      "mana_cost": "{2}{U}{U}",
+      "type_line": "Legendary Creature — Siren",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Siren"
+      ],
+      "rules_text": "Flying\nWhen this creature enters, mark you, then a random opponent gains control of it.\nAt the beginning of the marked player's upkeep, they may discard a card to resist the song. If they don't, they get a charm counter.\nThrall — Whenever a charm counter is put on the marked player, if they have three or more, remove them all and this creature's controller gains control of a creature the marked player controls chosen at random for as long as this creature remains on the battlefield.",
+      "flavor_text": "The song asked for nothing. It only promised.",
+      "power": 3,
+      "toughness": 3,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Siren.png",
+      "is_token": false,
+      "sentiment": "negative",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Spire",
+      "dnd_card_name": "The Spire",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0023",
+      "mana_cost": "{1}{U}",
+      "type_line": "Sorcery",
+      "supertypes": [],
+      "types": [
+        "Sorcery"
+      ],
+      "subtypes": [],
+      "rules_text": "Choose a card type. You get an emblem with \"Spells of the chosen type you cast cost {1} less to cast\" and \"Whenever you cast your first spell of the chosen type each turn, scry 1.\"\nThen draw a card from the Deck of Many Things. (This draw doesn't cost a Fate Point.)",
+      "flavor_text": "Mastery is a staircase with no top step.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Spire.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Stag",
+      "dnd_card_name": "The Stag",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0024",
+      "mana_cost": "{2}{G}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "rules_text": "When this enchantment enters, target creature an opponent controls becomes your quarry for as long as it remains on the battlefield. Your quarry can't have hexproof or shroud.\nCreatures you control get +1/+0 as long as they're attacking or blocking the quarry or its controller.\nWhen your quarry dies, you gain a level: draw two cards and put two +1/+1 counters on each creature you control. Then sacrifice this enchantment.",
+      "flavor_text": "The hunt does not end at the kill. It ends at the becoming.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "G"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Stag.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "The Tempest",
+      "dnd_card_name": "The Tempest",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0025",
+      "mana_cost": "{3}{R}{R}",
+      "type_line": "Sorcery",
+      "supertypes": [],
+      "types": [
+        "Sorcery"
+      ],
+      "subtypes": [],
+      "rules_text": "Each player sacrifices an artifact or enchantment of their choice.\nThen roll 2d10. The Tempest deals that much damage to each player.",
+      "flavor_text": "The sky opened its hand and closed its fist.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "R"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Tempest.png",
+      "is_token": false,
+      "sentiment": "negative",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "Titania",
+      "dnd_card_name": "Titania",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0026",
+      "mana_cost": "{2}{G}{U}",
+      "type_line": "Sorcery",
+      "supertypes": [],
+      "types": [
+        "Sorcery"
+      ],
+      "subtypes": [],
+      "rules_text": "You may sacrifice the nonland permanent you control with the greatest mana value. If you do, look at the top three cards of the Deck of Many Things — cast one of them and put the rest back in a random order.",
+      "flavor_text": "\"A fair price,\" said the queen, \"is whatever it costs you most.\"",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "G",
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/Titania.png",
+      "is_token": false,
+      "sentiment": "neutral",
+      "related_cards": [],
+      "rarity": "mythic"
+    },
+    {
+      "name": "The Weaver",
+      "dnd_card_name": "The Weaver",
+      "set": "fates",
+      "set_code": "DOMT-FT",
+      "collector_number": "0027",
+      "mana_cost": "{1}{W}{U}{B}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "rules_text": "When this enchantment enters, choose target player and weave their final destiny — choose one:\n• Ruin — That player gets an emblem with \"At the beginning of your upkeep, if your life total is 10 or less, you lose the game.\"\n• Triumph — That player gets an emblem with \"If you would lose the game, instead remove this emblem, your life total becomes 10, and you take an extra turn after this one.\"",
+      "flavor_text": "Every thread ends. She merely decides the knot.",
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "W",
+        "U",
+        "B"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Many Fates",
+      "image_file": "assets/cards/fates/The Weaver.png",
+      "is_token": false,
+      "sentiment": "neutral",
+      "related_cards": [],
+      "rarity": "mythic"
     }
   ]
 }

@@ -6,7 +6,7 @@
 import { mulberry32, freshSeed, shuffle } from './seeded-rng.js';
 
 const CACHE_BUST = String(Date.now());
-const ALL_SETS = ['original', 'expansion', 'harrow', 'wonder'];
+const ALL_SETS = ['original', 'expansion', 'harrow', 'wonder', 'fates'];
 
 // Anchor data + asset URLs to this SCRIPT's location, not the page's.
 // When the page is served at /simulator/ (nginx URL rewrite) instead of
@@ -23,7 +23,7 @@ const CARD_BACK_SRC = projectUrl('assets/cards/original/Card%20Back.png');
 const MIN_DRAW = 1;
 const MAX_DRAW = 13;
 
-const SET_INITIALS = { o: 'original', e: 'expansion', h: 'harrow', w: 'wonder' };
+const SET_INITIALS = { o: 'original', e: 'expansion', h: 'harrow', w: 'wonder', f: 'fates' };
 const SET_TO_INITIAL = { original: 'o', expansion: 'e', harrow: 'h', wonder: 'w' };
 
 // --- Animation tuning ---

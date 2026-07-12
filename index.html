@@ -28,6 +28,7 @@ border-radius:2px;
 --accent-expansion-rgb:194,145,63;    /* brass — elaborate */
 --accent-harrow-rgb:154,124,138;      /* smoky purple — grim */
 --accent-wonder-rgb:112,144,168;      /* dusty cyan — otherworldly */
+--accent-fates-rgb:176,108,76;        /* worn vermilion — tarot lacquer */
 }
 html{scroll-behavior:smooth}
 body{
@@ -846,6 +847,7 @@ opacity:.85;letter-spacing:.18em;
 .set-header[data-deck="expansion"]{--accent-rgb:var(--accent-expansion-rgb)}
 .set-header[data-deck="harrow"]{--accent-rgb:var(--accent-harrow-rgb)}
 .set-header[data-deck="wonder"]{--accent-rgb:var(--accent-wonder-rgb)}
+.set-header[data-deck="fates"]{--accent-rgb:var(--accent-fates-rgb)}
 .set-header[data-deck] h2{
 color:rgb(var(--accent-rgb));
 text-shadow:0 0 24px rgba(var(--accent-rgb),.25);
@@ -1219,6 +1221,7 @@ Download all <span id="download-all-sublabel">(loading…)</span>
 <button class="filter-btn" data-set="expansion">Expansion</button>
 <button class="filter-btn" data-set="harrow">Harrow</button>
 <button class="filter-btn" data-set="wonder">Wonder</button>
+<button class="filter-btn" data-set="fates">Fates</button>
 </div>
 <div class="divider"><span></span></div>
 <div class="filter-group" id="color-filters">
@@ -1453,19 +1456,22 @@ const SET_NAMES = {
   original: 'Original Deck',
   expansion: 'Expansion Deck',
   harrow: 'Harrow Deck',
-  wonder: 'Wonder Deck'
+  wonder: 'Wonder Deck',
+  fates: 'Fates Deck'
 };
 const SET_SOURCES = {
   original: 'Adventures in the Forgotten Realms (D&D)',
   expansion: 'The Book of Many Things (2023)',
   harrow: 'Pathfinder Harrow Deck',
-  wonder: 'Deck of Wonder (2023)'
+  wonder: 'Deck of Wonder (2023)',
+  fates: "Stratagem's Deck of Many Fates"
 };
 const SET_TAGLINES = {
   original: 'Where the deck began.',
   expansion: 'The deck deepens its reach.',
   harrow: 'Parallel divinations.',
-  wonder: 'Fates beyond fate.'
+  wonder: 'Fates beyond fate.',
+  fates: 'The cards were never yours to shuffle.'
 };
 
 let allCards = [];
@@ -1794,7 +1800,7 @@ function render() {
   let currentSentiment = null;
 
   // Group by set; reference cards (rules / GM / FAQ / glossary) come first within their set
-  const setOrder = ['original', 'expansion', 'harrow', 'wonder'];
+  const setOrder = ['original', 'expansion', 'harrow', 'wonder', 'fates'];
   const sentOrder = { positive: 0, neutral: 1, negative: 2 };
   const sorted = [...visible].sort((a, b) => {
     const si = setOrder.indexOf(a.set) - setOrder.indexOf(b.set);

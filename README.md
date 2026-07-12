@@ -1,14 +1,14 @@
 # The Deck of Many Things — MTG Crossover Project
 
 ![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)
-![Cards: 148](https://img.shields.io/badge/Cards-148-gold)
+![Cards: 175](https://img.shields.io/badge/Cards-175-gold)
 ![Last Updated: April 2026](https://img.shields.io/badge/Last%20Updated-April%202026-blue)
 
 Welcome to a complete Magic: The Gathering crossover of D&D's infamous Deck of Many Things! This project reimagines one of tabletop gaming's most chaotic artifacts through the lens of Magic's mechanical framework.
 
 ## Overview
 
-This collection features **148 custom cards** spread across four versions of the Deck:
+This collection features **175 custom cards** spread across five versions of the Deck:
 
 | Set | Code | Cards | Source |
 |-----|------|-------|--------|
@@ -16,6 +16,7 @@ This collection features **148 custom cards** spread across four versions of the
 | Expansion Deck | DOMT-EX | 45 | Book of Many Things (2023) |
 | Harrow Deck | DOMT-HW | 54 + 1 support | Pathfinder Harrow Deck |
 | Wonder Deck | DOMT-WO | 22 | Deck of Wonder (2023) |
+| Fates Deck | DOMT-FT | 27 | Stratagem's Deck of Many Fates |
 
 Each card has been carefully designed to maintain the spirit of its D&D counterpart while functioning within Magic's rules system. Where direct translation wasn't possible, we've created new interpretations that capture the original card's essence.
 
@@ -71,10 +72,11 @@ mtg-domt/
 │   │   └── thumbs/
 │   ├── harrow/               # Harrow Deck + Plane of Air token
 │   │   └── thumbs/
-│   └── wonder/               # Wonder Deck
+│   ├── wonder/               # Wonder Deck
+│   └── fates/                # Fates Deck
 │       └── thumbs/
 ├── data/
-│   ├── cards.json            # Machine-readable card database (148 cards)
+│   ├── cards.json            # Machine-readable card database (175 cards)
 │   └── card_history.json     # Per-card changelog for gallery
 ```
 
@@ -109,6 +111,6 @@ This project is not affiliated with, endorsed, or sponsored by Wizards of the Co
 
 [![Gallery](https://img.shields.io/badge/Gallery-rollfor.gg%2Fdomt-d4af3c?style=for-the-badge)](https://rollfor.gg/domt/)
 
-🎴 **Browse all 148 cards in the online gallery:** [rollfor.gg/domt](https://rollfor.gg/domt/)
+🎴 **Browse all 175 cards in the online gallery:** [rollfor.gg/domt](https://rollfor.gg/domt/)
 
 *"Sometimes the cards you're dealt become the fate you're given."*
