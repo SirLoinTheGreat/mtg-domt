@@ -664,7 +664,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Bankruptcy — Sacrifice all artifacts you control, then exile all artifact cards from your hand and graveyard.\nForeclosure — Sacrifice all lands you control. You can't play lands during your next three turns.\nAuction — Starting with the player to your left and proceeding in turn order, each opponent chooses a nonartifact, nonland permanent you control and gains control of it. Repeat until you control no such permanents.",
+      "rules_text": "Bankruptcy — Sacrifice all artifacts you control, then exile all artifact cards from your hand and graveyard.\nForeclosure — Sacrifice all lands you control. You can't play lands during your next three turns.\nAuction — Starting with the player to your left and proceeding in turn order, each opponent chooses a nonartifact, nonland permanent you control and gains control of it. Repeat until you control no such permanents.\nCollapse — Each opponent sacrifices a nonland permanent of their choice.",
       "flavor_text": "The vaults stand open. The vaults stand empty.",
       "power": null,
       "toughness": null,
@@ -896,7 +896,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Soul Imprisonment — When you draw this card, create a colorless Soul Prison artifact token.\nEternal Damnation — You can't draw from the Deck of Many Things for the remainder of the game.",
+      "rules_text": "Soul Imprisonment — When you draw this card, create a colorless Soul Prison artifact token.\nOblivion — Each other player mills five cards.\nEternal Damnation — You can't draw from the Deck of Many Things for the remainder of the game.",
       "flavor_text": "The soul knows its jailer, but the body knows only emptiness.",
       "power": null,
       "toughness": null,
