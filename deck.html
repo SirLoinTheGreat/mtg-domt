@@ -144,6 +144,31 @@ font-size:.85rem;color:var(--text-dim);line-height:1.5;
 80%{transform:translateX(3px) rotate(.5deg)}
 }
 .deck-stack.shaking{animation:deck-shake .45s ease}
+/* the stack visibly thins as it's spent — fewer under-layers, lighter shadow */
+.deck-stack.low .layer:nth-child(1){display:none}
+.deck-stack.last .layer:nth-child(1),.deck-stack.last .layer:nth-child(2){display:none}
+.deck-stack.last .layer.top{box-shadow:0 3px 12px rgba(0,0,0,.55)}
+
+/* riffle shuffle — the deck lifts off the table, splits into two packets,
+   cards interleave, the packets square up, the deck settles back down.
+   The real layers hide while the overlay performs. */
+.deck-stack.riffling .layer{visibility:hidden}
+.deck-stack.riffling::after{animation:none;opacity:0}
+.riffle{position:fixed;z-index:60;pointer-events:none}
+.riffle .rf{
+position:absolute;inset:0;border-radius:6px;
+background-size:103.3% 105.8%;background-position:center;
+border:1px solid rgba(212,175,60,.25);
+box-shadow:var(--card-shadow);
+}
+/* the Deck's magic wakes while it's airborne — nether-and-gold glow behind
+   the packets (first child of .riffle, so the cards paint over it) */
+.riffle .aura{
+position:absolute;inset:-45% -60%;opacity:0;
+background:radial-gradient(closest-side,
+  rgba(170,110,255,.28) 0%,rgba(150,95,245,.18) 55%,
+  rgba(212,175,60,.12) 72%,transparent 84%);
+}
 
 /* discard pile */
 .discard-zone{text-align:center}
@@ -159,7 +184,7 @@ background-size:cover;background-position:center;
 background-color:rgba(26,18,10,.45);
 border:1px dashed rgba(212,175,60,.28);
 box-shadow:0 4px 18px rgba(0,0,0,.55);
-transition:box-shadow .3s ease;
+transition:box-shadow .3s ease,transform .3s ease; /* top card lands askew */
 }
 .discard-pile.has-cards .dp-card{border-style:solid}
 .discard-pile:active .dp-card{box-shadow:0 2px 8px rgba(0,0,0,.5)}
@@ -187,8 +212,10 @@ border-radius:6px;border:none;padding:0;cursor:pointer;
 background-size:cover;background-position:center;background-color:var(--ink-warm);
 box-shadow:var(--card-shadow),0 0 20px rgba(244,210,122,.12);
 transition:transform .15s ease;
+/* placed by a hand, not a machine — each card rests at its own slight tilt */
+transform:rotate(var(--tilt,0deg));
 }
-.drawn-card:active{transform:scale(.97)}
+.drawn-card:active{transform:rotate(var(--tilt,0deg)) scale(.97)}
 :where(button,a):focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 .drawn-card:only-child{width:clamp(150px,44vw,230px)}
 .drawn-hint{
@@ -249,6 +276,14 @@ transition:border-color .2s,color .2s,background .2s;
 .ctl:disabled{opacity:.35;pointer-events:none}
 .draw-group{display:flex;gap:.3rem;align-items:center}
 .draw-group .ctl.n{padding:.55rem .62rem;min-width:2.3rem}
+/* deck ops (shuffle/restart/mute) sit apart from the per-turn actions (draw/undo) */
+.deck-ops{display:flex;gap:inherit;margin-left:clamp(.35rem,4vw,2.2rem);align-items:center}
+.ctl.mute{min-width:2.2rem;padding-left:.4rem;padding-right:.4rem;position:relative;margin-left:.4rem;font-size:.9rem}
+.ctl.mute.muted{color:var(--text-dim);border-color:rgba(212,175,60,.18)}
+.ctl.mute.muted::after{
+content:'';position:absolute;left:20%;right:20%;top:48%;height:2px;
+background:rgba(224,82,60,.85);transform:rotate(-32deg);border-radius:1px;
+}
 
 /* ---------- sheets (discard browser / menu) ---------- */
 .sheet-backdrop{
@@ -284,7 +319,7 @@ font-size:1.3rem;line-height:1;padding:.2rem .5rem;font-family:serif;
 .discard-grid{
 display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:.7rem;
 }
-.dg-item{text-align:center}
+.dg-item{text-align:center;cursor:pointer}
 .dg-item img{
 width:100%;border-radius:5px;border:1px solid rgba(212,175,60,.25);
 box-shadow:0 3px 12px rgba(0,0,0,.5);display:block;
@@ -297,6 +332,42 @@ letter-spacing:.05em;color:var(--text-dim);line-height:1.25;
 .discard-empty{
 padding:2rem 0;text-align:center;font-style:italic;color:var(--text-dim);
 }
+/* peek sheet — top of the Deck, face up */
+.peek-size{display:flex;gap:.3rem;margin-left:auto}
+.peek-row{
+display:flex;gap:.65rem;overflow-x:auto;-webkit-overflow-scrolling:touch;
+padding:.6rem .2rem .8rem;
+}
+.peek-card{
+position:relative;flex:none;width:clamp(110px,26vw,160px);
+aspect-ratio:1/var(--card-ratio);border:none;padding:0;cursor:pointer;
+background-size:cover;background-position:center;background-color:var(--ink-warm);
+border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.5);
+}
+.peek-card.picked{outline:2px solid var(--gold);outline-offset:2px}
+.pk-pos,.pk-new{
+position:absolute;top:-7px;z-index:2;
+min-width:22px;height:22px;padding:0 5px;border-radius:11px;
+display:flex;align-items:center;justify-content:center;
+font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;
+}
+.pk-pos{left:-7px;background:var(--ink-warm);border:1px solid rgba(212,175,60,.35);color:var(--text-dim)}
+.pk-new{right:-7px;background:#3a2f14;border:1px solid var(--gold);color:var(--gold-bright)}
+.peek-row .discard-empty{width:100%}
+
+.exile-group{margin-top:1.1rem;padding-top:.9rem;border-top:1px solid rgba(212,175,60,.15)}
+.exile-group .dg-item img{filter:grayscale(.35) brightness(.8)} /* out of the game */
+
+/* two-tap confirm: armed Shuffle/Restart buttons turn red until re-tapped */
+.ctl.armed{
+color:#ff705b;border-color:rgba(224,82,60,.7);background:rgba(160,45,28,.16);
+}
+
+/* restart gather: while every card flies home to the stack, the table's own
+   cards hide and the app ignores input (state.busy holds the real lock) */
+.app.vortexing .drawn-row,.app.vortexing .discard-zone,.app.vortexing .draw-label,
+.app.vortexing .drawn-dots,.app.vortexing .pager-arrow{visibility:hidden}
+.app.vortexing{pointer-events:none}
 
 /* menu sheet */
 .menu-group{padding:.7rem 0;border-bottom:1px solid rgba(212,175,60,.1)}
@@ -326,9 +397,11 @@ color:var(--text-dim);text-decoration:none;text-transform:uppercase;
 /* zoom overlay (long-press a drawn card) */
 .zoom-overlay{
 position:fixed;inset:0;z-index:100;
-display:none;align-items:center;justify-content:center;
+display:none;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;
 background:rgba(0,0,0,.82);padding:1rem;
 }
+.zoom-overlay img{max-height:calc(100% - 3.6rem)}
+.zoom-actions{display:flex;gap:.5rem}
 .zoom-overlay.open{display:flex;animation:zoom-fade .18s ease-out}
 .zoom-overlay.open img{animation:zoom-scale .22s cubic-bezier(.22,1,.36,1)}
 @keyframes zoom-fade{from{opacity:0}}
@@ -354,7 +427,7 @@ white-space:nowrap;
 /* hover-capable fine pointers (desktop / laptop) */
 @media (hover:hover) and (pointer:fine){
 .deck-stack:not(.empty):hover .layer.top{transform:translate(1px,-4px) rotate(.4deg);box-shadow:var(--card-shadow),var(--card-halo)}
-.drawn-card:hover{transform:translateY(-3px)}
+.drawn-card:hover{transform:rotate(var(--tilt,0deg)) translateY(-3px)}
 .discard-pile.has-cards:hover .dp-card{box-shadow:0 6px 24px rgba(0,0,0,.65),0 0 14px rgba(244,210,122,.18)}
 .ctl:hover{border-color:rgba(212,175,60,.6);color:var(--gold-bright)}
 .set-chip:hover{border-color:rgba(212,175,60,.5)}
@@ -373,10 +446,12 @@ white-space:nowrap;
 .deck-head .t-long{display:none}
 .deck-head .t-short{display:inline}
 .disc-meta{display:none} /* the discard pile's own badge carries the count */
-.controls{gap:.3rem;padding-left:.5rem;padding-right:.5rem}
-.ctl{padding:.72rem .55rem;font-size:.64rem;letter-spacing:.06em}
-.draw-group{gap:.22rem}
-.draw-group .ctl.n{min-width:2.4rem;padding:.72rem .3rem}
+.controls{gap:.28rem;padding-left:.45rem;padding-right:.45rem}
+.ctl{padding:.72rem .5rem;font-size:.64rem;letter-spacing:.06em}
+.draw-group{gap:.2rem}
+.draw-group .ctl.n{min-width:2.2rem;padding:.72rem .3rem}
+.deck-ops{margin-left:clamp(.3rem,1.5vw,2.2rem)}
+.ctl.mute{margin-left:.3rem;min-width:2rem;padding-left:.25rem;padding-right:.25rem}
 }
 /* portrait phones: the Deck IS the screen. One hero card fills the space between
    the bars; drawn cards land as pages of a swipeable, snap-scrolling pager on
@@ -445,9 +520,11 @@ background:rgba(212,175,60,.3);transition:background .25s,box-shadow .25s;
 }
 /* tiny phones (320-360px): squeeze further, still one line */
 @media (max-width:359px){
-.controls{gap:.24rem;padding-left:.35rem;padding-right:.35rem}
-.ctl{padding:.66rem .42rem;font-size:.6rem;letter-spacing:.04em}
-.draw-group .ctl.n{min-width:2.1rem;padding:.66rem .2rem}
+.controls{gap:.2rem;padding-left:.28rem;padding-right:.28rem}
+.ctl{padding:.66rem .3rem;font-size:.6rem;letter-spacing:.03em}
+.draw-group .ctl.n{min-width:1.9rem;padding:.66rem .16rem}
+.deck-ops{margin-left:.22rem}
+.ctl.mute{margin-left:.2rem;min-width:1.7rem;padding-left:.18rem;padding-right:.18rem}
 }
 /* everywhere except the portrait pager (which has the Draw chip), drawn cards
    carry their draw number as a corner badge — same vocabulary as the discard
@@ -501,6 +578,7 @@ font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;color:var(--gold);
 .toast{transition:opacity .15s linear}
 }
 </style>
+<script src="./assets/js/vendor/howler.min.js" defer></script>
 <script src="/shared/suite-nav.js" defer></script>
 </head>
 <body>
@@ -555,9 +633,12 @@ font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;color:var(--gold);
     <button class="ctl n" data-draw="3" title="Draw 3" aria-label="Draw 3 cards">3</button>
     <button class="ctl n" data-draw="4" title="Draw 4" aria-label="Draw 4 cards">4</button>
   </div>
-  <button class="ctl" id="btn-shuffle" title="Shuffle the remaining deck">Shuffle</button>
-  <button class="ctl" id="btn-shuffle-all" title="Shuffle everything — discard and drawn cards included — back into the deck">Restart</button>
-  <button class="ctl" id="btn-undo" title="Undo the last draw or discard">↩</button>
+  <button class="ctl" id="btn-undo" title="Undo the last draw, discard, or exile">↩</button>
+  <div class="deck-ops">
+    <button class="ctl" id="btn-shuffle" title="Shuffle the remaining deck">Shuffle</button>
+    <button class="ctl" id="btn-shuffle-all" title="Shuffle everything — discard, drawn, and exiled cards included — back into the deck">Restart</button>
+    <button class="ctl mute" id="btn-mute" aria-pressed="false" aria-label="Mute sound effects">&#9834;</button>
+  </div>
 </nav>
 </div>
 
@@ -571,6 +652,10 @@ font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;color:var(--gold);
   <div class="sheet-body">
     <div class="discard-grid" id="discard-grid"></div>
     <div class="discard-empty" id="discard-empty">Nothing has been cast aside yet.</div>
+    <div class="exile-group" id="exile-group" hidden>
+      <div class="menu-label">Exiled — out of the game until Restart</div>
+      <div class="discard-grid" id="exile-grid"></div>
+    </div>
   </div>
 </div>
 
@@ -594,6 +679,7 @@ font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;color:var(--gold);
       <div class="menu-label">Actions</div>
       <div class="menu-row">
         <button class="ctl primary" id="btn-new-deck">Forge new deck</button>
+        <button class="ctl" id="btn-peek">Peek at top cards</button>
       </div>
       <div class="menu-note">Builds a fresh, fully shuffled deck from the chosen sub-decks. The discard and any drawn cards are swept back in.</div>
     </div>
@@ -612,10 +698,35 @@ font-family:'Cinzel',serif;font-size:.62rem;font-weight:700;color:var(--gold);
   </div>
 </div>
 
+<div class="sheet" id="peek-sheet" role="dialog" aria-label="Top of the Deck">
+  <div class="sheet-head">
+    <div class="sheet-title">Top of the Deck — <span id="peek-n">3 cards</span></div>
+    <div class="peek-size">
+      <button class="ctl n" id="peek-less" aria-label="Peek at one fewer card">−</button>
+      <button class="ctl n" id="peek-more" aria-label="Peek at one more card">+</button>
+    </div>
+    <button class="sheet-close" data-close aria-label="Close">✕</button>
+  </div>
+  <div class="sheet-body">
+    <div class="menu-note">Top card first. Tap the cards in the order you want them, then Apply. Hold a card to read it or send it elsewhere.</div>
+    <div class="peek-row" id="peek-row"></div>
+    <div class="menu-row">
+      <button class="ctl primary" id="peek-apply" disabled>Apply order</button>
+      <button class="ctl" id="peek-reset">Reset</button>
+    </div>
+  </div>
+</div>
+
 <canvas id="fx" aria-hidden="true"></canvas>
-<div class="zoom-overlay" id="zoom-overlay"><img id="zoom-img" alt="Card"></div>
+<div class="zoom-overlay" id="zoom-overlay">
+  <img id="zoom-img" alt="Card">
+  <div class="zoom-actions">
+    <button class="ctl" id="za-deck" type="button">Into the Deck</button>
+    <button class="ctl" id="za-exile" type="button">Exile</button>
+  </div>
+</div>
 <div class="toast" id="toast"></div>
 
-<script type="module" src="./assets/js/deck.js?v=20260707"></script>
+<script type="module" src="./assets/js/deck.js?v=20260711"></script>
 </body>
 </html>
