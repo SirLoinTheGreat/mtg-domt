@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "1.0.0",
-    "last_updated": "2026-07-02",
-    "total_cards": 179
+    "last_updated": "2026-07-14",
+    "total_cards": 233
   },
   "cards": [
     {
@@ -6170,6 +6170,1777 @@
       "sentiment": "neutral",
       "related_cards": [],
       "rarity": "mythic"
+    },
+    {
+      "name": "The Artifact",
+      "dnd_card_name": "The Artifact",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0001",
+      "rarity": "mythic",
+      "mana_cost": "{3}",
+      "type_line": "Legendary Artifact",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Artifact"
+      ],
+      "subtypes": [],
+      "power": null,
+      "toughness": null,
+      "color_identity": [],
+      "keywords": [],
+      "rules_text": "When this artifact enters, search your library for a card, exile it face down, then shuffle. For as long as that card remains exiled, you may look at it and play it.\nWhen you play the exiled card, exile this artifact.",
+      "flavor_text": "Tome, symbol, sword — the reading names what must be found.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Artifact.png"
+    },
+    {
+      "name": "The Beast Within",
+      "dnd_card_name": "The Beast Within",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0002",
+      "rarity": "mythic",
+      "mana_cost": "{2}{R}{G}",
+      "type_line": "Legendary Creature — Werewolf",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Werewolf"
+      ],
+      "power": 5,
+      "toughness": 5,
+      "color_identity": [
+        "G",
+        "R"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, roll a d20. If you roll 10 or higher, it gains vigilance and ward {2}. Otherwise, it gets +2/+2 and gains trample, haste, and \"This creature attacks each combat if able.\"",
+      "flavor_text": "It walked into camp on two legs. Moonrise is not impressed by legs.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Beast Within.png"
+    },
+    {
+      "name": "The Broken One",
+      "dnd_card_name": "The Broken One",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0003",
+      "rarity": "mythic",
+      "mana_cost": "{1}{U}{B}",
+      "type_line": "Legendary Creature — Spirit Wizard",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Spirit",
+        "Wizard"
+      ],
+      "power": 4,
+      "toughness": 4,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "Flying\nIf this creature would die, instead return it to the battlefield tapped with two -1/-1 counters on it. If its toughness is 0 or less, exile it instead.",
+      "flavor_text": "Each defeat returns a little less of him.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Broken One.png"
+    },
+    {
+      "name": "The Darklord",
+      "dnd_card_name": "The Darklord",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0004",
+      "rarity": "mythic",
+      "mana_cost": "{2}{B}{R}",
+      "type_line": "Legendary Creature — Vampire Noble",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Vampire",
+        "Noble"
+      ],
+      "power": 5,
+      "toughness": 4,
+      "color_identity": [
+        "B",
+        "R"
+      ],
+      "keywords": [],
+      "rules_text": "Flying, lifelink\nWhen this creature enters, each other creature gets -2/-2 until end of turn and you create three Blood tokens. ({B} are artifacts with \"{1}, {T}, Discard a card, Sacrifice this token: Draw a card.\")\nAt the beginning of your upkeep, sacrifice a Blood token or this creature deals 3 damage to you.",
+      "flavor_text": "The land is his. The night is his. The reading was his idea.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Darklord.png"
+    },
+    {
+      "name": "The Oubliette",
+      "dnd_card_name": "The Oubliette",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0005",
+      "rarity": "mythic",
+      "mana_cost": "{1}{W}{B}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "When this enchantment enters, exile target nonland permanent an opponent controls until this enchantment leaves the battlefield.\nAt the beginning of your upkeep, roll a d20. If you roll 20, sacrifice this enchantment.",
+      "flavor_text": "Its walls are patient.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Oubliette.png"
+    },
+    {
+      "name": "The Executioner",
+      "dnd_card_name": "The Executioner",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0006",
+      "rarity": "mythic",
+      "mana_cost": "{2}{W}{B}",
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "When this enchantment enters, destroy target creature an opponent controls. If that creature was neither attacking nor blocking this turn, its controller draws two cards. Then exile this enchantment.",
+      "flavor_text": "The verdict was written before the trial.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Executioner.png"
+    },
+    {
+      "name": "The Ghost",
+      "dnd_card_name": "The Ghost",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0007",
+      "rarity": "mythic",
+      "mana_cost": "{2}{W}{U}",
+      "type_line": "Legendary Creature — Spirit",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Spirit"
+      ],
+      "power": 3,
+      "toughness": 3,
+      "color_identity": [
+        "U",
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "Flying\nWhen this creature enters, choose one —\n• Return target card from your graveyard to your hand.\n• Exile target creature card from an opponent's graveyard. Create a 1/1 white Spirit creature token with flying.",
+      "flavor_text": "The past does not haunt Barovia. It governs.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Ghost.png"
+    },
+    {
+      "name": "The Horseman",
+      "dnd_card_name": "The Horseman",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0008",
+      "rarity": "mythic",
+      "mana_cost": "{3}{B}{B}",
+      "type_line": "Legendary Creature — Nightmare Horse",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Nightmare",
+        "Horse"
+      ],
+      "power": 5,
+      "toughness": 5,
+      "color_identity": [
+        "B"
+      ],
+      "keywords": [],
+      "rules_text": "Menace, haste\nWhen this creature enters, each opponent sacrifices a creature of their choice with the greatest power among creatures they control.",
+      "flavor_text": "The bloodline ends where the hoofprints do.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Horseman.png"
+    },
+    {
+      "name": "The Innocent",
+      "dnd_card_name": "The Innocent",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0009",
+      "rarity": "mythic",
+      "mana_cost": "{1}{W}",
+      "type_line": "Legendary Creature — Human",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human"
+      ],
+      "power": 0,
+      "toughness": 4,
+      "color_identity": [
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "Ward {3}\nAt the beginning of your end step, if this creature wasn't dealt damage this turn, you draw a card and gain 2 life.\nWhen this creature dies, exile it.",
+      "flavor_text": "Some lights the mists gather close, and dim slowly.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Innocent.png"
+    },
+    {
+      "name": "The Marionette",
+      "dnd_card_name": "The Marionette",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0010",
+      "rarity": "mythic",
+      "mana_cost": "{3}{U}{B}",
+      "type_line": "Legendary Artifact Creature — Construct",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Artifact",
+        "Creature"
+      ],
+      "subtypes": [
+        "Construct"
+      ],
+      "power": 0,
+      "toughness": 0,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "You may have this creature enter as a copy of any creature on the battlefield, except it's a Construct in addition to its other types.",
+      "flavor_text": "The strings run upward into the dark.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Marionette.png"
+    },
+    {
+      "name": "The Mists",
+      "dnd_card_name": "The Mists",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0011",
+      "rarity": "mythic",
+      "mana_cost": "{2}{U}",
+      "type_line": "Enchantment",
+      "supertypes": [],
+      "types": [
+        "Enchantment"
+      ],
+      "subtypes": [],
+      "power": null,
+      "toughness": null,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "Creatures can't attack you unless their controller pays {2} for each attacking creature.\nAt the beginning of your upkeep, scry 1.",
+      "flavor_text": "Barovia has no borders. Only depths.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Mists.png"
+    },
+    {
+      "name": "The Raven",
+      "dnd_card_name": "The Raven",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0012",
+      "rarity": "mythic",
+      "mana_cost": "{1}{W}{U}",
+      "type_line": "Legendary Creature — Bird",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Bird"
+      ],
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "U",
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "Flying, vigilance\nWhen this creature enters or deals combat damage to a player, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
+      "flavor_text": "Not every shadow in Barovia serves the devil.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Raven.png"
+    },
+    {
+      "name": "The Seer",
+      "dnd_card_name": "The Seer",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0013",
+      "rarity": "mythic",
+      "mana_cost": "{2}{U}",
+      "type_line": "Legendary Creature — Human Wizard",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Wizard"
+      ],
+      "power": 1,
+      "toughness": 3,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, scry 3, then draw a card.\nOnce each turn, if you would roll a die, you may choose the result instead.",
+      "flavor_text": "She does not predict fate. She reads it aloud.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Seer.png"
+    },
+    {
+      "name": "The Tempter",
+      "dnd_card_name": "The Tempter",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0014",
+      "rarity": "mythic",
+      "mana_cost": "{2}{B}{R}",
+      "type_line": "Legendary Creature — Devil",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Devil"
+      ],
+      "power": 4,
+      "toughness": 3,
+      "color_identity": [
+        "B",
+        "R"
+      ],
+      "keywords": [],
+      "rules_text": "Flying\nWhen this creature enters, for each opponent, that player chooses one — you draw a card; or that player loses 3 life and you create a Blood token.",
+      "flavor_text": "Every bargain in Barovia is signed twice.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Tempter.png"
+    },
+    {
+      "name": "The Avenger",
+      "dnd_card_name": "The Avenger",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0015",
+      "rarity": "uncommon",
+      "mana_cost": "{W}{R}",
+      "type_line": "Creature — Human Knight",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Knight"
+      ],
+      "power": 3,
+      "toughness": 2,
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "First strike\nWhen this creature enters, it deals 2 damage to target creature that dealt damage this turn.",
+      "flavor_text": "Justice in Barovia carries a whetstone.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Avenger.png"
+    },
+    {
+      "name": "The Templar",
+      "dnd_card_name": "The Templar",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0016",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{W}",
+      "type_line": "Creature — Human Knight",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Knight"
+      ],
+      "power": 2,
+      "toughness": 3,
+      "color_identity": [
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "Lifelink\nOther creatures you control get +0/+1.",
+      "flavor_text": "His oath outlived his order.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Templar.png"
+    },
+    {
+      "name": "The Soldier",
+      "dnd_card_name": "The Soldier",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0017",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{W}",
+      "type_line": "Creature — Human Soldier",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Soldier"
+      ],
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, create two 1/1 white Soldier creature tokens.",
+      "flavor_text": "War asks. Barovia answers.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Soldier.png"
+    },
+    {
+      "name": "The Mercenary",
+      "dnd_card_name": "The Mercenary",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0018",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{R}",
+      "type_line": "Creature — Human Mercenary",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Mercenary"
+      ],
+      "power": 3,
+      "toughness": 2,
+      "color_identity": [
+        "R"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this artifact: Add one mana of any color.\")\nWhenever you sacrifice an artifact, this creature gets +1/+0 until end of turn.",
+      "flavor_text": "Loyal to the coin, and the coin is loyal to no one.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Mercenary.png"
+    },
+    {
+      "name": "The Myrmidon",
+      "dnd_card_name": "The Myrmidon",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0019",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{R}{W}",
+      "type_line": "Creature — Human Soldier",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Soldier"
+      ],
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "Whenever this creature attacks alone, it gets +2/+2 and gains double strike until end of turn.",
+      "flavor_text": "One against the column. The column lost.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Myrmidon.png"
+    },
+    {
+      "name": "The Berserker",
+      "dnd_card_name": "The Berserker",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0020",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{R}{R}",
+      "type_line": "Creature — Human Berserker",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Berserker"
+      ],
+      "power": 4,
+      "toughness": 2,
+      "color_identity": [
+        "R"
+      ],
+      "keywords": [],
+      "rules_text": "Haste, trample\nThis creature attacks each combat if able.",
+      "flavor_text": "The wolf under the skin does not sleep.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Berserker.png"
+    },
+    {
+      "name": "The Hooded One",
+      "dnd_card_name": "The Hooded One",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0021",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{R}{B}",
+      "type_line": "Creature — Human Rogue",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Rogue"
+      ],
+      "power": 3,
+      "toughness": 2,
+      "color_identity": [
+        "B",
+        "R"
+      ],
+      "keywords": [],
+      "rules_text": "Menace\nWhen this creature enters, target creature can't block this turn.",
+      "flavor_text": "No one asked what the newcomer left behind.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Hooded One.png"
+    },
+    {
+      "name": "The Dictator",
+      "dnd_card_name": "The Dictator",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0022",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{R}{B}",
+      "type_line": "Creature — Human Noble",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Noble"
+      ],
+      "power": 3,
+      "toughness": 3,
+      "color_identity": [
+        "B",
+        "R"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, goad each creature target opponent controls. (Until your next turn, those creatures attack each combat if able and attack a player other than you if able.)",
+      "flavor_text": "Fear is the only law that enforces itself.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Dictator.png"
+    },
+    {
+      "name": "The Torturer",
+      "dnd_card_name": "The Torturer",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0023",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{B}",
+      "type_line": "Creature — Human Cleric",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Cleric"
+      ],
+      "power": 2,
+      "toughness": 3,
+      "color_identity": [
+        "B"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, each opponent loses 2 life and you gain 2 life.",
+      "flavor_text": "He keeps a ledger of screams.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Torturer.png"
+    },
+    {
+      "name": "The Master of Swords",
+      "dnd_card_name": "The Master of Swords",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0024",
+      "rarity": "rare",
+      "mana_cost": "{2}{R}{R}",
+      "type_line": "Legendary Creature — Human Warrior",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Warrior"
+      ],
+      "power": 5,
+      "toughness": 3,
+      "color_identity": [
+        "R"
+      ],
+      "keywords": [],
+      "rules_text": "Haste, menace\nWhenever this creature attacks, other creatures you control get +1/+0 and gain haste until end of turn.",
+      "flavor_text": "Strength is the only sermon he ever preached.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Master of Swords.png"
+    },
+    {
+      "name": "The Swashbuckler",
+      "dnd_card_name": "The Swashbuckler",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0025",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{R}{B}",
+      "type_line": "Creature — Human Rogue",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Rogue"
+      ],
+      "power": 3,
+      "toughness": 2,
+      "color_identity": [
+        "B",
+        "R"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, create a Treasure token. (It's an artifact with \"{T}, Sacrifice this artifact: Add one mana of any color.\")\nWhenever this creature attacks, you may sacrifice an artifact. If you do, this creature gets +2/+0 until end of turn.",
+      "flavor_text": "Gold spends faster in good company.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Swashbuckler.png"
+    },
+    {
+      "name": "The Philanthropist",
+      "dnd_card_name": "The Philanthropist",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0026",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{W}{B}",
+      "type_line": "Creature — Human Noble",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Noble"
+      ],
+      "power": 2,
+      "toughness": 4,
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, each player creates a Treasure token. You gain 2 life for each Treasure token created this way.",
+      "flavor_text": "His coin fights the devil in a hundred small hands.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Philanthropist.png"
+    },
+    {
+      "name": "The Trader",
+      "dnd_card_name": "The Trader",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0027",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{U}{B}",
+      "type_line": "Creature — Human Rogue",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Rogue"
+      ],
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, create a Treasure token, then draw a card and discard a card.",
+      "flavor_text": "Everything crosses the border eventually — for a price.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Trader.png"
+    },
+    {
+      "name": "The Merchant",
+      "dnd_card_name": "The Merchant",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0028",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Human Citizen",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Citizen"
+      ],
+      "power": 1,
+      "toughness": 3,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, draw two cards, then discard a card.",
+      "flavor_text": "Rare goods, rarer honesty.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Merchant.png"
+    },
+    {
+      "name": "The Guild Member",
+      "dnd_card_name": "The Guild Member",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0029",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{B}{U}",
+      "type_line": "Creature — Human Rogue",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Rogue"
+      ],
+      "power": 2,
+      "toughness": 3,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "As long as you control three or more artifacts, this creature gets +2/+2 and has menace.",
+      "flavor_text": "The guild's pride is stitched into every seam.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Guild Member.png"
+    },
+    {
+      "name": "The Beggar",
+      "dnd_card_name": "The Beggar",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0030",
+      "rarity": "uncommon",
+      "mana_cost": "{B}",
+      "type_line": "Creature — Human Peasant",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Peasant"
+      ],
+      "power": 1,
+      "toughness": 1,
+      "color_identity": [
+        "B"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, roll a d20. If you roll 10 or higher, create three Treasure tokens. Otherwise, discard a card.",
+      "flavor_text": "Yesterday a lord. Tomorrow — ask the cards.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Beggar.png"
+    },
+    {
+      "name": "The Thief",
+      "dnd_card_name": "The Thief",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0031",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{U}{B}",
+      "type_line": "Creature — Human Rogue",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Rogue"
+      ],
+      "power": 2,
+      "toughness": 1,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "This creature can't be blocked.\nWhen this creature enters, exile the top card of target opponent's library face down. You may look at and play that card for as long as it remains exiled.",
+      "flavor_text": "The tome was gone before the alarm was rung.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Thief.png"
+    },
+    {
+      "name": "The Tax Collector",
+      "dnd_card_name": "The Tax Collector",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0032",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{B}",
+      "type_line": "Creature — Human Rogue",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Rogue"
+      ],
+      "power": 2,
+      "toughness": 3,
+      "color_identity": [
+        "B"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, each opponent loses 2 life unless they sacrifice an artifact or discard a card.",
+      "flavor_text": "The count's share, collected in the count's name.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Tax Collector.png"
+    },
+    {
+      "name": "The Miser",
+      "dnd_card_name": "The Miser",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0033",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{B}",
+      "type_line": "Creature — Human Citizen",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Citizen"
+      ],
+      "power": 1,
+      "toughness": 2,
+      "color_identity": [
+        "B"
+      ],
+      "keywords": [],
+      "rules_text": "This creature gets +1/+1 for each Treasure you control.\nAt the beginning of your end step, if you didn't sacrifice an artifact this turn, create a Treasure token.",
+      "flavor_text": "He counts them nightly. They count him back.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Miser.png"
+    },
+    {
+      "name": "The Master of Coins",
+      "dnd_card_name": "The Master of Coins",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0034",
+      "rarity": "rare",
+      "mana_cost": "{2}{B}{U}",
+      "type_line": "Legendary Creature — Human Rogue",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Rogue"
+      ],
+      "power": 3,
+      "toughness": 3,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "At the beginning of your end step, create a Treasure token.\nWhenever an artifact you control is put into a graveyard from the battlefield, draw a card.",
+      "flavor_text": "In Barovia even the coffin has a toll.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Master of Coins.png"
+    },
+    {
+      "name": "The Transmuter",
+      "dnd_card_name": "The Transmuter",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0035",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Human Wizard",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Wizard"
+      ],
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, create a token that's a copy of target artifact you control.",
+      "flavor_text": "Lead remembers being gold, if pressed.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Transmuter.png"
+    },
+    {
+      "name": "The Diviner",
+      "dnd_card_name": "The Diviner",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0036",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{U}",
+      "type_line": "Creature — Human Wizard",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Wizard"
+      ],
+      "power": 1,
+      "toughness": 3,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, investigate twice. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
+      "flavor_text": "The stars do not lie. They abbreviate.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Diviner.png"
+    },
+    {
+      "name": "The Enchanter",
+      "dnd_card_name": "The Enchanter",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0037",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Human Wizard",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Wizard"
+      ],
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, tap up to two target creatures. They don't untap during their controllers' next untap steps.",
+      "flavor_text": "Doubt, once planted, waters itself.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Enchanter.png"
+    },
+    {
+      "name": "The Abjurer",
+      "dnd_card_name": "The Abjurer",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0038",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{W}{U}",
+      "type_line": "Creature — Human Wizard",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Wizard"
+      ],
+      "power": 2,
+      "toughness": 3,
+      "color_identity": [
+        "U",
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "Ward {1}\nWhen this creature enters, investigate.",
+      "flavor_text": "The overlooked clue is the one that saves you.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Abjurer.png"
+    },
+    {
+      "name": "The Elementalist",
+      "dnd_card_name": "The Elementalist",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0039",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{U}{R}",
+      "type_line": "Creature — Elemental Wizard",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Elemental",
+        "Wizard"
+      ],
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, create a 3/1 red Elemental creature token with haste. Sacrifice it at the beginning of the next end step.",
+      "flavor_text": "Harvest and disaster are the same spell, aimed.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Elementalist.png"
+    },
+    {
+      "name": "The Evoker",
+      "dnd_card_name": "The Evoker",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0040",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{U}{R}",
+      "type_line": "Creature — Human Wizard",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Wizard"
+      ],
+      "power": 1,
+      "toughness": 3,
+      "color_identity": [
+        "R",
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, roll a d20. This creature deals damage equal to half the result, rounded up, to any target.",
+      "flavor_text": "The spell knew no restraint. Neither did she.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Evoker.png"
+    },
+    {
+      "name": "The Illusionist",
+      "dnd_card_name": "The Illusionist",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0041",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Human Wizard",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Wizard"
+      ],
+      "power": 2,
+      "toughness": 1,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, return up to one target creature to its owner's hand.\nWhen this creature dies, draw a card.",
+      "flavor_text": "The saboteur you caught was never there.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Illusionist.png"
+    },
+    {
+      "name": "The Necromancer",
+      "dnd_card_name": "The Necromancer",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0042",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{B}{U}",
+      "type_line": "Creature — Human Wizard",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Wizard"
+      ],
+      "power": 2,
+      "toughness": 3,
+      "color_identity": [
+        "B",
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, return target creature card with mana value 3 or less from a graveyard to the battlefield tapped under your control.",
+      "flavor_text": "Barovia's soil gives everything back wrong.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Necromancer.png"
+    },
+    {
+      "name": "The Conjurer",
+      "dnd_card_name": "The Conjurer",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0043",
+      "rarity": "uncommon",
+      "mana_cost": "{3}{U}",
+      "type_line": "Creature — Human Wizard",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Wizard"
+      ],
+      "power": 1,
+      "toughness": 4,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, create two 1/1 blue Illusion creature tokens with flying.",
+      "flavor_text": "They think themselves gods. The mists let them.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Conjurer.png"
+    },
+    {
+      "name": "The Master of Stars",
+      "dnd_card_name": "The Master of Stars",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0044",
+      "rarity": "rare",
+      "mana_cost": "{3}{U}{U}",
+      "type_line": "Legendary Creature — Human Wizard",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Wizard"
+      ],
+      "power": 3,
+      "toughness": 4,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, draw two cards.\nWhenever you draw your second card each turn, investigate.",
+      "flavor_text": "Power is a riddle; he collects the answers.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Master of Stars.png"
+    },
+    {
+      "name": "The Monk",
+      "dnd_card_name": "The Monk",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0045",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{W}",
+      "type_line": "Creature — Human Monk",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Monk"
+      ],
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "Vigilance, ward {2}",
+      "flavor_text": "Stillness, even here, is a fortress.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Monk.png"
+    },
+    {
+      "name": "The Missionary",
+      "dnd_card_name": "The Missionary",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0046",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{W}",
+      "type_line": "Creature — Human Cleric",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Cleric"
+      ],
+      "power": 2,
+      "toughness": 3,
+      "color_identity": [
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "Other creatures you control get +1/+1.",
+      "flavor_text": "Faith travels farthest on frightened roads.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Missionary.png"
+    },
+    {
+      "name": "The Healer",
+      "dnd_card_name": "The Healer",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0047",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{W}",
+      "type_line": "Creature — Human Cleric",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Cleric"
+      ],
+      "power": 1,
+      "toughness": 3,
+      "color_identity": [
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, choose one —\n• You gain 4 life.\n• Distribute two -1/-1 counters among one or two target creatures.",
+      "flavor_text": "Her hands close wounds. Her shadow opens them.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Healer.png"
+    },
+    {
+      "name": "The Shepherd",
+      "dnd_card_name": "The Shepherd",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0048",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{W}",
+      "type_line": "Creature — Human Cleric",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Cleric"
+      ],
+      "power": 1,
+      "toughness": 4,
+      "color_identity": [
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, target creature you control gains indestructible until end of turn.",
+      "flavor_text": "He carries what the flock cannot.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Shepherd.png"
+    },
+    {
+      "name": "The Druid",
+      "dnd_card_name": "The Druid",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0049",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{G}{W}",
+      "type_line": "Creature — Human Druid",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Druid"
+      ],
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "G",
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, you may put a land card from your hand onto the battlefield tapped. You gain 2 life.",
+      "flavor_text": "Nature in Barovia is red in root and thorn.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Druid.png"
+    },
+    {
+      "name": "The Anarchist",
+      "dnd_card_name": "The Anarchist",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0050",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{R}{W}",
+      "type_line": "Creature — Human Cleric",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Cleric"
+      ],
+      "power": 3,
+      "toughness": 1,
+      "color_identity": [
+        "R",
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, destroy target artifact or enchantment.",
+      "flavor_text": "Every church he burned, he built first.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Anarchist.png"
+    },
+    {
+      "name": "The Charlatan",
+      "dnd_card_name": "The Charlatan",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0051",
+      "rarity": "uncommon",
+      "mana_cost": "{1}{W}{B}",
+      "type_line": "Creature — Human Cleric Rogue",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Cleric",
+        "Rogue"
+      ],
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, target opponent chooses one —\n• You draw two cards.\n• Each opponent discards a card.",
+      "flavor_text": "Both of his faiths are for sale.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Charlatan.png"
+    },
+    {
+      "name": "The Bishop",
+      "dnd_card_name": "The Bishop",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0052",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{W}{B}",
+      "type_line": "Creature — Human Cleric",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Cleric"
+      ],
+      "power": 2,
+      "toughness": 4,
+      "color_identity": [
+        "B",
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "Creatures your opponents control enter tapped.\nWhen this creature enters, you gain 3 life.",
+      "flavor_text": "The code is strict. The exceptions are his.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Bishop.png"
+    },
+    {
+      "name": "The Traitor",
+      "dnd_card_name": "The Traitor",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0053",
+      "rarity": "uncommon",
+      "mana_cost": "{2}{B}",
+      "type_line": "Creature — Human Cleric",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Cleric"
+      ],
+      "power": 3,
+      "toughness": 2,
+      "color_identity": [
+        "B"
+      ],
+      "keywords": [],
+      "rules_text": "When this creature enters, gain control of target creature until end of turn. Untap it. It gains haste until end of turn.",
+      "flavor_text": "The knife came from inside the chapel.",
+      "sentiment": "negative",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Traitor.png"
+    },
+    {
+      "name": "The Master of Glyphs",
+      "dnd_card_name": "The Master of Glyphs",
+      "set": "tarokka",
+      "set_code": "DOMT-TK",
+      "collector_number": "0054",
+      "rarity": "rare",
+      "mana_cost": "{2}{W}{W}",
+      "type_line": "Legendary Creature — Human Cleric",
+      "supertypes": [
+        "Legendary"
+      ],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Human",
+        "Cleric"
+      ],
+      "power": 3,
+      "toughness": 4,
+      "color_identity": [
+        "W"
+      ],
+      "keywords": [],
+      "rules_text": "Lifelink\nOnce each turn, when you gain life, create a 1/1 white Spirit creature token with flying.",
+      "flavor_text": "Enlightenment, he says, is mostly endurance.",
+      "sentiment": "positive",
+      "is_token": false,
+      "related_cards": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Curse of Strahd Tarokka Deck",
+      "image_file": "assets/cards/tarokka/The Master of Glyphs.png"
     }
   ]
 }
