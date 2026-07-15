@@ -5930,22 +5930,26 @@
       "set_code": "DOMT-FT",
       "collector_number": "0020",
       "mana_cost": "{1}{B}",
-      "type_line": "Legendary Enchantment",
+      "type_line": "Legendary Creature — Snake",
       "supertypes": [
         "Legendary"
       ],
       "types": [
-        "Enchantment"
+        "Creature"
       ],
-      "subtypes": [],
-      "rules_text": "When this enchantment enters, put a venom counter on a nontoken creature you control chosen at random. If you control no nontoken creatures, you lose 5 life instead.\nVenom counters can't be removed, except by a card named The Fates.\nAt the beginning of your second upkeep after this enchantment entered, destroy each creature with a venom counter on it, then exile this enchantment.",
+      "subtypes": [
+        "Snake"
+      ],
+      "rules_text": "Deathtouch\nWhen this creature enters, it bites you: you get a venom counter and an emblem with \"At the beginning of your upkeep, if you have a venom counter, you get another venom counter. Then if you have four or more venom counters, you lose the game.\"\nVenom counters can't be removed, except by a card named The Fates.",
       "flavor_text": "By the time you feel the bite, the matter is settled.",
-      "power": null,
-      "toughness": null,
+      "power": 1,
+      "toughness": 1,
       "color_identity": [
         "B"
       ],
-      "keywords": [],
+      "keywords": [
+        "Deathtouch"
+      ],
       "artist": "FLUX.2",
       "dnd_source": "Deck of Many Fates",
       "image_file": "assets/cards/fates/The Asp.png",
