@@ -4930,7 +4930,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When Omen of Death enters, roll 2d10. You lose life equal to the result. If this would reduce your life total to 0 or less, it becomes 1 instead.\nYou can't gain life.\nHarbinger — Whenever a creature deals combat damage to you, you lose the game.\nAt the beginning of your third upkeep after Omen of Death entered the battlefield, exile it.",
+      "rules_text": "Vanishing 3\nWhen Omen of Death enters, roll 2d10. You lose life equal to the result. If this would reduce your life total to 0 or less, it becomes 1 instead.\nYou can't gain life.\nHarbinger — Whenever a creature deals combat damage to you, you lose the game.",
       "flavor_text": "\"The hourglass empties. The hand reaches. The last breath is always yours to take.\"",
       "power": null,
       "toughness": null,
