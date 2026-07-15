@@ -5428,7 +5428,7 @@
       "subtypes": [
         "Mount"
       ],
-      "rules_text": "As this creature enters, choose its aspect —\n• Bear — It gets +2/+2 and has trample.\n• Elk — It has vigilance and lifelink.\n• Stallion — It has haste, and whenever it attacks, another target creature you control gains haste until end of turn.\n• Rhino — It gets +3/+3.\n• Wolf — It has menace and deathtouch.\nLoyal — Opponents can't gain control of this creature.",
+      "rules_text": "As this creature enters, choose its aspect —\n• Bear — It gets +2/+2 and has trample.\n• Elk — It has vigilance and lifelink.\n• Stallion — It has haste, and when this creature enters, another target creature you control gains haste until end of turn.\n• Rhino — It gets +3/+3.\n• Wolf — It has menace and deathtouch.\nLoyal — Opponents can't gain control of this creature.",
       "flavor_text": "Choose your companion for the road ahead.",
       "power": 4,
       "toughness": 4,
@@ -5597,7 +5597,7 @@
       "subtypes": [
         "Beast"
       ],
-      "rules_text": "As this creature enters, choose its companion form —\n• Boar — It gets +1/+1 and has \"When this creature dies, it deals 3 damage to any target.\"\n• Crow — It has flying and \"At the beginning of your upkeep, scry 1.\"\n• Hound — It has vigilance and gets +2/+2 as long as it's blocking.\n• Monkey — It has \"Whenever this creature deals combat damage to a player, create a Treasure token.\"\n• Serpent — It has deathtouch and menace.\nLoyal — Opponents can't gain control of this creature.",
+      "rules_text": "As this creature enters, choose its companion form —\n• Boar — It gets +1/+1 and has \"When this creature dies, it deals 3 damage to any target.\"\n• Crow — It has flying and \"At the beginning of your upkeep, scry 1.\"\n• Hound — It has vigilance and gets +2/+2 as long as it's blocking.\n• Monkey — It has \"Whenever this creature deals combat damage to a player, create a Treasure token.\"\n• Serpent — It has deathtouch and menace.\nLoyal — Opponents can't gain control of this creature.\nAt the beginning of your end step, if this creature dealt damage this turn, put a +1/+1 counter on it.",
       "flavor_text": "Loyalty is not tamed. It is earned.",
       "power": 2,
       "toughness": 2,
