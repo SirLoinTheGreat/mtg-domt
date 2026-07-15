@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "1.0.0",
-    "last_updated": "2026-07-14",
-    "total_cards": 233
+    "last_updated": "2026-07-12",
+    "total_cards": 267
   },
   "cards": [
     {
@@ -4632,7 +4632,7 @@
         "First strike",
         "Vigilance"
       ],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Champion.png",
       "is_token": false,
@@ -4669,7 +4669,7 @@
       "keywords": [
         "Flash"
       ],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Chancellor.png",
       "is_token": false,
@@ -4733,7 +4733,7 @@
       "toughness": null,
       "color_identity": [],
       "keywords": [],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Coin.png",
       "is_token": false,
@@ -4870,7 +4870,7 @@
         "W"
       ],
       "keywords": [],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Destiny.png",
       "is_token": false,
@@ -4907,7 +4907,7 @@
         "Menace",
         "Lifelink"
       ],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Dusk.png",
       "is_token": false,
@@ -4938,7 +4938,7 @@
         "B"
       ],
       "keywords": [],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The End (Omen of Death).png",
       "is_token": false,
@@ -5039,7 +5039,7 @@
         "Double strike",
         "Equip"
       ],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Knife.png",
       "is_token": false,
@@ -5068,7 +5068,7 @@
       "toughness": null,
       "color_identity": [],
       "keywords": [],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Lock.png",
       "is_token": false,
@@ -5099,7 +5099,7 @@
         "U"
       ],
       "keywords": [],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Mischief.png",
       "sim_effect": {
@@ -5138,7 +5138,7 @@
         "B"
       ],
       "keywords": [],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Monster.png",
       "is_token": false,
@@ -5170,7 +5170,7 @@
         "B"
       ],
       "keywords": [],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Mystery.png",
       "is_token": false,
@@ -5237,7 +5237,7 @@
         "W"
       ],
       "keywords": [],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Order.png",
       "is_token": false,
@@ -6170,6 +6170,1092 @@
       "sentiment": "neutral",
       "related_cards": [],
       "rarity": "mythic"
+    },
+    {
+      "name": "Phantasmal Red Dragon",
+      "dnd_card_name": "Phantasmal Red Dragon",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0001",
+      "mana_cost": "{5}{U}{U}",
+      "type_line": "Creature — Dragon Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Dragon",
+        "Illusion"
+      ],
+      "rules_text": "Flying, haste\nDragonfire — When this creature enters, it deals 4 damage divided as you choose among one, two, three, or four targets.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "The heat is a memory. The terror is not.",
+      "power": 8,
+      "toughness": 7,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Red Dragon.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "mythic"
+    },
+    {
+      "name": "Phantasmal Archmage",
+      "dnd_card_name": "Phantasmal Archmage",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0002",
+      "mana_cost": "{4}{U}{U}",
+      "type_line": "Creature — Illusion Wizard",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Wizard"
+      ],
+      "rules_text": "Haste\nSpellweave — When this creature enters, copy target instant or sorcery card in your graveyard. You may cast the copy without paying its mana cost.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Even her spells are quotations.",
+      "power": 3,
+      "toughness": 5,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Archmage.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "Phantasmal Assassin",
+      "dnd_card_name": "Phantasmal Assassin",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0003",
+      "mana_cost": "{3}{U}",
+      "type_line": "Creature — Illusion Assassin",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Assassin"
+      ],
+      "rules_text": "Deathtouch, menace, haste\nWhen this creature enters, target creature gets -3/-3 until end of turn.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "The wound disagrees.",
+      "power": 4,
+      "toughness": 3,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Assassin.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "Phantasmal Bandit Captain",
+      "dnd_card_name": "Phantasmal Bandit Captain",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0004",
+      "mana_cost": "{1}{U}",
+      "type_line": "Creature — Illusion Rogue",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Rogue"
+      ],
+      "rules_text": "Haste\nOther attacking creatures you control get +1/+0.\nWhen this creature enters, create a Treasure token.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Her crew never asks where the gold goes when she fades.",
+      "power": 3,
+      "toughness": 3,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Bandit Captain.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "common"
+    },
+    {
+      "name": "Phantasmal Beholder",
+      "dnd_card_name": "Phantasmal Beholder",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0005",
+      "mana_cost": "{4}{U}{U}",
+      "type_line": "Creature — Beholder Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Beholder",
+        "Illusion"
+      ],
+      "rules_text": "Flying, haste\nEye Rays — When this creature enters, choose one —\n• Each opponent sacrifices an enchantment of their choice.\n• Creatures you control gain menace until your next turn.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Ten eyes, and every one of them a lie that can see you.",
+      "power": 6,
+      "toughness": 5,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Beholder.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "Phantasmal Berserker",
+      "dnd_card_name": "Phantasmal Berserker",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0006",
+      "mana_cost": "{1}{U}",
+      "type_line": "Creature — Illusion Berserker",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Berserker"
+      ],
+      "rules_text": "Haste\nThis creature gets +2/+0 as long as it's attacking, and it attacks each combat if able.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "It screams with a borrowed voice and swings with borrowed rage.",
+      "power": 4,
+      "toughness": 2,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Berserker.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "common"
+    },
+    {
+      "name": "Phantasmal Bugbear",
+      "dnd_card_name": "Phantasmal Bugbear",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0007",
+      "mana_cost": "{1}{U}",
+      "type_line": "Creature — Illusion Bugbear",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Bugbear"
+      ],
+      "rules_text": "First strike, menace, haste\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "The ambush is imaginary. Flinch anyway.",
+      "power": 3,
+      "toughness": 2,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Bugbear.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "common"
+    },
+    {
+      "name": "Phantasmal Cloud Giant",
+      "dnd_card_name": "Phantasmal Cloud Giant",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0008",
+      "mana_cost": "{4}{U}",
+      "type_line": "Creature — Giant Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Giant",
+        "Illusion"
+      ],
+      "rules_text": "Reach, haste\nSkyward Toss — When this creature enters, return up to one target nonland permanent to its owner's hand.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "It threw the wagon over the ridge. The wagon has yet to land.",
+      "power": 7,
+      "toughness": 7,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Cloud Giant.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "Phantasmal Druid",
+      "dnd_card_name": "Phantasmal Druid",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0009",
+      "mana_cost": "{1}{U}",
+      "type_line": "Creature — Illusion Druid",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Druid"
+      ],
+      "rules_text": "Haste\nWhen this creature enters, you may put a land card from your hand onto the battlefield tapped.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "The grove he tends grows real fruit. No one understands this.",
+      "power": 2,
+      "toughness": 3,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Druid.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "common"
+    },
+    {
+      "name": "Phantasmal Erinyes",
+      "dnd_card_name": "Phantasmal Erinyes",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0010",
+      "mana_cost": "{3}{U}{U}",
+      "type_line": "Creature — Illusion Devil",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Devil"
+      ],
+      "rules_text": "Flying, deathtouch, haste\nWhen this creature enters, each opponent loses 2 life.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Hell keeps no records of her visits. Hell denies everything.",
+      "power": 5,
+      "toughness": 4,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Erinyes.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "Phantasmal Ettin",
+      "dnd_card_name": "Phantasmal Ettin",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0011",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Giant Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Giant",
+        "Illusion"
+      ],
+      "rules_text": "Double strike, haste\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Two heads. Neither of them real. Both of them angry.",
+      "power": 5,
+      "toughness": 5,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Ettin.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "uncommon"
+    },
+    {
+      "name": "Phantasmal Fire Giant",
+      "dnd_card_name": "Phantasmal Fire Giant",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0012",
+      "mana_cost": "{3}{U}{U}",
+      "type_line": "Creature — Giant Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Giant",
+        "Illusion"
+      ],
+      "rules_text": "Menace, haste\nForgeflame — When this creature enters, it deals 3 damage to any target.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Heat the forge never gave it.",
+      "power": 6,
+      "toughness": 5,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Fire Giant.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "Phantasmal Frost Giant",
+      "dnd_card_name": "Phantasmal Frost Giant",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0013",
+      "mana_cost": "{3}{U}",
+      "type_line": "Creature — Giant Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Giant",
+        "Illusion"
+      ],
+      "rules_text": "Haste\nGlacial Grip — When this creature enters, tap up to two target creatures. They don't untap during their controllers' next untap steps.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "The cold is honest. Nothing else about it is.",
+      "power": 6,
+      "toughness": 6,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Frost Giant.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "Phantasmal Gnoll",
+      "dnd_card_name": "Phantasmal Gnoll",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0014",
+      "mana_cost": "{U}",
+      "type_line": "Creature — Illusion Gnoll",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Gnoll"
+      ],
+      "rules_text": "Haste\nWhenever this creature attacks, it gets +1/+0 until end of turn for each other attacking creature.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "It laughs before it lunges. The pack it runs with isn't there.",
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Gnoll.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "common"
+    },
+    {
+      "name": "Phantasmal Goblin",
+      "dnd_card_name": "Phantasmal Goblin",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0015",
+      "mana_cost": "{U}",
+      "type_line": "Creature — Goblin Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Goblin",
+        "Illusion"
+      ],
+      "rules_text": "Haste\nThis creature can't be blocked.\nWhenever this creature deals combat damage to a player, draw a card.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Too quick to catch, too fake to matter, too annoying to ignore.",
+      "power": 1,
+      "toughness": 1,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Goblin.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "common"
+    },
+    {
+      "name": "Phantasmal Guardian Naga",
+      "dnd_card_name": "Phantasmal Guardian Naga",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0016",
+      "mana_cost": "{3}{U}",
+      "type_line": "Creature — Illusion Snake",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Snake"
+      ],
+      "rules_text": "Deathtouch, haste\nWarden's Rebuke — When this creature enters, counter up to one target activated or triggered ability.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Its treasure was spent centuries ago.",
+      "power": 5,
+      "toughness": 5,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Guardian Naga.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "Phantasmal Hill Giant",
+      "dnd_card_name": "Phantasmal Hill Giant",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0017",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Giant Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Giant",
+        "Illusion"
+      ],
+      "rules_text": "Trample, haste\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Big, slow, and made of nothing. The fence it broke was real.",
+      "power": 7,
+      "toughness": 6,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Hill Giant.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "uncommon"
+    },
+    {
+      "name": "Phantasmal Hobgoblin",
+      "dnd_card_name": "Phantasmal Hobgoblin",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0018",
+      "mana_cost": "{U}",
+      "type_line": "Creature — Illusion Soldier",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Soldier"
+      ],
+      "rules_text": "Haste\nPack Tactics — This creature gets +1/+1 as long as you control another creature.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "It holds the line because it doesn't know it can't.",
+      "power": 2,
+      "toughness": 2,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Hobgoblin.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "common"
+    },
+    {
+      "name": "Phantasmal Incubus",
+      "dnd_card_name": "Phantasmal Incubus",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0019",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Illusion Devil",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Devil"
+      ],
+      "rules_text": "Flying, lifelink, haste\nWhen this creature enters, tap target creature.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "The dream stays even after you stop believing in the dreamer.",
+      "power": 4,
+      "toughness": 3,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Incubus.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "uncommon"
+    },
+    {
+      "name": "Phantasmal Iron Golem",
+      "dnd_card_name": "Phantasmal Iron Golem",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0020",
+      "mana_cost": "{6}{U}",
+      "type_line": "Creature — Illusion Golem",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Golem"
+      ],
+      "rules_text": "Indestructible, haste\nPoison Breath — When this creature enters, it deals 3 damage to each opponent.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "No iron, no rust, no mercy.",
+      "power": 9,
+      "toughness": 9,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Iron Golem.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "mythic"
+    },
+    {
+      "name": "Phantasmal Knight",
+      "dnd_card_name": "Phantasmal Knight",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0021",
+      "mana_cost": "{1}{U}",
+      "type_line": "Creature — Illusion Knight",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Knight"
+      ],
+      "rules_text": "First strike, vigilance, haste\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Its oath outlived its order, its body, and now its existence.",
+      "power": 4,
+      "toughness": 4,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Knight.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "uncommon"
+    },
+    {
+      "name": "Phantasmal Kobold",
+      "dnd_card_name": "Phantasmal Kobold",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0022",
+      "mana_cost": "{U}",
+      "type_line": "Creature — Kobold Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Kobold",
+        "Illusion"
+      ],
+      "rules_text": "Haste\nPack Tactics — Whenever this creature attacks, it gets +1/+0 until end of turn for each other attacking creature you control.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Brave in numbers, and the numbers lie.",
+      "power": 1,
+      "toughness": 2,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Kobold.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "common"
+    },
+    {
+      "name": "Phantasmal Lich",
+      "dnd_card_name": "Phantasmal Lich",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0023",
+      "mana_cost": "{5}{U}{U}",
+      "type_line": "Creature — Illusion Wizard",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Wizard"
+      ],
+      "rules_text": "Haste\nDread Whisper — When this creature enters, choose one —\n• Each opponent discards two cards.\n• Return target card from your graveyard to your hand, then draw a card.\nWhen this creature dies, each opponent loses 3 life.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Death remembers it. That is almost the same as being.",
+      "power": 6,
+      "toughness": 6,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Lich.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "mythic"
+    },
+    {
+      "name": "Phantasmal Medusa",
+      "dnd_card_name": "Phantasmal Medusa",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0024",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Gorgon Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Gorgon",
+        "Illusion"
+      ],
+      "rules_text": "Deathtouch, haste\nPetrifying Gaze — When this creature enters, destroy target tapped creature.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Stone never asks if the gaze was real.",
+      "power": 4,
+      "toughness": 5,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Medusa.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "uncommon"
+    },
+    {
+      "name": "Phantasmal Night Hag",
+      "dnd_card_name": "Phantasmal Night Hag",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0025",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Illusion Hag",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Hag"
+      ],
+      "rules_text": "Flying, haste\nNightmare Haunting — When this creature enters, target opponent reveals their hand. You choose a nonland card from it. That player discards that card.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Disbelief has never kept her out.",
+      "power": 4,
+      "toughness": 4,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Night Hag.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "uncommon"
+    },
+    {
+      "name": "Phantasmal Ogre",
+      "dnd_card_name": "Phantasmal Ogre",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0026",
+      "mana_cost": "{1}{U}",
+      "type_line": "Creature — Illusion Ogre",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Ogre"
+      ],
+      "rules_text": "Trample, haste\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "The club whistles. The wind is real; the arm is not.",
+      "power": 5,
+      "toughness": 4,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Ogre.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "common"
+    },
+    {
+      "name": "Phantasmal Oni",
+      "dnd_card_name": "Phantasmal Oni",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0027",
+      "mana_cost": "{3}{U}",
+      "type_line": "Creature — Illusion Ogre",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Ogre"
+      ],
+      "rules_text": "Flying, hexproof, haste (An oni hides inside its own illusion.)\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "You cannot dispel what you cannot find.",
+      "power": 5,
+      "toughness": 5,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Oni.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "Phantasmal Priest",
+      "dnd_card_name": "Phantasmal Priest",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0028",
+      "mana_cost": "{1}{U}",
+      "type_line": "Creature — Illusion Cleric",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Cleric"
+      ],
+      "rules_text": "Haste\nWhen this creature enters, you gain 4 life.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "The blessing lands. Whom it came from is a longer question.",
+      "power": 2,
+      "toughness": 3,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Priest.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "common"
+    },
+    {
+      "name": "Phantasmal Succubus",
+      "dnd_card_name": "Phantasmal Succubus",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0029",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Illusion Devil",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Devil"
+      ],
+      "rules_text": "Flying, lifelink, haste\nCharm — When this creature enters, gain control of target creature until end of turn. Untap it. It gains haste until end of turn.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Love at first sight, and none at second.",
+      "power": 4,
+      "toughness": 3,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Succubus.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "uncommon"
+    },
+    {
+      "name": "Phantasmal Troll",
+      "dnd_card_name": "Phantasmal Troll",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0030",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Illusion Troll",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Troll"
+      ],
+      "rules_text": "Haste\nKnit — Once each turn, if this creature would be sacrificed or destroyed, instead tap it and remove all damage from it.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "Cut it all you like. It remembers being whole.",
+      "power": 5,
+      "toughness": 4,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Troll.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "uncommon"
+    },
+    {
+      "name": "Phantasmal Veteran",
+      "dnd_card_name": "Phantasmal Veteran",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0031",
+      "mana_cost": "{1}{U}",
+      "type_line": "Creature — Illusion Warrior",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion",
+        "Warrior"
+      ],
+      "rules_text": "First strike, haste\nDrill — Whenever this creature attacks, another target attacking creature gains first strike until end of turn.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "It teaches a stance it learned in a war that never happened.",
+      "power": 4,
+      "toughness": 4,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Veteran.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "uncommon"
+    },
+    {
+      "name": "Phantasmal Wyvern",
+      "dnd_card_name": "Phantasmal Wyvern",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0032",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Wyvern Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Wyvern",
+        "Illusion"
+      ],
+      "rules_text": "Flying, deathtouch, haste\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "flavor_text": "The sting is a rumor your blood chooses to believe.",
+      "power": 4,
+      "toughness": 4,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Wyvern.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "uncommon"
+    },
+    {
+      "name": "Phantasmal Self",
+      "dnd_card_name": "Phantasmal Self",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0033",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion"
+      ],
+      "rules_text": "You may have this creature enter as a copy of a creature you control, except it's an Illusion in addition to its other types, it has haste, and it has \"Figment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.\"",
+      "flavor_text": "The deck's mirror holds you.",
+      "power": 0,
+      "toughness": 0,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Self.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
+    },
+    {
+      "name": "Phantasmal Reflection",
+      "dnd_card_name": "Phantasmal Reflection",
+      "set": "illusions",
+      "set_code": "DOMT-IL",
+      "collector_number": "0034",
+      "mana_cost": "{2}{U}",
+      "type_line": "Creature — Illusion",
+      "supertypes": [],
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Illusion"
+      ],
+      "rules_text": "You may have this creature enter as a copy of a creature an opponent controls, except it's an Illusion in addition to its other types, it has haste, and it has \"Figment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.\"",
+      "flavor_text": "It walks like you. It fights like you. It was never you.",
+      "power": 0,
+      "toughness": 0,
+      "color_identity": [
+        "U"
+      ],
+      "keywords": [],
+      "artist": "FLUX.2",
+      "dnd_source": "Deck of Illusions",
+      "image_file": "assets/cards/illusions/Phantasmal Reflection.png",
+      "is_token": false,
+      "sentiment": "positive",
+      "related_cards": [],
+      "rarity": "rare"
     },
     {
       "name": "The Artifact",
