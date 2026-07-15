@@ -6191,7 +6191,7 @@
         "Dragon",
         "Illusion"
       ],
-      "rules_text": "Flying, haste\nDragonfire — When this creature enters, it deals 4 damage divided as you choose among one, two, three, or four targets.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Flying, haste\nDragonfire — When this creature enters, it deals 4 damage divided as you choose among one, two, three, or four targets.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "The heat is a memory. The terror is not.",
       "power": 8,
       "toughness": 7,
@@ -6223,7 +6223,7 @@
         "Illusion",
         "Wizard"
       ],
-      "rules_text": "Haste\nSpellweave — When this creature enters, copy target instant or sorcery card in your graveyard. You may cast the copy without paying its mana cost.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Haste\nSpellweave — When this creature enters, copy target instant or sorcery card in your graveyard. You may cast the copy without paying its mana cost.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Even her spells are quotations.",
       "power": 3,
       "toughness": 5,
@@ -6255,14 +6255,16 @@
         "Illusion",
         "Assassin"
       ],
-      "rules_text": "Deathtouch, menace, haste\nWhen this creature enters, target creature gets -3/-3 until end of turn.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Deathtouch, first strike, menace, haste\nWhen this creature enters, target creature gets -3/-3 until end of turn.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "The wound disagrees.",
       "power": 4,
       "toughness": 3,
       "color_identity": [
         "U"
       ],
-      "keywords": [],
+      "keywords": [
+        "First strike"
+      ],
       "artist": "FLUX.2",
       "dnd_source": "Deck of Illusions",
       "image_file": "assets/cards/illusions/Phantasmal Assassin.png",
@@ -6287,7 +6289,7 @@
         "Illusion",
         "Rogue"
       ],
-      "rules_text": "Haste\nOther attacking creatures you control get +1/+0.\nWhen this creature enters, create a Treasure token.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Haste\nOther attacking creatures you control get +1/+0.\nWhen this creature enters, create a Treasure token.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Her crew never asks where the gold goes when she fades.",
       "power": 3,
       "toughness": 3,
@@ -6319,7 +6321,7 @@
         "Beholder",
         "Illusion"
       ],
-      "rules_text": "Flying, haste\nEye Rays — When this creature enters, choose one —\n• Each opponent sacrifices an enchantment of their choice.\n• Creatures you control gain menace until your next turn.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Flying, haste\nEye Rays — When this creature enters, choose one —\n• Each opponent sacrifices an enchantment of their choice.\n• Creatures you control gain menace until your next turn.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Ten eyes, and every one of them a lie that can see you.",
       "power": 6,
       "toughness": 5,
@@ -6351,7 +6353,7 @@
         "Illusion",
         "Berserker"
       ],
-      "rules_text": "Haste\nThis creature gets +2/+0 as long as it's attacking, and it attacks each combat if able.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Haste\nThis creature gets +2/+0 as long as it's attacking, and it attacks each combat if able.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "It screams with a borrowed voice and swings with borrowed rage.",
       "power": 4,
       "toughness": 2,
@@ -6383,7 +6385,7 @@
         "Illusion",
         "Bugbear"
       ],
-      "rules_text": "First strike, menace, haste\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "First strike, menace, haste\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "The ambush is imaginary. Flinch anyway.",
       "power": 3,
       "toughness": 2,
@@ -6415,7 +6417,7 @@
         "Giant",
         "Illusion"
       ],
-      "rules_text": "Reach, haste\nSkyward Toss — When this creature enters, return up to one target nonland permanent to its owner's hand.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Reach, haste\nSkyward Toss — When this creature enters, return up to one target nonland permanent to its owner's hand.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "It threw the wagon over the ridge. The wagon has yet to land.",
       "power": 7,
       "toughness": 7,
@@ -6447,7 +6449,7 @@
         "Illusion",
         "Druid"
       ],
-      "rules_text": "Haste\nWhen this creature enters, you may put a land card from your hand onto the battlefield tapped.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Haste\nWhen this creature enters, you may put a land card from your hand onto the battlefield tapped.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "The grove he tends grows real fruit. No one understands this.",
       "power": 2,
       "toughness": 3,
@@ -6479,7 +6481,7 @@
         "Illusion",
         "Devil"
       ],
-      "rules_text": "Flying, deathtouch, haste\nWhen this creature enters, each opponent loses 2 life.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Flying, deathtouch, haste\nWhen this creature enters, each opponent loses 2 life.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Hell keeps no records of her visits. Hell denies everything.",
       "power": 5,
       "toughness": 4,
@@ -6511,7 +6513,7 @@
         "Giant",
         "Illusion"
       ],
-      "rules_text": "Double strike, haste\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Double strike, haste\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Two heads. Neither of them real. Both of them angry.",
       "power": 5,
       "toughness": 5,
@@ -6543,7 +6545,7 @@
         "Giant",
         "Illusion"
       ],
-      "rules_text": "Menace, haste\nForgeflame — When this creature enters, it deals 3 damage to any target.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Menace, haste\nForgeflame — When this creature enters, it deals 3 damage to any target.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Heat the forge never gave it.",
       "power": 6,
       "toughness": 5,
@@ -6575,7 +6577,7 @@
         "Giant",
         "Illusion"
       ],
-      "rules_text": "Haste\nGlacial Grip — When this creature enters, tap up to two target creatures. They don't untap during their controllers' next untap steps.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Haste\nGlacial Grip — When this creature enters, tap up to two target creatures. They don't untap during their controllers' next untap steps.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "The cold is honest. Nothing else about it is.",
       "power": 6,
       "toughness": 6,
@@ -6607,7 +6609,7 @@
         "Illusion",
         "Gnoll"
       ],
-      "rules_text": "Haste\nWhenever this creature attacks, it gets +1/+0 until end of turn for each other attacking creature.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Haste\nWhenever this creature attacks, it gets +1/+0 until end of turn for each other attacking creature.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "It laughs before it lunges. The pack it runs with isn't there.",
       "power": 2,
       "toughness": 2,
@@ -6639,7 +6641,7 @@
         "Goblin",
         "Illusion"
       ],
-      "rules_text": "Haste\nThis creature can't be blocked.\nWhenever this creature deals combat damage to a player, draw a card.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Haste\nThis creature can't be blocked.\nWhenever this creature deals combat damage to a player, draw a card.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Too quick to catch, too fake to matter, too annoying to ignore.",
       "power": 1,
       "toughness": 1,
@@ -6671,7 +6673,7 @@
         "Illusion",
         "Snake"
       ],
-      "rules_text": "Deathtouch, haste\nWarden's Rebuke — When this creature enters, counter up to one target activated or triggered ability.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Deathtouch, haste\nWarden's Rebuke — When this creature enters, counter up to one target activated or triggered ability.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Its treasure was spent centuries ago.",
       "power": 5,
       "toughness": 5,
@@ -6703,7 +6705,7 @@
         "Giant",
         "Illusion"
       ],
-      "rules_text": "Trample, haste\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Trample, haste\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Big, slow, and made of nothing. The fence it broke was real.",
       "power": 7,
       "toughness": 6,
@@ -6735,7 +6737,7 @@
         "Illusion",
         "Soldier"
       ],
-      "rules_text": "Haste\nPack Tactics — This creature gets +1/+1 as long as you control another creature.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Haste\nPack Tactics — This creature gets +1/+1 as long as you control another creature.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "It holds the line because it doesn't know it can't.",
       "power": 2,
       "toughness": 2,
@@ -6767,7 +6769,7 @@
         "Illusion",
         "Devil"
       ],
-      "rules_text": "Flying, lifelink, haste\nWhen this creature enters, tap target creature.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Flying, lifelink, haste\nWhen this creature enters, tap target creature.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "The dream stays even after you stop believing in the dreamer.",
       "power": 4,
       "toughness": 3,
@@ -6799,7 +6801,7 @@
         "Illusion",
         "Golem"
       ],
-      "rules_text": "Indestructible, haste\nPoison Breath — When this creature enters, it deals 3 damage to each opponent.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Indestructible, haste\nPoison Breath — When this creature enters, it deals 3 damage to each opponent.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "No iron, no rust, no mercy.",
       "power": 9,
       "toughness": 9,
@@ -6831,7 +6833,7 @@
         "Illusion",
         "Knight"
       ],
-      "rules_text": "First strike, vigilance, haste\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "First strike, vigilance, haste\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Its oath outlived its order, its body, and now its existence.",
       "power": 4,
       "toughness": 4,
@@ -6863,7 +6865,7 @@
         "Kobold",
         "Illusion"
       ],
-      "rules_text": "Haste\nPack Tactics — Whenever this creature attacks, it gets +1/+0 until end of turn for each other attacking creature you control.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Haste\nPack Tactics — Whenever this creature attacks, it gets +1/+0 until end of turn for each other attacking creature you control.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Brave in numbers, and the numbers lie.",
       "power": 1,
       "toughness": 2,
@@ -6886,16 +6888,17 @@
       "set_code": "DOMT-IL",
       "collector_number": "0023",
       "mana_cost": "{5}{U}{U}",
-      "type_line": "Creature — Illusion Wizard",
+      "type_line": "Creature — Illusion Zombie Wizard",
       "supertypes": [],
       "types": [
         "Creature"
       ],
       "subtypes": [
         "Illusion",
+        "Zombie",
         "Wizard"
       ],
-      "rules_text": "Haste\nDread Whisper — When this creature enters, choose one —\n• Each opponent discards two cards.\n• Return target card from your graveyard to your hand, then draw a card.\nWhen this creature dies, each opponent loses 3 life.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Haste\nDread Whisper — When this creature enters, choose one —\n• Each opponent discards two cards.\n• Return target card from your graveyard to your hand, then draw a card.\nWhen this creature dies, each opponent loses 3 life.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Death remembers it. That is almost the same as being.",
       "power": 6,
       "toughness": 6,
@@ -6927,7 +6930,7 @@
         "Gorgon",
         "Illusion"
       ],
-      "rules_text": "Deathtouch, haste\nPetrifying Gaze — When this creature enters, destroy target tapped creature.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Deathtouch, haste\nPetrifying Gaze — When this creature enters, destroy target tapped creature.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Stone never asks if the gaze was real.",
       "power": 4,
       "toughness": 5,
@@ -6959,7 +6962,7 @@
         "Illusion",
         "Hag"
       ],
-      "rules_text": "Flying, haste\nNightmare Haunting — When this creature enters, target opponent reveals their hand. You choose a nonland card from it. That player discards that card.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Flying, haste\nNightmare Haunting — When this creature enters, target opponent reveals their hand. You choose a nonland card from it. That player discards that card.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Disbelief has never kept her out.",
       "power": 4,
       "toughness": 4,
@@ -6991,7 +6994,7 @@
         "Illusion",
         "Ogre"
       ],
-      "rules_text": "Trample, haste\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Trample, haste\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "The club whistles. The wind is real; the arm is not.",
       "power": 5,
       "toughness": 4,
@@ -7023,7 +7026,7 @@
         "Illusion",
         "Ogre"
       ],
-      "rules_text": "Flying, hexproof, haste (An oni hides inside its own illusion.)\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Flying, hexproof, haste (An oni hides inside its own illusion.)\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "You cannot dispel what you cannot find.",
       "power": 5,
       "toughness": 5,
@@ -7055,7 +7058,7 @@
         "Illusion",
         "Cleric"
       ],
-      "rules_text": "Haste\nWhen this creature enters, you gain 4 life.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Haste\nWhen this creature enters, you gain 4 life.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "The blessing lands. Whom it came from is a longer question.",
       "power": 2,
       "toughness": 3,
@@ -7087,7 +7090,7 @@
         "Illusion",
         "Devil"
       ],
-      "rules_text": "Flying, lifelink, haste\nCharm — When this creature enters, gain control of target creature until end of turn. Untap it. It gains haste until end of turn.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Flying, lifelink, haste\nCharm — When this creature enters, gain control of target creature until end of turn. Untap it. It gains haste until end of turn.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Love at first sight, and none at second.",
       "power": 4,
       "toughness": 3,
@@ -7119,7 +7122,7 @@
         "Illusion",
         "Troll"
       ],
-      "rules_text": "Haste\nKnit — Once each turn, if this creature would be sacrificed or destroyed, instead tap it and remove all damage from it.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Haste\nKnit — Once each turn, if this creature would be sacrificed or destroyed, instead tap it and remove all damage from it.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "Cut it all you like. It remembers being whole.",
       "power": 5,
       "toughness": 4,
@@ -7151,7 +7154,7 @@
         "Illusion",
         "Warrior"
       ],
-      "rules_text": "First strike, haste\nDrill — Whenever this creature attacks, another target attacking creature gains first strike until end of turn.\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "First strike, haste\nDrill — Whenever this creature attacks, another target attacking creature gains first strike until end of turn.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "It teaches a stance it learned in a war that never happened.",
       "power": 4,
       "toughness": 4,
@@ -7183,7 +7186,7 @@
         "Wyvern",
         "Illusion"
       ],
-      "rules_text": "Flying, deathtouch, haste\nFigment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.",
+      "rules_text": "Flying, deathtouch, haste\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "The sting is a rumor your blood chooses to believe.",
       "power": 4,
       "toughness": 4,
@@ -7214,7 +7217,7 @@
       "subtypes": [
         "Illusion"
       ],
-      "rules_text": "You may have this creature enter as a copy of a creature you control, except it's an Illusion in addition to its other types, it has haste, and it has \"Figment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.\"",
+      "rules_text": "You may have this creature enter as a copy of a creature you control, except it's an Illusion in addition to its other types, it has haste, and it has \"Figment — When this creature becomes the target of a spell or ability, sacrifice it.\"",
       "flavor_text": "The deck's mirror holds you.",
       "power": 0,
       "toughness": 0,
@@ -7245,7 +7248,7 @@
       "subtypes": [
         "Illusion"
       ],
-      "rules_text": "You may have this creature enter as a copy of a creature an opponent controls, except it's an Illusion in addition to its other types, it has haste, and it has \"Figment — When this creature becomes the target of a spell or ability, or when it blocks or becomes blocked, sacrifice it.\"",
+      "rules_text": "You may have this creature enter as a copy of a creature an opponent controls, except it's an Illusion in addition to its other types, it has haste, and it has \"Figment — When this creature becomes the target of a spell or ability, sacrifice it.\"",
       "flavor_text": "It walks like you. It fights like you. It was never you.",
       "power": 0,
       "toughness": 0,
