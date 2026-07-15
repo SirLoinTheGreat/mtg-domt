@@ -9,9 +9,9 @@ const PROJECT_BASE = new URL('../../', import.meta.url).href;
 const projectUrl = p => new URL(p, PROJECT_BASE).href;
 const CARD_BACK = projectUrl('assets/cards/original/thumbs/Card%20Back.jpg');
 const CARD_BACK_FULL = projectUrl('assets/cards/original/Card%20Back.png');
-const ALL_SETS = ['original', 'expansion', 'harrow', 'wonder', 'fates'];
+const ALL_SETS = ['original', 'expansion', 'harrow', 'wonder', 'fates', 'illusions'];
 const STORE_KEY = 'domt-deck-v1';
-const SET_INITIALS = { o: 'original', e: 'expansion', h: 'harrow', w: 'wonder', f: 'fates' };
+const SET_INITIALS = { o: 'original', e: 'expansion', h: 'harrow', w: 'wonder', f: 'fates', i: 'illusions' };
 
 // Cards whose own text removes them from the game ("Exile The Fool.") —
 // detected from cards.json at load, so future self-exiling cards just work.

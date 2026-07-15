@@ -29,6 +29,8 @@ border-radius:2px;
 --accent-harrow-rgb:154,124,138;      /* smoky purple — grim */
 --accent-wonder-rgb:112,144,168;      /* dusty cyan — otherworldly */
 --accent-fates-rgb:176,108,76;        /* worn vermilion — tarot lacquer */
+--accent-illusions-rgb:96,156,196;    /* ghost blue — spectral */
+--accent-tarokka-rgb:164,52,72;       /* barovian crimson — gothic */
 }
 html{scroll-behavior:smooth}
 body{
@@ -111,10 +113,10 @@ color:var(--text-dim);letter-spacing:.32em;text-transform:uppercase;
 .invocation-warning{
 margin:2.4rem auto 0;
 font-family:'Cormorant Garamond',serif;font-style:italic;
-font-size:clamp(1rem,2.2vw,1.25rem);
+font-size:clamp(.82rem,2.1vw,1.25rem);
 color:var(--text-dim);
 letter-spacing:.01em;
-max-width:42ch;
+white-space:nowrap;
 line-height:1.5;
 }
 .invocation-warning .count-num{
@@ -124,7 +126,7 @@ text-shadow:0 0 14px rgba(212,175,60,.25);
 }
 .invocation-actions{
 margin-top:1.8rem;
-display:flex;flex-direction:column;flex-wrap:wrap;align-items:center;justify-content:center;
+display:flex;flex-direction:row;flex-wrap:wrap;align-items:stretch;justify-content:center;
 gap:1rem;
 font-family:'Cinzel',serif;font-size:.74rem;
 letter-spacing:.18em;text-transform:uppercase;
@@ -151,6 +153,7 @@ transform:translateY(-2px);
 }
 .invocation-cta:active{transform:translateY(0)}
 .invocation-cta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.invocation-cta:disabled{opacity:.45;cursor:not-allowed;transform:none}
 .invocation-cta-glyph{
 font-size:1.1em;line-height:1;color:var(--gold);
 transition:color .25s ease,transform .4s cubic-bezier(.25,1,.5,1);
@@ -527,14 +530,44 @@ white-space:nowrap;
   .deck-stats-summary{padding:.7rem 2.2rem .7rem 1rem}
 }
 
-/* GRID */
+/* GRID — the grid lives on each deck's .set-body so decks can collapse */
 .gallery{
 position:relative;z-index:1;
 max-width:var(--w-wide);margin:0 auto;
 padding:1.5rem 1.5rem 4rem;
+}
+.set-body{
 display:grid;
 grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
 gap:1.8rem 1.6rem;
+padding-top:.4rem;
+}
+.set-body.collapsed{display:none}
+.deck-toggle{background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:.45em}
+.deck-chevron{display:inline-block;transition:transform .25s ease;font-size:.68em;opacity:.75}
+.deck-toggle.collapsed .deck-chevron{transform:rotate(-90deg)}
+.deck-anchor{
+margin-left:.6em;font-size:.6em;background:none;cursor:pointer;
+border:1px solid rgba(var(--accent-rgb,212,175,60),.35);border-radius:3px;
+padding:.15em .5em;color:var(--gold-dim);opacity:.75;
+transition:opacity .2s,color .2s,border-color .2s;
+}
+.deck-anchor:hover{opacity:1;color:var(--gold-bright);border-color:rgba(var(--accent-rgb,212,175,60),.7)}
+.deck-anchor.copied{color:#9fd89f;border-color:rgba(140,200,140,.6);opacity:1}
+/* The deck header is a full-width highlighted bar — click anywhere to fold */
+.set-header:not(.set-subheader){
+scroll-margin-top:7.5rem;   /* clears the sticky controls bar with breathing room */
+cursor:pointer;
+background:linear-gradient(180deg,rgba(var(--accent-rgb,212,175,60),.10),rgba(var(--accent-rgb,212,175,60),.025));
+border:1px solid rgba(var(--accent-rgb,212,175,60),.30);
+border-radius:5px;
+padding:.7rem 1.1rem .8rem;
+transition:background .2s ease,border-color .2s ease,box-shadow .2s ease;
+}
+.set-header:not(.set-subheader):hover{
+background:linear-gradient(180deg,rgba(var(--accent-rgb,212,175,60),.17),rgba(var(--accent-rgb,212,175,60),.05));
+border-color:rgba(var(--accent-rgb,212,175,60),.55);
+box-shadow:0 0 22px rgba(var(--accent-rgb,212,175,60),.12);
 }
 .card-tile{
 background:none;border:none;padding:0;margin:0;
@@ -848,6 +881,8 @@ opacity:.85;letter-spacing:.18em;
 .set-header[data-deck="harrow"]{--accent-rgb:var(--accent-harrow-rgb)}
 .set-header[data-deck="wonder"]{--accent-rgb:var(--accent-wonder-rgb)}
 .set-header[data-deck="fates"]{--accent-rgb:var(--accent-fates-rgb)}
+.set-header[data-deck="illusions"]{--accent-rgb:var(--accent-illusions-rgb)}
+.set-header[data-deck="tarokka"]{--accent-rgb:var(--accent-tarokka-rgb)}
 .set-header[data-deck] h2{
 color:rgb(var(--accent-rgb));
 text-shadow:0 0 24px rgba(var(--accent-rgb),.25);
@@ -1043,7 +1078,8 @@ font-size:1rem;line-height:1.65;color:var(--text-dim);
 
 /* RESPONSIVE */
 @media(max-width:768px){
-.gallery{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.2rem;padding:1rem}
+.gallery{padding:1rem}
+.set-body{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1.2rem}
 .controls-inner{gap:.5rem}
 .divider{display:none}
 /* Mobile scroll-perf: kill backdrop-filter on the sticky controls bar
@@ -1056,7 +1092,7 @@ font-size:1rem;line-height:1.65;color:var(--text-dim);
 body::after{animation:none}
 }
 @media(max-width:480px){
-.gallery{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
+.set-body{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem}
 }
 /* Hover-capable devices keep the smaller card-lift on narrow viewports
    (e.g. desktop browsers resized small). */
@@ -1190,7 +1226,7 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
 <h1 class="invocation-title">The Deck of Many Things</h1>
 <div class="invocation-subtitle">Magic: The Gathering Crossover</div>
 <p class="invocation-warning">
-<span class="count-num">…</span> fates, four sources. All consequences are final.
+<span class="count-num">…</span> fates, seven sources. All consequences are final.
 </p>
 <div class="invocation-actions">
 <a class="invocation-cta" href="./simulator.html" title="Open the playtest draw simulator">
@@ -1201,8 +1237,9 @@ body:has(.dl-modal-scrim[data-open="true"]){overflow:hidden}
 <span class="invocation-cta-glyph" aria-hidden="true">🂠</span>
 <span class="invocation-cta-label">Place the Deck<span class="invocation-cta-sub">Digital table deck</span></span>
 </a>
-<button type="button" class="invocation-action" data-download-scope="all" id="download-all-btn" disabled title="Download all card art as one ZIP">
-Download all <span id="download-all-sublabel">(loading…)</span>
+<button type="button" class="invocation-cta" data-download-scope="all" id="download-all-btn" disabled title="Download all card art as one ZIP">
+<span class="invocation-cta-glyph" aria-hidden="true">&#x25BC;</span>
+<span class="invocation-cta-label">Download the Deck<span class="invocation-cta-sub" id="download-all-sublabel">(loading…)</span></span>
 </button>
 </div>
 </header>
@@ -1222,6 +1259,8 @@ Download all <span id="download-all-sublabel">(loading…)</span>
 <button class="filter-btn" data-set="harrow">Harrow</button>
 <button class="filter-btn" data-set="wonder">Wonder</button>
 <button class="filter-btn" data-set="fates">Fates</button>
+<button class="filter-btn" data-set="tarokka">Tarokka</button>
+<button class="filter-btn" data-set="illusions">Illusions</button>
 </div>
 <div class="divider"><span></span></div>
 <div class="filter-group" id="color-filters">
@@ -1231,6 +1270,14 @@ Download all <span id="download-all-sublabel">(loading…)</span>
 <button class="filter-btn color-btn" data-color="R" title="Red" aria-label="Filter by Red">R</button>
 <button class="filter-btn color-btn" data-color="G" title="Green" aria-label="Filter by Green">G</button>
 <button class="filter-btn color-btn" data-color="C" title="Colorless" aria-label="Filter by Colorless">C</button>
+</div>
+<div class="divider"><span></span></div>
+<div class="filter-group" id="sort-controls" aria-label="Sort order">
+<button class="filter-btn sort-btn active" data-sort="number" title="Sort by collector number">Number</button>
+<button class="filter-btn sort-btn" data-sort="name" title="Sort by card name">Name</button>
+<button class="filter-btn sort-btn" data-sort="sentiment" title="Sort by tone: Boons, Neither, Banes">Boons→Banes</button>
+<button class="filter-btn sort-btn" data-sort="mana" title="Sort by mana value">Mana</button>
+<button class="filter-btn" id="sort-dir" data-dir="asc" title="Toggle sort direction">▲ Asc</button>
 </div>
 <button class="filter-btn clear-btn" id="clear-filters" type="button" hidden>Forget</button>
 </div>
@@ -1457,21 +1504,27 @@ const SET_NAMES = {
   expansion: 'Expansion Deck',
   harrow: 'Harrow Deck',
   wonder: 'Wonder Deck',
-  fates: 'Fates Deck'
+  fates: 'Fates Deck',
+  tarokka: 'Tarokka Deck',
+  illusions: 'Deck of Illusions'
 };
 const SET_SOURCES = {
   original: 'Adventures in the Forgotten Realms (D&D)',
   expansion: 'The Book of Many Things (2023)',
   harrow: 'Pathfinder Harrow Deck',
   wonder: 'Deck of Wonder (2023)',
-  fates: "Stratagem's Deck of Many Fates"
+  fates: "Stratagem's Deck of Many Fates",
+  tarokka: 'Curse of Strahd Tarokka Deck (Ravenloft)',
+  illusions: 'Deck of Illusions (SRD 5.2)'
 };
 const SET_TAGLINES = {
   original: 'Where the deck began.',
   expansion: 'The deck deepens its reach.',
   harrow: 'Parallel divinations.',
   wonder: 'Fates beyond fate.',
-  fates: 'The cards were never yours to shuffle.'
+  fates: 'The cards were never yours to shuffle.',
+  tarokka: 'The cards read you back.',
+  illusions: 'Believe nothing. Duck anyway.'
 };
 
 let allCards = [];
@@ -1480,6 +1533,18 @@ const CACHE_BUST = 'v=' + Date.now();
 let activeSet = 'all';
 let activeColors = new Set();
 let searchQuery = '';
+let sortMode = 'number';   // default: collector number, 1 → X per deck
+let sortDir = 'asc';
+// Collapsed decks — default: everything folded except the Original deck
+const SET_ORDER = ['original', 'expansion', 'harrow', 'wonder', 'fates', 'tarokka', 'illusions'];
+let collapsedDecks = null;
+try { collapsedDecks = JSON.parse(localStorage.getItem('domtDeckCollapsed') || 'null'); } catch (e) {}
+if (!collapsedDecks || typeof collapsedDecks !== 'object') {
+  collapsedDecks = Object.fromEntries(SET_ORDER.filter(s => s !== 'original').map(s => [s, true]));
+}
+function saveCollapsed() {
+  try { localStorage.setItem('domtDeckCollapsed', JSON.stringify(collapsedDecks)); } catch (e) {}
+}
 
 let CARD_DATA = null;
 
@@ -1797,30 +1862,40 @@ function render() {
   let html = '';
   let currentSet = '';
   let inRefSection = null;  // null = not yet decided; true/false once first card of set rendered
-  let currentSentiment = null;
+  let bodyOpen = false;
 
-  // Group by set; reference cards (rules / GM / FAQ / glossary) come first within their set
-  const setOrder = ['original', 'expansion', 'harrow', 'wonder', 'fates'];
+  // Collapse only applies to the unfiltered browse view — hiding search or
+  // filter results inside folded decks would read as "no matches"
+  const isFiltered = activeSet !== 'all' || activeColors.size > 0 || !!searchQuery;
+
+  // Group by set; reference cards (rules / GM / FAQ / glossary) come first
+  // within their set; cards sort by the user's chosen order (default: name)
   const sentOrder = { positive: 0, neutral: 1, negative: 2 };
+  const setIdx = s => { const i = SET_ORDER.indexOf(s); return i < 0 ? 99 : i; };
+  const comparators = {
+    name: (a, b) => a.name.localeCompare(b.name),
+    sentiment: (a, b) => ((sentOrder[a.sentiment] ?? 1) - (sentOrder[b.sentiment] ?? 1))
+      || a.name.localeCompare(b.name),
+    number: (a, b) => (a.collector_number || '').localeCompare(b.collector_number || ''),
+    mana: (a, b) => ((manaValue(a.mana_cost) ?? -1) - (manaValue(b.mana_cost) ?? -1))
+      || a.name.localeCompare(b.name),
+  };
+  const cmp = comparators[sortMode] || comparators.name;
   const sorted = [...visible].sort((a, b) => {
-    const si = setOrder.indexOf(a.set) - setOrder.indexOf(b.set);
+    const si = setIdx(a.set) - setIdx(b.set);
     if (si !== 0) return si;
     const ar = a.is_reference ? 0 : 1;
     const br = b.is_reference ? 0 : 1;
     if (ar !== br) return ar - br;
-    if (!a.is_reference && !b.is_reference) {
-      const sa = sentOrder[a.sentiment] ?? 1;
-      const sb = sentOrder[b.sentiment] ?? 1;
-      if (sa !== sb) return sa - sb;
-    }
-    return (a.collector_number || '').localeCompare(b.collector_number || '');
+    const c = cmp(a, b);
+    return sortDir === 'desc' ? -c : c;
   });
 
   for (const card of sorted) {
     if (card.set !== currentSet) {
       currentSet = card.set;
       inRefSection = null;
-      currentSentiment = null;
+      if (bodyOpen) html += '</div>';
       const setCards = sorted.filter(c => c.set === currentSet);
       const setRefCount = setCards.filter(c => c.is_reference).length;
       const setMainCount = setCards.length - setRefCount;
@@ -1828,10 +1903,11 @@ function render() {
         ? `${setMainCount} fates · ${setRefCount} annotations`
         : `${setCards.length} fates`;
       const tagline = SET_TAGLINES[currentSet] || '';
-      html += `<div class="set-header" data-deck="${currentSet}">
+      const folded = !isFiltered && !!collapsedDecks[currentSet];
+      html += `<div class="set-header" data-deck="${currentSet}" id="deck-${currentSet}">
         <div class="set-divider">
           ${DIVIDER_SVG('left')}
-          <h2>${SET_NAMES[currentSet] || currentSet}</h2>
+          <h2><button type="button" class="deck-toggle${folded ? ' collapsed' : ''}" data-deck="${currentSet}" aria-expanded="${!folded}"><span class="deck-chevron" aria-hidden="true">▾</span>${SET_NAMES[currentSet] || currentSet}</button><button type="button" class="deck-anchor" data-deck="${currentSet}" title="Copy a link to this deck">🔗 copy link</button></h2>
           ${DIVIDER_SVG('right')}
         </div>
         ${tagline ? `<p class="chapter-tagline">${tagline}</p>` : ''}
@@ -1844,13 +1920,14 @@ function render() {
           </button>
         </div>
       </div>`;
+      html += `<div class="set-body${folded ? ' collapsed' : ''}" data-deck="${currentSet}">`;
+      bodyOpen = true;
     }
 
     // Sub-section header: emit when transitioning between reference and non-reference cards
     const isRef = !!card.is_reference;
     if (isRef && inRefSection !== true) {
       inRefSection = true;
-      currentSentiment = null;
       html += `<div class="set-header set-subheader">
         <div class="set-divider">
           ${DIVIDER_SVG('left')}
@@ -1860,7 +1937,6 @@ function render() {
       </div>`;
     } else if (!isRef && inRefSection === true) {
       inRefSection = false;
-      currentSentiment = null;
       html += `<div class="set-header set-subheader">
         <div class="set-divider">
           ${DIVIDER_SVG('left')}
@@ -1868,16 +1944,6 @@ function render() {
           ${DIVIDER_SVG('right')}
         </div>
       </div>`;
-    }
-
-    // Sentiment cluster marker — divides Boons / Neither / Banes within each deck
-    if (!isRef) {
-      const cardSent = card.sentiment || 'neutral';
-      if (cardSent !== currentSentiment) {
-        currentSentiment = cardSent;
-        const sentLabels = { positive: '✦ Boons', neutral: '◆ Neither', negative: '⚔ Banes' };
-        html += `<div class="cluster-mark" data-sent="${cardSent}">${sentLabels[cardSent] || sentLabels.neutral}</div>`;
-      }
     }
 
     const imgPath = card.image_file || '';
@@ -1913,12 +1979,76 @@ function render() {
     </button>`;
   }
 
+  if (bodyOpen) html += '</div>';
+
   // Batch-insert to avoid freezing the main thread
   gallery.innerHTML = '';
   const frag = document.createRange().createContextualFragment(html);
   gallery.appendChild(frag);
   window.dispatchEvent(new CustomEvent('gallery:ready'));
 }
+
+// Deck header interactions (delegated — the gallery re-renders wholesale):
+// click the bar to fold/unfold; the 🔗 button copies a shareable deck link
+document.getElementById('gallery').addEventListener('click', e => {
+  const anchor = e.target.closest('.deck-anchor');
+  if (anchor) {
+    const deck = anchor.dataset.deck;
+    const url = `${location.origin}${location.pathname}#deck-${deck}`;
+    history.replaceState(null, '', `#deck-${deck}`);
+    const done = () => {
+      anchor.classList.add('copied');
+      const prev = anchor.textContent;
+      anchor.textContent = '✓ copied';
+      setTimeout(() => { anchor.textContent = prev; anchor.classList.remove('copied'); }, 1400);
+    };
+    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(url).then(done, done);
+    else done();
+    return;
+  }
+  if (e.target.closest('.download-btn')) return;
+  const hdr = e.target.closest('.set-header');
+  if (!hdr || hdr.classList.contains('set-subheader') || !hdr.dataset.deck) return;
+  const deck = hdr.dataset.deck;
+  collapsedDecks[deck] = !collapsedDecks[deck];
+  saveCollapsed();
+  const folded = collapsedDecks[deck];
+  const tog = hdr.querySelector('.deck-toggle');
+  if (tog) { tog.classList.toggle('collapsed', folded); tog.setAttribute('aria-expanded', String(!folded)); }
+  const body = document.querySelector(`.set-body[data-deck="${deck}"]`);
+  if (body) body.classList.toggle('collapsed', folded);
+});
+
+// Deck URL anchors — a shared #deck-X link collapses every other deck,
+// expands the target, and scrolls to it
+function gotoHashDeck() {
+  const m = location.hash.match(/^#deck-([a-z]+)$/);
+  if (!m) return;
+  const deck = m[1];
+  for (const s of SET_ORDER) collapsedDecks[s] = (s !== deck);
+  saveCollapsed();
+  render();
+  const target = document.getElementById(`deck-${deck}`);
+  if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+window.addEventListener('hashchange', gotoHashDeck);
+window.addEventListener('gallery:ready', gotoHashDeck, { once: true });
+
+// Sort controls
+document.getElementById('sort-controls').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  if (btn.id === 'sort-dir') {
+    sortDir = sortDir === 'asc' ? 'desc' : 'asc';
+    btn.dataset.dir = sortDir;
+    btn.textContent = sortDir === 'asc' ? '▲ Asc' : '▼ Desc';
+  } else {
+    document.querySelectorAll('#sort-controls .sort-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    sortMode = btn.dataset.sort;
+  }
+  render();
+});
 
 // Set filters
 document.getElementById('set-filters').addEventListener('click', e => {
