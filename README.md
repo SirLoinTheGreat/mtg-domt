@@ -2,7 +2,7 @@
 
 ![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)
 ![Cards: 263](https://img.shields.io/badge/Cards-263-gold)
-![Last Updated: April 2026](https://img.shields.io/badge/Last%20Updated-April%202026-blue)
+![Last Updated: July 2026](https://img.shields.io/badge/Last%20Updated-July%202026-blue)
 
 Welcome to a complete Magic: The Gathering crossover of D&D's infamous Deck of Many Things! This project reimagines one of tabletop gaming's most chaotic artifacts through the lens of Magic's mechanical framework.
 
@@ -34,13 +34,18 @@ Each card has been carefully designed to maintain the spirit of its D&D counterp
 | *The Ooze — Gelatinous Cube* | *The Paladin — Divine Champion* | *The Mute Hag — Sense Deprivation* |
 | ![The Unicorn](assets/cards/harrow/The%20Unicorn.png) | ![The Mage](assets/cards/expansion/The%20Mage.png) | ![The Key](assets/cards/original/The%20Key.png) |
 | *The Unicorn — Divine Undoing* | *The Mage — Level-Up Intelligence* | *The Key — Living Weapon* |
+| ![The Weaver](assets/cards/fates/The%20Weaver.png) | ![Phantasmal Beholder](assets/cards/illusions/Phantasmal%20Beholder.png) | ![The Darklord](assets/cards/tarokka/The%20Darklord.png) |
+| *The Weaver — Destiny, Woven* | *Phantasmal Beholder — Ten Lying Eyes* | *The Darklord — Strahd's Shadow* |
 
 ## Features
 
 - Complete rule system for integrating the Deck into any Commander game
 - **Fate Point** mechanic for managing deck draws — risk vs. reward every turn
-- 11 custom mechanics and status conditions unique to this set
+- A suite of custom mechanics and status conditions unique to this set (Fate Points, plagued, venom counters, marked players, dimensional displacement, and more)
 - Optional rules for varied gameplay experiences (free first draw, multi-draw, d6 gambling)
+- **Interactive deck experience** (`deck.html`) — riffle, draw, and restart a physical-feeling Deck in the browser, with sound
+- **Deck simulator** (`simulator.html`) — test draws across any combination of the seven sub-decks
+- Seven distinct art directions: painterly cinematic (Original/Expansion/Harrow), luminous romantic oils (Wonder), tarot-arcana hand-painted grit (Fates), ghost-blue phantasms (Illusions), and Barovian pen-and-ink engraving (Tarokka) — all in custom Tarot Reliquary frames
 - High-resolution card images (2010x2814) designed for printing with bleed margins
 - Machine-readable card database (`data/cards.json`) with full card data
 - Online gallery (`index.html`) with search, filtering, card detail view, and per-card changelog
@@ -75,11 +80,15 @@ mtg-domt/
 │   ├── harrow/               # Harrow Deck + Plane of Air token
 │   │   └── thumbs/
 │   ├── wonder/               # Wonder Deck
+│   │   └── thumbs/
 │   ├── fates/                # Fates Deck
-│   └── illusions/            # Deck of Illusions
+│   │   └── thumbs/
+│   ├── illusions/            # Deck of Illusions
+│   │   └── thumbs/
+│   └── tarokka/              # Tarokka Deck
 │       └── thumbs/
 ├── data/
-│   ├── cards.json            # Machine-readable card database (209 cards)
+│   ├── cards.json            # Machine-readable card database (263 cards)
 │   └── card_history.json     # Per-card changelog for gallery
 ```
 
@@ -106,7 +115,7 @@ This project is not affiliated with, endorsed, or sponsored by Wizards of the Co
 
 ## Acknowledgments
 
-- Card art generated with **MidJourney** and **FLUX.2** (Fates and Illusions sub-decks; one piece by **Christopher Lovell** for The Euryale)
+- Card art generated with **MidJourney** and **FLUX.2** (Fates, Illusions, and Tarokka sub-decks, plus the rebooted Wonder deck; one piece by **Christopher Lovell** for The Euryale), finished with an SDXL painterly refinement pass
 - Card frames rendered via [Card Conjurer](https://cardconjurer.app/)
 - Special thanks to the D&D and MTG communities for their inspiration and feedback
 
@@ -114,6 +123,6 @@ This project is not affiliated with, endorsed, or sponsored by Wizards of the Co
 
 [![Gallery](https://img.shields.io/badge/Gallery-rollfor.gg%2Fdomt-d4af3c?style=for-the-badge)](https://rollfor.gg/domt/)
 
-🎴 **Browse all 209 cards in the online gallery:** [rollfor.gg/domt](https://rollfor.gg/domt/)
+🎴 **Browse all 263 cards in the online gallery:** [rollfor.gg/domt](https://rollfor.gg/domt/)
 
 *"Sometimes the cards you're dealt become the fate you're given."*
