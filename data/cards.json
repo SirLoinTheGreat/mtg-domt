@@ -7284,7 +7284,7 @@
       "toughness": null,
       "color_identity": [],
       "keywords": [],
-      "rules_text": "When this artifact enters, search your library for a card, exile it face down, then shuffle. For as long as that card remains exiled, you may look at it and play it.\nWhen you play the exiled card, exile this artifact.",
+      "rules_text": "When this artifact enters, search your library for a card, reveal it, and put it into your hand.\nAt the beginning of your upkeep, draw a card.\nWhenever a player deals combat damage to the player who controls this artifact, that player gains control of this artifact.",
       "flavor_text": "Tome, symbol, sword — the reading names what must be found.",
       "sentiment": "positive",
       "is_token": false,
@@ -7398,8 +7398,8 @@
       "image_file": "assets/cards/tarokka/The Darklord.png"
     },
     {
-      "name": "The Oubliette",
-      "dnd_card_name": "The Oubliette",
+      "name": "The Gaol",
+      "dnd_card_name": "The Gaol",
       "set": "tarokka",
       "set_code": "DOMT-TK",
       "collector_number": "0005",
@@ -7420,14 +7420,14 @@
         "W"
       ],
       "keywords": [],
-      "rules_text": "When this enchantment enters, exile target nonland permanent an opponent controls until this enchantment leaves the battlefield.\nAt the beginning of your upkeep, roll a d20. If you roll 20, sacrifice this enchantment.",
+      "rules_text": "When this enchantment enters, for each opponent, exile up to one creature that player controls until this enchantment leaves the battlefield.",
       "flavor_text": "Its walls are patient.",
       "sentiment": "negative",
       "is_token": false,
       "related_cards": [],
       "artist": "FLUX.2",
       "dnd_source": "Curse of Strahd Tarokka Deck",
-      "image_file": "assets/cards/tarokka/The Oubliette.png"
+      "image_file": "assets/cards/tarokka/The Gaol.png"
     },
     {
       "name": "The Executioner",
