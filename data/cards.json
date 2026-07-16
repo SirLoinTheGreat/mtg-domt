@@ -7294,8 +7294,8 @@
       "image_file": "assets/cards/tarokka/The Artifact.png"
     },
     {
-      "name": "The Beast Within",
-      "dnd_card_name": "The Beast Within",
+      "name": "The Beast of Barovia",
+      "dnd_card_name": "The Beast of Barovia",
       "set": "tarokka",
       "set_code": "DOMT-TK",
       "collector_number": "0002",
@@ -7325,7 +7325,7 @@
       "related_cards": [],
       "artist": "FLUX.2",
       "dnd_source": "Curse of Strahd Tarokka Deck",
-      "image_file": "assets/cards/tarokka/The Beast Within.png"
+      "image_file": "assets/cards/tarokka/The Beast of Barovia.png"
     },
     {
       "name": "The Broken One",
