@@ -6016,7 +6016,7 @@
       "subtypes": [
         "Siren"
       ],
-      "rules_text": "Flying\nWhen this creature enters, mark you, then a random opponent gains control of it.\nAt the beginning of the marked player's upkeep, they may discard a card to resist the song. If they don't, they get a charm counter.\nThrall — Whenever a charm counter is put on the marked player, if they have three or more, remove them all and this creature's controller gains control of a creature the marked player controls chosen at random for as long as this creature remains on the battlefield.",
+      "rules_text": "Flying\nWhen this creature enters, mark you, then a random opponent gains control of it.\nAt the beginning of the marked player's upkeep, they may discard a card to resist the song. If they don't, they get a charm counter.\nThrall — Whenever a charm counter is put on the marked player, if they have three or more, remove them all and this creature's controller controls the marked player during that player's next turn.",
       "flavor_text": "The song asked for nothing. It only promised.",
       "power": 3,
       "toughness": 3,
