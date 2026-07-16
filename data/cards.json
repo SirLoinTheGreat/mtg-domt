@@ -8706,7 +8706,7 @@
         "U"
       ],
       "keywords": [],
-      "rules_text": "When this creature enters, draw two cards.\nWhenever you draw your second card each turn, investigate.",
+      "rules_text": "When this creature enters and at the beginning of your upkeep, draw a card.\nWhenever you draw your second card each turn, investigate. (Create a Clue token. It's an artifact with \"{2}, Sacrifice this artifact: Draw a card.\")",
       "flavor_text": "Power is a riddle; he collects the answers.",
       "sentiment": "positive",
       "is_token": false,
