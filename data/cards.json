@@ -8786,7 +8786,7 @@
       "set_code": "DOMT-TK",
       "collector_number": "0047",
       "rarity": "uncommon",
-      "mana_cost": "{1}{W}",
+      "mana_cost": "{W}{B}",
       "type_line": "Creature — Human Cleric",
       "supertypes": [],
       "types": [
@@ -8799,7 +8799,8 @@
       "power": 1,
       "toughness": 3,
       "color_identity": [
-        "W"
+        "W",
+        "B"
       ],
       "keywords": [],
       "rules_text": "When this creature enters, choose one —\n• You gain 4 life.\n• Distribute two -1/-1 counters among one or two target creatures.",
