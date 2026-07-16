@@ -8281,7 +8281,7 @@
         "U"
       ],
       "keywords": [],
-      "rules_text": "This creature can't be blocked.\nWhen this creature enters, exile the top card of target opponent's library face down. You may look at and play that card for as long as it remains exiled.",
+      "rules_text": "This creature can't be blocked.\nWhenever this creature deals combat damage to a player, exile the top card of that player's library face down. You may look at and play that card for as long as it remains exiled, and mana of any type can be spent to cast it.",
       "flavor_text": "The tome was gone before the alarm was rung.",
       "sentiment": "negative",
       "is_token": false,
