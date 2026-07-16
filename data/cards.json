@@ -5783,7 +5783,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When this enchantment enters, you become plagued.\nAt the beginning of each plagued player's upkeep, they lose 2 life and put a -1/-1 counter on a creature they control.\nWhenever a creature a plagued player controls deals combat damage to another player's creature or to another player, that player becomes plagued.\nWhen this enchantment leaves the battlefield, all players stop being plagued.",
+      "rules_text": "When this enchantment enters, you become plagued.\nAt the beginning of each plagued player's upkeep, they lose 2 life and put a -1/-1 counter on a creature they control.\nContagion — Whenever a creature with a -1/-1 counter on it that a plagued player controls deals combat damage to another player's creature or to another player, that player becomes plagued.\nWhenever a spell a plagued player controls deals damage to a player, that player becomes plagued. If it deals damage to a creature, put a -1/-1 counter on that creature.\nWhen this enchantment leaves the battlefield, all players stop being plagued.",
       "flavor_text": "The first cough was a curiosity. The hundredth was a funeral bell.",
       "power": null,
       "toughness": null,
