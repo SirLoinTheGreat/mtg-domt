@@ -7789,7 +7789,7 @@
         "W"
       ],
       "keywords": [],
-      "rules_text": "Lifelink\nOther creatures you control get +0/+1.",
+      "rules_text": "Lifelink\nOther creatures you control get +0/+1.\nWhen this creature enters, you gain 2 life for each creature you control.",
       "flavor_text": "His oath outlived his order.",
       "sentiment": "positive",
       "is_token": false,
@@ -8736,7 +8736,7 @@
         "W"
       ],
       "keywords": [],
-      "rules_text": "Vigilance, ward {2}",
+      "rules_text": "Vigilance, ward {2}\nWhen this creature enters, you gain hexproof until your next turn.",
       "flavor_text": "Stillness, even here, is a fortress.",
       "sentiment": "positive",
       "is_token": false,
@@ -8768,7 +8768,7 @@
         "W"
       ],
       "keywords": [],
-      "rules_text": "Other creatures you control get +1/+1.",
+      "rules_text": "When this creature enters, create a 1/1 white Soldier creature token.\nOther creatures you control get +1/+1.",
       "flavor_text": "Faith travels farthest on frightened roads.",
       "sentiment": "positive",
       "is_token": false,
@@ -8832,7 +8832,7 @@
         "W"
       ],
       "keywords": [],
-      "rules_text": "When this creature enters, target creature you control gains indestructible until end of turn.",
+      "rules_text": "When this creature enters, target creature you control gains indestructible until end of turn. If this creature is the target, you gain 4 life.",
       "flavor_text": "He carries what the flock cannot.",
       "sentiment": "positive",
       "is_token": false,
