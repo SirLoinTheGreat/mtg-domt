@@ -5657,7 +5657,7 @@
         "Sorcery"
       ],
       "subtypes": [],
-      "rules_text": "Exile all creatures you control, then reveal cards from the top of your library until you reveal that many creature cards. Put those cards onto the battlefield, then shuffle.",
+      "rules_text": "Exile all creatures you control, then reveal cards from the top of your library until you reveal that many creature cards or all cards in your library are revealed. Put the revealed creature cards onto the battlefield, then shuffle.",
       "flavor_text": "When the masque was lifted, someone else was wearing his life.",
       "power": null,
       "toughness": null,
@@ -5947,7 +5947,7 @@
       "subtypes": [
         "Snake"
       ],
-      "rules_text": "Deathtouch\nWhen this creature enters, it bites you: you get a venom counter and an emblem with \"At the beginning of your upkeep, if you have a venom counter, you get another venom counter. Then if you have four or more venom counters, you lose the game.\"\nVenom counters can't be removed, except by a card named The Fates.",
+      "rules_text": "Deathtouch\nWhen this creature enters, it bites you. Whenever it deals damage to an opponent, it bites that player.\nWhenever this creature bites a player, that player gets a venom counter and an emblem with \"At the beginning of your upkeep, if you have a venom counter, you get another venom counter. Then if you have four or more venom counters, you lose the game.\"\nVenom counters can't be removed, except by a card named The Fates.",
       "flavor_text": "By the time you feel the bite, the matter is settled.",
       "power": 1,
       "toughness": 1,
