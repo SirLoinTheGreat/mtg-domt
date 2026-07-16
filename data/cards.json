@@ -7756,7 +7756,7 @@
         "W"
       ],
       "keywords": [],
-      "rules_text": "First strike\nRetribution — Once each turn, when a source an opponent controls deals damage to you or a permanent you control, this creature deals 2 damage to that source if it's a creature. Otherwise, it deals 2 damage to that source's controller.",
+      "rules_text": "First strike\nRetribution — Once each turn, when a source an opponent controls deals damage to you or a permanent you control, this creature deals 2 damage to that source's controller. If that source is a creature, you may have this creature deal the damage to that source instead.",
       "flavor_text": "Justice in Barovia carries a whetstone.",
       "sentiment": "positive",
       "is_token": false,
