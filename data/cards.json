@@ -8031,7 +8031,7 @@
       "set_code": "DOMT-TK",
       "collector_number": "0024",
       "rarity": "rare",
-      "mana_cost": "{2}{R}{R}",
+      "mana_cost": "{2}{R}{W}",
       "type_line": "Legendary Creature — Human Warrior",
       "supertypes": [
         "Legendary"
@@ -8046,10 +8046,13 @@
       "power": 5,
       "toughness": 3,
       "color_identity": [
-        "R"
+        "R",
+        "W"
       ],
-      "keywords": [],
-      "rules_text": "Haste, menace\nWhenever this creature attacks, other creatures you control get +1/+0 and gain haste until end of turn.",
+      "keywords": [
+        "Double strike"
+      ],
+      "rules_text": "Double strike, haste, menace\nWhenever this creature attacks, other creatures you control get +1/+0 and gain haste until end of turn.",
       "flavor_text": "Strength is the only sermon he ever preached.",
       "sentiment": "negative",
       "is_token": false,
