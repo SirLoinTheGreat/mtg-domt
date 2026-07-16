@@ -5846,7 +5846,7 @@
       ],
       "subtypes": [],
       "rules_text": "Return target creature card from your graveyard to the battlefield with two +1/+1 counters on it, then roll a d6 — it comes back changed. It gains the matching keyword counter: 1 — deathtouch, 2 — lifelink, 3 — menace, 4 — first strike, 5 — vigilance, 6 — flying.",
-      "flavor_text": "She came back. Most of her.",
+      "flavor_text": "She came back, but as something more.",
       "power": null,
       "toughness": null,
       "color_identity": [
@@ -5869,18 +5869,20 @@
       "set_code": "DOMT-FT",
       "collector_number": "0018",
       "mana_cost": "{1}{R}{G}",
-      "type_line": "Legendary Enchantment",
+      "type_line": "Legendary Creature — Satyr",
       "supertypes": [
         "Legendary"
       ],
       "types": [
-        "Enchantment"
+        "Creature"
       ],
-      "subtypes": [],
-      "rules_text": "Vanishing 2\nWhen this enchantment enters, each player creates two Food tokens and draws a card.\nThe Feast — Creatures can't attack, and players can't cast instant or sorcery spells.",
+      "subtypes": [
+        "Satyr"
+      ],
+      "rules_text": "Vanishing 2\nWhen this creature enters, each player creates two Food tokens and draws a card.\nThe Feast — Creatures can't attack, and players can't cast instant or sorcery spells.",
       "flavor_text": "No one remembered arriving. No one wished to leave.",
-      "power": null,
-      "toughness": null,
+      "power": "2",
+      "toughness": "2",
       "color_identity": [
         "R",
         "G"
