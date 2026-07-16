@@ -5901,20 +5901,27 @@
       "set_code": "DOMT-FT",
       "collector_number": "0019",
       "mana_cost": "{2}{B}{B}",
-      "type_line": "Sorcery",
-      "supertypes": [],
-      "types": [
-        "Sorcery"
+      "type_line": "Legendary Creature — Scorpion",
+      "supertypes": [
+        "Legendary"
       ],
-      "subtypes": [],
-      "rules_text": "Exile target creature or planeswalker. It can be targeted despite hexproof, shroud, protection, and ward, and the exile can't be prevented or replaced.",
+      "types": [
+        "Creature"
+      ],
+      "subtypes": [
+        "Scorpion"
+      ],
+      "rules_text": "Deathtouch, menace\nSting — When this creature enters, exile target creature or planeswalker. It can be targeted despite hexproof, shroud, protection, and ward, and the exile can't be prevented or replaced.",
       "flavor_text": "No matter who. No matter where.",
-      "power": null,
-      "toughness": null,
+      "power": "3",
+      "toughness": "3",
       "color_identity": [
         "B"
       ],
-      "keywords": [],
+      "keywords": [
+        "Deathtouch",
+        "Menace"
+      ],
       "artist": "FLUX.2",
       "dnd_source": "Deck of Many Fates",
       "image_file": "assets/cards/fates/The Scorpion.png",
