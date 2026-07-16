@@ -6255,7 +6255,7 @@
         "Illusion",
         "Assassin"
       ],
-      "rules_text": "Deathtouch, first strike, menace, haste\nWhen this creature enters, target creature gets -3/-3 until end of turn.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
+      "rules_text": "Deathtouch, first strike, haste\nWhen this creature enters, target creature gets -3/-3 until end of turn.\nFigment — When this creature becomes the target of a spell or ability, sacrifice it.",
       "flavor_text": "The wound disagrees.",
       "power": 4,
       "toughness": 3,
