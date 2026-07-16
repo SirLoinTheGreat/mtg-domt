@@ -1179,7 +1179,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0005",
-      "mana_cost": "{2}{W}{G}",
+      "mana_cost": "{2}{G}{W}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -1547,7 +1547,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0015",
-      "mana_cost": "{2}{U}{G}",
+      "mana_cost": "{2}{G}{U}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -1688,7 +1688,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0019",
-      "mana_cost": "{W}{G}",
+      "mana_cost": "{G}{W}",
       "type_line": "Legendary Enchantment — Attribute",
       "supertypes": [
         "Legendary"
@@ -2371,7 +2371,7 @@
       "set": "expansion",
       "set_code": "DOMT-EX",
       "collector_number": "0038",
-      "mana_cost": "{W}{R}",
+      "mana_cost": "{R}{W}",
       "type_line": "Legendary Enchantment — Attribute",
       "supertypes": [
         "Legendary"
@@ -2822,7 +2822,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0006",
-      "mana_cost": "{2}{W}{R}",
+      "mana_cost": "{2}{R}{W}",
       "type_line": "Legendary Creature — Dwarf Artificer",
       "supertypes": [
         "Legendary"
@@ -3102,7 +3102,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0014",
-      "mana_cost": "{2}{W}{G}",
+      "mana_cost": "{2}{G}{W}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -3211,7 +3211,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0017",
-      "mana_cost": "{2}{W}{R}",
+      "mana_cost": "{2}{R}{W}",
       "type_line": "Legendary Artifact",
       "supertypes": [
         "Legendary"
@@ -3614,7 +3614,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0029",
-      "mana_cost": "{2}{W}{G}",
+      "mana_cost": "{2}{G}{W}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -3646,7 +3646,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0030",
-      "mana_cost": "{2}{W}{W}{G}",
+      "mana_cost": "{2}{G}{W}{W}",
       "type_line": "Legendary Creature — Human Cleric",
       "supertypes": [
         "Legendary"
@@ -3834,7 +3834,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0035",
-      "mana_cost": "{2}{W}{G}",
+      "mana_cost": "{2}{G}{W}",
       "type_line": "Legendary Enchantment Creature — Bird Spirit",
       "supertypes": [
         "Legendary"
@@ -3949,7 +3949,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0038",
-      "mana_cost": "{1}{W}{R}",
+      "mana_cost": "{1}{R}{W}",
       "type_line": "Legendary Creature — Rabbit Noble",
       "supertypes": [
         "Legendary"
@@ -4193,7 +4193,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0045",
-      "mana_cost": "{3}{W}{G}",
+      "mana_cost": "{3}{G}{W}",
       "type_line": "Legendary Artifact",
       "supertypes": [
         "Legendary"
@@ -4333,7 +4333,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0049",
-      "mana_cost": "{3}{W}{U}{G}",
+      "mana_cost": "{3}{G}{W}{U}",
       "type_line": "Legendary Enchantment Creature — Unicorn Spirit",
       "supertypes": [
         "Legendary"
@@ -4435,7 +4435,7 @@
       "set": "harrow",
       "set_code": "DOMT-HW",
       "collector_number": "0052",
-      "mana_cost": "{2}{W}{U}{G}",
+      "mana_cost": "{2}{G}{W}{U}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -4608,7 +4608,7 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0002",
-      "mana_cost": "{2}{W}{R}",
+      "mana_cost": "{2}{R}{W}",
       "type_line": "Legendary Creature — Human Knight",
       "supertypes": [
         "Legendary"
@@ -4781,7 +4781,7 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0007",
-      "mana_cost": "{2}{W}{G}",
+      "mana_cost": "{2}{G}{W}",
       "type_line": "Legendary World Enchantment",
       "supertypes": [
         "Legendary"
@@ -5251,7 +5251,7 @@
       "set": "wonder",
       "set_code": "DOMT-WO",
       "collector_number": "0021",
-      "mana_cost": "{1}{U}{G}",
+      "mana_cost": "{1}{G}{U}",
       "type_line": "Legendary Enchantment",
       "supertypes": [
         "Legendary"
@@ -7739,7 +7739,7 @@
       "set_code": "DOMT-TK",
       "collector_number": "0015",
       "rarity": "uncommon",
-      "mana_cost": "{W}{R}",
+      "mana_cost": "{R}{W}",
       "type_line": "Creature — Human Knight",
       "supertypes": [],
       "types": [
@@ -7933,7 +7933,7 @@
       "set_code": "DOMT-TK",
       "collector_number": "0021",
       "rarity": "uncommon",
-      "mana_cost": "{1}{R}{B}",
+      "mana_cost": "{1}{B}{R}",
       "type_line": "Creature — Human Rogue",
       "supertypes": [],
       "types": [
@@ -7966,7 +7966,7 @@
       "set_code": "DOMT-TK",
       "collector_number": "0022",
       "rarity": "uncommon",
-      "mana_cost": "{2}{R}{B}",
+      "mana_cost": "{2}{B}{R}",
       "type_line": "Creature — Human Noble",
       "supertypes": [],
       "types": [
@@ -7983,7 +7983,7 @@
         "R"
       ],
       "keywords": [],
-      "rules_text": "When this creature enters, goad each creature target opponent controls. (Until your next turn, those creatures attack each combat if able and attack a player other than you if able.)",
+      "rules_text": "At the beginning of combat on each player's turn, you may goad target creature that player controls. (Until your next turn, that creature attacks each combat if able and attacks a player other than you if able.)",
       "flavor_text": "Fear is the only law that enforces itself.",
       "sentiment": "negative",
       "is_token": false,
@@ -8068,7 +8068,7 @@
       "set_code": "DOMT-TK",
       "collector_number": "0025",
       "rarity": "uncommon",
-      "mana_cost": "{1}{R}{B}",
+      "mana_cost": "{1}{B}{R}",
       "type_line": "Creature — Human Rogue",
       "supertypes": [],
       "types": [
@@ -8199,7 +8199,7 @@
       "set_code": "DOMT-TK",
       "collector_number": "0029",
       "rarity": "uncommon",
-      "mana_cost": "{1}{B}{U}",
+      "mana_cost": "{1}{U}{B}",
       "type_line": "Creature — Human Rogue",
       "supertypes": [],
       "types": [
@@ -8361,7 +8361,7 @@
       "set_code": "DOMT-TK",
       "collector_number": "0034",
       "rarity": "rare",
-      "mana_cost": "{2}{B}{U}",
+      "mana_cost": "{2}{U}{B}",
       "type_line": "Legendary Creature — Human Rogue",
       "supertypes": [
         "Legendary"
@@ -8623,7 +8623,7 @@
       "set_code": "DOMT-TK",
       "collector_number": "0042",
       "rarity": "uncommon",
-      "mana_cost": "{2}{B}{U}",
+      "mana_cost": "{2}{U}{B}",
       "type_line": "Creature — Human Wizard",
       "supertypes": [],
       "types": [
