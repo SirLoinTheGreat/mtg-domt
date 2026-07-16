@@ -7217,7 +7217,7 @@
       "subtypes": [
         "Illusion"
       ],
-      "rules_text": "You may have this creature enter as a copy of a creature you control, except it isn't legendary, it's an Illusion in addition to its other types, and it has haste and \"Figment — When this creature becomes the target of a spell or ability, sacrifice it.\"",
+      "rules_text": "You may have this creature enter as a copy of a creature you control, except it's an Illusion in addition to its other types, and it has haste and \"Figment — When this creature becomes the target of a spell or ability, sacrifice it.\"\nThe \"legend rule\" doesn't apply to this creature.",
       "flavor_text": "The deck's mirror holds you.",
       "power": 0,
       "toughness": 0,
@@ -7248,7 +7248,7 @@
       "subtypes": [
         "Illusion"
       ],
-      "rules_text": "You may have this creature enter as a copy of a creature an opponent controls, except it isn't legendary, it's an Illusion in addition to its other types, and it has haste and \"Figment — When this creature becomes the target of a spell or ability, sacrifice it.\"",
+      "rules_text": "You may have this creature enter as a copy of a creature an opponent controls, except it's an Illusion in addition to its other types, and it has haste and \"Figment — When this creature becomes the target of a spell or ability, sacrifice it.\"\nThe \"legend rule\" doesn't apply to this creature.",
       "flavor_text": "It walks like you. It fights like you. It was never you.",
       "power": 0,
       "toughness": 0,
