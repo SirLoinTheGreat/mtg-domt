@@ -7749,8 +7749,8 @@
         "Human",
         "Knight"
       ],
-      "power": 3,
-      "toughness": 2,
+      "power": "2",
+      "toughness": "3",
       "color_identity": [
         "R",
         "W"
