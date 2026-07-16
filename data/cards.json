@@ -7689,7 +7689,7 @@
         "U"
       ],
       "keywords": [],
-      "rules_text": "When this creature enters, scry 3, then draw a card.\nOnce each turn, if you would roll a die, you may choose the result instead.",
+      "rules_text": "When this creature enters, scry 3, then draw a card.\nOnce each turn, if you would roll a die, you may choose the result instead.\nYou may look at the top card of your library any time.\nYou may play the top card of your library.",
       "flavor_text": "She does not predict fate. She reads it aloud.",
       "sentiment": "positive",
       "is_token": false,
