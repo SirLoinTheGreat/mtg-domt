@@ -7608,8 +7608,10 @@
       "collector_number": "0011",
       "rarity": "mythic",
       "mana_cost": "{2}{U}",
-      "type_line": "Enchantment",
-      "supertypes": [],
+      "type_line": "Legendary Enchantment",
+      "supertypes": [
+        "Legendary"
+      ],
       "types": [
         "Enchantment"
       ],
