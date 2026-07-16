@@ -5982,7 +5982,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When this enchantment enters, exile your hand and graveyard face down.\nWhen this enchantment leaves the battlefield, return each card exiled with it to the zone it came from.",
+      "rules_text": "When this enchantment enters, exile your hand and graveyard face down.\nEach player has shroud. (Players can't be the targets of spells or abilities.)\nWhen this enchantment leaves the battlefield, return each card exiled with it to the zone it came from.",
       "flavor_text": "He knew how to fight. He could not say why he wept while doing it.",
       "power": null,
       "toughness": null,
