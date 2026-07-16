@@ -7437,22 +7437,25 @@
       "collector_number": "0006",
       "rarity": "mythic",
       "mana_cost": "{2}{W}{B}",
-      "type_line": "Legendary Enchantment",
+      "type_line": "Legendary Creature — Human Assassin",
       "supertypes": [
         "Legendary"
       ],
       "types": [
-        "Enchantment"
+        "Creature"
       ],
-      "subtypes": [],
-      "power": null,
-      "toughness": null,
+      "subtypes": [
+        "Human",
+        "Assassin"
+      ],
+      "power": "2",
+      "toughness": "4",
       "color_identity": [
         "B",
         "W"
       ],
       "keywords": [],
-      "rules_text": "When this enchantment enters, destroy target creature an opponent controls. If that creature was neither attacking nor blocking this turn, its controller draws two cards. Then exile this enchantment.",
+      "rules_text": "{T}: Destroy target creature an opponent controls. If that creature was neither attacking nor blocking this turn, its controller draws two cards.",
       "flavor_text": "The verdict was written before the trial.",
       "sentiment": "negative",
       "is_token": false,
