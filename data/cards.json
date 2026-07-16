@@ -7388,7 +7388,7 @@
         "R"
       ],
       "keywords": [],
-      "rules_text": "Flying, lifelink\nWhen this creature enters, each other creature gets -2/-2 until end of turn and you create three Blood tokens. ({B} are artifacts with \"{1}, {T}, Discard a card, Sacrifice this token: Draw a card.\")\nAt the beginning of your upkeep, sacrifice a Blood token or this creature deals 3 damage to you.",
+      "rules_text": "Flying, lifelink\nWhen this creature enters, each other creature gets -2/-2 until end of turn. Whenever another creature dies this turn, create a Blood token. (Blood tokens are artifacts with \"{1}, {T}, Discard a card, Sacrifice this token: Draw a card.\")\nAt the beginning of your upkeep, sacrifice a Blood token or this creature deals 3 damage to you.",
       "flavor_text": "The land is his. The night is his. The reading was his idea.",
       "sentiment": "negative",
       "is_token": false,
