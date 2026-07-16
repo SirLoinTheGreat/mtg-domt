@@ -8681,7 +8681,7 @@
         "U"
       ],
       "keywords": [],
-      "rules_text": "When this creature enters, create two 1/1 blue Illusion creature tokens with flying.",
+      "rules_text": "When this creature enters, create four 1/1 blue Illusion creature tokens with flying.",
       "flavor_text": "They think themselves gods. The mists let them.",
       "sentiment": "negative",
       "is_token": false,
