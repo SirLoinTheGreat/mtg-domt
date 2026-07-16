@@ -6166,7 +6166,7 @@
         "Enchantment"
       ],
       "subtypes": [],
-      "rules_text": "When this enchantment enters, choose target player and weave their final destiny — choose one:\n• Ruin — That player gets an emblem with \"At the beginning of your upkeep, if your life total is 10 or less, you lose the game.\"\n• Triumph — That player gets an emblem with \"If you would lose the game, instead remove this emblem, your life total becomes 10, and you take an extra turn after this one.\"",
+      "rules_text": "When this enchantment enters, choose target player and weave their final destiny — choose one:\n• Ruin — That player gets an emblem with \"At the beginning of your upkeep, if your life total is 10 or less, you lose the game.\"\n• Triumph — That player gets an emblem with \"If you would lose the game, instead remove this emblem, your life total becomes 10, and you take an extra turn after this one.\"\n• Eternity — That player gets an emblem with \"You can't win the game and you can't lose the game.\"",
       "flavor_text": "Every thread ends. She merely decides the knot.",
       "power": null,
       "toughness": null,
