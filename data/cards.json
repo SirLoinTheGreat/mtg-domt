@@ -5816,7 +5816,7 @@
       "subtypes": [
         "Spirit"
       ],
-      "rules_text": "This creature can't be blocked, and it can't leave the battlefield except by a card named The Fates.\nWhen this creature enters, mark you, then a random opponent gains control of it.\nIt attacks the marked player each combat if able and can't block.\nDread — Creatures the marked player controls get -1/-0.\nWhen the marked player loses or leaves the game, exile this creature.",
+      "rules_text": "This creature can't be blocked.\nIt can't leave the battlefield except by a card named The Fates.\nWhen this creature enters, mark you, then a random opponent gains control of it.\nIt attacks the marked player each combat if able and can't block.\nDread — Creatures the marked player controls get -1/-0.\nWhen the marked player loses or leaves the game, exile this creature.",
       "flavor_text": "It did not hate him. It simply never stopped.",
       "power": 2,
       "toughness": 2,
