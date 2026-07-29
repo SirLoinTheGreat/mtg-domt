@@ -1,0 +1,11 @@
+{
+  "sets": {
+    "original":  { "cc": "data/cardconjurer/ORIGINAL.cardconjurer",                "out": "assets/cards/original" },
+    "expansion": { "cc": "data/cardconjurer/More_Things/MORETHINGS.cardconjurer",  "out": "assets/cards/expansion" },
+    "harrow":    { "cc": "data/cardconjurer/Harrow/HARROW.cardconjurer",           "out": "assets/cards/harrow" },
+    "wonder":    { "cc": "data/cardconjurer/Wonder/WONDER.cardconjurer",           "out": "assets/cards/wonder" },
+    "fates":     { "cc": "data/cardconjurer/Fates/FATES.cardconjurer",             "out": "assets/cards/fates" },
+    "illusions": { "cc": "data/cardconjurer/Illusions/ILLUSIONS.cardconjurer",     "out": "assets/cards/illusions" },
+    "tarokka":   { "cc": "data/cardconjurer/Tarokka/TAROKKA.cardconjurer",         "out": "assets/cards/tarokka" }
+  }
+}
