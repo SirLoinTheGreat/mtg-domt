@@ -4834,7 +4834,7 @@
         "Vigilance",
         "Double strike"
       ],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Day.png",
       "is_token": false,
@@ -5263,7 +5263,7 @@
       "keywords": [
         "Scry"
       ],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Student.png",
       "is_token": false,
@@ -5301,7 +5301,7 @@
         "Flying",
         "Haste"
       ],
-      "artist": "MidJourney",
+      "artist": "FLUX.2",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Vulture.png",
       "is_token": false,
