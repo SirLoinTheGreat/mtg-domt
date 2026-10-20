@@ -4587,7 +4587,7 @@
         "U"
       ],
       "keywords": [],
-      "artist": "MidJourney",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Beginning.png",
       "is_token": false,
@@ -4625,7 +4625,7 @@
         "First strike",
         "Vigilance"
       ],
-      "artist": "FLUX.2",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Champion.png",
       "is_token": false,
@@ -4662,7 +4662,7 @@
       "keywords": [
         "Flash"
       ],
-      "artist": "FLUX.2",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Chancellor.png",
       "is_token": false,
@@ -4695,7 +4695,7 @@
       "keywords": [
         "Protection"
       ],
-      "artist": "MidJourney",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Chaos.png",
       "is_token": false,
@@ -4726,7 +4726,7 @@
       "toughness": null,
       "color_identity": [],
       "keywords": [],
-      "artist": "FLUX.2",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Coin.png",
       "is_token": false,
@@ -4760,7 +4760,7 @@
         "Haste",
         "Menace"
       ],
-      "artist": "MidJourney",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Crown.png",
       "is_token": false,
@@ -4797,7 +4797,7 @@
         "Vigilance",
         "Lifelink"
       ],
-      "artist": "MidJourney",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Dawn.png",
       "is_token": false,
@@ -4863,7 +4863,7 @@
         "W"
       ],
       "keywords": [],
-      "artist": "FLUX.2",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Destiny.png",
       "is_token": false,
@@ -4900,7 +4900,7 @@
         "Menace",
         "Lifelink"
       ],
-      "artist": "FLUX.2",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Dusk.png",
       "is_token": false,
@@ -4963,7 +4963,7 @@
       "keywords": [
         "Split Second"
       ],
-      "artist": "MidJourney",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Isolation.png",
       "is_token": false,
@@ -4995,7 +4995,7 @@
         "U"
       ],
       "keywords": [],
-      "artist": "MidJourney",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Justice.png",
       "is_token": false,
@@ -5060,7 +5060,7 @@
       "toughness": null,
       "color_identity": [],
       "keywords": [],
-      "artist": "FLUX.2",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Lock.png",
       "is_token": false,
@@ -5091,7 +5091,7 @@
         "U"
       ],
       "keywords": [],
-      "artist": "FLUX.2",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Mischief.png",
       "sim_effect": {
@@ -5130,7 +5130,7 @@
         "B"
       ],
       "keywords": [],
-      "artist": "FLUX.2",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Monster.png",
       "is_token": false,
@@ -5198,7 +5198,7 @@
       "keywords": [
         "Menace"
       ],
-      "artist": "MidJourney",
+      "artist": "MOSS-Image",
       "dnd_source": "Deck of Wonders",
       "image_file": "assets/cards/wonder/The Night.png",
       "is_token": false,
