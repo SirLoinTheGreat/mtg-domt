@@ -71,7 +71,7 @@ Full rules: [Deck of Many Things Rules Card](assets/cards/original/Deck%20of%20M
 mtg-domt/
 ├── README.md                 # This file
 ├── LICENSE                   # CC BY-NC-SA 4.0
-├── index.html                # Online gallery (rollfor.gg/mtg/domt/)
+├── index.html                # Online gallery (rollfor.gg/mtg/sets/domt/)
 ├── assets/cards/
 │   ├── original/             # Original Deck + support cards
 │   │   └── thumbs/           # JPEG thumbnails for gallery
@@ -121,8 +121,8 @@ This project is not affiliated with, endorsed, or sponsored by Wizards of the Co
 
 ## Gallery
 
-[![Gallery](https://img.shields.io/badge/Gallery-rollfor.gg%2Fmtg%2Fdomt-d4af3c?style=for-the-badge)](https://rollfor.gg/mtg/domt/)
+[![Gallery](https://img.shields.io/badge/Gallery-rollfor.gg%2Fmtg%2Fsets%2Fdomt-d4af3c?style=for-the-badge)](https://rollfor.gg/mtg/sets/domt/)
 
-🎴 **Browse all 267 cards in the online gallery:** [rollfor.gg/mtg/domt](https://rollfor.gg/mtg/domt/)
+🎴 **Browse all 267 cards in the online gallery:** [rollfor.gg/mtg/sets/domt](https://rollfor.gg/mtg/sets/domt/)
 
 *"Sometimes the cards you're dealt become the fate you're given."*
